@@ -1,6 +1,8 @@
 # Flowers
 Based off of Conway's Game of Life
 
+[live site](https://collinclarke.github.io/flowers/)
+
 #### Place seeds and observe the outcome
 
 *You can click on squares in a gridded flower patch to place a seed.
@@ -11,7 +13,7 @@ On pressing play, the logic of Conway's GOL dictates the growth and death of you
 
 * Game of life logic accurately implemented with basic visualization
   * Flower lifecycle in 3js
-  
+
 * User can place starting seeds
 
 ## Technologies / Libraries / APIs
@@ -40,4 +42,3 @@ On pressing play, the logic of Conway's GOL dictates the growth and death of you
 3. 3js enhancement
   * grid nodes have lifecycle animation
   * users interact with the 3js with their mouse movements
-  
