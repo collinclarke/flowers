@@ -1,0 +1,12 @@
+.scene {
+  width: 100vw;
+  height: 90vh;
+  background: grey;
+  display: flex;
+  justify-content: center;
+}
+
+#portal {
+  align-self: center;
+  color: white;
+}
