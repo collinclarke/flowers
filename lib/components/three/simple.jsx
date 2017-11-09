@@ -6,19 +6,52 @@ import * as Three from 'three';
 class Simple extends Component {
   constructor(props, context) {
     super(props, context);
-    this.cameraPosition = new Three.Vector3(0, -10, 200);
     this.state = {
-      cubeRotation: new Three.Euler(2000, 0, 0),
+      planeRotation: new Three.Euler(2000, 0, 0),
+      cameraPosition: new Three.Vector3(0, -10, 200)
     };
     this._onAnimate = () => {
       this.setState({
-        cubeRotation: new Three.Euler(
-          this.state.cubeRotation.x,
-          this.state.cubeRotation.y,
-          this.state.cubeRotation.z  + 0.001
-        ),
+        planeRotation: new Three.Euler(
+          this.state.planeRotation.x,
+          this.state.planeRotation.y,
+          this.state.planeRotation.z + 0.001)
       });
+      // this.updateCamera();
+      this.updatePlane();
     };
+    this.windowHalfX = window.innerWidth / 2;
+    this.windowHalfY = window.innerHeight / 2;
+    this.onDocumentMouseMove = this.onDocumentMouseMove.bind(this);
+  }
+
+  componentDidMount() {
+    document.addEventListener( 'mousemove', this.onDocumentMouseMove, false );
+  }
+
+  updateCamera() {
+    this.setState({
+      cameraPosition: new Three.Vector3(
+        this.state.cameraPosition.x + ( this.mouseX - this.state.cameraPosition.x ) * .0002,
+        this.state.cameraPosition.y + ( - this.mouseY + 200 - this.state.cameraPosition.y ) * .0002,
+        this.state.cameraPosition.z
+      )
+    })
+  }
+
+  updatePlane() {
+    this.setState({
+      planeRotation: new Three.Euler(
+        this.state.planeRotation.x,
+        this.state.planeRotation.y,
+        this.state.cameraPosition.z + ( this.mouseX + this.state.planeRotation.x ) * .002
+      )
+    })
+  }
+
+  onDocumentMouseMove(e) {
+    this.mouseX = e.clientX - this.windowHalfX;
+    this.mouseY = e.clientY - this.windowHalfY;
   }
 
   render() {
@@ -40,20 +73,17 @@ class Simple extends Component {
             aspect={width / height}
             near={0.1}
             far={1000}
-            position={this.cameraPosition}
+            position={this.state.cameraPosition}
           />
 
           <ambientLight
             color="white"
           />
           <mesh
-            rotation={this.state.cubeRotation}
+            rotation={this.state.planeRotation}
             key="floor"
           >
-            <planeBufferGeometry width={100} height={100}
-            heightSegments={100}
-            widthSegments={100}/>
-
+            <planeGeometry width={100} height={100}/>
             <meshBasicMaterial
               color="blue"
               opacity={1}

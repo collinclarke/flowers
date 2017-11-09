@@ -73290,11 +73290,9 @@ var _ref2 = _jsx('ambientLight', {
   color: 'white'
 });
 
-var _ref3 = _jsx('planeBufferGeometry', {
+var _ref3 = _jsx('planeGeometry', {
   width: 100,
-  height: 100,
-  heightSegments: 100,
-  widthSegments: 100
+  height: 100
 });
 
 var _ref4 = _jsx('meshBasicMaterial', {
@@ -73312,19 +73310,49 @@ var Simple = function (_Component) {
 
     var _this = _possibleConstructorReturn(this, (Simple.__proto__ || Object.getPrototypeOf(Simple)).call(this, props, context));
 
-    _this.cameraPosition = new Three.Vector3(0, -10, 200);
     _this.state = {
-      cubeRotation: new Three.Euler(2000, 0, 0)
+      planeRotation: new Three.Euler(2000, 0, 0),
+      cameraPosition: new Three.Vector3(0, -10, 200)
     };
     _this._onAnimate = function () {
       _this.setState({
-        cubeRotation: new Three.Euler(_this.state.cubeRotation.x, _this.state.cubeRotation.y, _this.state.cubeRotation.z + 0.001)
+        planeRotation: new Three.Euler(_this.state.planeRotation.x, _this.state.planeRotation.y, _this.state.planeRotation.z + 0.001)
       });
+      // this.updateCamera();
+      _this.updatePlane();
     };
+    _this.windowHalfX = window.innerWidth / 2;
+    _this.windowHalfY = window.innerHeight / 2;
+    _this.onDocumentMouseMove = _this.onDocumentMouseMove.bind(_this);
     return _this;
   }
 
   _createClass(Simple, [{
+    key: 'componentDidMount',
+    value: function componentDidMount() {
+      document.addEventListener('mousemove', this.onDocumentMouseMove, false);
+    }
+  }, {
+    key: 'updateCamera',
+    value: function updateCamera() {
+      this.setState({
+        cameraPosition: new Three.Vector3(this.state.cameraPosition.x + (this.mouseX - this.state.cameraPosition.x) * .0002, this.state.cameraPosition.y + (-this.mouseY + 200 - this.state.cameraPosition.y) * .0002, this.state.cameraPosition.z)
+      });
+    }
+  }, {
+    key: 'updatePlane',
+    value: function updatePlane() {
+      this.setState({
+        planeRotation: new Three.Euler(this.state.planeRotation.x, this.state.planeRotation.y, this.state.cameraPosition.z + (this.mouseX + this.state.planeRotation.x) * .002)
+      });
+    }
+  }, {
+    key: 'onDocumentMouseMove',
+    value: function onDocumentMouseMove(e) {
+      this.mouseX = e.clientX - this.windowHalfX;
+      this.mouseY = e.clientY - this.windowHalfY;
+    }
+  }, {
     key: 'render',
     value: function render() {
       var width = window.innerWidth;
@@ -73342,9 +73370,9 @@ var Simple = function (_Component) {
         aspect: width / height,
         near: 0.1,
         far: 1000,
-        position: this.cameraPosition
+        position: this.state.cameraPosition
       }), _ref2, _jsx('mesh', {
-        rotation: this.state.cubeRotation
+        rotation: this.state.planeRotation
       }, 'floor', _ref3, _ref4)));
     }
   }]);
