@@ -6,17 +6,16 @@ import * as Three from 'three';
 class Simple extends Component {
   constructor(props, context) {
     super(props, context);
-    this.cameraPosition = new Three.Vector3(0, 0, 5);
+    this.cameraPosition = new Three.Vector3(0, -10, 200);
     this.state = {
-      cubeRotation: new Three.Euler(),
+      cubeRotation: new Three.Euler(2000, 0, 0),
     };
-
     this._onAnimate = () => {
       this.setState({
         cubeRotation: new Three.Euler(
-          this.state.cubeRotation.x + 0.1,
-          this.state.cubeRotation.y + 0.1,
-          0
+          this.state.cubeRotation.x,
+          this.state.cubeRotation.y,
+          this.state.cubeRotation.z  + 0.001
         ),
       });
     };
@@ -31,26 +30,35 @@ class Simple extends Component {
       width={ width }
       height={ height}
       onAnimate={this._onAnimate}
+      clearColor={16777215}
       >
         <scene>
+          <pointLight color={16777215} intensity={0.8}></pointLight>
           <perspectiveCamera
             name="camera"
-            fov={75}
+            fov={35}
             aspect={width / height}
             near={0.1}
             far={1000}
             position={this.cameraPosition}
           />
+
+          <ambientLight
+            color="white"
+          />
           <mesh
             rotation={this.state.cubeRotation}
+            key="floor"
           >
-            <boxGeometry
-              width={1}
-              height={1}
-              depth={1}
-            />
+            <planeBufferGeometry width={100} height={100}
+            heightSegments={100}
+            widthSegments={100}/>
+
             <meshBasicMaterial
-              color={0x00ff00}
+              color="blue"
+              opacity={1}
+              side={2}
+              wireframe={true}
             />
           </mesh>
         </scene>
