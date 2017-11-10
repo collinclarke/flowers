@@ -1,19 +1,21 @@
 import React, { Component } from 'react';
 import React3 from 'react-three-renderer';
 import * as Three from 'three';
+import Node from './node';
 
 
 class Simple extends Component {
   constructor(props, context) {
     super(props, context);
     this.state = {
-      planeRotation: new Three.Euler(2000, 0, 0),
+      planeRotation: new Three.Euler(0, 0, 0),
       boxRotation: new Three.Euler(2000, 0, 0),
-      cameraPosition: new Three.Vector3(0, -10, 200)
+      cameraPosition: new Three.Vector3(0, -20, 300)
     };
     this._onAnimate = () => {
       // this.rotateBox();
-      this.updatePlane();
+      // this.updateCamera();
+      // this.updatePlane();
     };
     this.boxPosition = new Three.Vector3(0, -5, 100);
     this.windowHalfX = window.innerWidth / 2;
@@ -79,36 +81,28 @@ class Simple extends Component {
             near={0.1}
             far={1000}
             position={this.state.cameraPosition}
+            rotation={this.state.cameraRotation}
           />
 
           <spotLight
             color="white" intensity={1}
           />
           <mesh
-            rotation={this.state.planeRotation}
+
             key="floor"
           >
             <planeGeometry width={100} height={100}/>
-            <meshBasicMaterial
+            <meshLambertMaterial
               color="blue"
               opacity={1}
               side={2}
               wireframe={true}
             />
           </mesh>
-          <mesh key="box"
-            position={this.boxPosition}
-            rotation={this.state.boxRotation}>
-            <meshLambertMaterial
-              color="#4d4d4d"
-              wireframe={false}
-            />
-            <boxGeometry
-              width={15}
-              height={15}
-              depth={15}
-            />
-          </mesh>
+
+          <Node position={[0, 0, 0]}/>
+          <Node position={[5, 0, 0]}/>
+
         </scene>
       </React3>
   );

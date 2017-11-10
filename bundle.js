@@ -73271,6 +73271,10 @@ var _three = __webpack_require__(1);
 
 var Three = _interopRequireWildcard(_three);
 
+var _node = __webpack_require__(326);
+
+var _node2 = _interopRequireDefault(_node);
+
 function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj.default = obj; return newObj; } }
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
@@ -73286,28 +73290,15 @@ var _ref = _jsx('spotLight', {
   intensity: 1
 });
 
-var _ref2 = _jsx('planeGeometry', {
+var _ref2 = _jsx('mesh', {}, 'floor', _jsx('planeGeometry', {
   width: 100,
   height: 100
-});
-
-var _ref3 = _jsx('meshBasicMaterial', {
+}), _jsx('meshLambertMaterial', {
   color: 'blue',
   opacity: 1,
   side: 2,
   wireframe: true
-});
-
-var _ref4 = _jsx('meshLambertMaterial', {
-  color: '#4d4d4d',
-  wireframe: false
-});
-
-var _ref5 = _jsx('boxGeometry', {
-  width: 15,
-  height: 15,
-  depth: 15
-});
+}));
 
 var Simple = function (_Component) {
   _inherits(Simple, _Component);
@@ -73318,13 +73309,14 @@ var Simple = function (_Component) {
     var _this = _possibleConstructorReturn(this, (Simple.__proto__ || Object.getPrototypeOf(Simple)).call(this, props, context));
 
     _this.state = {
-      planeRotation: new Three.Euler(2000, 0, 0),
+      planeRotation: new Three.Euler(0, 0, 0),
       boxRotation: new Three.Euler(2000, 0, 0),
-      cameraPosition: new Three.Vector3(0, -10, 200)
+      cameraPosition: new Three.Vector3(0, -20, 300)
     };
     _this._onAnimate = function () {
       // this.rotateBox();
-      _this.updatePlane();
+      // this.updateCamera();
+      // this.updatePlane();
     };
     _this.boxPosition = new Three.Vector3(0, -5, 100);
     _this.windowHalfX = window.innerWidth / 2;
@@ -73386,13 +73378,13 @@ var Simple = function (_Component) {
         aspect: width / height,
         near: 0.1,
         far: 1000,
-        position: this.state.cameraPosition
-      }), _ref, _jsx('mesh', {
-        rotation: this.state.planeRotation
-      }, 'floor', _ref2, _ref3), _jsx('mesh', {
-        position: this.boxPosition,
-        rotation: this.state.boxRotation
-      }, 'box', _ref4, _ref5)));
+        position: this.state.cameraPosition,
+        rotation: this.state.cameraRotation
+      }), _ref, _ref2, _jsx(_node2.default, {
+        position: [0, 0, 0]
+      }), _jsx(_node2.default, {
+        position: [5, 0, 0]
+      })));
     }
   }]);
 
@@ -83107,6 +83099,84 @@ var GridHelperDescriptor = function (_Object3DDescriptor) {
 }(_Object3DDescriptor3.default);
 
 module.exports = GridHelperDescriptor;
+
+/***/ }),
+/* 326 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _jsx = function () { var REACT_ELEMENT_TYPE = typeof Symbol === "function" && Symbol.for && Symbol.for("react.element") || 0xeac7; return function createRawReactElement(type, props, key, children) { var defaultProps = type && type.defaultProps; var childrenLength = arguments.length - 3; if (!props && childrenLength !== 0) { props = {}; } if (props && defaultProps) { for (var propName in defaultProps) { if (props[propName] === void 0) { props[propName] = defaultProps[propName]; } } } else if (!props) { props = defaultProps || {}; } if (childrenLength === 1) { props.children = children; } else if (childrenLength > 1) { var childArray = Array(childrenLength); for (var i = 0; i < childrenLength; i++) { childArray[i] = arguments[i + 3]; } props.children = childArray; } return { $$typeof: REACT_ELEMENT_TYPE, type: type, key: key === undefined ? null : '' + key, ref: null, props: props, _owner: null }; }; }();
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _react = __webpack_require__(27);
+
+var _react2 = _interopRequireDefault(_react);
+
+var _reactThreeRenderer = __webpack_require__(119);
+
+var _reactThreeRenderer2 = _interopRequireDefault(_reactThreeRenderer);
+
+var _three = __webpack_require__(1);
+
+var Three = _interopRequireWildcard(_three);
+
+function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj.default = obj; return newObj; } }
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var _ref = _jsx('meshLambertMaterial', {
+  color: 'blue',
+  opacity: 1,
+  side: 2,
+  wireframe: true
+});
+
+var Node = function (_Component) {
+  _inherits(Node, _Component);
+
+  function Node(props, context) {
+    _classCallCheck(this, Node);
+
+    var _this = _possibleConstructorReturn(this, (Node.__proto__ || Object.getPrototypeOf(Node)).call(this, props, context));
+
+    var position = props.position;
+
+    _this.position = new Three.Vector3(position[0], position[1], position[2]);
+    _this.state = {
+      sphereVertices: [new Three.Vector3(position[0], position[1], position[2]), new Three.Vector3(position[0], position[1], position[2]), new Three.Vector3(position[0], position[1], position[2])]
+    };
+    return _this;
+  }
+
+  _createClass(Node, [{
+    key: 'render',
+    value: function render() {
+      return _jsx('mesh', {
+        position: this.position
+      }, 'node', _ref, _jsx('sphereGeometry', {
+        radius: 1,
+        vertices: this.state.sphereVertices
+      }));
+    }
+  }]);
+
+  return Node;
+}(_react.Component);
+
+exports.default = Node;
 
 /***/ })
 /******/ ]);
