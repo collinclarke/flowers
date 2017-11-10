@@ -8,18 +8,14 @@ class Simple extends Component {
     super(props, context);
     this.state = {
       planeRotation: new Three.Euler(2000, 0, 0),
+      boxRotation: new Three.Euler(2000, 0, 0),
       cameraPosition: new Three.Vector3(0, -10, 200)
     };
     this._onAnimate = () => {
-      this.setState({
-        planeRotation: new Three.Euler(
-          this.state.planeRotation.x,
-          this.state.planeRotation.y,
-          this.state.planeRotation.z + 0.001)
-      });
-      // this.updateCamera();
+      // this.rotateBox();
       this.updatePlane();
     };
+    this.boxPosition = new Three.Vector3(0, -5, 100);
     this.windowHalfX = window.innerWidth / 2;
     this.windowHalfY = window.innerHeight / 2;
     this.onDocumentMouseMove = this.onDocumentMouseMove.bind(this);
@@ -39,12 +35,21 @@ class Simple extends Component {
     })
   }
 
+  rotateBox() {
+    this.setState({
+      boxRotation: new Three.Euler(
+        this.state.boxRotation.x,
+        this.state.boxRotation.y,
+        this.state.boxRotation.z + 0.005)
+    });
+  }
+
   updatePlane() {
     this.setState({
       planeRotation: new Three.Euler(
         this.state.planeRotation.x,
         this.state.planeRotation.y,
-        this.state.cameraPosition.z + ( this.mouseX + this.state.planeRotation.x ) * .002
+        this.state.planeRotation.z + ( this.mouseX + this.state.planeRotation.z ) * .000008
       )
     })
   }
@@ -66,7 +71,7 @@ class Simple extends Component {
       clearColor={16777215}
       >
         <scene>
-          <pointLight color={16777215} intensity={0.8}></pointLight>
+          <pointLight color={16777215} position={this.state.cameraPosition}></pointLight>
           <perspectiveCamera
             name="camera"
             fov={35}
@@ -76,8 +81,8 @@ class Simple extends Component {
             position={this.state.cameraPosition}
           />
 
-          <ambientLight
-            color="white"
+          <spotLight
+            color="white" intensity={1}
           />
           <mesh
             rotation={this.state.planeRotation}
@@ -89,6 +94,19 @@ class Simple extends Component {
               opacity={1}
               side={2}
               wireframe={true}
+            />
+          </mesh>
+          <mesh key="box"
+            position={this.boxPosition}
+            rotation={this.state.boxRotation}>
+            <meshLambertMaterial
+              color="#4d4d4d"
+              wireframe={false}
+            />
+            <boxGeometry
+              width={15}
+              height={15}
+              depth={15}
             />
           </mesh>
         </scene>

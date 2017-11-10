@@ -73281,25 +73281,32 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
-var _ref = _jsx('pointLight', {
-  color: 16777215,
-  intensity: 0.8
+var _ref = _jsx('spotLight', {
+  color: 'white',
+  intensity: 1
 });
 
-var _ref2 = _jsx('ambientLight', {
-  color: 'white'
-});
-
-var _ref3 = _jsx('planeGeometry', {
+var _ref2 = _jsx('planeGeometry', {
   width: 100,
   height: 100
 });
 
-var _ref4 = _jsx('meshBasicMaterial', {
+var _ref3 = _jsx('meshBasicMaterial', {
   color: 'blue',
   opacity: 1,
   side: 2,
   wireframe: true
+});
+
+var _ref4 = _jsx('meshLambertMaterial', {
+  color: '#4d4d4d',
+  wireframe: false
+});
+
+var _ref5 = _jsx('boxGeometry', {
+  width: 15,
+  height: 15,
+  depth: 15
 });
 
 var Simple = function (_Component) {
@@ -73312,15 +73319,14 @@ var Simple = function (_Component) {
 
     _this.state = {
       planeRotation: new Three.Euler(2000, 0, 0),
+      boxRotation: new Three.Euler(2000, 0, 0),
       cameraPosition: new Three.Vector3(0, -10, 200)
     };
     _this._onAnimate = function () {
-      _this.setState({
-        planeRotation: new Three.Euler(_this.state.planeRotation.x, _this.state.planeRotation.y, _this.state.planeRotation.z + 0.001)
-      });
-      // this.updateCamera();
+      // this.rotateBox();
       _this.updatePlane();
     };
+    _this.boxPosition = new Three.Vector3(0, -5, 100);
     _this.windowHalfX = window.innerWidth / 2;
     _this.windowHalfY = window.innerHeight / 2;
     _this.onDocumentMouseMove = _this.onDocumentMouseMove.bind(_this);
@@ -73340,10 +73346,17 @@ var Simple = function (_Component) {
       });
     }
   }, {
+    key: 'rotateBox',
+    value: function rotateBox() {
+      this.setState({
+        boxRotation: new Three.Euler(this.state.boxRotation.x, this.state.boxRotation.y, this.state.boxRotation.z + 0.005)
+      });
+    }
+  }, {
     key: 'updatePlane',
     value: function updatePlane() {
       this.setState({
-        planeRotation: new Three.Euler(this.state.planeRotation.x, this.state.planeRotation.y, this.state.cameraPosition.z + (this.mouseX + this.state.planeRotation.x) * .002)
+        planeRotation: new Three.Euler(this.state.planeRotation.x, this.state.planeRotation.y, this.state.planeRotation.z + (this.mouseX + this.state.planeRotation.z) * .000008)
       });
     }
   }, {
@@ -73364,16 +73377,22 @@ var Simple = function (_Component) {
         height: height,
         onAnimate: this._onAnimate,
         clearColor: 16777215
-      }, void 0, _jsx('scene', {}, void 0, _ref, _jsx('perspectiveCamera', {
+      }, void 0, _jsx('scene', {}, void 0, _jsx('pointLight', {
+        color: 16777215,
+        position: this.state.cameraPosition
+      }), _jsx('perspectiveCamera', {
         name: 'camera',
         fov: 35,
         aspect: width / height,
         near: 0.1,
         far: 1000,
         position: this.state.cameraPosition
-      }), _ref2, _jsx('mesh', {
+      }), _ref, _jsx('mesh', {
         rotation: this.state.planeRotation
-      }, 'floor', _ref3, _ref4)));
+      }, 'floor', _ref2, _ref3), _jsx('mesh', {
+        position: this.boxPosition,
+        rotation: this.state.boxRotation
+      }, 'box', _ref4, _ref5)));
     }
   }]);
 
