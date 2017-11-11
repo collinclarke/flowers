@@ -1,13 +1,10 @@
 {
-  "name": "react-three-renderer-example",
+  "name": "Flowers",
   "version": "1.0.0",
-  "description": "An example showing how to use the react-three-renderer package",
+  "description": "A game of life simulator using react-three-renderer",
   "main": "index.js",
   "scripts": {
     "webpack": "webpack --watch",
-    "start": "gulp webpack-dev-server",
-    "eslint-internal": "eslint ./src/",
-    "eslint": "npm run eslint-internal -loglevel silent || true",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [
@@ -15,8 +12,6 @@
     "threejs",
     "renderer"
   ],
-  "author": "Firtina \"toxicFork\" Ozbalikci",
-  "license": "MIT",
   "dependencies": {
     "cannon": "^0.6.2",
     "history": "^4.6.3",
@@ -61,10 +56,10 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/toxicFork/react-three-renderer-example.git"
+    "url": "git+https://github.com/collinclarke/flowers.git"
   },
   "bugs": {
-    "url": "https://github.com/toxicFork/react-three-renderer-example/issues"
+    "url": "https://github.com/collinclarke/flowers/issues"
   },
   "babel": {
     "presets": [
@@ -77,5 +72,5 @@
       "transform-decorators-legacy"
     ]
   },
-  "homepage": "https://github.com/toxicFork/react-three-renderer-example#readme"
+  "homepage": "https://github.com/collinclarke/flowers"
 }

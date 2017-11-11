@@ -1,4 +1,0 @@
-[submodule "pages"]
-	path = pages
-	url = git@github.com:toxicFork/react-three-renderer-example.git
-	branch = gh-pages
