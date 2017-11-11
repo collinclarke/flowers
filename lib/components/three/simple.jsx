@@ -53,7 +53,7 @@ class Simple extends Component {
 
   generateNode(posArr) {
     return (
-      <Node key={posArr} position={posArr} life={false} mouseInput={mouseInput}/>
+      <Node key={posArr} position={posArr} life={false}/>
     )
   }
 

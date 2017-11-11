@@ -60,11 +60,127 @@
 /******/ 	__webpack_require__.p = "";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 183);
+/******/ 	return __webpack_require__(__webpack_require__.s = 192);
 /******/ })
 /************************************************************************/
 /******/ ([
 /* 0 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+exports.__esModule = true;
+
+exports.default = function (instance, Constructor) {
+  if (!(instance instanceof Constructor)) {
+    throw new TypeError("Cannot call a class as a function");
+  }
+};
+
+/***/ }),
+/* 1 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+exports.__esModule = true;
+
+var _defineProperty = __webpack_require__(168);
+
+var _defineProperty2 = _interopRequireDefault(_defineProperty);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+exports.default = function () {
+  function defineProperties(target, props) {
+    for (var i = 0; i < props.length; i++) {
+      var descriptor = props[i];
+      descriptor.enumerable = descriptor.enumerable || false;
+      descriptor.configurable = true;
+      if ("value" in descriptor) descriptor.writable = true;
+      (0, _defineProperty2.default)(target, descriptor.key, descriptor);
+    }
+  }
+
+  return function (Constructor, protoProps, staticProps) {
+    if (protoProps) defineProperties(Constructor.prototype, protoProps);
+    if (staticProps) defineProperties(Constructor, staticProps);
+    return Constructor;
+  };
+}();
+
+/***/ }),
+/* 2 */
+/***/ (function(module, exports, __webpack_require__) {
+
+module.exports = { "default": __webpack_require__(284), __esModule: true };
+
+/***/ }),
+/* 3 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+exports.__esModule = true;
+
+var _typeof2 = __webpack_require__(75);
+
+var _typeof3 = _interopRequireDefault(_typeof2);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+exports.default = function (self, call) {
+  if (!self) {
+    throw new ReferenceError("this hasn't been initialised - super() hasn't been called");
+  }
+
+  return call && ((typeof call === "undefined" ? "undefined" : (0, _typeof3.default)(call)) === "object" || typeof call === "function") ? call : self;
+};
+
+/***/ }),
+/* 4 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+exports.__esModule = true;
+
+var _setPrototypeOf = __webpack_require__(312);
+
+var _setPrototypeOf2 = _interopRequireDefault(_setPrototypeOf);
+
+var _create = __webpack_require__(316);
+
+var _create2 = _interopRequireDefault(_create);
+
+var _typeof2 = __webpack_require__(75);
+
+var _typeof3 = _interopRequireDefault(_typeof2);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+exports.default = function (subClass, superClass) {
+  if (typeof superClass !== "function" && superClass !== null) {
+    throw new TypeError("Super expression must either be null or a function, not " + (typeof superClass === "undefined" ? "undefined" : (0, _typeof3.default)(superClass)));
+  }
+
+  subClass.prototype = (0, _create2.default)(superClass && superClass.prototype, {
+    constructor: {
+      value: subClass,
+      enumerable: false,
+      writable: true,
+      configurable: true
+    }
+  });
+  if (superClass) _setPrototypeOf2.default ? (0, _setPrototypeOf2.default)(subClass, superClass) : subClass.__proto__ = superClass;
+};
+
+/***/ }),
+/* 5 */
 /***/ (function(module, exports) {
 
 // shim for using process in browser
@@ -254,7 +370,7 @@ process.umask = function() { return 0; };
 
 
 /***/ }),
-/* 1 */
+/* 6 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -44363,7 +44479,7 @@ function CanvasRenderer() {
 
 
 /***/ }),
-/* 2 */
+/* 7 */
 /***/ (function(module, exports, __webpack_require__) {
 
 /* WEBPACK VAR INJECTION */(function(process) {/**
@@ -44390,17 +44506,17 @@ if (process.env.NODE_ENV !== 'production') {
   // By explicitly using `prop-types` you are opting into new development behavior.
   // http://fb.me/prop-types-in-prod
   var throwOnDirectAccess = true;
-  module.exports = __webpack_require__(318)(isValidElement, throwOnDirectAccess);
+  module.exports = __webpack_require__(326)(isValidElement, throwOnDirectAccess);
 } else {
   // By explicitly using `prop-types` you are opting into new production behavior.
   // http://fb.me/prop-types-in-prod
-  module.exports = __webpack_require__(320)();
+  module.exports = __webpack_require__(328)();
 }
 
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(5)))
 
 /***/ }),
-/* 3 */
+/* 8 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -44457,10 +44573,10 @@ function invariant(condition, format, a, b, c, d, e, f) {
 }
 
 module.exports = invariant;
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(5)))
 
 /***/ }),
-/* 4 */
+/* 9 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -44474,7 +44590,7 @@ module.exports = invariant;
 
 
 
-var emptyFunction = __webpack_require__(19);
+var emptyFunction = __webpack_require__(27);
 
 /**
  * Similar to invariant but only logs a warning if the condition is not met.
@@ -44526,10 +44642,54 @@ if (process.env.NODE_ENV !== 'production') {
 }
 
 module.exports = warning;
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(5)))
 
 /***/ }),
-/* 5 */
+/* 10 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+exports.__esModule = true;
+
+var _getPrototypeOf = __webpack_require__(2);
+
+var _getPrototypeOf2 = _interopRequireDefault(_getPrototypeOf);
+
+var _getOwnPropertyDescriptor = __webpack_require__(339);
+
+var _getOwnPropertyDescriptor2 = _interopRequireDefault(_getOwnPropertyDescriptor);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+exports.default = function get(object, property, receiver) {
+  if (object === null) object = Function.prototype;
+  var desc = (0, _getOwnPropertyDescriptor2.default)(object, property);
+
+  if (desc === undefined) {
+    var parent = (0, _getPrototypeOf2.default)(object);
+
+    if (parent === null) {
+      return undefined;
+    } else {
+      return get(parent, property, receiver);
+    }
+  } else if ("value" in desc) {
+    return desc.value;
+  } else {
+    var getter = desc.get;
+
+    if (getter === undefined) {
+      return undefined;
+    }
+
+    return getter.call(receiver);
+  }
+};
+
+/***/ }),
+/* 11 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -44571,7 +44731,7 @@ function reactProdInvariant(code) {
 module.exports = reactProdInvariant;
 
 /***/ }),
-/* 6 */
+/* 12 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -44630,10 +44790,10 @@ function invariant(condition, format, a, b, c, d, e, f) {
 }
 
 module.exports = invariant;
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(5)))
 
 /***/ }),
-/* 7 */
+/* 13 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -44730,7 +44890,7 @@ module.exports = shouldUseNative() ? Object.assign : function (target, source) {
 
 
 /***/ }),
-/* 8 */
+/* 14 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -44744,12 +44904,12 @@ module.exports = shouldUseNative() ? Object.assign : function (target, source) {
 
 
 
-var _prodInvariant = __webpack_require__(5);
+var _prodInvariant = __webpack_require__(11);
 
-var DOMProperty = __webpack_require__(24);
-var ReactDOMComponentFlags = __webpack_require__(121);
+var DOMProperty = __webpack_require__(32);
+var ReactDOMComponentFlags = __webpack_require__(133);
 
-var invariant = __webpack_require__(3);
+var invariant = __webpack_require__(8);
 
 var ATTR_NAME = DOMProperty.ID_ATTRIBUTE_NAME;
 var Flags = ReactDOMComponentFlags;
@@ -44926,24 +45086,24 @@ var ReactDOMComponentTree = {
 };
 
 module.exports = ReactDOMComponentTree;
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(5)))
 
 /***/ }),
-/* 9 */
+/* 15 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
-var _propTypes = __webpack_require__(2);
+var _propTypes = __webpack_require__(7);
 
 var _propTypes2 = _interopRequireDefault(_propTypes);
 
-var _ReactPropTypeLocationNames = __webpack_require__(74);
+var _ReactPropTypeLocationNames = __webpack_require__(87);
 
 var _ReactPropTypeLocationNames2 = _interopRequireDefault(_ReactPropTypeLocationNames);
 
-var _PropTypeError = __webpack_require__(175);
+var _PropTypeError = __webpack_require__(184);
 
 var _PropTypeError2 = _interopRequireDefault(_PropTypeError);
 
@@ -45025,7 +45185,7 @@ function createInstanceTypeChecker(expectedClass) {
 module.exports = createInstanceTypeChecker;
 
 /***/ }),
-/* 10 */
+/* 16 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -45064,61 +45224,77 @@ var ExecutionEnvironment = {
 module.exports = ExecutionEnvironment;
 
 /***/ }),
-/* 11 */
+/* 17 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
-var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+var _extends2 = __webpack_require__(20);
 
-var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+var _extends3 = _interopRequireDefault(_extends2);
 
-var _get = function get(object, property, receiver) { if (object === null) object = Function.prototype; var desc = Object.getOwnPropertyDescriptor(object, property); if (desc === undefined) { var parent = Object.getPrototypeOf(object); if (parent === null) { return undefined; } else { return get(parent, property, receiver); } } else if ("value" in desc) { return desc.value; } else { var getter = desc.get; if (getter === undefined) { return undefined; } return getter.call(receiver); } };
+var _getPrototypeOf = __webpack_require__(2);
+
+var _getPrototypeOf2 = _interopRequireDefault(_getPrototypeOf);
+
+var _classCallCheck2 = __webpack_require__(0);
+
+var _classCallCheck3 = _interopRequireDefault(_classCallCheck2);
+
+var _createClass2 = __webpack_require__(1);
+
+var _createClass3 = _interopRequireDefault(_createClass2);
+
+var _possibleConstructorReturn2 = __webpack_require__(3);
+
+var _possibleConstructorReturn3 = _interopRequireDefault(_possibleConstructorReturn2);
+
+var _get2 = __webpack_require__(10);
+
+var _get3 = _interopRequireDefault(_get2);
+
+var _inherits2 = __webpack_require__(4);
+
+var _inherits3 = _interopRequireDefault(_inherits2);
 
 var _class;
 
-var _three = __webpack_require__(1);
+var _three = __webpack_require__(6);
 
 var THREE = _interopRequireWildcard(_three);
 
-var _invariant = __webpack_require__(6);
+var _invariant = __webpack_require__(12);
 
 var _invariant2 = _interopRequireDefault(_invariant);
 
-var _propTypes = __webpack_require__(2);
+var _propTypes = __webpack_require__(7);
 
 var _propTypes2 = _interopRequireDefault(_propTypes);
 
-var _THREEElementDescriptor = __webpack_require__(14);
+var _THREEElementDescriptor = __webpack_require__(21);
 
 var _THREEElementDescriptor2 = _interopRequireDefault(_THREEElementDescriptor);
 
-var _resource = __webpack_require__(68);
+var _resource = __webpack_require__(81);
 
 var _resource2 = _interopRequireDefault(_resource);
 
-var _propTypeInstanceOf = __webpack_require__(9);
+var _propTypeInstanceOf = __webpack_require__(15);
 
 var _propTypeInstanceOf2 = _interopRequireDefault(_propTypeInstanceOf);
 
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
 function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj.default = obj; return newObj; } }
 
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-
-function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 var GeometryDescriptorBase = (0, _resource2.default)(_class = function (_THREEElementDescript) {
-  _inherits(GeometryDescriptorBase, _THREEElementDescript);
+  (0, _inherits3.default)(GeometryDescriptorBase, _THREEElementDescript);
 
   function GeometryDescriptorBase(react3RendererInstance) {
-    _classCallCheck(this, GeometryDescriptorBase);
+    (0, _classCallCheck3.default)(this, GeometryDescriptorBase);
 
-    var _this = _possibleConstructorReturn(this, (GeometryDescriptorBase.__proto__ || Object.getPrototypeOf(GeometryDescriptorBase)).call(this, react3RendererInstance));
+    var _this = (0, _possibleConstructorReturn3.default)(this, (GeometryDescriptorBase.__proto__ || (0, _getPrototypeOf2.default)(GeometryDescriptorBase)).call(this, react3RendererInstance));
 
     _this.hasName();
 
@@ -45198,13 +45374,13 @@ var GeometryDescriptorBase = (0, _resource2.default)(_class = function (_THREEEl
     return _this;
   }
 
-  _createClass(GeometryDescriptorBase, [{
+  (0, _createClass3.default)(GeometryDescriptorBase, [{
     key: 'setParent',
     value: function setParent(geometry, parentObject3D) {
       (0, _invariant2.default)(parentObject3D instanceof THREE.Mesh || parentObject3D instanceof THREE.Points || parentObject3D instanceof THREE.Line, 'Parent is not a mesh');
       (0, _invariant2.default)(parentObject3D.geometry === undefined, 'Parent already has a geometry');
 
-      _get(GeometryDescriptorBase.prototype.__proto__ || Object.getPrototypeOf(GeometryDescriptorBase.prototype), 'setParent', this).call(this, geometry, parentObject3D);
+      (0, _get3.default)(GeometryDescriptorBase.prototype.__proto__ || (0, _getPrototypeOf2.default)(GeometryDescriptorBase.prototype), 'setParent', this).call(this, geometry, parentObject3D);
 
       parentObject3D.geometry = geometry;
     }
@@ -45212,7 +45388,7 @@ var GeometryDescriptorBase = (0, _resource2.default)(_class = function (_THREEEl
     key: 'applyInitialProps',
     value: function applyInitialProps(threeObject, props) {
       // ensure the userData is created
-      threeObject.userData = _extends({}, threeObject.userData);
+      threeObject.userData = (0, _extends3.default)({}, threeObject.userData);
 
       if (props.hasOwnProperty('dynamic')) {
         threeObject.dynamic = !!props.dynamic;
@@ -45220,7 +45396,7 @@ var GeometryDescriptorBase = (0, _resource2.default)(_class = function (_THREEEl
 
       threeObject.userData._remountAfterPropsUpdate = false;
 
-      _get(GeometryDescriptorBase.prototype.__proto__ || Object.getPrototypeOf(GeometryDescriptorBase.prototype), 'applyInitialProps', this).call(this, threeObject, props);
+      (0, _get3.default)(GeometryDescriptorBase.prototype.__proto__ || (0, _getPrototypeOf2.default)(GeometryDescriptorBase.prototype), 'applyInitialProps', this).call(this, threeObject, props);
     }
   }, {
     key: 'unmount',
@@ -45236,7 +45412,7 @@ var GeometryDescriptorBase = (0, _resource2.default)(_class = function (_THREEEl
 
       geometry.dispose();
 
-      _get(GeometryDescriptorBase.prototype.__proto__ || Object.getPrototypeOf(GeometryDescriptorBase.prototype), 'unmount', this).call(this, geometry);
+      (0, _get3.default)(GeometryDescriptorBase.prototype.__proto__ || (0, _getPrototypeOf2.default)(GeometryDescriptorBase.prototype), 'unmount', this).call(this, geometry);
     }
   }, {
     key: 'highlight',
@@ -45270,14 +45446,13 @@ var GeometryDescriptorBase = (0, _resource2.default)(_class = function (_THREEEl
       threeObject.userData.events.emit('hideHighlight');
     }
   }]);
-
   return GeometryDescriptorBase;
 }(_THREEElementDescriptor2.default)) || _class;
 
 module.exports = GeometryDescriptorBase;
 
 /***/ }),
-/* 12 */
+/* 18 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -45292,12 +45467,12 @@ module.exports = GeometryDescriptorBase;
 
 
 
-var _prodInvariant = __webpack_require__(36);
+var _prodInvariant = __webpack_require__(46);
 
-var ReactCurrentOwner = __webpack_require__(15);
+var ReactCurrentOwner = __webpack_require__(22);
 
-var invariant = __webpack_require__(3);
-var warning = __webpack_require__(4);
+var invariant = __webpack_require__(8);
+var warning = __webpack_require__(9);
 
 function isNative(fn) {
   // Based on isNative() from Lodash
@@ -45657,10 +45832,10 @@ var ReactComponentTreeHook = {
 };
 
 module.exports = ReactComponentTreeHook;
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(5)))
 
 /***/ }),
-/* 13 */
+/* 19 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -45680,51 +45855,90 @@ module.exports = ReactComponentTreeHook;
 var debugTool = null;
 
 if (process.env.NODE_ENV !== 'production') {
-  var ReactDebugTool = __webpack_require__(205);
+  var ReactDebugTool = __webpack_require__(213);
   debugTool = ReactDebugTool;
 }
 
 module.exports = { debugTool: debugTool };
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(5)))
 
 /***/ }),
-/* 14 */
+/* 20 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+exports.__esModule = true;
+
+var _assign = __webpack_require__(118);
+
+var _assign2 = _interopRequireDefault(_assign);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+exports.default = _assign2.default || function (target) {
+  for (var i = 1; i < arguments.length; i++) {
+    var source = arguments[i];
+
+    for (var key in source) {
+      if (Object.prototype.hasOwnProperty.call(source, key)) {
+        target[key] = source[key];
+      }
+    }
+  }
+
+  return target;
+};
+
+/***/ }),
+/* 21 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 /* WEBPACK VAR INJECTION */(function(process) {
 
-var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+var _keys = __webpack_require__(43);
 
-var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+var _keys2 = _interopRequireDefault(_keys);
 
-var _invariant = __webpack_require__(6);
+var _extends2 = __webpack_require__(20);
+
+var _extends3 = _interopRequireDefault(_extends2);
+
+var _classCallCheck2 = __webpack_require__(0);
+
+var _classCallCheck3 = _interopRequireDefault(_classCallCheck2);
+
+var _createClass2 = __webpack_require__(1);
+
+var _createClass3 = _interopRequireDefault(_createClass2);
+
+var _invariant = __webpack_require__(12);
 
 var _invariant2 = _interopRequireDefault(_invariant);
 
-var _warning = __webpack_require__(17);
+var _warning = __webpack_require__(25);
 
 var _warning2 = _interopRequireDefault(_warning);
 
-var _events = __webpack_require__(327);
+var _events = __webpack_require__(344);
 
 var _events2 = _interopRequireDefault(_events);
 
-var _propTypes = __webpack_require__(2);
+var _propTypes = __webpack_require__(7);
 
 var _propTypes2 = _interopRequireDefault(_propTypes);
 
-var _checkReactTypeSpec = __webpack_require__(118);
+var _checkReactTypeSpec = __webpack_require__(129);
 
 var _checkReactTypeSpec2 = _interopRequireDefault(_checkReactTypeSpec);
 
-var _React3Instance = __webpack_require__(171);
+var _React3Instance = __webpack_require__(181);
 
 var _React3Instance2 = _interopRequireDefault(_React3Instance);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
 var EventEmitter = _events2.default.EventEmitter;
 
@@ -45734,7 +45948,7 @@ var EventEmitter = _events2.default.EventEmitter;
 
 var THREEElementDescriptor = function () {
   function THREEElementDescriptor(react3RendererInstance) {
-    _classCallCheck(this, THREEElementDescriptor);
+    (0, _classCallCheck3.default)(this, THREEElementDescriptor);
 
     this.react3RendererInstance = react3RendererInstance;
     this.propUpdates = {};
@@ -45749,7 +45963,7 @@ var THREEElementDescriptor = function () {
     this._hasName = false;
   }
 
-  _createClass(THREEElementDescriptor, [{
+  (0, _createClass3.default)(THREEElementDescriptor, [{
     key: 'hasEvent',
     value: function hasEvent(name) {
       this._hasEvents = true;
@@ -45914,7 +46128,7 @@ var THREEElementDescriptor = function () {
       eventsForObject.on('resource.added', function (data) {
         var childrenMarkup = threeObject.userData.markup.childrenMarkup;
 
-        var increasedDistance = _extends({}, data, {
+        var increasedDistance = (0, _extends3.default)({}, data, {
           distance: data.distance + 1
         });
 
@@ -45926,7 +46140,7 @@ var THREEElementDescriptor = function () {
       eventsForObject.on('resource.removed', function (data) {
         var childrenMarkup = threeObject.userData.markup.childrenMarkup;
 
-        var increasedDistance = _extends({}, data, {
+        var increasedDistance = (0, _extends3.default)({}, data, {
           distance: data.distance + 1
         });
 
@@ -46132,7 +46346,6 @@ var THREEElementDescriptor = function () {
     value: function completeChildUpdates(threeObject) {// eslint-disable-line no-unused-vars
     }
   }]);
-
   return THREEElementDescriptor;
 }();
 
@@ -46156,7 +46369,7 @@ if (process.env.NODE_ENV !== 'production') {
    * @private
    */
   var _checkPropTypes = function _checkPropTypes(componentName, propTypes, props, location, owner, element, debugID) {
-    var propNames = Object.keys(props);
+    var propNames = (0, _keys2.default)(props);
     for (var i = 0; i < propNames.length; ++i) {
       var propName = propNames[i];
 
@@ -46188,10 +46401,10 @@ if (process.env.NODE_ENV !== 'production') {
 }
 
 module.exports = THREEElementDescriptor;
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(5)))
 
 /***/ }),
-/* 15 */
+/* 22 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -46223,7 +46436,7 @@ var ReactCurrentOwner = {
 module.exports = ReactCurrentOwner;
 
 /***/ }),
-/* 16 */
+/* 23 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -46237,16 +46450,16 @@ module.exports = ReactCurrentOwner;
 
 
 
-var _prodInvariant = __webpack_require__(5),
-    _assign = __webpack_require__(7);
+var _prodInvariant = __webpack_require__(11),
+    _assign = __webpack_require__(13);
 
-var CallbackQueue = __webpack_require__(125);
-var PooledClass = __webpack_require__(30);
-var ReactFeatureFlags = __webpack_require__(126);
-var ReactReconciler = __webpack_require__(25);
-var Transaction = __webpack_require__(53);
+var CallbackQueue = __webpack_require__(137);
+var PooledClass = __webpack_require__(39);
+var ReactFeatureFlags = __webpack_require__(138);
+var ReactReconciler = __webpack_require__(33);
+var Transaction = __webpack_require__(64);
 
-var invariant = __webpack_require__(3);
+var invariant = __webpack_require__(8);
 
 var dirtyComponents = [];
 var updateBatchNumber = 0;
@@ -46475,10 +46688,18 @@ var ReactUpdates = {
 };
 
 module.exports = ReactUpdates;
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(5)))
 
 /***/ }),
-/* 17 */
+/* 24 */
+/***/ (function(module, exports) {
+
+var core = module.exports = { version: '2.5.1' };
+if (typeof __e == 'number') __e = core; // eslint-disable-line no-undef
+
+
+/***/ }),
+/* 25 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -46494,7 +46715,7 @@ module.exports = ReactUpdates;
 
 
 
-var emptyFunction = __webpack_require__(63);
+var emptyFunction = __webpack_require__(76);
 
 /**
  * Similar to invariant but only logs a warning if the condition is not met.
@@ -46546,52 +46767,66 @@ if (process.env.NODE_ENV !== 'production') {
 }
 
 module.exports = warning;
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(5)))
 
 /***/ }),
-/* 18 */
+/* 26 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 /* WEBPACK VAR INJECTION */(function(process) {
 
-var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+var _getPrototypeOf = __webpack_require__(2);
 
-var _get = function get(object, property, receiver) { if (object === null) object = Function.prototype; var desc = Object.getOwnPropertyDescriptor(object, property); if (desc === undefined) { var parent = Object.getPrototypeOf(object); if (parent === null) { return undefined; } else { return get(parent, property, receiver); } } else if ("value" in desc) { return desc.value; } else { var getter = desc.get; if (getter === undefined) { return undefined; } return getter.call(receiver); } };
+var _getPrototypeOf2 = _interopRequireDefault(_getPrototypeOf);
 
-var _three = __webpack_require__(1);
+var _classCallCheck2 = __webpack_require__(0);
+
+var _classCallCheck3 = _interopRequireDefault(_classCallCheck2);
+
+var _createClass2 = __webpack_require__(1);
+
+var _createClass3 = _interopRequireDefault(_createClass2);
+
+var _possibleConstructorReturn2 = __webpack_require__(3);
+
+var _possibleConstructorReturn3 = _interopRequireDefault(_possibleConstructorReturn2);
+
+var _get2 = __webpack_require__(10);
+
+var _get3 = _interopRequireDefault(_get2);
+
+var _inherits2 = __webpack_require__(4);
+
+var _inherits3 = _interopRequireDefault(_inherits2);
+
+var _three = __webpack_require__(6);
 
 var THREE = _interopRequireWildcard(_three);
 
-var _invariant = __webpack_require__(6);
+var _invariant = __webpack_require__(12);
 
 var _invariant2 = _interopRequireDefault(_invariant);
 
-var _warning = __webpack_require__(17);
+var _warning = __webpack_require__(25);
 
 var _warning2 = _interopRequireDefault(_warning);
 
-var _propTypes = __webpack_require__(2);
+var _propTypes = __webpack_require__(7);
 
 var _propTypes2 = _interopRequireDefault(_propTypes);
 
-var _THREEElementDescriptor = __webpack_require__(14);
+var _THREEElementDescriptor = __webpack_require__(21);
 
 var _THREEElementDescriptor2 = _interopRequireDefault(_THREEElementDescriptor);
 
-var _propTypeInstanceOf = __webpack_require__(9);
+var _propTypeInstanceOf = __webpack_require__(15);
 
 var _propTypeInstanceOf2 = _interopRequireDefault(_propTypeInstanceOf);
 
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
 function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj.default = obj; return newObj; } }
 
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-
-function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _arrayMove(array, oldIndex, newIndex) {
   array.splice(newIndex, 0, array.splice(oldIndex, 1)[0]);
@@ -46612,12 +46847,12 @@ function validateMatrixProp(nextProps, threeObject) {
 }
 
 var Object3DDescriptor = function (_THREEElementDescript) {
-  _inherits(Object3DDescriptor, _THREEElementDescript);
+  (0, _inherits3.default)(Object3DDescriptor, _THREEElementDescript);
 
   function Object3DDescriptor(react3Instance) {
-    _classCallCheck(this, Object3DDescriptor);
+    (0, _classCallCheck3.default)(this, Object3DDescriptor);
 
-    var _this = _possibleConstructorReturn(this, (Object3DDescriptor.__proto__ || Object.getPrototypeOf(Object3DDescriptor)).call(this, react3Instance));
+    var _this = (0, _possibleConstructorReturn3.default)(this, (Object3DDescriptor.__proto__ || (0, _getPrototypeOf2.default)(Object3DDescriptor)).call(this, react3Instance));
 
     _this.hasName();
 
@@ -46720,7 +46955,7 @@ var Object3DDescriptor = function (_THREEElementDescript) {
     return _this;
   }
 
-  _createClass(Object3DDescriptor, [{
+  (0, _createClass3.default)(Object3DDescriptor, [{
     key: 'beginPropertyUpdates',
     value: function beginPropertyUpdates(threeObject, nextProps) {
       if (process.env.NODE_ENV !== 'production') {
@@ -46735,7 +46970,7 @@ var Object3DDescriptor = function (_THREEElementDescript) {
   }, {
     key: 'applyInitialProps',
     value: function applyInitialProps(threeObject, props) {
-      _get(Object3DDescriptor.prototype.__proto__ || Object.getPrototypeOf(Object3DDescriptor.prototype), 'applyInitialProps', this).call(this, threeObject, props);
+      (0, _get3.default)(Object3DDescriptor.prototype.__proto__ || (0, _getPrototypeOf2.default)(Object3DDescriptor.prototype), 'applyInitialProps', this).call(this, threeObject, props);
 
       if (process.env.NODE_ENV !== 'production') {
         validateMatrixProp(props, threeObject);
@@ -46836,15 +47071,14 @@ var Object3DDescriptor = function (_THREEElementDescript) {
       threeObject.userData.events.emit('hideHighlight');
     }
   }]);
-
   return Object3DDescriptor;
 }(_THREEElementDescriptor2.default);
 
 module.exports = Object3DDescriptor;
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(5)))
 
 /***/ }),
-/* 19 */
+/* 27 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -46886,69 +47120,85 @@ emptyFunction.thatReturnsArgument = function (arg) {
 module.exports = emptyFunction;
 
 /***/ }),
-/* 20 */
+/* 28 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 /* WEBPACK VAR INJECTION */(function(process) {
 
-var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+var _extends2 = __webpack_require__(20);
 
-var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+var _extends3 = _interopRequireDefault(_extends2);
 
-var _get = function get(object, property, receiver) { if (object === null) object = Function.prototype; var desc = Object.getOwnPropertyDescriptor(object, property); if (desc === undefined) { var parent = Object.getPrototypeOf(object); if (parent === null) { return undefined; } else { return get(parent, property, receiver); } } else if ("value" in desc) { return desc.value; } else { var getter = desc.get; if (getter === undefined) { return undefined; } return getter.call(receiver); } };
+var _getPrototypeOf = __webpack_require__(2);
+
+var _getPrototypeOf2 = _interopRequireDefault(_getPrototypeOf);
+
+var _classCallCheck2 = __webpack_require__(0);
+
+var _classCallCheck3 = _interopRequireDefault(_classCallCheck2);
+
+var _createClass2 = __webpack_require__(1);
+
+var _createClass3 = _interopRequireDefault(_createClass2);
+
+var _possibleConstructorReturn2 = __webpack_require__(3);
+
+var _possibleConstructorReturn3 = _interopRequireDefault(_possibleConstructorReturn2);
+
+var _get2 = __webpack_require__(10);
+
+var _get3 = _interopRequireDefault(_get2);
+
+var _inherits2 = __webpack_require__(4);
+
+var _inherits3 = _interopRequireDefault(_inherits2);
 
 var _class;
 
-var _three = __webpack_require__(1);
+var _three = __webpack_require__(6);
 
 var THREE = _interopRequireWildcard(_three);
 
-var _invariant = __webpack_require__(6);
+var _invariant = __webpack_require__(12);
 
 var _invariant2 = _interopRequireDefault(_invariant);
 
-var _warning = __webpack_require__(17);
+var _warning = __webpack_require__(25);
 
 var _warning2 = _interopRequireDefault(_warning);
 
-var _propTypes = __webpack_require__(2);
+var _propTypes = __webpack_require__(7);
 
 var _propTypes2 = _interopRequireDefault(_propTypes);
 
-var _THREEElementDescriptor = __webpack_require__(14);
+var _THREEElementDescriptor = __webpack_require__(21);
 
 var _THREEElementDescriptor2 = _interopRequireDefault(_THREEElementDescriptor);
 
-var _resource = __webpack_require__(68);
+var _resource = __webpack_require__(81);
 
 var _resource2 = _interopRequireDefault(_resource);
 
-var _ResourceReference = __webpack_require__(42);
+var _ResourceReference = __webpack_require__(53);
 
 var _ResourceReference2 = _interopRequireDefault(_ResourceReference);
 
-var _propTypeInstanceOf = __webpack_require__(9);
+var _propTypeInstanceOf = __webpack_require__(15);
 
 var _propTypeInstanceOf2 = _interopRequireDefault(_propTypeInstanceOf);
 
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
 function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj.default = obj; return newObj; } }
 
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-
-function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 var MaterialDescriptorBase = (0, _resource2.default)(_class = function (_THREEElementDescript) {
-  _inherits(MaterialDescriptorBase, _THREEElementDescript);
+  (0, _inherits3.default)(MaterialDescriptorBase, _THREEElementDescript);
 
   function MaterialDescriptorBase(react3Instance) {
-    _classCallCheck(this, MaterialDescriptorBase);
+    (0, _classCallCheck3.default)(this, MaterialDescriptorBase);
 
-    var _this = _possibleConstructorReturn(this, (MaterialDescriptorBase.__proto__ || Object.getPrototypeOf(MaterialDescriptorBase)).call(this, react3Instance));
+    var _this = (0, _possibleConstructorReturn3.default)(this, (MaterialDescriptorBase.__proto__ || (0, _getPrototypeOf2.default)(MaterialDescriptorBase)).call(this, react3Instance));
 
     _this._invalidChild = function (child) {
       return _this.invalidChildInternal(child);
@@ -47037,7 +47287,7 @@ var MaterialDescriptorBase = (0, _resource2.default)(_class = function (_THREEEl
     return _this;
   }
 
-  _createClass(MaterialDescriptorBase, [{
+  (0, _createClass3.default)(MaterialDescriptorBase, [{
     key: 'hasMap',
     value: function hasMap() {
       var mapPropertyName = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : 'map';
@@ -47129,18 +47379,18 @@ var MaterialDescriptorBase = (0, _resource2.default)(_class = function (_THREEEl
   }, {
     key: 'applyInitialProps',
     value: function applyInitialProps(threeObject, props) {
-      threeObject.userData = _extends({}, threeObject.userData, {
+      threeObject.userData = (0, _extends3.default)({}, threeObject.userData, {
         _hasTextureChild: false
       });
 
-      _get(MaterialDescriptorBase.prototype.__proto__ || Object.getPrototypeOf(MaterialDescriptorBase.prototype), 'applyInitialProps', this).call(this, threeObject, props);
+      (0, _get3.default)(MaterialDescriptorBase.prototype.__proto__ || (0, _getPrototypeOf2.default)(MaterialDescriptorBase.prototype), 'applyInitialProps', this).call(this, threeObject, props);
     }
   }, {
     key: 'setParent',
     value: function setParent(material, parentObject3D) {
       (0, _invariant2.default)(parentObject3D instanceof THREE.Mesh || parentObject3D instanceof THREE.Points || parentObject3D instanceof THREE.Sprite || parentObject3D instanceof THREE.Line, 'Parent is not a mesh');
       (0, _invariant2.default)(parentObject3D[material.userData._materialSlot] === undefined || parentObject3D[material.userData._materialSlot] === null, 'Parent already has a ' + material.userData._materialSlot + ' defined');
-      _get(MaterialDescriptorBase.prototype.__proto__ || Object.getPrototypeOf(MaterialDescriptorBase.prototype), 'setParent', this).call(this, material, parentObject3D);
+      (0, _get3.default)(MaterialDescriptorBase.prototype.__proto__ || (0, _getPrototypeOf2.default)(MaterialDescriptorBase.prototype), 'setParent', this).call(this, material, parentObject3D);
 
       parentObject3D[material.userData._materialSlot] = material;
     }
@@ -47162,7 +47412,7 @@ var MaterialDescriptorBase = (0, _resource2.default)(_class = function (_THREEEl
 
       material.dispose();
 
-      _get(MaterialDescriptorBase.prototype.__proto__ || Object.getPrototypeOf(MaterialDescriptorBase.prototype), 'unmount', this).call(this, material);
+      (0, _get3.default)(MaterialDescriptorBase.prototype.__proto__ || (0, _getPrototypeOf2.default)(MaterialDescriptorBase.prototype), 'unmount', this).call(this, material);
     }
   }, {
     key: 'highlight',
@@ -47230,15 +47480,14 @@ var MaterialDescriptorBase = (0, _resource2.default)(_class = function (_THREEEl
       return !(child instanceof THREE.Texture || child instanceof _ResourceReference2.default);
     }
   }]);
-
   return MaterialDescriptorBase;
 }(_THREEElementDescriptor2.default)) || _class;
 
 module.exports = MaterialDescriptorBase;
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(5)))
 
 /***/ }),
-/* 21 */
+/* 29 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -47252,15 +47501,15 @@ module.exports = MaterialDescriptorBase;
 
 
 
-var _assign = __webpack_require__(7);
+var _assign = __webpack_require__(13);
 
-var ReactCurrentOwner = __webpack_require__(15);
+var ReactCurrentOwner = __webpack_require__(22);
 
-var warning = __webpack_require__(4);
-var canDefineProperty = __webpack_require__(50);
+var warning = __webpack_require__(9);
+var canDefineProperty = __webpack_require__(61);
 var hasOwnProperty = Object.prototype.hasOwnProperty;
 
-var REACT_ELEMENT_TYPE = __webpack_require__(114);
+var REACT_ELEMENT_TYPE = __webpack_require__(125);
 
 var RESERVED_PROPS = {
   key: true,
@@ -47580,10 +47829,10 @@ ReactElement.isValidElement = function (object) {
 };
 
 module.exports = ReactElement;
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(5)))
 
 /***/ }),
-/* 22 */
+/* 30 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -47597,12 +47846,12 @@ module.exports = ReactElement;
 
 
 
-var _assign = __webpack_require__(7);
+var _assign = __webpack_require__(13);
 
-var PooledClass = __webpack_require__(30);
+var PooledClass = __webpack_require__(39);
 
-var emptyFunction = __webpack_require__(19);
-var warning = __webpack_require__(4);
+var emptyFunction = __webpack_require__(27);
+var warning = __webpack_require__(9);
 
 var didWarnForAddedNewProperty = false;
 var isProxySupported = typeof Proxy === 'function';
@@ -47855,51 +48104,56 @@ function getPooledWarningPropertyDefinition(propName, getVal) {
     process.env.NODE_ENV !== 'production' ? warning(warningCondition, "This synthetic event is reused for performance reasons. If you're seeing this, " + "you're %s `%s` on a released/nullified synthetic event. %s. " + 'If you must keep the original synthetic event around, use event.persist(). ' + 'See https://fb.me/react-event-pooling for more information.', action, propName, result) : void 0;
   }
 }
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(5)))
 
 /***/ }),
-/* 23 */
+/* 31 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
-var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+var _classCallCheck2 = __webpack_require__(0);
 
-var _three = __webpack_require__(1);
+var _classCallCheck3 = _interopRequireDefault(_classCallCheck2);
+
+var _createClass2 = __webpack_require__(1);
+
+var _createClass3 = _interopRequireDefault(_createClass2);
+
+var _three = __webpack_require__(6);
 
 var THREE = _interopRequireWildcard(_three);
 
 function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj.default = obj; return newObj; } }
 
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 /**
  * @abstract
  */
 var ShapeAction = function () {
   function ShapeAction() {
-    _classCallCheck(this, ShapeAction);
+    (0, _classCallCheck3.default)(this, ShapeAction);
 
     this.uuid = THREE.Math.generateUUID();
 
     this.userData = {};
   }
 
-  _createClass(ShapeAction, [{
+  (0, _createClass3.default)(ShapeAction, [{
     key: 'performAction',
     value: function performAction(shape) {// eslint-disable-line no-unused-vars
       // to be done by subclasses
     }
   }]);
-
   return ShapeAction;
 }();
 
 module.exports = ShapeAction;
 
 /***/ }),
-/* 24 */
+/* 32 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -47913,9 +48167,9 @@ module.exports = ShapeAction;
 
 
 
-var _prodInvariant = __webpack_require__(5);
+var _prodInvariant = __webpack_require__(11);
 
-var invariant = __webpack_require__(3);
+var invariant = __webpack_require__(8);
 
 function checkMask(value, bitmask) {
   return (value & bitmask) === bitmask;
@@ -48109,10 +48363,10 @@ var DOMProperty = {
 };
 
 module.exports = DOMProperty;
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(5)))
 
 /***/ }),
-/* 25 */
+/* 33 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -48126,10 +48380,10 @@ module.exports = DOMProperty;
 
 
 
-var ReactRef = __webpack_require__(127);
-var ReactInstrumentation = __webpack_require__(13);
+var ReactRef = __webpack_require__(139);
+var ReactInstrumentation = __webpack_require__(19);
 
-var warning = __webpack_require__(4);
+var warning = __webpack_require__(9);
 
 /**
  * Helper to call ReactRef.attachRefs with this composite component, split out
@@ -48279,10 +48533,10 @@ var ReactReconciler = {
 };
 
 module.exports = ReactReconciler;
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(5)))
 
 /***/ }),
-/* 26 */
+/* 34 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -48331,7 +48585,7 @@ var ReactInstanceMap = {
 module.exports = ReactInstanceMap;
 
 /***/ }),
-/* 27 */
+/* 35 */
 /***/ (function(module, exports) {
 
 // https://github.com/zloirock/core-js/issues/86#issuecomment-115759028
@@ -48343,25 +48597,96 @@ if (typeof __g == 'number') __g = global; // eslint-disable-line no-undef
 
 
 /***/ }),
-/* 28 */
-/***/ (function(module, exports) {
+/* 36 */
+/***/ (function(module, exports, __webpack_require__) {
 
-var core = module.exports = { version: '2.5.1' };
-if (typeof __e == 'number') __e = core; // eslint-disable-line no-undef
+var global = __webpack_require__(35);
+var core = __webpack_require__(24);
+var ctx = __webpack_require__(165);
+var hide = __webpack_require__(48);
+var PROTOTYPE = 'prototype';
+
+var $export = function (type, name, source) {
+  var IS_FORCED = type & $export.F;
+  var IS_GLOBAL = type & $export.G;
+  var IS_STATIC = type & $export.S;
+  var IS_PROTO = type & $export.P;
+  var IS_BIND = type & $export.B;
+  var IS_WRAP = type & $export.W;
+  var exports = IS_GLOBAL ? core : core[name] || (core[name] = {});
+  var expProto = exports[PROTOTYPE];
+  var target = IS_GLOBAL ? global : IS_STATIC ? global[name] : (global[name] || {})[PROTOTYPE];
+  var key, own, out;
+  if (IS_GLOBAL) source = name;
+  for (key in source) {
+    // contains in native
+    own = !IS_FORCED && target && target[key] !== undefined;
+    if (own && key in exports) continue;
+    // export native or passed
+    out = own ? target[key] : source[key];
+    // prevent global pollution for namespaces
+    exports[key] = IS_GLOBAL && typeof target[key] != 'function' ? source[key]
+    // bind timers to global for call from export context
+    : IS_BIND && own ? ctx(out, global)
+    // wrap global constructors for prevent change them in library
+    : IS_WRAP && target[key] == out ? (function (C) {
+      var F = function (a, b, c) {
+        if (this instanceof C) {
+          switch (arguments.length) {
+            case 0: return new C();
+            case 1: return new C(a);
+            case 2: return new C(a, b);
+          } return new C(a, b, c);
+        } return C.apply(this, arguments);
+      };
+      F[PROTOTYPE] = C[PROTOTYPE];
+      return F;
+    // make static versions for prototype methods
+    })(out) : IS_PROTO && typeof out == 'function' ? ctx(Function.call, out) : out;
+    // export proto methods to core.%CONSTRUCTOR%.methods.%NAME%
+    if (IS_PROTO) {
+      (exports.virtual || (exports.virtual = {}))[key] = out;
+      // export proto methods to core.%CONSTRUCTOR%.prototype.%NAME%
+      if (type & $export.R && expProto && !expProto[key]) hide(expProto, key, out);
+    }
+  }
+};
+// type bitmap
+$export.F = 1;   // forced
+$export.G = 2;   // global
+$export.S = 4;   // static
+$export.P = 8;   // proto
+$export.B = 16;  // bind
+$export.W = 32;  // wrap
+$export.U = 64;  // safe
+$export.R = 128; // real proto method for `library`
+module.exports = $export;
 
 
 /***/ }),
-/* 29 */
+/* 37 */
+/***/ (function(module, exports, __webpack_require__) {
+
+// to indexed object, toObject with fallback for non-array-like ES3 strings
+var IObject = __webpack_require__(172);
+var defined = __webpack_require__(103);
+module.exports = function (it) {
+  return IObject(defined(it));
+};
+
+
+/***/ }),
+/* 38 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
-module.exports = __webpack_require__(35);
+module.exports = __webpack_require__(45);
 
 
 /***/ }),
-/* 30 */
+/* 39 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -48376,9 +48701,9 @@ module.exports = __webpack_require__(35);
 
 
 
-var _prodInvariant = __webpack_require__(5);
+var _prodInvariant = __webpack_require__(11);
 
-var invariant = __webpack_require__(3);
+var invariant = __webpack_require__(8);
 
 /**
  * Static poolers. Several custom versions for each potential number of
@@ -48474,10 +48799,10 @@ var PooledClass = {
 };
 
 module.exports = PooledClass;
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(5)))
 
 /***/ }),
-/* 31 */
+/* 40 */
 /***/ (function(module, exports) {
 
 var hasOwnProperty = {}.hasOwnProperty;
@@ -48487,15 +48812,15 @@ module.exports = function (it, key) {
 
 
 /***/ }),
-/* 32 */
+/* 41 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var anObject = __webpack_require__(46);
-var IE8_DOM_DEFINE = __webpack_require__(155);
-var toPrimitive = __webpack_require__(94);
+var anObject = __webpack_require__(58);
+var IE8_DOM_DEFINE = __webpack_require__(166);
+var toPrimitive = __webpack_require__(106);
 var dP = Object.defineProperty;
 
-exports.f = __webpack_require__(33) ? Object.defineProperty : function defineProperty(O, P, Attributes) {
+exports.f = __webpack_require__(42) ? Object.defineProperty : function defineProperty(O, P, Attributes) {
   anObject(O);
   P = toPrimitive(P, true);
   anObject(Attributes);
@@ -48509,67 +48834,86 @@ exports.f = __webpack_require__(33) ? Object.defineProperty : function definePro
 
 
 /***/ }),
-/* 33 */
+/* 42 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // Thank's IE8 for his funny defineProperty
-module.exports = !__webpack_require__(48)(function () {
+module.exports = !__webpack_require__(50)(function () {
   return Object.defineProperty({}, 'a', { get: function () { return 7; } }).a != 7;
 });
 
 
 /***/ }),
-/* 34 */
+/* 43 */
+/***/ (function(module, exports, __webpack_require__) {
+
+module.exports = { "default": __webpack_require__(332), __esModule: true };
+
+/***/ }),
+/* 44 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
-var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+var _getPrototypeOf = __webpack_require__(2);
 
-var _get = function get(object, property, receiver) { if (object === null) object = Function.prototype; var desc = Object.getOwnPropertyDescriptor(object, property); if (desc === undefined) { var parent = Object.getPrototypeOf(object); if (parent === null) { return undefined; } else { return get(parent, property, receiver); } } else if ("value" in desc) { return desc.value; } else { var getter = desc.get; if (getter === undefined) { return undefined; } return getter.call(receiver); } };
+var _getPrototypeOf2 = _interopRequireDefault(_getPrototypeOf);
 
-var _three = __webpack_require__(1);
+var _classCallCheck2 = __webpack_require__(0);
+
+var _classCallCheck3 = _interopRequireDefault(_classCallCheck2);
+
+var _createClass2 = __webpack_require__(1);
+
+var _createClass3 = _interopRequireDefault(_createClass2);
+
+var _possibleConstructorReturn2 = __webpack_require__(3);
+
+var _possibleConstructorReturn3 = _interopRequireDefault(_possibleConstructorReturn2);
+
+var _get2 = __webpack_require__(10);
+
+var _get3 = _interopRequireDefault(_get2);
+
+var _inherits2 = __webpack_require__(4);
+
+var _inherits3 = _interopRequireDefault(_inherits2);
+
+var _three = __webpack_require__(6);
 
 var THREE = _interopRequireWildcard(_three);
 
-var _invariant = __webpack_require__(6);
+var _invariant = __webpack_require__(12);
 
 var _invariant2 = _interopRequireDefault(_invariant);
 
-var _THREEElementDescriptor = __webpack_require__(14);
+var _THREEElementDescriptor = __webpack_require__(21);
 
 var _THREEElementDescriptor2 = _interopRequireDefault(_THREEElementDescriptor);
 
-var _HoleAction = __webpack_require__(181);
+var _HoleAction = __webpack_require__(190);
 
 var _HoleAction2 = _interopRequireDefault(_HoleAction);
 
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
 function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj.default = obj; return newObj; } }
 
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-
-function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 var ShapeActionDescriptorBase = function (_THREEElementDescript) {
-  _inherits(ShapeActionDescriptorBase, _THREEElementDescript);
+  (0, _inherits3.default)(ShapeActionDescriptorBase, _THREEElementDescript);
 
   function ShapeActionDescriptorBase() {
-    _classCallCheck(this, ShapeActionDescriptorBase);
-
-    return _possibleConstructorReturn(this, (ShapeActionDescriptorBase.__proto__ || Object.getPrototypeOf(ShapeActionDescriptorBase)).apply(this, arguments));
+    (0, _classCallCheck3.default)(this, ShapeActionDescriptorBase);
+    return (0, _possibleConstructorReturn3.default)(this, (ShapeActionDescriptorBase.__proto__ || (0, _getPrototypeOf2.default)(ShapeActionDescriptorBase)).apply(this, arguments));
   }
 
-  _createClass(ShapeActionDescriptorBase, [{
+  (0, _createClass3.default)(ShapeActionDescriptorBase, [{
     key: 'setParent',
     value: function setParent(threeObject, parentObject3D) {
       (0, _invariant2.default)(parentObject3D instanceof THREE.Path || parentObject3D instanceof _HoleAction2.default, 'Shape action commands (%s) can only be added to shapes, paths or holes.', this.constructor.name);
 
-      _get(ShapeActionDescriptorBase.prototype.__proto__ || Object.getPrototypeOf(ShapeActionDescriptorBase.prototype), 'setParent', this).call(this, threeObject, parentObject3D);
+      (0, _get3.default)(ShapeActionDescriptorBase.prototype.__proto__ || (0, _getPrototypeOf2.default)(ShapeActionDescriptorBase.prototype), 'setParent', this).call(this, threeObject, parentObject3D);
     }
   }, {
     key: 'highlight',
@@ -48586,14 +48930,13 @@ var ShapeActionDescriptorBase = function (_THREEElementDescript) {
       return parentObject.userData._descriptor.getBoundingBoxes(parentObject);
     }
   }]);
-
   return ShapeActionDescriptorBase;
 }(_THREEElementDescriptor2.default);
 
 module.exports = ShapeActionDescriptorBase;
 
 /***/ }),
-/* 35 */
+/* 45 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -48607,26 +48950,26 @@ module.exports = ShapeActionDescriptorBase;
 
 
 
-var _assign = __webpack_require__(7);
+var _assign = __webpack_require__(13);
 
-var ReactBaseClasses = __webpack_require__(71);
-var ReactChildren = __webpack_require__(184);
-var ReactDOMFactories = __webpack_require__(186);
-var ReactElement = __webpack_require__(21);
-var ReactPropTypes = __webpack_require__(188);
-var ReactVersion = __webpack_require__(191);
+var ReactBaseClasses = __webpack_require__(84);
+var ReactChildren = __webpack_require__(193);
+var ReactDOMFactories = __webpack_require__(195);
+var ReactElement = __webpack_require__(29);
+var ReactPropTypes = __webpack_require__(130);
+var ReactVersion = __webpack_require__(199);
 
-var createReactClass = __webpack_require__(192);
-var onlyChild = __webpack_require__(194);
+var createReactClass = __webpack_require__(200);
+var onlyChild = __webpack_require__(202);
 
 var createElement = ReactElement.createElement;
 var createFactory = ReactElement.createFactory;
 var cloneElement = ReactElement.cloneElement;
 
 if (process.env.NODE_ENV !== 'production') {
-  var lowPriorityWarning = __webpack_require__(72);
-  var canDefineProperty = __webpack_require__(50);
-  var ReactElementValidator = __webpack_require__(117);
+  var lowPriorityWarning = __webpack_require__(85);
+  var canDefineProperty = __webpack_require__(61);
+  var ReactElementValidator = __webpack_require__(128);
   var didWarnPropTypesDeprecated = false;
   createElement = ReactElementValidator.createElement;
   createFactory = ReactElementValidator.createFactory;
@@ -48726,10 +49069,10 @@ if (process.env.NODE_ENV !== 'production') {
 }
 
 module.exports = React;
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(5)))
 
 /***/ }),
-/* 36 */
+/* 46 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -48771,7 +49114,7 @@ function reactProdInvariant(code) {
 module.exports = reactProdInvariant;
 
 /***/ }),
-/* 37 */
+/* 47 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -48785,11 +49128,11 @@ module.exports = reactProdInvariant;
 
 
 
-var DOMNamespaces = __webpack_require__(81);
-var setInnerHTML = __webpack_require__(55);
+var DOMNamespaces = __webpack_require__(94);
+var setInnerHTML = __webpack_require__(65);
 
-var createMicrosoftUnsafeLocalFunction = __webpack_require__(82);
-var setTextContent = __webpack_require__(131);
+var createMicrosoftUnsafeLocalFunction = __webpack_require__(95);
+var setTextContent = __webpack_require__(143);
 
 var ELEMENT_NODE_TYPE = 1;
 var DOCUMENT_FRAGMENT_NODE_TYPE = 11;
@@ -48892,79 +49235,12 @@ DOMLazyTree.queueText = queueText;
 module.exports = DOMLazyTree;
 
 /***/ }),
-/* 38 */
+/* 48 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var global = __webpack_require__(27);
-var core = __webpack_require__(28);
-var ctx = __webpack_require__(154);
-var hide = __webpack_require__(39);
-var PROTOTYPE = 'prototype';
-
-var $export = function (type, name, source) {
-  var IS_FORCED = type & $export.F;
-  var IS_GLOBAL = type & $export.G;
-  var IS_STATIC = type & $export.S;
-  var IS_PROTO = type & $export.P;
-  var IS_BIND = type & $export.B;
-  var IS_WRAP = type & $export.W;
-  var exports = IS_GLOBAL ? core : core[name] || (core[name] = {});
-  var expProto = exports[PROTOTYPE];
-  var target = IS_GLOBAL ? global : IS_STATIC ? global[name] : (global[name] || {})[PROTOTYPE];
-  var key, own, out;
-  if (IS_GLOBAL) source = name;
-  for (key in source) {
-    // contains in native
-    own = !IS_FORCED && target && target[key] !== undefined;
-    if (own && key in exports) continue;
-    // export native or passed
-    out = own ? target[key] : source[key];
-    // prevent global pollution for namespaces
-    exports[key] = IS_GLOBAL && typeof target[key] != 'function' ? source[key]
-    // bind timers to global for call from export context
-    : IS_BIND && own ? ctx(out, global)
-    // wrap global constructors for prevent change them in library
-    : IS_WRAP && target[key] == out ? (function (C) {
-      var F = function (a, b, c) {
-        if (this instanceof C) {
-          switch (arguments.length) {
-            case 0: return new C();
-            case 1: return new C(a);
-            case 2: return new C(a, b);
-          } return new C(a, b, c);
-        } return C.apply(this, arguments);
-      };
-      F[PROTOTYPE] = C[PROTOTYPE];
-      return F;
-    // make static versions for prototype methods
-    })(out) : IS_PROTO && typeof out == 'function' ? ctx(Function.call, out) : out;
-    // export proto methods to core.%CONSTRUCTOR%.methods.%NAME%
-    if (IS_PROTO) {
-      (exports.virtual || (exports.virtual = {}))[key] = out;
-      // export proto methods to core.%CONSTRUCTOR%.prototype.%NAME%
-      if (type & $export.R && expProto && !expProto[key]) hide(expProto, key, out);
-    }
-  }
-};
-// type bitmap
-$export.F = 1;   // forced
-$export.G = 2;   // global
-$export.S = 4;   // static
-$export.P = 8;   // proto
-$export.B = 16;  // bind
-$export.W = 32;  // wrap
-$export.U = 64;  // safe
-$export.R = 128; // real proto method for `library`
-module.exports = $export;
-
-
-/***/ }),
-/* 39 */
-/***/ (function(module, exports, __webpack_require__) {
-
-var dP = __webpack_require__(32);
-var createDesc = __webpack_require__(62);
-module.exports = __webpack_require__(33) ? function (object, key, value) {
+var dP = __webpack_require__(41);
+var createDesc = __webpack_require__(74);
+module.exports = __webpack_require__(42) ? function (object, key, value) {
   return dP.f(object, key, createDesc(1, value));
 } : function (object, key, value) {
   object[key] = value;
@@ -48973,24 +49249,47 @@ module.exports = __webpack_require__(33) ? function (object, key, value) {
 
 
 /***/ }),
-/* 40 */
-/***/ (function(module, exports, __webpack_require__) {
+/* 49 */
+/***/ (function(module, exports) {
 
-// to indexed object, toObject with fallback for non-array-like ES3 strings
-var IObject = __webpack_require__(289);
-var defined = __webpack_require__(91);
 module.exports = function (it) {
-  return IObject(defined(it));
+  return typeof it === 'object' ? it !== null : typeof it === 'function';
 };
 
 
 /***/ }),
-/* 41 */
+/* 50 */
+/***/ (function(module, exports) {
+
+module.exports = function (exec) {
+  try {
+    return !!exec();
+  } catch (e) {
+    return true;
+  }
+};
+
+
+/***/ }),
+/* 51 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var store = __webpack_require__(93)('wks');
-var uid = __webpack_require__(61);
-var Symbol = __webpack_require__(27).Symbol;
+// 19.1.2.14 / 15.2.3.14 Object.keys(O)
+var $keys = __webpack_require__(171);
+var enumBugKeys = __webpack_require__(111);
+
+module.exports = Object.keys || function keys(O) {
+  return $keys(O, enumBugKeys);
+};
+
+
+/***/ }),
+/* 52 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var store = __webpack_require__(105)('wks');
+var uid = __webpack_require__(72);
+var Symbol = __webpack_require__(35).Symbol;
 var USE_SYMBOL = typeof Symbol == 'function';
 
 var $exports = module.exports = function (name) {
@@ -49002,22 +49301,26 @@ $exports.store = store;
 
 
 /***/ }),
-/* 42 */
+/* 53 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
-var _three = __webpack_require__(1);
+var _classCallCheck2 = __webpack_require__(0);
+
+var _classCallCheck3 = _interopRequireDefault(_classCallCheck2);
+
+var _three = __webpack_require__(6);
 
 var THREE = _interopRequireWildcard(_three);
 
 function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj.default = obj; return newObj; } }
 
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 var ResourceReference = function ResourceReference(resourceId) {
-  _classCallCheck(this, ResourceReference);
+  (0, _classCallCheck3.default)(this, ResourceReference);
 
   this.uuid = THREE.Math.generateUUID();
 
@@ -49028,7 +49331,7 @@ var ResourceReference = function ResourceReference(resourceId) {
 module.exports = ResourceReference;
 
 /***/ }),
-/* 43 */
+/* 54 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -49042,12 +49345,12 @@ module.exports = ResourceReference;
 
 
 
-var EventPluginHub = __webpack_require__(44);
-var EventPluginUtils = __webpack_require__(75);
+var EventPluginHub = __webpack_require__(55);
+var EventPluginUtils = __webpack_require__(88);
 
-var accumulateInto = __webpack_require__(122);
-var forEachAccumulated = __webpack_require__(123);
-var warning = __webpack_require__(4);
+var accumulateInto = __webpack_require__(134);
+var forEachAccumulated = __webpack_require__(135);
+var warning = __webpack_require__(9);
 
 var getListener = EventPluginHub.getListener;
 
@@ -49163,10 +49466,10 @@ var EventPropagators = {
 };
 
 module.exports = EventPropagators;
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(5)))
 
 /***/ }),
-/* 44 */
+/* 55 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -49180,15 +49483,15 @@ module.exports = EventPropagators;
 
 
 
-var _prodInvariant = __webpack_require__(5);
+var _prodInvariant = __webpack_require__(11);
 
-var EventPluginRegistry = __webpack_require__(52);
-var EventPluginUtils = __webpack_require__(75);
-var ReactErrorUtils = __webpack_require__(76);
+var EventPluginRegistry = __webpack_require__(63);
+var EventPluginUtils = __webpack_require__(88);
+var ReactErrorUtils = __webpack_require__(89);
 
-var accumulateInto = __webpack_require__(122);
-var forEachAccumulated = __webpack_require__(123);
-var invariant = __webpack_require__(3);
+var accumulateInto = __webpack_require__(134);
+var forEachAccumulated = __webpack_require__(135);
+var invariant = __webpack_require__(8);
 
 /**
  * Internal store for event listeners
@@ -49441,10 +49744,10 @@ var EventPluginHub = {
 };
 
 module.exports = EventPluginHub;
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(5)))
 
 /***/ }),
-/* 45 */
+/* 56 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -49458,9 +49761,84 @@ module.exports = EventPluginHub;
 
 
 
-var SyntheticEvent = __webpack_require__(22);
+var SyntheticUIEvent = __webpack_require__(57);
+var ViewportMetrics = __webpack_require__(142);
 
-var getEventTarget = __webpack_require__(77);
+var getEventModifierState = __webpack_require__(92);
+
+/**
+ * @interface MouseEvent
+ * @see http://www.w3.org/TR/DOM-Level-3-Events/
+ */
+var MouseEventInterface = {
+  screenX: null,
+  screenY: null,
+  clientX: null,
+  clientY: null,
+  ctrlKey: null,
+  shiftKey: null,
+  altKey: null,
+  metaKey: null,
+  getModifierState: getEventModifierState,
+  button: function (event) {
+    // Webkit, Firefox, IE9+
+    // which:  1 2 3
+    // button: 0 1 2 (standard)
+    var button = event.button;
+    if ('which' in event) {
+      return button;
+    }
+    // IE<9
+    // which:  undefined
+    // button: 0 0 0
+    // button: 1 4 2 (onmouseup)
+    return button === 2 ? 2 : button === 4 ? 1 : 0;
+  },
+  buttons: null,
+  relatedTarget: function (event) {
+    return event.relatedTarget || (event.fromElement === event.srcElement ? event.toElement : event.fromElement);
+  },
+  // "Proprietary" Interface.
+  pageX: function (event) {
+    return 'pageX' in event ? event.pageX : event.clientX + ViewportMetrics.currentScrollLeft;
+  },
+  pageY: function (event) {
+    return 'pageY' in event ? event.pageY : event.clientY + ViewportMetrics.currentScrollTop;
+  }
+};
+
+/**
+ * @param {object} dispatchConfig Configuration used to dispatch this event.
+ * @param {string} dispatchMarker Marker identifying the event target.
+ * @param {object} nativeEvent Native browser event.
+ * @extends {SyntheticUIEvent}
+ */
+function SyntheticMouseEvent(dispatchConfig, dispatchMarker, nativeEvent, nativeEventTarget) {
+  return SyntheticUIEvent.call(this, dispatchConfig, dispatchMarker, nativeEvent, nativeEventTarget);
+}
+
+SyntheticUIEvent.augmentClass(SyntheticMouseEvent, MouseEventInterface);
+
+module.exports = SyntheticMouseEvent;
+
+/***/ }),
+/* 57 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+/**
+ * Copyright (c) 2013-present, Facebook, Inc.
+ *
+ * This source code is licensed under the MIT license found in the
+ * LICENSE file in the root directory of this source tree.
+ *
+ */
+
+
+
+var SyntheticEvent = __webpack_require__(30);
+
+var getEventTarget = __webpack_require__(90);
 
 /**
  * @interface UIEvent
@@ -49506,10 +49884,10 @@ SyntheticEvent.augmentClass(SyntheticUIEvent, UIEventInterface);
 module.exports = SyntheticUIEvent;
 
 /***/ }),
-/* 46 */
+/* 58 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var isObject = __webpack_require__(47);
+var isObject = __webpack_require__(49);
 module.exports = function (it) {
   if (!isObject(it)) throw TypeError(it + ' is not an object!');
   return it;
@@ -49517,69 +49895,68 @@ module.exports = function (it) {
 
 
 /***/ }),
-/* 47 */
+/* 59 */
 /***/ (function(module, exports) {
 
-module.exports = function (it) {
-  return typeof it === 'object' ? it !== null : typeof it === 'function';
-};
+exports.f = {}.propertyIsEnumerable;
 
 
 /***/ }),
-/* 48 */
-/***/ (function(module, exports) {
-
-module.exports = function (exec) {
-  try {
-    return !!exec();
-  } catch (e) {
-    return true;
-  }
-};
-
-
-/***/ }),
-/* 49 */
+/* 60 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 /* WEBPACK VAR INJECTION */(function(process) {
 
-var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+var _getPrototypeOf = __webpack_require__(2);
 
-var _get = function get(object, property, receiver) { if (object === null) object = Function.prototype; var desc = Object.getOwnPropertyDescriptor(object, property); if (desc === undefined) { var parent = Object.getPrototypeOf(object); if (parent === null) { return undefined; } else { return get(parent, property, receiver); } } else if ("value" in desc) { return desc.value; } else { var getter = desc.get; if (getter === undefined) { return undefined; } return getter.call(receiver); } };
+var _getPrototypeOf2 = _interopRequireDefault(_getPrototypeOf);
+
+var _classCallCheck2 = __webpack_require__(0);
+
+var _classCallCheck3 = _interopRequireDefault(_classCallCheck2);
+
+var _createClass2 = __webpack_require__(1);
+
+var _createClass3 = _interopRequireDefault(_createClass2);
+
+var _possibleConstructorReturn2 = __webpack_require__(3);
+
+var _possibleConstructorReturn3 = _interopRequireDefault(_possibleConstructorReturn2);
+
+var _get2 = __webpack_require__(10);
+
+var _get3 = _interopRequireDefault(_get2);
+
+var _inherits2 = __webpack_require__(4);
+
+var _inherits3 = _interopRequireDefault(_inherits2);
 
 var _class, _temp;
 
-var _three = __webpack_require__(1);
+var _three = __webpack_require__(6);
 
 var THREE = _interopRequireWildcard(_three);
 
-var _propTypes = __webpack_require__(2);
+var _propTypes = __webpack_require__(7);
 
 var _propTypes2 = _interopRequireDefault(_propTypes);
 
-var _warning = __webpack_require__(17);
+var _warning = __webpack_require__(25);
 
 var _warning2 = _interopRequireDefault(_warning);
 
-var _Object3DDescriptor2 = __webpack_require__(18);
+var _Object3DDescriptor2 = __webpack_require__(26);
 
 var _Object3DDescriptor3 = _interopRequireDefault(_Object3DDescriptor2);
 
-var _propTypeInstanceOf = __webpack_require__(9);
+var _propTypeInstanceOf = __webpack_require__(15);
 
 var _propTypeInstanceOf2 = _interopRequireDefault(_propTypeInstanceOf);
 
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
 function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj.default = obj; return newObj; } }
 
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-
-function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 var updateLightTargetFromQuaternion = function () {
   var lightPositionVector = new THREE.Vector3();
@@ -49599,12 +49976,12 @@ var updateLightTargetFromQuaternion = function () {
 }();
 
 var LightDescriptorBase = (_temp = _class = function (_Object3DDescriptor) {
-  _inherits(LightDescriptorBase, _Object3DDescriptor);
+  (0, _inherits3.default)(LightDescriptorBase, _Object3DDescriptor);
 
   function LightDescriptorBase(react3Instance) {
-    _classCallCheck(this, LightDescriptorBase);
+    (0, _classCallCheck3.default)(this, LightDescriptorBase);
 
-    var _this = _possibleConstructorReturn(this, (LightDescriptorBase.__proto__ || Object.getPrototypeOf(LightDescriptorBase)).call(this, react3Instance));
+    var _this = (0, _possibleConstructorReturn3.default)(this, (LightDescriptorBase.__proto__ || (0, _getPrototypeOf2.default)(LightDescriptorBase)).call(this, react3Instance));
 
     _this.removeProp('receiveShadow');
 
@@ -49699,7 +50076,7 @@ var LightDescriptorBase = (_temp = _class = function (_Object3DDescriptor) {
     return _this;
   }
 
-  _createClass(LightDescriptorBase, [{
+  (0, _createClass3.default)(LightDescriptorBase, [{
     key: 'hasDirection',
     value: function hasDirection() {
       this._hasDirection = true;
@@ -49779,7 +50156,7 @@ var LightDescriptorBase = (_temp = _class = function (_Object3DDescriptor) {
   }, {
     key: 'completePropertyUpdates',
     value: function completePropertyUpdates(threeObject) {
-      _get(LightDescriptorBase.prototype.__proto__ || Object.getPrototypeOf(LightDescriptorBase.prototype), 'completePropertyUpdates', this).call(this, threeObject);
+      (0, _get3.default)(LightDescriptorBase.prototype.__proto__ || (0, _getPrototypeOf2.default)(LightDescriptorBase.prototype), 'completePropertyUpdates', this).call(this, threeObject);
 
       if (threeObject.userData._needsDirectionUpdate) {
         threeObject.userData._needsDirectionUpdate = false;
@@ -49804,7 +50181,7 @@ var LightDescriptorBase = (_temp = _class = function (_Object3DDescriptor) {
   }, {
     key: 'applyInitialProps',
     value: function applyInitialProps(threeObject, props) {
-      _get(LightDescriptorBase.prototype.__proto__ || Object.getPrototypeOf(LightDescriptorBase.prototype), 'applyInitialProps', this).call(this, threeObject, props);
+      (0, _get3.default)(LightDescriptorBase.prototype.__proto__ || (0, _getPrototypeOf2.default)(LightDescriptorBase.prototype), 'applyInitialProps', this).call(this, threeObject, props);
 
       if (props.hasOwnProperty('castShadow')) {
         threeObject.castShadow = props.castShadow;
@@ -49823,12 +50200,12 @@ var LightDescriptorBase = (_temp = _class = function (_Object3DDescriptor) {
     value: function unmount(threeObject) {
       this.updateAllMaterials(threeObject);
 
-      _get(LightDescriptorBase.prototype.__proto__ || Object.getPrototypeOf(LightDescriptorBase.prototype), 'unmount', this).call(this, threeObject);
+      (0, _get3.default)(LightDescriptorBase.prototype.__proto__ || (0, _getPrototypeOf2.default)(LightDescriptorBase.prototype), 'unmount', this).call(this, threeObject);
     }
   }, {
     key: 'setParent',
     value: function setParent(threeObject, parentObject3d) {
-      _get(LightDescriptorBase.prototype.__proto__ || Object.getPrototypeOf(LightDescriptorBase.prototype), 'setParent', this).call(this, threeObject, parentObject3d);
+      (0, _get3.default)(LightDescriptorBase.prototype.__proto__ || (0, _getPrototypeOf2.default)(LightDescriptorBase.prototype), 'setParent', this).call(this, threeObject, parentObject3d);
 
       this.updateAllMaterials(threeObject);
     }
@@ -49852,7 +50229,6 @@ var LightDescriptorBase = (_temp = _class = function (_Object3DDescriptor) {
       }
     }
   }]);
-
   return LightDescriptorBase;
 }(_Object3DDescriptor3.default), _class.defaultShadowCameraNear = 0.5, _class.defaultShadowCameraFar = 500, _class.defaultShadowBias = 0, _temp);
 
@@ -49864,10 +50240,10 @@ if (process.env.NODE_ENV !== 'production') {
 }
 
 module.exports = LightDescriptorBase;
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(5)))
 
 /***/ }),
-/* 50 */
+/* 61 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -49894,10 +50270,10 @@ if (process.env.NODE_ENV !== 'production') {
 }
 
 module.exports = canDefineProperty;
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(5)))
 
 /***/ }),
-/* 51 */
+/* 62 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -49918,10 +50294,10 @@ if (process.env.NODE_ENV !== 'production') {
 }
 
 module.exports = emptyObject;
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(5)))
 
 /***/ }),
-/* 52 */
+/* 63 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -49936,9 +50312,9 @@ module.exports = emptyObject;
 
 
 
-var _prodInvariant = __webpack_require__(5);
+var _prodInvariant = __webpack_require__(11);
 
-var invariant = __webpack_require__(3);
+var invariant = __webpack_require__(8);
 
 /**
  * Injectable ordering of event plugins.
@@ -50175,10 +50551,10 @@ var EventPluginRegistry = {
 };
 
 module.exports = EventPluginRegistry;
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(5)))
 
 /***/ }),
-/* 53 */
+/* 64 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -50193,9 +50569,9 @@ module.exports = EventPluginRegistry;
 
 
 
-var _prodInvariant = __webpack_require__(5);
+var _prodInvariant = __webpack_require__(11);
 
-var invariant = __webpack_require__(3);
+var invariant = __webpack_require__(8);
 
 var OBSERVED_ERROR = {};
 
@@ -50407,10 +50783,10 @@ var TransactionImpl = {
 };
 
 module.exports = TransactionImpl;
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(5)))
 
 /***/ }),
-/* 54 */
+/* 65 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -50424,88 +50800,13 @@ module.exports = TransactionImpl;
 
 
 
-var SyntheticUIEvent = __webpack_require__(45);
-var ViewportMetrics = __webpack_require__(130);
-
-var getEventModifierState = __webpack_require__(79);
-
-/**
- * @interface MouseEvent
- * @see http://www.w3.org/TR/DOM-Level-3-Events/
- */
-var MouseEventInterface = {
-  screenX: null,
-  screenY: null,
-  clientX: null,
-  clientY: null,
-  ctrlKey: null,
-  shiftKey: null,
-  altKey: null,
-  metaKey: null,
-  getModifierState: getEventModifierState,
-  button: function (event) {
-    // Webkit, Firefox, IE9+
-    // which:  1 2 3
-    // button: 0 1 2 (standard)
-    var button = event.button;
-    if ('which' in event) {
-      return button;
-    }
-    // IE<9
-    // which:  undefined
-    // button: 0 0 0
-    // button: 1 4 2 (onmouseup)
-    return button === 2 ? 2 : button === 4 ? 1 : 0;
-  },
-  buttons: null,
-  relatedTarget: function (event) {
-    return event.relatedTarget || (event.fromElement === event.srcElement ? event.toElement : event.fromElement);
-  },
-  // "Proprietary" Interface.
-  pageX: function (event) {
-    return 'pageX' in event ? event.pageX : event.clientX + ViewportMetrics.currentScrollLeft;
-  },
-  pageY: function (event) {
-    return 'pageY' in event ? event.pageY : event.clientY + ViewportMetrics.currentScrollTop;
-  }
-};
-
-/**
- * @param {object} dispatchConfig Configuration used to dispatch this event.
- * @param {string} dispatchMarker Marker identifying the event target.
- * @param {object} nativeEvent Native browser event.
- * @extends {SyntheticUIEvent}
- */
-function SyntheticMouseEvent(dispatchConfig, dispatchMarker, nativeEvent, nativeEventTarget) {
-  return SyntheticUIEvent.call(this, dispatchConfig, dispatchMarker, nativeEvent, nativeEventTarget);
-}
-
-SyntheticUIEvent.augmentClass(SyntheticMouseEvent, MouseEventInterface);
-
-module.exports = SyntheticMouseEvent;
-
-/***/ }),
-/* 55 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-/**
- * Copyright (c) 2013-present, Facebook, Inc.
- *
- * This source code is licensed under the MIT license found in the
- * LICENSE file in the root directory of this source tree.
- *
- */
-
-
-
-var ExecutionEnvironment = __webpack_require__(10);
-var DOMNamespaces = __webpack_require__(81);
+var ExecutionEnvironment = __webpack_require__(16);
+var DOMNamespaces = __webpack_require__(94);
 
 var WHITESPACE_TEST = /^[ \r\n\t\f]/;
 var NONVISIBLE_TEST = /<(!--|link|noscript|meta|script|style)[ \r\n\t\f\/>]/;
 
-var createMicrosoftUnsafeLocalFunction = __webpack_require__(82);
+var createMicrosoftUnsafeLocalFunction = __webpack_require__(95);
 
 // SVG temp container for IE lacking innerHTML
 var reusableSVGContainer;
@@ -50586,7 +50887,7 @@ if (ExecutionEnvironment.canUseDOM) {
 module.exports = setInnerHTML;
 
 /***/ }),
-/* 56 */
+/* 66 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -50711,7 +51012,7 @@ function escapeTextContentForBrowser(text) {
 module.exports = escapeTextContentForBrowser;
 
 /***/ }),
-/* 57 */
+/* 67 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -50725,14 +51026,14 @@ module.exports = escapeTextContentForBrowser;
 
 
 
-var _assign = __webpack_require__(7);
+var _assign = __webpack_require__(13);
 
-var EventPluginRegistry = __webpack_require__(52);
-var ReactEventEmitterMixin = __webpack_require__(229);
-var ViewportMetrics = __webpack_require__(130);
+var EventPluginRegistry = __webpack_require__(63);
+var ReactEventEmitterMixin = __webpack_require__(237);
+var ViewportMetrics = __webpack_require__(142);
 
-var getVendorPrefixedEventName = __webpack_require__(230);
-var isEventSupported = __webpack_require__(78);
+var getVendorPrefixedEventName = __webpack_require__(238);
+var isEventSupported = __webpack_require__(91);
 
 /**
  * Summary of `ReactBrowserEventEmitter` event handling:
@@ -51038,7 +51339,7 @@ var ReactBrowserEventEmitter = _assign({}, ReactEventEmitterMixin, {
 module.exports = ReactBrowserEventEmitter;
 
 /***/ }),
-/* 58 */
+/* 68 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -51109,7 +51410,7 @@ function shallowEqual(objA, objB) {
 module.exports = shallowEqual;
 
 /***/ }),
-/* 59 */
+/* 69 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -51154,7 +51455,7 @@ function shouldUpdateReactComponent(prevElement, nextElement) {
 module.exports = shouldUpdateReactComponent;
 
 /***/ }),
-/* 60 */
+/* 70 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -51168,15 +51469,15 @@ module.exports = shouldUpdateReactComponent;
 
 
 
-var _prodInvariant = __webpack_require__(5);
+var _prodInvariant = __webpack_require__(11);
 
-var ReactCurrentOwner = __webpack_require__(15);
-var ReactInstanceMap = __webpack_require__(26);
-var ReactInstrumentation = __webpack_require__(13);
-var ReactUpdates = __webpack_require__(16);
+var ReactCurrentOwner = __webpack_require__(22);
+var ReactInstanceMap = __webpack_require__(34);
+var ReactInstrumentation = __webpack_require__(19);
+var ReactUpdates = __webpack_require__(23);
 
-var invariant = __webpack_require__(3);
-var warning = __webpack_require__(4);
+var invariant = __webpack_require__(8);
+var warning = __webpack_require__(9);
 
 function enqueueUpdate(internalInstance) {
   ReactUpdates.enqueueUpdate(internalInstance);
@@ -51389,10 +51690,21 @@ var ReactUpdateQueue = {
 };
 
 module.exports = ReactUpdateQueue;
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(5)))
 
 /***/ }),
-/* 61 */
+/* 71 */
+/***/ (function(module, exports, __webpack_require__) {
+
+// 7.1.13 ToObject(argument)
+var defined = __webpack_require__(103);
+module.exports = function (it) {
+  return Object(defined(it));
+};
+
+
+/***/ }),
+/* 72 */
 /***/ (function(module, exports) {
 
 var id = 0;
@@ -51403,7 +51715,23 @@ module.exports = function (key) {
 
 
 /***/ }),
-/* 62 */
+/* 73 */
+/***/ (function(module, exports, __webpack_require__) {
+
+// most Object methods by ES6 should accept primitives
+var $export = __webpack_require__(36);
+var core = __webpack_require__(24);
+var fails = __webpack_require__(50);
+module.exports = function (KEY, exec) {
+  var fn = (core.Object || {})[KEY] || Object[KEY];
+  var exp = {};
+  exp[KEY] = exec(fn);
+  $export($export.S + $export.F * fails(function () { fn(1); }), 'Object', exp);
+};
+
+
+/***/ }),
+/* 74 */
 /***/ (function(module, exports) {
 
 module.exports = function (bitmap, value) {
@@ -51417,7 +51745,34 @@ module.exports = function (bitmap, value) {
 
 
 /***/ }),
-/* 63 */
+/* 75 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+exports.__esModule = true;
+
+var _iterator = __webpack_require__(289);
+
+var _iterator2 = _interopRequireDefault(_iterator);
+
+var _symbol = __webpack_require__(303);
+
+var _symbol2 = _interopRequireDefault(_symbol);
+
+var _typeof = typeof _symbol2.default === "function" && typeof _iterator2.default === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof _symbol2.default === "function" && obj.constructor === _symbol2.default && obj !== _symbol2.default.prototype ? "symbol" : typeof obj; };
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+exports.default = typeof _symbol2.default === "function" && _typeof(_iterator2.default) === "symbol" ? function (obj) {
+  return typeof obj === "undefined" ? "undefined" : _typeof(obj);
+} : function (obj) {
+  return obj && typeof _symbol2.default === "function" && obj.constructor === _symbol2.default && obj !== _symbol2.default.prototype ? "symbol" : typeof obj === "undefined" ? "undefined" : _typeof(obj);
+};
+
+/***/ }),
+/* 76 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -51461,133 +51816,159 @@ emptyFunction.thatReturnsArgument = function (arg) {
 module.exports = emptyFunction;
 
 /***/ }),
-/* 64 */
+/* 77 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 /* WEBPACK VAR INJECTION */(function(process) {
 
-var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; };
+var _preventExtensions = __webpack_require__(329);
 
-var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+var _preventExtensions2 = _interopRequireDefault(_preventExtensions);
+
+var _typeof2 = __webpack_require__(75);
+
+var _typeof3 = _interopRequireDefault(_typeof2);
+
+var _assign = __webpack_require__(118);
+
+var _assign2 = _interopRequireDefault(_assign);
+
+var _keys = __webpack_require__(43);
+
+var _keys2 = _interopRequireDefault(_keys);
+
+var _getPrototypeOf = __webpack_require__(2);
+
+var _getPrototypeOf2 = _interopRequireDefault(_getPrototypeOf);
+
+var _classCallCheck2 = __webpack_require__(0);
+
+var _classCallCheck3 = _interopRequireDefault(_classCallCheck2);
+
+var _createClass2 = __webpack_require__(1);
+
+var _createClass3 = _interopRequireDefault(_createClass2);
+
+var _possibleConstructorReturn2 = __webpack_require__(3);
+
+var _possibleConstructorReturn3 = _interopRequireDefault(_possibleConstructorReturn2);
+
+var _inherits2 = __webpack_require__(4);
+
+var _inherits3 = _interopRequireDefault(_inherits2);
 
 var _class, _temp, _class2, _temp2;
 
-var _three = __webpack_require__(1);
+var _three = __webpack_require__(6);
 
 var THREE = _interopRequireWildcard(_three);
 
-var _ReactElement = __webpack_require__(21);
+var _ReactElement = __webpack_require__(29);
 
 var _ReactElement2 = _interopRequireDefault(_ReactElement);
 
-var _ReactCurrentOwner = __webpack_require__(15);
+var _ReactCurrentOwner = __webpack_require__(22);
 
 var _ReactCurrentOwner2 = _interopRequireDefault(_ReactCurrentOwner);
 
-var _ReactBaseClasses = __webpack_require__(71);
+var _ReactBaseClasses = __webpack_require__(84);
 
-var _KeyEscapeUtils = __webpack_require__(73);
+var _KeyEscapeUtils = __webpack_require__(86);
 
 var _KeyEscapeUtils2 = _interopRequireDefault(_KeyEscapeUtils);
 
-var _emptyObject = __webpack_require__(166);
+var _emptyObject = __webpack_require__(176);
 
 var _emptyObject2 = _interopRequireDefault(_emptyObject);
 
-var _invariant = __webpack_require__(6);
+var _invariant = __webpack_require__(12);
 
 var _invariant2 = _interopRequireDefault(_invariant);
 
-var _warning = __webpack_require__(17);
+var _warning = __webpack_require__(25);
 
 var _warning2 = _interopRequireDefault(_warning);
 
-var _ReactInstanceMap = __webpack_require__(26);
+var _ReactInstanceMap = __webpack_require__(34);
 
 var _ReactInstanceMap2 = _interopRequireDefault(_ReactInstanceMap);
 
-var _ReactReconciler = __webpack_require__(25);
+var _ReactReconciler = __webpack_require__(33);
 
 var _ReactReconciler2 = _interopRequireDefault(_ReactReconciler);
 
-var _ReactUpdates = __webpack_require__(16);
+var _ReactUpdates = __webpack_require__(23);
 
 var _ReactUpdates2 = _interopRequireDefault(_ReactUpdates);
 
-var _ReactUpdateQueue = __webpack_require__(60);
+var _ReactUpdateQueue = __webpack_require__(70);
 
 var _ReactUpdateQueue2 = _interopRequireDefault(_ReactUpdateQueue);
 
-var _ReactInjection = __webpack_require__(145);
+var _ReactInjection = __webpack_require__(157);
 
 var _ReactInjection2 = _interopRequireDefault(_ReactInjection);
 
-var _ReactReconcileTransaction = __webpack_require__(146);
+var _ReactReconcileTransaction = __webpack_require__(158);
 
 var _ReactReconcileTransaction2 = _interopRequireDefault(_ReactReconcileTransaction);
 
-var _ReactDefaultBatchingStrategy = __webpack_require__(143);
+var _ReactDefaultBatchingStrategy = __webpack_require__(155);
 
 var _ReactDefaultBatchingStrategy2 = _interopRequireDefault(_ReactDefaultBatchingStrategy);
 
-var _traverseAllChildren = __webpack_require__(86);
+var _traverseAllChildren = __webpack_require__(99);
 
 var _traverseAllChildren2 = _interopRequireDefault(_traverseAllChildren);
 
-var _getHostComponentFromComposite = __webpack_require__(89);
+var _getHostComponentFromComposite = __webpack_require__(102);
 
 var _getHostComponentFromComposite2 = _interopRequireDefault(_getHostComponentFromComposite);
 
-var _shouldUpdateReactComponent = __webpack_require__(59);
+var _shouldUpdateReactComponent = __webpack_require__(69);
 
 var _shouldUpdateReactComponent2 = _interopRequireDefault(_shouldUpdateReactComponent);
 
-var _ReactInstrumentation = __webpack_require__(13);
+var _ReactInstrumentation = __webpack_require__(19);
 
 var _ReactInstrumentation2 = _interopRequireDefault(_ReactInstrumentation);
 
-var _React3ContainerInfo = __webpack_require__(321);
+var _React3ContainerInfo = __webpack_require__(334);
 
 var _React3ContainerInfo2 = _interopRequireDefault(_React3ContainerInfo);
 
-var _EventDispatcher = __webpack_require__(322);
+var _EventDispatcher = __webpack_require__(335);
 
 var _EventDispatcher2 = _interopRequireDefault(_EventDispatcher);
 
-var _InternalComponent = __webpack_require__(323);
+var _InternalComponent = __webpack_require__(336);
 
 var _InternalComponent2 = _interopRequireDefault(_InternalComponent);
 
-var _React3ComponentTree = __webpack_require__(170);
+var _React3ComponentTree = __webpack_require__(180);
 
 var _React3ComponentTree2 = _interopRequireDefault(_React3ComponentTree);
 
-var _ElementDescriptorContainer = __webpack_require__(325);
+var _ElementDescriptorContainer = __webpack_require__(342);
 
 var _ElementDescriptorContainer2 = _interopRequireDefault(_ElementDescriptorContainer);
 
-var _React3CompositeComponentWrapper = __webpack_require__(168);
+var _React3CompositeComponentWrapper = __webpack_require__(178);
 
 var _React3CompositeComponentWrapper2 = _interopRequireDefault(_React3CompositeComponentWrapper);
 
-var _idPropertyName = __webpack_require__(110);
+var _idPropertyName = __webpack_require__(120);
 
 var _idPropertyName2 = _interopRequireDefault(_idPropertyName);
 
-var _removeDevTool = __webpack_require__(169);
+var _removeDevTool = __webpack_require__(179);
 
 var _removeDevTool2 = _interopRequireDefault(_removeDevTool);
 
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
 function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj.default = obj; return newObj; } }
 
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-
-function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 var getDeclarationErrorAddendum = void 0;
 var staticDebugIdHack = void 0;
@@ -51597,7 +51978,7 @@ if (process.env.NODE_ENV !== 'production') {
   /* eslint-disable global-require */
 
   if (!ReactComponentTreeHook) {
-    ReactComponentTreeHook = __webpack_require__(12);
+    ReactComponentTreeHook = __webpack_require__(18);
   }
 
   /* eslint-enable global-require */
@@ -51658,21 +52039,19 @@ function unmountComponentFromNode(instance, container, safely) {
 /* global __REACT_DEVTOOLS_GLOBAL_HOOK__ */
 
 var TopLevelWrapper = (_temp = _class = function (_ReactComponent) {
-  _inherits(TopLevelWrapper, _ReactComponent);
+  (0, _inherits3.default)(TopLevelWrapper, _ReactComponent);
 
   function TopLevelWrapper() {
-    _classCallCheck(this, TopLevelWrapper);
-
-    return _possibleConstructorReturn(this, (TopLevelWrapper.__proto__ || Object.getPrototypeOf(TopLevelWrapper)).apply(this, arguments));
+    (0, _classCallCheck3.default)(this, TopLevelWrapper);
+    return (0, _possibleConstructorReturn3.default)(this, (TopLevelWrapper.__proto__ || (0, _getPrototypeOf2.default)(TopLevelWrapper)).apply(this, arguments));
   }
 
-  _createClass(TopLevelWrapper, [{
+  (0, _createClass3.default)(TopLevelWrapper, [{
     key: 'render',
     value: function render() {
       return this.props.child;
     }
   }]);
-
   return TopLevelWrapper;
 }(_ReactBaseClasses.Component), _class.isReactComponent = {}, _class.isReactTopLevelWrapper = true, _temp);
 
@@ -51713,7 +52092,7 @@ function isInternalComponentType(type) {
 }
 
 var React3Renderer = (_temp2 = _class2 = function () {
-  _createClass(React3Renderer, [{
+  (0, _createClass3.default)(React3Renderer, [{
     key: 'updateChildren',
 
 
@@ -51749,7 +52128,7 @@ var React3Renderer = (_temp2 = _class2 = function () {
       }
 
       if (nextChildren) {
-        var nextChildrenKeys = Object.keys(nextChildren);
+        var nextChildrenKeys = (0, _keys2.default)(nextChildren);
 
         for (var i = 0; i < nextChildrenKeys.length; ++i) {
           var childName = nextChildrenKeys[i];
@@ -51798,7 +52177,7 @@ var React3Renderer = (_temp2 = _class2 = function () {
 
       if (prevChildren) {
         // Unmount children that are no longer present.
-        var prevChildrenKeys = Object.keys(prevChildren);
+        var prevChildrenKeys = (0, _keys2.default)(prevChildren);
         for (var _i = 0; _i < prevChildrenKeys.length; ++_i) {
           var _childName = prevChildrenKeys[_i];
 
@@ -51858,14 +52237,14 @@ var React3Renderer = (_temp2 = _class2 = function () {
 
       if (!(componentOrElement.render === null || typeof componentOrElement.render !== 'function')) {
         if (process.env.NODE_ENV !== 'production') {
-          (0, _invariant2.default)(false, 'Component (with keys: %s) contains `render` method ' + 'but is not mounted', Object.keys(componentOrElement));
+          (0, _invariant2.default)(false, 'Component (with keys: %s) contains `render` method ' + 'but is not mounted', (0, _keys2.default)(componentOrElement));
         } else {
           (0, _invariant2.default)(false);
         }
       }
 
       if (process.env.NODE_ENV !== 'production') {
-        (0, _invariant2.default)(false, 'Element appears to be neither ReactComponent, ' + 'a THREE.js object, nor a HTMLCanvasElement (keys: %s)', Object.keys(componentOrElement));
+        (0, _invariant2.default)(false, 'Element appears to be neither ReactComponent, ' + 'a THREE.js object, nor a HTMLCanvasElement (keys: %s)', (0, _keys2.default)(componentOrElement));
       } else {
         (0, _invariant2.default)(false);
       }
@@ -51879,7 +52258,7 @@ var React3Renderer = (_temp2 = _class2 = function () {
   function React3Renderer() {
     var _this2 = this;
 
-    _classCallCheck(this, React3Renderer);
+    (0, _classCallCheck3.default)(this, React3Renderer);
 
     this.instantiateChild = function (childInstances, child, name, selfDebugID) {
       // We found a component instance.
@@ -52052,7 +52431,7 @@ var React3Renderer = (_temp2 = _class2 = function () {
    */
 
 
-  _createClass(React3Renderer, [{
+  (0, _createClass3.default)(React3Renderer, [{
     key: 'instantiateChildren',
 
 
@@ -52135,7 +52514,7 @@ var React3Renderer = (_temp2 = _class2 = function () {
         }
       };
 
-      Object.assign(container.userData, {
+      (0, _assign2.default)(container.userData, {
         object3D: container,
         toJSON: function toJSON() {
           return '---USERDATA---';
@@ -52263,7 +52642,7 @@ var React3Renderer = (_temp2 = _class2 = function () {
   }, {
     key: 'dispose',
     value: function dispose() {
-      var rootIds = Object.keys(this._instancesByReactRootID);
+      var rootIds = (0, _keys2.default)(this._instancesByReactRootID);
 
       for (var i = 0; i < rootIds.length; ++i) {
         this.unmountComponentAtNode(this._instancesByReactRootID[rootIds[i]].getHostMarkup().parentMarkup.threeObject);
@@ -52423,19 +52802,19 @@ var React3Renderer = (_temp2 = _class2 = function () {
           visible: false
         }), this);
         // original: instance = new ReactDOMEmptyComponent(this.instantiateReactComponent);
-      } else if ((typeof node === 'undefined' ? 'undefined' : _typeof(node)) === 'object') {
+      } else if ((typeof node === 'undefined' ? 'undefined' : (0, _typeof3.default)(node)) === 'object') {
         var _element = node;
 
         var type = _element.type;
         if (typeof type !== 'function' && typeof type !== 'string') {
           var info = '';
           if (process.env.NODE_ENV !== 'production') {
-            if (type === undefined || (typeof type === 'undefined' ? 'undefined' : _typeof(type)) === 'object' && type !== null && Object.keys(type).length === 0) {
+            if (type === undefined || (typeof type === 'undefined' ? 'undefined' : (0, _typeof3.default)(type)) === 'object' && type !== null && (0, _keys2.default)(type).length === 0) {
               info += ' You likely forgot to export your component from the file ' + 'it\'s defined in.';
             }
           }
           info += getDeclarationErrorAddendum(_element._owner);
-          (0, _invariant2.default)(false, 'Element type is invalid: expected a string (for built-in components) ' + 'or a class/function (for composite components) but got: %s.%s', type === null || type === undefined ? type : typeof type === 'undefined' ? 'undefined' : _typeof(type), info);
+          (0, _invariant2.default)(false, 'Element type is invalid: expected a string (for built-in components) ' + 'or a class/function (for composite components) but got: %s.%s', type === null || type === undefined ? type : typeof type === 'undefined' ? 'undefined' : (0, _typeof3.default)(type), info);
         }
 
         // Special case string values
@@ -52460,12 +52839,12 @@ var React3Renderer = (_temp2 = _class2 = function () {
       } else if (typeof node === 'string' || typeof node === 'number') {
         // TODO create instance for text
         if (process.env.NODE_ENV !== 'production') {
-          (0, _invariant2.default)(false, 'Encountered invalid React node of type %s : %s', typeof node === 'undefined' ? 'undefined' : _typeof(node), node);
+          (0, _invariant2.default)(false, 'Encountered invalid React node of type %s : %s', typeof node === 'undefined' ? 'undefined' : (0, _typeof3.default)(node), node);
         } else {
           (0, _invariant2.default)(false);
         }
       } else if (process.env.NODE_ENV !== 'production') {
-        (0, _invariant2.default)(false, 'Encountered invalid React node of type %s', typeof element === 'undefined' ? 'undefined' : _typeof(element));
+        (0, _invariant2.default)(false, 'Encountered invalid React node of type %s', typeof element === 'undefined' ? 'undefined' : (0, _typeof3.default)(element));
       } else {
         (0, _invariant2.default)(false);
       }
@@ -52491,8 +52870,8 @@ var React3Renderer = (_temp2 = _class2 = function () {
       // Internal instances should fully constructed at this point, so they should
       // not get any new fields added to them at this point.
       if (process.env.NODE_ENV !== 'production') {
-        if (Object.preventExtensions) {
-          Object.preventExtensions(instance);
+        if (_preventExtensions2.default) {
+          (0, _preventExtensions2.default)(instance);
         }
       }
 
@@ -52588,73 +52967,86 @@ var React3Renderer = (_temp2 = _class2 = function () {
       return internalGetID(markup);
     }
   }]);
-
   return React3Renderer;
 }(), _class2.eventDispatcher = new _EventDispatcher2.default(), _temp2);
 
 
 module.exports = React3Renderer;
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(5)))
 
 /***/ }),
-/* 65 */
+/* 78 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 /* WEBPACK VAR INJECTION */(function(process) {
 
-var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+var _getPrototypeOf = __webpack_require__(2);
 
-var _get = function get(object, property, receiver) { if (object === null) object = Function.prototype; var desc = Object.getOwnPropertyDescriptor(object, property); if (desc === undefined) { var parent = Object.getPrototypeOf(object); if (parent === null) { return undefined; } else { return get(parent, property, receiver); } } else if ("value" in desc) { return desc.value; } else { var getter = desc.get; if (getter === undefined) { return undefined; } return getter.call(receiver); } };
+var _getPrototypeOf2 = _interopRequireDefault(_getPrototypeOf);
 
-var _three = __webpack_require__(1);
+var _classCallCheck2 = __webpack_require__(0);
+
+var _classCallCheck3 = _interopRequireDefault(_classCallCheck2);
+
+var _createClass2 = __webpack_require__(1);
+
+var _createClass3 = _interopRequireDefault(_createClass2);
+
+var _possibleConstructorReturn2 = __webpack_require__(3);
+
+var _possibleConstructorReturn3 = _interopRequireDefault(_possibleConstructorReturn2);
+
+var _get2 = __webpack_require__(10);
+
+var _get3 = _interopRequireDefault(_get2);
+
+var _inherits2 = __webpack_require__(4);
+
+var _inherits3 = _interopRequireDefault(_inherits2);
+
+var _three = __webpack_require__(6);
 
 var THREE = _interopRequireWildcard(_three);
 
-var _invariant = __webpack_require__(6);
+var _invariant = __webpack_require__(12);
 
 var _invariant2 = _interopRequireDefault(_invariant);
 
-var _ResourceReference = __webpack_require__(42);
+var _ResourceReference = __webpack_require__(53);
 
 var _ResourceReference2 = _interopRequireDefault(_ResourceReference);
 
-var _Object3DDescriptor2 = __webpack_require__(18);
+var _Object3DDescriptor2 = __webpack_require__(26);
 
 var _Object3DDescriptor3 = _interopRequireDefault(_Object3DDescriptor2);
 
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
 function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj.default = obj; return newObj; } }
 
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-
-function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 var MeshDescriptor = function (_Object3DDescriptor) {
-  _inherits(MeshDescriptor, _Object3DDescriptor);
+  (0, _inherits3.default)(MeshDescriptor, _Object3DDescriptor);
 
   function MeshDescriptor() {
     var _ref;
 
     var _temp, _this, _ret;
 
-    _classCallCheck(this, MeshDescriptor);
+    (0, _classCallCheck3.default)(this, MeshDescriptor);
 
     for (var _len = arguments.length, args = Array(_len), _key = 0; _key < _len; _key++) {
       args[_key] = arguments[_key];
     }
 
-    return _ret = (_temp = (_this = _possibleConstructorReturn(this, (_ref = MeshDescriptor.__proto__ || Object.getPrototypeOf(MeshDescriptor)).call.apply(_ref, [this].concat(args))), _this), _this._invalidChild = function (child) {
+    return _ret = (_temp = (_this = (0, _possibleConstructorReturn3.default)(this, (_ref = MeshDescriptor.__proto__ || (0, _getPrototypeOf2.default)(MeshDescriptor)).call.apply(_ref, [this].concat(args))), _this), _this._invalidChild = function (child) {
       var invalid = !(child instanceof THREE.Material || child instanceof _ResourceReference2.default || child instanceof THREE.Geometry || child instanceof THREE.BufferGeometry);
 
       return invalid;
-    }, _temp), _possibleConstructorReturn(_this, _ret);
+    }, _temp), (0, _possibleConstructorReturn3.default)(_this, _ret);
   }
 
-  _createClass(MeshDescriptor, [{
+  (0, _createClass3.default)(MeshDescriptor, [{
     key: 'construct',
     value: function construct(props) {
       var geometry = props.hasOwnProperty('geometry') ? props.geometry : undefined;
@@ -52701,62 +53093,75 @@ var MeshDescriptor = function (_Object3DDescriptor) {
         threeObject.geometry.computeBoundingBox();
       }
 
-      return _get(MeshDescriptor.prototype.__proto__ || Object.getPrototypeOf(MeshDescriptor.prototype), 'getBoundingBoxes', this).call(this, threeObject);
+      return (0, _get3.default)(MeshDescriptor.prototype.__proto__ || (0, _getPrototypeOf2.default)(MeshDescriptor.prototype), 'getBoundingBoxes', this).call(this, threeObject);
     }
   }]);
-
   return MeshDescriptor;
 }(_Object3DDescriptor3.default);
 
 module.exports = MeshDescriptor;
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(5)))
 
 /***/ }),
-/* 66 */
+/* 79 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
-var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+var _getPrototypeOf = __webpack_require__(2);
 
-var _get = function get(object, property, receiver) { if (object === null) object = Function.prototype; var desc = Object.getOwnPropertyDescriptor(object, property); if (desc === undefined) { var parent = Object.getPrototypeOf(object); if (parent === null) { return undefined; } else { return get(parent, property, receiver); } } else if ("value" in desc) { return desc.value; } else { var getter = desc.get; if (getter === undefined) { return undefined; } return getter.call(receiver); } };
+var _getPrototypeOf2 = _interopRequireDefault(_getPrototypeOf);
 
-var _invariant = __webpack_require__(6);
+var _classCallCheck2 = __webpack_require__(0);
+
+var _classCallCheck3 = _interopRequireDefault(_classCallCheck2);
+
+var _createClass2 = __webpack_require__(1);
+
+var _createClass3 = _interopRequireDefault(_createClass2);
+
+var _possibleConstructorReturn2 = __webpack_require__(3);
+
+var _possibleConstructorReturn3 = _interopRequireDefault(_possibleConstructorReturn2);
+
+var _get2 = __webpack_require__(10);
+
+var _get3 = _interopRequireDefault(_get2);
+
+var _inherits2 = __webpack_require__(4);
+
+var _inherits3 = _interopRequireDefault(_inherits2);
+
+var _invariant = __webpack_require__(12);
 
 var _invariant2 = _interopRequireDefault(_invariant);
 
-var _propTypes = __webpack_require__(2);
+var _propTypes = __webpack_require__(7);
 
 var _propTypes2 = _interopRequireDefault(_propTypes);
 
-var _THREEElementDescriptor = __webpack_require__(14);
+var _THREEElementDescriptor = __webpack_require__(21);
 
 var _THREEElementDescriptor2 = _interopRequireDefault(_THREEElementDescriptor);
 
-var _ResourceReference = __webpack_require__(42);
+var _ResourceReference = __webpack_require__(53);
 
 var _ResourceReference2 = _interopRequireDefault(_ResourceReference);
 
-var _React3Renderer = __webpack_require__(64);
+var _React3Renderer = __webpack_require__(77);
 
 var _React3Renderer2 = _interopRequireDefault(_React3Renderer);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-
-function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-
 var ResourceDescriptorBase = function (_THREEElementDescript) {
-  _inherits(ResourceDescriptorBase, _THREEElementDescript);
+  (0, _inherits3.default)(ResourceDescriptorBase, _THREEElementDescript);
 
   function ResourceDescriptorBase(react3RendererInstance) {
-    _classCallCheck(this, ResourceDescriptorBase);
+    (0, _classCallCheck3.default)(this, ResourceDescriptorBase);
 
-    var _this = _possibleConstructorReturn(this, (ResourceDescriptorBase.__proto__ || Object.getPrototypeOf(ResourceDescriptorBase)).call(this, react3RendererInstance));
+    var _this = (0, _possibleConstructorReturn3.default)(this, (ResourceDescriptorBase.__proto__ || (0, _getPrototypeOf2.default)(ResourceDescriptorBase)).call(this, react3RendererInstance));
 
     _this._addedIntoRoot = function (threeObject) {
       var currentParentMarkup = threeObject.userData.markup.parentMarkup;
@@ -52794,7 +53199,7 @@ var ResourceDescriptorBase = function (_THREEElementDescript) {
     return _this;
   }
 
-  _createClass(ResourceDescriptorBase, [{
+  (0, _createClass3.default)(ResourceDescriptorBase, [{
     key: 'construct',
     value: function construct(props) {
       (0, _invariant2.default)(props.hasOwnProperty('resourceId'), 'A resource type must have a property named "resourceId"!');
@@ -52804,7 +53209,7 @@ var ResourceDescriptorBase = function (_THREEElementDescript) {
   }, {
     key: 'applyInitialProps',
     value: function applyInitialProps(threeObject, props) {
-      _get(ResourceDescriptorBase.prototype.__proto__ || Object.getPrototypeOf(ResourceDescriptorBase.prototype), 'applyInitialProps', this).call(this, threeObject, props);
+      (0, _get3.default)(ResourceDescriptorBase.prototype.__proto__ || (0, _getPrototypeOf2.default)(ResourceDescriptorBase.prototype), 'applyInitialProps', this).call(this, threeObject, props);
 
       threeObject.userData.resourceMap = [];
       threeObject.userData._eventCleanupQueue = [];
@@ -52825,7 +53230,7 @@ var ResourceDescriptorBase = function (_THREEElementDescript) {
 
       this.updateChosenResource(threeObject, null);
 
-      _get(ResourceDescriptorBase.prototype.__proto__ || Object.getPrototypeOf(ResourceDescriptorBase.prototype), 'unmount', this).call(this, threeObject);
+      (0, _get3.default)(ResourceDescriptorBase.prototype.__proto__ || (0, _getPrototypeOf2.default)(ResourceDescriptorBase.prototype), 'unmount', this).call(this, threeObject);
     }
   }, {
     key: 'updateChosenResource',
@@ -52844,7 +53249,7 @@ var ResourceDescriptorBase = function (_THREEElementDescript) {
       (0, _invariant2.default)(existingValueInSlot === undefined || existingValueInSlot === null, 'Parent already has a ' + threeObject.userData._propertySlot + ' defined');
       (0, _invariant2.default)(threeObject.userData._eventCleanupQueue.length === 0, 'Changing parents?');
 
-      _get(ResourceDescriptorBase.prototype.__proto__ || Object.getPrototypeOf(ResourceDescriptorBase.prototype), 'setParent', this).call(this, threeObject, parentObject3D);
+      (0, _get3.default)(ResourceDescriptorBase.prototype.__proto__ || (0, _getPrototypeOf2.default)(ResourceDescriptorBase.prototype), 'setParent', this).call(this, threeObject, parentObject3D);
 
       var currentParentMarkup = parentObject3D.userData.markup;
 
@@ -52974,32 +53379,37 @@ var ResourceDescriptorBase = function (_THREEElementDescript) {
       ownerObject.userData._descriptor.hideHighlight(ownerObject);
     }
   }]);
-
   return ResourceDescriptorBase;
 }(_THREEElementDescriptor2.default);
 
 module.exports = ResourceDescriptorBase;
 
 /***/ }),
-/* 67 */
+/* 80 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
-var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+var _classCallCheck2 = __webpack_require__(0);
 
-var _three = __webpack_require__(1);
+var _classCallCheck3 = _interopRequireDefault(_classCallCheck2);
+
+var _createClass2 = __webpack_require__(1);
+
+var _createClass3 = _interopRequireDefault(_createClass2);
+
+var _three = __webpack_require__(6);
 
 var THREE = _interopRequireWildcard(_three);
 
 function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj.default = obj; return newObj; } }
 
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 var Uniform = function () {
   function Uniform() {
-    _classCallCheck(this, Uniform);
+    (0, _classCallCheck3.default)(this, Uniform);
 
     this.userData = {};
     this.name = null;
@@ -53008,7 +53418,7 @@ var Uniform = function () {
     this.uuid = THREE.Math.generateUUID();
   }
 
-  _createClass(Uniform, [{
+  (0, _createClass3.default)(Uniform, [{
     key: 'setValue',
     value: function setValue(value) {
       this.value = value;
@@ -53016,50 +53426,63 @@ var Uniform = function () {
       this.userData.events.emit('valueChanged', value);
     }
   }]);
-
   return Uniform;
 }();
 
 module.exports = Uniform;
 
 /***/ }),
-/* 68 */
+/* 81 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 /* WEBPACK VAR INJECTION */(function(process) {
 
-var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+var _getPrototypeOf = __webpack_require__(2);
 
-var _get = function get(object, property, receiver) { if (object === null) object = Function.prototype; var desc = Object.getOwnPropertyDescriptor(object, property); if (desc === undefined) { var parent = Object.getPrototypeOf(object); if (parent === null) { return undefined; } else { return get(parent, property, receiver); } } else if ("value" in desc) { return desc.value; } else { var getter = desc.get; if (getter === undefined) { return undefined; } return getter.call(receiver); } };
+var _getPrototypeOf2 = _interopRequireDefault(_getPrototypeOf);
 
-var _invariant = __webpack_require__(6);
+var _classCallCheck2 = __webpack_require__(0);
+
+var _classCallCheck3 = _interopRequireDefault(_classCallCheck2);
+
+var _createClass2 = __webpack_require__(1);
+
+var _createClass3 = _interopRequireDefault(_createClass2);
+
+var _possibleConstructorReturn2 = __webpack_require__(3);
+
+var _possibleConstructorReturn3 = _interopRequireDefault(_possibleConstructorReturn2);
+
+var _get2 = __webpack_require__(10);
+
+var _get3 = _interopRequireDefault(_get2);
+
+var _inherits2 = __webpack_require__(4);
+
+var _inherits3 = _interopRequireDefault(_inherits2);
+
+var _invariant = __webpack_require__(12);
 
 var _invariant2 = _interopRequireDefault(_invariant);
 
-var _warning = __webpack_require__(17);
+var _warning = __webpack_require__(25);
 
 var _warning2 = _interopRequireDefault(_warning);
 
-var _propTypes = __webpack_require__(2);
+var _propTypes = __webpack_require__(7);
 
 var _propTypes2 = _interopRequireDefault(_propTypes);
 
-var _ResourceContainer = __webpack_require__(111);
+var _ResourceContainer = __webpack_require__(122);
 
 var _ResourceContainer2 = _interopRequireDefault(_ResourceContainer);
 
-var _THREEElementDescriptor = __webpack_require__(14);
+var _THREEElementDescriptor = __webpack_require__(21);
 
 var _THREEElementDescriptor2 = _interopRequireDefault(_THREEElementDescriptor);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-
-function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
 /**
  * Resource decorator.
@@ -53072,12 +53495,12 @@ function resource(descriptor) {
   var _class, _temp;
 
   var ResourceDescriptor = (_temp = _class = function (_descriptor) {
-    _inherits(ResourceDescriptor, _descriptor);
+    (0, _inherits3.default)(ResourceDescriptor, _descriptor);
 
     function ResourceDescriptor(react3RendererInstance) {
-      _classCallCheck(this, ResourceDescriptor);
+      (0, _classCallCheck3.default)(this, ResourceDescriptor);
 
-      var _this = _possibleConstructorReturn(this, (ResourceDescriptor.__proto__ || Object.getPrototypeOf(ResourceDescriptor)).call(this, react3RendererInstance));
+      var _this = (0, _possibleConstructorReturn3.default)(this, (ResourceDescriptor.__proto__ || (0, _getPrototypeOf2.default)(ResourceDescriptor)).call(this, react3RendererInstance));
 
       _this.isResource = true;
 
@@ -53104,10 +53527,10 @@ function resource(descriptor) {
     // used for docs
 
 
-    _createClass(ResourceDescriptor, [{
+    (0, _createClass3.default)(ResourceDescriptor, [{
       key: 'applyInitialProps',
       value: function applyInitialProps(threeObject, props) {
-        _get(ResourceDescriptor.prototype.__proto__ || Object.getPrototypeOf(ResourceDescriptor.prototype), 'applyInitialProps', this).call(this, threeObject, props);
+        (0, _get3.default)(ResourceDescriptor.prototype.__proto__ || (0, _getPrototypeOf2.default)(ResourceDescriptor.prototype), 'applyInitialProps', this).call(this, threeObject, props);
       }
     }, {
       key: 'setParent',
@@ -53125,7 +53548,7 @@ function resource(descriptor) {
           if (process.env.NODE_ENV !== 'production') {
             (0, _warning2.default)(!threeObject.userData._resourceId, 'Found <' + threeObject.userData.react3internalComponent._elementType + '> ' + 'with a resourceId property, ' + 'but it was not placed within a <resources/> element.');
           }
-          _get(ResourceDescriptor.prototype.__proto__ || Object.getPrototypeOf(ResourceDescriptor.prototype), 'setParent', this).call(this, threeObject, parentObject3D);
+          (0, _get3.default)(ResourceDescriptor.prototype.__proto__ || (0, _getPrototypeOf2.default)(ResourceDescriptor.prototype), 'setParent', this).call(this, threeObject, parentObject3D);
         }
       }
     }, {
@@ -53150,7 +53573,7 @@ function resource(descriptor) {
             }
           });
         } else {
-          result = _get(ResourceDescriptor.prototype.__proto__ || Object.getPrototypeOf(ResourceDescriptor.prototype), 'highlight', this).call(this, threeObject);
+          result = (0, _get3.default)(ResourceDescriptor.prototype.__proto__ || (0, _getPrototypeOf2.default)(ResourceDescriptor.prototype), 'highlight', this).call(this, threeObject);
         }
 
         return result;
@@ -53163,13 +53586,12 @@ function resource(descriptor) {
         if (threeObject.userData._resourceId) {
           threeObject.userData.events.emit('hideHighlight');
         } else {
-          result = _get(ResourceDescriptor.prototype.__proto__ || Object.getPrototypeOf(ResourceDescriptor.prototype), 'hideHighlight', this).call(this, threeObject);
+          result = (0, _get3.default)(ResourceDescriptor.prototype.__proto__ || (0, _getPrototypeOf2.default)(ResourceDescriptor.prototype), 'hideHighlight', this).call(this, threeObject);
         }
 
         return result;
       }
     }]);
-
     return ResourceDescriptor;
   }(descriptor), _class.displayName = '' + (descriptor.displayName || descriptor.name), _temp);
 
@@ -53178,64 +53600,80 @@ function resource(descriptor) {
 }
 
 module.exports = resource;
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(5)))
 
 /***/ }),
-/* 69 */
+/* 82 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
-var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+var _extends2 = __webpack_require__(20);
 
-var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+var _extends3 = _interopRequireDefault(_extends2);
 
-var _get = function get(object, property, receiver) { if (object === null) object = Function.prototype; var desc = Object.getOwnPropertyDescriptor(object, property); if (desc === undefined) { var parent = Object.getPrototypeOf(object); if (parent === null) { return undefined; } else { return get(parent, property, receiver); } } else if ("value" in desc) { return desc.value; } else { var getter = desc.get; if (getter === undefined) { return undefined; } return getter.call(receiver); } };
+var _getPrototypeOf = __webpack_require__(2);
 
-var _GeometryDescriptorBase = __webpack_require__(11);
+var _getPrototypeOf2 = _interopRequireDefault(_getPrototypeOf);
+
+var _classCallCheck2 = __webpack_require__(0);
+
+var _classCallCheck3 = _interopRequireDefault(_classCallCheck2);
+
+var _createClass2 = __webpack_require__(1);
+
+var _createClass3 = _interopRequireDefault(_createClass2);
+
+var _possibleConstructorReturn2 = __webpack_require__(3);
+
+var _possibleConstructorReturn3 = _interopRequireDefault(_possibleConstructorReturn2);
+
+var _get2 = __webpack_require__(10);
+
+var _get3 = _interopRequireDefault(_get2);
+
+var _inherits2 = __webpack_require__(4);
+
+var _inherits3 = _interopRequireDefault(_inherits2);
+
+var _GeometryDescriptorBase = __webpack_require__(17);
 
 var _GeometryDescriptorBase2 = _interopRequireDefault(_GeometryDescriptorBase);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-
-function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-
 var BufferGeometryDescriptorBase = function (_GeometryDescriptorBa) {
-  _inherits(BufferGeometryDescriptorBase, _GeometryDescriptorBa);
+  (0, _inherits3.default)(BufferGeometryDescriptorBase, _GeometryDescriptorBa);
 
   function BufferGeometryDescriptorBase() {
     var _ref;
 
     var _temp, _this, _ret;
 
-    _classCallCheck(this, BufferGeometryDescriptorBase);
+    (0, _classCallCheck3.default)(this, BufferGeometryDescriptorBase);
 
     for (var _len = arguments.length, args = Array(_len), _key = 0; _key < _len; _key++) {
       args[_key] = arguments[_key];
     }
 
-    return _ret = (_temp = (_this = _possibleConstructorReturn(this, (_ref = BufferGeometryDescriptorBase.__proto__ || Object.getPrototypeOf(BufferGeometryDescriptorBase)).call.apply(_ref, [this].concat(args))), _this), _this.updateCacheAndReplace = function (propName, threeObject, newValue) {
+    return _ret = (_temp = (_this = (0, _possibleConstructorReturn3.default)(this, (_ref = BufferGeometryDescriptorBase.__proto__ || (0, _getPrototypeOf2.default)(BufferGeometryDescriptorBase)).call.apply(_ref, [this].concat(args))), _this), _this.updateCacheAndReplace = function (propName, threeObject, newValue) {
       threeObject.userData._propsCache[propName] = newValue;
       threeObject.userData._wantPropertyOverwrite = true;
-    }, _temp), _possibleConstructorReturn(_this, _ret);
+    }, _temp), (0, _possibleConstructorReturn3.default)(_this, _ret);
   }
 
-  _createClass(BufferGeometryDescriptorBase, [{
+  (0, _createClass3.default)(BufferGeometryDescriptorBase, [{
     key: 'beginPropertyUpdates',
     value: function beginPropertyUpdates(threeObject) {
-      _get(BufferGeometryDescriptorBase.prototype.__proto__ || Object.getPrototypeOf(BufferGeometryDescriptorBase.prototype), 'beginPropertyUpdates', this).call(this, threeObject);
+      (0, _get3.default)(BufferGeometryDescriptorBase.prototype.__proto__ || (0, _getPrototypeOf2.default)(BufferGeometryDescriptorBase.prototype), 'beginPropertyUpdates', this).call(this, threeObject);
 
       threeObject.userData._wantPropertyOverwrite = false;
     }
   }, {
     key: 'completePropertyUpdates',
     value: function completePropertyUpdates(threeObject) {
-      _get(BufferGeometryDescriptorBase.prototype.__proto__ || Object.getPrototypeOf(BufferGeometryDescriptorBase.prototype), 'completePropertyUpdates', this).call(this, threeObject);
+      (0, _get3.default)(BufferGeometryDescriptorBase.prototype.__proto__ || (0, _getPrototypeOf2.default)(BufferGeometryDescriptorBase.prototype), 'completePropertyUpdates', this).call(this, threeObject);
 
       if (threeObject.userData._wantPropertyOverwrite) {
         threeObject.userData._wantPropertyOverwrite = false;
@@ -53246,47 +53684,56 @@ var BufferGeometryDescriptorBase = function (_GeometryDescriptorBa) {
   }, {
     key: 'applyInitialProps',
     value: function applyInitialProps(threeObject, props) {
-      _get(BufferGeometryDescriptorBase.prototype.__proto__ || Object.getPrototypeOf(BufferGeometryDescriptorBase.prototype), 'applyInitialProps', this).call(this, threeObject, props);
+      (0, _get3.default)(BufferGeometryDescriptorBase.prototype.__proto__ || (0, _getPrototypeOf2.default)(BufferGeometryDescriptorBase.prototype), 'applyInitialProps', this).call(this, threeObject, props);
 
-      threeObject.userData._propsCache = _extends({}, props);
+      threeObject.userData._propsCache = (0, _extends3.default)({}, props);
     }
   }]);
-
   return BufferGeometryDescriptorBase;
 }(_GeometryDescriptorBase2.default);
 
 module.exports = BufferGeometryDescriptorBase;
 
 /***/ }),
-/* 70 */
+/* 83 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
-var _propTypes = __webpack_require__(2);
+var _getPrototypeOf = __webpack_require__(2);
+
+var _getPrototypeOf2 = _interopRequireDefault(_getPrototypeOf);
+
+var _classCallCheck2 = __webpack_require__(0);
+
+var _classCallCheck3 = _interopRequireDefault(_classCallCheck2);
+
+var _possibleConstructorReturn2 = __webpack_require__(3);
+
+var _possibleConstructorReturn3 = _interopRequireDefault(_possibleConstructorReturn2);
+
+var _inherits2 = __webpack_require__(4);
+
+var _inherits3 = _interopRequireDefault(_inherits2);
+
+var _propTypes = __webpack_require__(7);
 
 var _propTypes2 = _interopRequireDefault(_propTypes);
 
-var _GeometryDescriptorBase = __webpack_require__(11);
+var _GeometryDescriptorBase = __webpack_require__(17);
 
 var _GeometryDescriptorBase2 = _interopRequireDefault(_GeometryDescriptorBase);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-
-function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-
 var PolyhedronGeometryDescriptorBase = function (_GeometryDescriptorBa) {
-  _inherits(PolyhedronGeometryDescriptorBase, _GeometryDescriptorBa);
+  (0, _inherits3.default)(PolyhedronGeometryDescriptorBase, _GeometryDescriptorBa);
 
   function PolyhedronGeometryDescriptorBase(react3RendererInstance) {
-    _classCallCheck(this, PolyhedronGeometryDescriptorBase);
+    (0, _classCallCheck3.default)(this, PolyhedronGeometryDescriptorBase);
 
-    var _this = _possibleConstructorReturn(this, (PolyhedronGeometryDescriptorBase.__proto__ || Object.getPrototypeOf(PolyhedronGeometryDescriptorBase)).call(this, react3RendererInstance));
+    var _this = (0, _possibleConstructorReturn3.default)(this, (PolyhedronGeometryDescriptorBase.__proto__ || (0, _getPrototypeOf2.default)(PolyhedronGeometryDescriptorBase)).call(this, react3RendererInstance));
 
     ['radius', 'detail'].forEach(function (propName) {
       _this.hasProp(propName, {
@@ -53304,7 +53751,7 @@ var PolyhedronGeometryDescriptorBase = function (_GeometryDescriptorBa) {
 module.exports = PolyhedronGeometryDescriptorBase;
 
 /***/ }),
-/* 71 */
+/* 84 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -53318,15 +53765,15 @@ module.exports = PolyhedronGeometryDescriptorBase;
 
 
 
-var _prodInvariant = __webpack_require__(36),
-    _assign = __webpack_require__(7);
+var _prodInvariant = __webpack_require__(46),
+    _assign = __webpack_require__(13);
 
-var ReactNoopUpdateQueue = __webpack_require__(113);
+var ReactNoopUpdateQueue = __webpack_require__(124);
 
-var canDefineProperty = __webpack_require__(50);
-var emptyObject = __webpack_require__(51);
-var invariant = __webpack_require__(3);
-var lowPriorityWarning = __webpack_require__(72);
+var canDefineProperty = __webpack_require__(61);
+var emptyObject = __webpack_require__(62);
+var invariant = __webpack_require__(8);
+var lowPriorityWarning = __webpack_require__(85);
 
 /**
  * Base class helpers for the updating state of a component.
@@ -53448,10 +53895,10 @@ module.exports = {
   Component: ReactComponent,
   PureComponent: ReactPureComponent
 };
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(5)))
 
 /***/ }),
-/* 72 */
+/* 85 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -53517,10 +53964,10 @@ if (process.env.NODE_ENV !== 'production') {
 }
 
 module.exports = lowPriorityWarning;
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(5)))
 
 /***/ }),
-/* 73 */
+/* 86 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -53582,7 +54029,7 @@ var KeyEscapeUtils = {
 module.exports = KeyEscapeUtils;
 
 /***/ }),
-/* 74 */
+/* 87 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -53608,10 +54055,10 @@ if (process.env.NODE_ENV !== 'production') {
 }
 
 module.exports = ReactPropTypeLocationNames;
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(5)))
 
 /***/ }),
-/* 75 */
+/* 88 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -53625,12 +54072,12 @@ module.exports = ReactPropTypeLocationNames;
 
 
 
-var _prodInvariant = __webpack_require__(5);
+var _prodInvariant = __webpack_require__(11);
 
-var ReactErrorUtils = __webpack_require__(76);
+var ReactErrorUtils = __webpack_require__(89);
 
-var invariant = __webpack_require__(3);
-var warning = __webpack_require__(4);
+var invariant = __webpack_require__(8);
+var warning = __webpack_require__(9);
 
 /**
  * Injected dependencies:
@@ -53838,10 +54285,10 @@ var EventPluginUtils = {
 };
 
 module.exports = EventPluginUtils;
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(5)))
 
 /***/ }),
-/* 76 */
+/* 89 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -53920,10 +54367,10 @@ if (process.env.NODE_ENV !== 'production') {
 }
 
 module.exports = ReactErrorUtils;
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(5)))
 
 /***/ }),
-/* 77 */
+/* 90 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -53961,7 +54408,7 @@ function getEventTarget(nativeEvent) {
 module.exports = getEventTarget;
 
 /***/ }),
-/* 78 */
+/* 91 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -53975,7 +54422,7 @@ module.exports = getEventTarget;
 
 
 
-var ExecutionEnvironment = __webpack_require__(10);
+var ExecutionEnvironment = __webpack_require__(16);
 
 var useHasFeature;
 if (ExecutionEnvironment.canUseDOM) {
@@ -54024,7 +54471,7 @@ function isEventSupported(eventNameSuffix, capture) {
 module.exports = isEventSupported;
 
 /***/ }),
-/* 79 */
+/* 92 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -54070,7 +54517,7 @@ function getEventModifierState(nativeEvent) {
 module.exports = getEventModifierState;
 
 /***/ }),
-/* 80 */
+/* 93 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -54084,14 +54531,14 @@ module.exports = getEventModifierState;
 
 
 
-var DOMLazyTree = __webpack_require__(37);
-var Danger = __webpack_require__(214);
-var ReactDOMComponentTree = __webpack_require__(8);
-var ReactInstrumentation = __webpack_require__(13);
+var DOMLazyTree = __webpack_require__(47);
+var Danger = __webpack_require__(222);
+var ReactDOMComponentTree = __webpack_require__(14);
+var ReactInstrumentation = __webpack_require__(19);
 
-var createMicrosoftUnsafeLocalFunction = __webpack_require__(82);
-var setInnerHTML = __webpack_require__(55);
-var setTextContent = __webpack_require__(131);
+var createMicrosoftUnsafeLocalFunction = __webpack_require__(95);
+var setInnerHTML = __webpack_require__(65);
+var setTextContent = __webpack_require__(143);
 
 function getNodeAfter(parentNode, node) {
   // Special case for text components, which return [open, close] comments
@@ -54297,10 +54744,10 @@ var DOMChildrenOperations = {
 };
 
 module.exports = DOMChildrenOperations;
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(5)))
 
 /***/ }),
-/* 81 */
+/* 94 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -54323,7 +54770,7 @@ var DOMNamespaces = {
 module.exports = DOMNamespaces;
 
 /***/ }),
-/* 82 */
+/* 95 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -54358,7 +54805,7 @@ var createMicrosoftUnsafeLocalFunction = function (func) {
 module.exports = createMicrosoftUnsafeLocalFunction;
 
 /***/ }),
-/* 83 */
+/* 96 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -54372,16 +54819,16 @@ module.exports = createMicrosoftUnsafeLocalFunction;
 
 
 
-var _prodInvariant = __webpack_require__(5);
+var _prodInvariant = __webpack_require__(11);
 
-var ReactPropTypesSecret = __webpack_require__(135);
-var propTypesFactory = __webpack_require__(119);
+var ReactPropTypesSecret = __webpack_require__(147);
+var propTypesFactory = __webpack_require__(131);
 
-var React = __webpack_require__(35);
+var React = __webpack_require__(45);
 var PropTypes = propTypesFactory(React.isValidElement);
 
-var invariant = __webpack_require__(3);
-var warning = __webpack_require__(4);
+var invariant = __webpack_require__(8);
+var warning = __webpack_require__(9);
 
 var hasReadOnlyValue = {
   button: true,
@@ -54497,10 +54944,10 @@ var LinkedValueUtils = {
 };
 
 module.exports = LinkedValueUtils;
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(5)))
 
 /***/ }),
-/* 84 */
+/* 97 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -54515,9 +54962,9 @@ module.exports = LinkedValueUtils;
 
 
 
-var _prodInvariant = __webpack_require__(5);
+var _prodInvariant = __webpack_require__(11);
 
-var invariant = __webpack_require__(3);
+var invariant = __webpack_require__(8);
 
 var injected = false;
 
@@ -54545,10 +54992,10 @@ var ReactComponentEnvironment = {
 };
 
 module.exports = ReactComponentEnvironment;
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(5)))
 
 /***/ }),
-/* 85 */
+/* 98 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -54610,7 +55057,7 @@ var KeyEscapeUtils = {
 module.exports = KeyEscapeUtils;
 
 /***/ }),
-/* 86 */
+/* 99 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -54624,15 +55071,15 @@ module.exports = KeyEscapeUtils;
 
 
 
-var _prodInvariant = __webpack_require__(5);
+var _prodInvariant = __webpack_require__(11);
 
-var ReactCurrentOwner = __webpack_require__(15);
-var REACT_ELEMENT_TYPE = __webpack_require__(238);
+var ReactCurrentOwner = __webpack_require__(22);
+var REACT_ELEMENT_TYPE = __webpack_require__(246);
 
-var getIteratorFn = __webpack_require__(239);
-var invariant = __webpack_require__(3);
-var KeyEscapeUtils = __webpack_require__(85);
-var warning = __webpack_require__(4);
+var getIteratorFn = __webpack_require__(247);
+var invariant = __webpack_require__(8);
+var KeyEscapeUtils = __webpack_require__(98);
+var warning = __webpack_require__(9);
 
 var SEPARATOR = '.';
 var SUBSEPARATOR = ':';
@@ -54787,10 +55234,10 @@ function traverseAllChildren(children, callback, traverseContext) {
 }
 
 module.exports = traverseAllChildren;
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(5)))
 
 /***/ }),
-/* 87 */
+/* 100 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -54804,10 +55251,10 @@ module.exports = traverseAllChildren;
 
 
 
-var _assign = __webpack_require__(7);
+var _assign = __webpack_require__(13);
 
-var emptyFunction = __webpack_require__(19);
-var warning = __webpack_require__(4);
+var emptyFunction = __webpack_require__(27);
+var warning = __webpack_require__(9);
 
 var validateDOMNesting = emptyFunction;
 
@@ -55162,10 +55609,10 @@ if (process.env.NODE_ENV !== 'production') {
 }
 
 module.exports = validateDOMNesting;
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(5)))
 
 /***/ }),
-/* 88 */
+/* 101 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -55218,7 +55665,7 @@ function getEventCharCode(nativeEvent) {
 module.exports = getEventCharCode;
 
 /***/ }),
-/* 89 */
+/* 102 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -55232,7 +55679,7 @@ module.exports = getEventCharCode;
 
 
 
-var ReactNodeTypes = __webpack_require__(140);
+var ReactNodeTypes = __webpack_require__(152);
 
 function getHostComponentFromComposite(inst) {
   var type;
@@ -55251,13 +55698,7 @@ function getHostComponentFromComposite(inst) {
 module.exports = getHostComponentFromComposite;
 
 /***/ }),
-/* 90 */
-/***/ (function(module, exports, __webpack_require__) {
-
-module.exports = { "default": __webpack_require__(276), __esModule: true };
-
-/***/ }),
-/* 91 */
+/* 103 */
 /***/ (function(module, exports) {
 
 // 7.2.1 RequireObjectCoercible(argument)
@@ -55268,21 +55709,21 @@ module.exports = function (it) {
 
 
 /***/ }),
-/* 92 */
+/* 104 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var shared = __webpack_require__(93)('keys');
-var uid = __webpack_require__(61);
+var shared = __webpack_require__(105)('keys');
+var uid = __webpack_require__(72);
 module.exports = function (key) {
   return shared[key] || (shared[key] = uid(key));
 };
 
 
 /***/ }),
-/* 93 */
+/* 105 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var global = __webpack_require__(27);
+var global = __webpack_require__(35);
 var SHARED = '__core-js_shared__';
 var store = global[SHARED] || (global[SHARED] = {});
 module.exports = function (key) {
@@ -55291,11 +55732,11 @@ module.exports = function (key) {
 
 
 /***/ }),
-/* 94 */
+/* 106 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // 7.1.1 ToPrimitive(input [, PreferredType])
-var isObject = __webpack_require__(47);
+var isObject = __webpack_require__(49);
 // instead of the ES6 spec version, we didn't implement @@toPrimitive case
 // and the second argument - flag - preferred type is a string
 module.exports = function (it, S) {
@@ -55309,78 +55750,7 @@ module.exports = function (it, S) {
 
 
 /***/ }),
-/* 95 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-exports.__esModule = true;
-
-exports.default = function (instance, Constructor) {
-  if (!(instance instanceof Constructor)) {
-    throw new TypeError("Cannot call a class as a function");
-  }
-};
-
-/***/ }),
-/* 96 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-exports.__esModule = true;
-
-var _defineProperty = __webpack_require__(280);
-
-var _defineProperty2 = _interopRequireDefault(_defineProperty);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-exports.default = function () {
-  function defineProperties(target, props) {
-    for (var i = 0; i < props.length; i++) {
-      var descriptor = props[i];
-      descriptor.enumerable = descriptor.enumerable || false;
-      descriptor.configurable = true;
-      if ("value" in descriptor) descriptor.writable = true;
-      (0, _defineProperty2.default)(target, descriptor.key, descriptor);
-    }
-  }
-
-  return function (Constructor, protoProps, staticProps) {
-    if (protoProps) defineProperties(Constructor.prototype, protoProps);
-    if (staticProps) defineProperties(Constructor, staticProps);
-    return Constructor;
-  };
-}();
-
-/***/ }),
-/* 97 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-exports.__esModule = true;
-
-var _typeof2 = __webpack_require__(157);
-
-var _typeof3 = _interopRequireDefault(_typeof2);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-exports.default = function (self, call) {
-  if (!self) {
-    throw new ReferenceError("this hasn't been initialised - super() hasn't been called");
-  }
-
-  return call && ((typeof call === "undefined" ? "undefined" : (0, _typeof3.default)(call)) === "object" || typeof call === "function") ? call : self;
-};
-
-/***/ }),
-/* 98 */
+/* 107 */
 /***/ (function(module, exports) {
 
 // 7.1.4 ToInteger
@@ -55392,41 +55762,41 @@ module.exports = function (it) {
 
 
 /***/ }),
-/* 99 */
+/* 108 */
 /***/ (function(module, exports) {
 
 module.exports = true;
 
 
 /***/ }),
-/* 100 */
+/* 109 */
 /***/ (function(module, exports) {
 
 module.exports = {};
 
 
 /***/ }),
-/* 101 */
+/* 110 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // 19.1.2.2 / 15.2.3.5 Object.create(O [, Properties])
-var anObject = __webpack_require__(46);
-var dPs = __webpack_require__(288);
-var enumBugKeys = __webpack_require__(103);
-var IE_PROTO = __webpack_require__(92)('IE_PROTO');
+var anObject = __webpack_require__(58);
+var dPs = __webpack_require__(294);
+var enumBugKeys = __webpack_require__(111);
+var IE_PROTO = __webpack_require__(104)('IE_PROTO');
 var Empty = function () { /* empty */ };
 var PROTOTYPE = 'prototype';
 
 // Create object with fake `null` prototype: use iframe Object with cleared prototype
 var createDict = function () {
   // Thrash, waste and sodomy: IE GC bug
-  var iframe = __webpack_require__(156)('iframe');
+  var iframe = __webpack_require__(167)('iframe');
   var i = enumBugKeys.length;
   var lt = '<';
   var gt = '>';
   var iframeDocument;
   iframe.style.display = 'none';
-  __webpack_require__(293).appendChild(iframe);
+  __webpack_require__(298).appendChild(iframe);
   iframe.src = 'javascript:'; // eslint-disable-line no-script-url
   // createDict = iframe.contentWindow.Object;
   // html.removeChild(iframe);
@@ -55453,20 +55823,7 @@ module.exports = Object.create || function create(O, Properties) {
 
 
 /***/ }),
-/* 102 */
-/***/ (function(module, exports, __webpack_require__) {
-
-// 19.1.2.14 / 15.2.3.14 Object.keys(O)
-var $keys = __webpack_require__(160);
-var enumBugKeys = __webpack_require__(103);
-
-module.exports = Object.keys || function keys(O) {
-  return $keys(O, enumBugKeys);
-};
-
-
-/***/ }),
-/* 103 */
+/* 111 */
 /***/ (function(module, exports) {
 
 // IE 8- don't enum bug keys
@@ -55476,12 +55833,12 @@ module.exports = (
 
 
 /***/ }),
-/* 104 */
+/* 112 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var def = __webpack_require__(32).f;
-var has = __webpack_require__(31);
-var TAG = __webpack_require__(41)('toStringTag');
+var def = __webpack_require__(41).f;
+var has = __webpack_require__(40);
+var TAG = __webpack_require__(52)('toStringTag');
 
 module.exports = function (it, tag, stat) {
   if (it && !has(it = stat ? it : it.prototype, TAG)) def(it, TAG, { configurable: true, value: tag });
@@ -55489,21 +55846,21 @@ module.exports = function (it, tag, stat) {
 
 
 /***/ }),
-/* 105 */
+/* 113 */
 /***/ (function(module, exports, __webpack_require__) {
 
-exports.f = __webpack_require__(41);
+exports.f = __webpack_require__(52);
 
 
 /***/ }),
-/* 106 */
+/* 114 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var global = __webpack_require__(27);
-var core = __webpack_require__(28);
-var LIBRARY = __webpack_require__(99);
-var wksExt = __webpack_require__(105);
-var defineProperty = __webpack_require__(32).f;
+var global = __webpack_require__(35);
+var core = __webpack_require__(24);
+var LIBRARY = __webpack_require__(108);
+var wksExt = __webpack_require__(113);
+var defineProperty = __webpack_require__(41).f;
 module.exports = function (name) {
   var $Symbol = core.Symbol || (core.Symbol = LIBRARY ? {} : global.Symbol || {});
   if (name.charAt(0) != '_' && !(name in $Symbol)) defineProperty($Symbol, name, { value: wksExt.f(name) });
@@ -55511,53 +55868,58 @@ module.exports = function (name) {
 
 
 /***/ }),
-/* 107 */
+/* 115 */
 /***/ (function(module, exports) {
 
-exports.f = {}.propertyIsEnumerable;
+exports.f = Object.getOwnPropertySymbols;
 
 
 /***/ }),
-/* 108 */
+/* 116 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var pIE = __webpack_require__(59);
+var createDesc = __webpack_require__(74);
+var toIObject = __webpack_require__(37);
+var toPrimitive = __webpack_require__(106);
+var has = __webpack_require__(40);
+var IE8_DOM_DEFINE = __webpack_require__(166);
+var gOPD = Object.getOwnPropertyDescriptor;
+
+exports.f = __webpack_require__(42) ? gOPD : function getOwnPropertyDescriptor(O, P) {
+  O = toIObject(O);
+  P = toPrimitive(P, true);
+  if (IE8_DOM_DEFINE) try {
+    return gOPD(O, P);
+  } catch (e) { /* empty */ }
+  if (has(O, P)) return createDesc(!pIE.f.call(O, P), O[P]);
+};
+
+
+/***/ }),
+/* 117 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
-exports.__esModule = true;
+var _React = __webpack_require__(320);
 
-var _setPrototypeOf = __webpack_require__(308);
-
-var _setPrototypeOf2 = _interopRequireDefault(_setPrototypeOf);
-
-var _create = __webpack_require__(312);
-
-var _create2 = _interopRequireDefault(_create);
-
-var _typeof2 = __webpack_require__(157);
-
-var _typeof3 = _interopRequireDefault(_typeof2);
+var _React2 = _interopRequireDefault(_React);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-exports.default = function (subClass, superClass) {
-  if (typeof superClass !== "function" && superClass !== null) {
-    throw new TypeError("Super expression must either be null or a function, not " + (typeof superClass === "undefined" ? "undefined" : (0, _typeof3.default)(superClass)));
-  }
-
-  subClass.prototype = (0, _create2.default)(superClass && superClass.prototype, {
-    constructor: {
-      value: subClass,
-      enumerable: false,
-      writable: true,
-      configurable: true
-    }
-  });
-  if (superClass) _setPrototypeOf2.default ? (0, _setPrototypeOf2.default)(subClass, superClass) : subClass.__proto__ = superClass;
-};
+module.exports = _React2.default; // Use this file if you like to compile from the source files instead of the lib.
+// It may save you some bytes, as for example babel runtime is no longer a hidden dependency.
 
 /***/ }),
-/* 109 */
+/* 118 */
+/***/ (function(module, exports, __webpack_require__) {
+
+module.exports = { "default": __webpack_require__(321), __esModule: true };
+
+/***/ }),
+/* 119 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -55578,7 +55940,7 @@ module.exports = ReactPropTypesSecret;
 
 
 /***/ }),
-/* 110 */
+/* 120 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -55587,31 +55949,91 @@ module.exports = ReactPropTypesSecret;
 module.exports = 'data-reactid';
 
 /***/ }),
-/* 111 */
+/* 121 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
-var _three = __webpack_require__(1);
+var _classCallCheck2 = __webpack_require__(0);
+
+var _classCallCheck3 = _interopRequireDefault(_classCallCheck2);
+
+var _createClass2 = __webpack_require__(1);
+
+var _createClass3 = _interopRequireDefault(_createClass2);
+
+var _three = __webpack_require__(6);
 
 var THREE = _interopRequireWildcard(_three);
 
 function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj.default = obj; return newObj; } }
 
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+var React3Module = function () {
+  function React3Module() {
+    (0, _classCallCheck3.default)(this, React3Module);
 
-function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+    this.userData = {};
+    this.uuid = THREE.Math.generateUUID();
+  }
+
+  (0, _createClass3.default)(React3Module, [{
+    key: 'setup',
+    value: function setup(react3RendererInstance) {// eslint-disable-line no-unused-vars
+
+    }
+  }, {
+    key: 'update',
+    value: function update() {}
+  }, {
+    key: 'dispose',
+    value: function dispose() {}
+  }]);
+  return React3Module;
+}();
+
+module.exports = React3Module;
+
+/***/ }),
+/* 122 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var _getPrototypeOf = __webpack_require__(2);
+
+var _getPrototypeOf2 = _interopRequireDefault(_getPrototypeOf);
+
+var _classCallCheck2 = __webpack_require__(0);
+
+var _classCallCheck3 = _interopRequireDefault(_classCallCheck2);
+
+var _possibleConstructorReturn2 = __webpack_require__(3);
+
+var _possibleConstructorReturn3 = _interopRequireDefault(_possibleConstructorReturn2);
+
+var _inherits2 = __webpack_require__(4);
+
+var _inherits3 = _interopRequireDefault(_inherits2);
+
+var _three = __webpack_require__(6);
+
+var THREE = _interopRequireWildcard(_three);
+
+function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj.default = obj; return newObj; } }
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 var ResourceContainer = function (_THREE$Object3D) {
-  _inherits(ResourceContainer, _THREE$Object3D);
+  (0, _inherits3.default)(ResourceContainer, _THREE$Object3D);
 
   function ResourceContainer() {
-    _classCallCheck(this, ResourceContainer);
+    (0, _classCallCheck3.default)(this, ResourceContainer);
 
-    var _this = _possibleConstructorReturn(this, (ResourceContainer.__proto__ || Object.getPrototypeOf(ResourceContainer)).call(this));
+    var _this = (0, _possibleConstructorReturn3.default)(this, (ResourceContainer.__proto__ || (0, _getPrototypeOf2.default)(ResourceContainer)).call(this));
 
     _this.visible = false;
 
@@ -55626,22 +56048,26 @@ var ResourceContainer = function (_THREE$Object3D) {
 module.exports = ResourceContainer;
 
 /***/ }),
-/* 112 */
+/* 123 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
-var _three = __webpack_require__(1);
+var _classCallCheck2 = __webpack_require__(0);
+
+var _classCallCheck3 = _interopRequireDefault(_classCallCheck2);
+
+var _three = __webpack_require__(6);
 
 var THREE = _interopRequireWildcard(_three);
 
 function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj.default = obj; return newObj; } }
 
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 var UniformContainer = function UniformContainer() {
-  _classCallCheck(this, UniformContainer);
+  (0, _classCallCheck3.default)(this, UniformContainer);
 
   this.userData = {};
   this.uniforms = {};
@@ -55651,7 +56077,7 @@ var UniformContainer = function UniformContainer() {
 module.exports = UniformContainer;
 
 /***/ }),
-/* 113 */
+/* 124 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -55665,7 +56091,7 @@ module.exports = UniformContainer;
 
 
 
-var warning = __webpack_require__(4);
+var warning = __webpack_require__(9);
 
 function warnNoop(publicInstance, callerName) {
   if (process.env.NODE_ENV !== 'production') {
@@ -55747,10 +56173,10 @@ var ReactNoopUpdateQueue = {
 };
 
 module.exports = ReactNoopUpdateQueue;
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(5)))
 
 /***/ }),
-/* 114 */
+/* 125 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -55773,7 +56199,7 @@ var REACT_ELEMENT_TYPE = typeof Symbol === 'function' && Symbol['for'] && Symbol
 module.exports = REACT_ELEMENT_TYPE;
 
 /***/ }),
-/* 115 */
+/* 126 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -55787,15 +56213,15 @@ module.exports = REACT_ELEMENT_TYPE;
 
 
 
-var _prodInvariant = __webpack_require__(36);
+var _prodInvariant = __webpack_require__(46);
 
-var ReactCurrentOwner = __webpack_require__(15);
-var REACT_ELEMENT_TYPE = __webpack_require__(114);
+var ReactCurrentOwner = __webpack_require__(22);
+var REACT_ELEMENT_TYPE = __webpack_require__(125);
 
-var getIteratorFn = __webpack_require__(116);
-var invariant = __webpack_require__(3);
-var KeyEscapeUtils = __webpack_require__(73);
-var warning = __webpack_require__(4);
+var getIteratorFn = __webpack_require__(127);
+var invariant = __webpack_require__(8);
+var KeyEscapeUtils = __webpack_require__(86);
+var warning = __webpack_require__(9);
 
 var SEPARATOR = '.';
 var SUBSEPARATOR = ':';
@@ -55950,10 +56376,10 @@ function traverseAllChildren(children, callback, traverseContext) {
 }
 
 module.exports = traverseAllChildren;
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(5)))
 
 /***/ }),
-/* 116 */
+/* 127 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -55997,7 +56423,7 @@ function getIteratorFn(maybeIterable) {
 module.exports = getIteratorFn;
 
 /***/ }),
-/* 117 */
+/* 128 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -56018,16 +56444,16 @@ module.exports = getIteratorFn;
 
 
 
-var ReactCurrentOwner = __webpack_require__(15);
-var ReactComponentTreeHook = __webpack_require__(12);
-var ReactElement = __webpack_require__(21);
+var ReactCurrentOwner = __webpack_require__(22);
+var ReactComponentTreeHook = __webpack_require__(18);
+var ReactElement = __webpack_require__(29);
 
-var checkReactTypeSpec = __webpack_require__(118);
+var checkReactTypeSpec = __webpack_require__(129);
 
-var canDefineProperty = __webpack_require__(50);
-var getIteratorFn = __webpack_require__(116);
-var warning = __webpack_require__(4);
-var lowPriorityWarning = __webpack_require__(72);
+var canDefineProperty = __webpack_require__(61);
+var getIteratorFn = __webpack_require__(127);
+var warning = __webpack_require__(9);
+var lowPriorityWarning = __webpack_require__(85);
 
 function getDeclarationErrorAddendum() {
   if (ReactCurrentOwner.current) {
@@ -56253,10 +56679,10 @@ var ReactElementValidator = {
 };
 
 module.exports = ReactElementValidator;
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(5)))
 
 /***/ }),
-/* 118 */
+/* 129 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -56270,13 +56696,13 @@ module.exports = ReactElementValidator;
 
 
 
-var _prodInvariant = __webpack_require__(36);
+var _prodInvariant = __webpack_require__(46);
 
-var ReactPropTypeLocationNames = __webpack_require__(74);
-var ReactPropTypesSecret = __webpack_require__(187);
+var ReactPropTypeLocationNames = __webpack_require__(87);
+var ReactPropTypesSecret = __webpack_require__(196);
 
-var invariant = __webpack_require__(3);
-var warning = __webpack_require__(4);
+var invariant = __webpack_require__(8);
+var warning = __webpack_require__(9);
 
 var ReactComponentTreeHook;
 
@@ -56286,7 +56712,7 @@ if (typeof process !== 'undefined' && process.env && process.env.NODE_ENV === 't
   // https://github.com/facebook/react/issues/7240
   // Remove the inline requires when we don't need them anymore:
   // https://github.com/facebook/react/pull/7178
-  ReactComponentTreeHook = __webpack_require__(12);
+  ReactComponentTreeHook = __webpack_require__(18);
 }
 
 var loggedTypeFailures = {};
@@ -56328,7 +56754,7 @@ function checkReactTypeSpec(typeSpecs, values, location, componentName, element,
 
         if (process.env.NODE_ENV !== 'production') {
           if (!ReactComponentTreeHook) {
-            ReactComponentTreeHook = __webpack_require__(12);
+            ReactComponentTreeHook = __webpack_require__(18);
           }
           if (debugID !== null) {
             componentStackInfo = ReactComponentTreeHook.getStackAddendumByID(debugID);
@@ -56344,10 +56770,32 @@ function checkReactTypeSpec(typeSpecs, values, location, componentName, element,
 }
 
 module.exports = checkReactTypeSpec;
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(5)))
 
 /***/ }),
-/* 119 */
+/* 130 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+/**
+ * Copyright (c) 2013-present, Facebook, Inc.
+ *
+ * This source code is licensed under the MIT license found in the
+ * LICENSE file in the root directory of this source tree.
+ *
+ */
+
+
+
+var _require = __webpack_require__(29),
+    isValidElement = _require.isValidElement;
+
+var factory = __webpack_require__(131);
+
+module.exports = factory(isValidElement);
+
+/***/ }),
+/* 131 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -56364,7 +56812,7 @@ module.exports = checkReactTypeSpec;
 // Therefore we re-export development-only version with all the PropTypes checks here.
 // However if one is migrating to the `prop-types` npm library, they will go through the
 // `index.js` entry point, and it will branch depending on the environment.
-var factory = __webpack_require__(189);
+var factory = __webpack_require__(197);
 module.exports = function(isValidElement) {
   // It is still allowed in 15.5.
   var throwOnDirectAccess = false;
@@ -56373,7 +56821,7 @@ module.exports = function(isValidElement) {
 
 
 /***/ }),
-/* 120 */
+/* 132 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -56392,7 +56840,7 @@ module.exports = ReactPropTypesSecret;
 
 
 /***/ }),
-/* 121 */
+/* 133 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -56413,7 +56861,7 @@ var ReactDOMComponentFlags = {
 module.exports = ReactDOMComponentFlags;
 
 /***/ }),
-/* 122 */
+/* 134 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -56428,9 +56876,9 @@ module.exports = ReactDOMComponentFlags;
 
 
 
-var _prodInvariant = __webpack_require__(5);
+var _prodInvariant = __webpack_require__(11);
 
-var invariant = __webpack_require__(3);
+var invariant = __webpack_require__(8);
 
 /**
  * Accumulates items that must not be null or undefined into the first one. This
@@ -56472,10 +56920,10 @@ function accumulateInto(current, next) {
 }
 
 module.exports = accumulateInto;
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(5)))
 
 /***/ }),
-/* 123 */
+/* 135 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -56509,7 +56957,7 @@ function forEachAccumulated(arr, cb, scope) {
 module.exports = forEachAccumulated;
 
 /***/ }),
-/* 124 */
+/* 136 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -56523,7 +56971,7 @@ module.exports = forEachAccumulated;
 
 
 
-var ExecutionEnvironment = __webpack_require__(10);
+var ExecutionEnvironment = __webpack_require__(16);
 
 var contentKey = null;
 
@@ -56545,7 +56993,7 @@ function getTextContentAccessor() {
 module.exports = getTextContentAccessor;
 
 /***/ }),
-/* 125 */
+/* 137 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -56560,13 +57008,13 @@ module.exports = getTextContentAccessor;
 
 
 
-var _prodInvariant = __webpack_require__(5);
+var _prodInvariant = __webpack_require__(11);
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
-var PooledClass = __webpack_require__(30);
+var PooledClass = __webpack_require__(39);
 
-var invariant = __webpack_require__(3);
+var invariant = __webpack_require__(8);
 
 /**
  * A specialized pseudo-event module to help keep track of components waiting to
@@ -56665,10 +57113,10 @@ var CallbackQueue = function () {
 }();
 
 module.exports = PooledClass.addPoolingTo(CallbackQueue);
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(5)))
 
 /***/ }),
-/* 126 */
+/* 138 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -56693,7 +57141,7 @@ var ReactFeatureFlags = {
 module.exports = ReactFeatureFlags;
 
 /***/ }),
-/* 127 */
+/* 139 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -56708,7 +57156,7 @@ module.exports = ReactFeatureFlags;
 
 
 
-var ReactOwner = __webpack_require__(204);
+var ReactOwner = __webpack_require__(212);
 
 var ReactRef = {};
 
@@ -56785,7 +57233,7 @@ ReactRef.detachRefs = function (instance, element) {
 module.exports = ReactRef;
 
 /***/ }),
-/* 128 */
+/* 140 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -56799,7 +57247,7 @@ module.exports = ReactRef;
 
 
 
-var ReactDOMComponentTree = __webpack_require__(8);
+var ReactDOMComponentTree = __webpack_require__(14);
 
 function isCheckable(elem) {
   var type = elem.type;
@@ -56911,7 +57359,7 @@ var inputValueTracking = {
 module.exports = inputValueTracking;
 
 /***/ }),
-/* 129 */
+/* 141 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -56965,7 +57413,7 @@ function isTextInputElement(elem) {
 module.exports = isTextInputElement;
 
 /***/ }),
-/* 130 */
+/* 142 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -56993,7 +57441,7 @@ var ViewportMetrics = {
 module.exports = ViewportMetrics;
 
 /***/ }),
-/* 131 */
+/* 143 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -57007,9 +57455,9 @@ module.exports = ViewportMetrics;
 
 
 
-var ExecutionEnvironment = __webpack_require__(10);
-var escapeTextContentForBrowser = __webpack_require__(56);
-var setInnerHTML = __webpack_require__(55);
+var ExecutionEnvironment = __webpack_require__(16);
+var escapeTextContentForBrowser = __webpack_require__(66);
+var setInnerHTML = __webpack_require__(65);
 
 /**
  * Set the textContent property of a node, ensuring that whitespace is preserved
@@ -57048,7 +57496,7 @@ if (ExecutionEnvironment.canUseDOM) {
 module.exports = setTextContent;
 
 /***/ }),
-/* 132 */
+/* 144 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -57078,7 +57526,7 @@ function focusNode(node) {
 module.exports = focusNode;
 
 /***/ }),
-/* 133 */
+/* 145 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -57236,7 +57684,7 @@ var CSSProperty = {
 module.exports = CSSProperty;
 
 /***/ }),
-/* 134 */
+/* 146 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -57250,12 +57698,12 @@ module.exports = CSSProperty;
 
 
 
-var DOMProperty = __webpack_require__(24);
-var ReactDOMComponentTree = __webpack_require__(8);
-var ReactInstrumentation = __webpack_require__(13);
+var DOMProperty = __webpack_require__(32);
+var ReactDOMComponentTree = __webpack_require__(14);
+var ReactInstrumentation = __webpack_require__(19);
 
-var quoteAttributeValueForBrowser = __webpack_require__(228);
-var warning = __webpack_require__(4);
+var quoteAttributeValueForBrowser = __webpack_require__(236);
+var warning = __webpack_require__(9);
 
 var VALID_ATTRIBUTE_NAME_REGEX = new RegExp('^[' + DOMProperty.ATTRIBUTE_NAME_START_CHAR + '][' + DOMProperty.ATTRIBUTE_NAME_CHAR + ']*$');
 var illegalAttributeNameCache = {};
@@ -57472,10 +57920,10 @@ var DOMPropertyOperations = {
 };
 
 module.exports = DOMPropertyOperations;
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(5)))
 
 /***/ }),
-/* 135 */
+/* 147 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -57495,7 +57943,7 @@ var ReactPropTypesSecret = 'SECRET_DO_NOT_PASS_THIS_OR_YOU_WILL_BE_FIRED';
 module.exports = ReactPropTypesSecret;
 
 /***/ }),
-/* 136 */
+/* 148 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -57509,13 +57957,13 @@ module.exports = ReactPropTypesSecret;
 
 
 
-var _assign = __webpack_require__(7);
+var _assign = __webpack_require__(13);
 
-var LinkedValueUtils = __webpack_require__(83);
-var ReactDOMComponentTree = __webpack_require__(8);
-var ReactUpdates = __webpack_require__(16);
+var LinkedValueUtils = __webpack_require__(96);
+var ReactDOMComponentTree = __webpack_require__(14);
+var ReactUpdates = __webpack_require__(23);
 
-var warning = __webpack_require__(4);
+var warning = __webpack_require__(9);
 
 var didWarnValueLink = false;
 var didWarnValueDefaultValue = false;
@@ -57696,10 +58144,10 @@ function _handleChange(event) {
 }
 
 module.exports = ReactDOMSelect;
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(5)))
 
 /***/ }),
-/* 137 */
+/* 149 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -57713,19 +58161,19 @@ module.exports = ReactDOMSelect;
 
 
 
-var _prodInvariant = __webpack_require__(5);
+var _prodInvariant = __webpack_require__(11);
 
-var ReactComponentEnvironment = __webpack_require__(84);
-var ReactInstanceMap = __webpack_require__(26);
-var ReactInstrumentation = __webpack_require__(13);
+var ReactComponentEnvironment = __webpack_require__(97);
+var ReactInstanceMap = __webpack_require__(34);
+var ReactInstrumentation = __webpack_require__(19);
 
-var ReactCurrentOwner = __webpack_require__(15);
-var ReactReconciler = __webpack_require__(25);
-var ReactChildReconciler = __webpack_require__(234);
+var ReactCurrentOwner = __webpack_require__(22);
+var ReactReconciler = __webpack_require__(33);
+var ReactChildReconciler = __webpack_require__(242);
 
-var emptyFunction = __webpack_require__(19);
-var flattenChildren = __webpack_require__(240);
-var invariant = __webpack_require__(3);
+var emptyFunction = __webpack_require__(27);
+var flattenChildren = __webpack_require__(248);
+var invariant = __webpack_require__(8);
 
 /**
  * Make an update for markup to be rendered and inserted at a supplied index.
@@ -58146,10 +58594,10 @@ var ReactMultiChild = {
 };
 
 module.exports = ReactMultiChild;
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(5)))
 
 /***/ }),
-/* 138 */
+/* 150 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -58163,16 +58611,16 @@ module.exports = ReactMultiChild;
 
 
 
-var _prodInvariant = __webpack_require__(5),
-    _assign = __webpack_require__(7);
+var _prodInvariant = __webpack_require__(11),
+    _assign = __webpack_require__(13);
 
-var ReactCompositeComponent = __webpack_require__(139);
-var ReactEmptyComponent = __webpack_require__(141);
-var ReactHostComponent = __webpack_require__(142);
+var ReactCompositeComponent = __webpack_require__(151);
+var ReactEmptyComponent = __webpack_require__(153);
+var ReactHostComponent = __webpack_require__(154);
 
-var getNextDebugID = __webpack_require__(237);
-var invariant = __webpack_require__(3);
-var warning = __webpack_require__(4);
+var getNextDebugID = __webpack_require__(245);
+var invariant = __webpack_require__(8);
+var warning = __webpack_require__(9);
 
 // To avoid a cyclic dependency, we create the final class in this module
 var ReactCompositeComponentWrapper = function (element) {
@@ -58279,10 +58727,10 @@ _assign(ReactCompositeComponentWrapper.prototype, ReactCompositeComponent, {
 });
 
 module.exports = instantiateReactComponent;
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(5)))
 
 /***/ }),
-/* 139 */
+/* 151 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -58296,27 +58744,27 @@ module.exports = instantiateReactComponent;
 
 
 
-var _prodInvariant = __webpack_require__(5),
-    _assign = __webpack_require__(7);
+var _prodInvariant = __webpack_require__(11),
+    _assign = __webpack_require__(13);
 
-var React = __webpack_require__(35);
-var ReactComponentEnvironment = __webpack_require__(84);
-var ReactCurrentOwner = __webpack_require__(15);
-var ReactErrorUtils = __webpack_require__(76);
-var ReactInstanceMap = __webpack_require__(26);
-var ReactInstrumentation = __webpack_require__(13);
-var ReactNodeTypes = __webpack_require__(140);
-var ReactReconciler = __webpack_require__(25);
+var React = __webpack_require__(45);
+var ReactComponentEnvironment = __webpack_require__(97);
+var ReactCurrentOwner = __webpack_require__(22);
+var ReactErrorUtils = __webpack_require__(89);
+var ReactInstanceMap = __webpack_require__(34);
+var ReactInstrumentation = __webpack_require__(19);
+var ReactNodeTypes = __webpack_require__(152);
+var ReactReconciler = __webpack_require__(33);
 
 if (process.env.NODE_ENV !== 'production') {
-  var checkReactTypeSpec = __webpack_require__(235);
+  var checkReactTypeSpec = __webpack_require__(243);
 }
 
-var emptyObject = __webpack_require__(51);
-var invariant = __webpack_require__(3);
-var shallowEqual = __webpack_require__(58);
-var shouldUpdateReactComponent = __webpack_require__(59);
-var warning = __webpack_require__(4);
+var emptyObject = __webpack_require__(62);
+var invariant = __webpack_require__(8);
+var shallowEqual = __webpack_require__(68);
+var shouldUpdateReactComponent = __webpack_require__(69);
+var warning = __webpack_require__(9);
 
 var CompositeTypes = {
   ImpureClass: 0,
@@ -59183,10 +59631,10 @@ var ReactCompositeComponent = {
 };
 
 module.exports = ReactCompositeComponent;
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(5)))
 
 /***/ }),
-/* 140 */
+/* 152 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -59201,11 +59649,11 @@ module.exports = ReactCompositeComponent;
 
 
 
-var _prodInvariant = __webpack_require__(5);
+var _prodInvariant = __webpack_require__(11);
 
-var React = __webpack_require__(35);
+var React = __webpack_require__(45);
 
-var invariant = __webpack_require__(3);
+var invariant = __webpack_require__(8);
 
 var ReactNodeTypes = {
   HOST: 0,
@@ -59227,10 +59675,10 @@ var ReactNodeTypes = {
 };
 
 module.exports = ReactNodeTypes;
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(5)))
 
 /***/ }),
-/* 141 */
+/* 153 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -59263,7 +59711,7 @@ ReactEmptyComponent.injection = ReactEmptyComponentInjection;
 module.exports = ReactEmptyComponent;
 
 /***/ }),
-/* 142 */
+/* 154 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -59277,9 +59725,9 @@ module.exports = ReactEmptyComponent;
 
 
 
-var _prodInvariant = __webpack_require__(5);
+var _prodInvariant = __webpack_require__(11);
 
-var invariant = __webpack_require__(3);
+var invariant = __webpack_require__(8);
 
 var genericComponentClass = null;
 var textComponentClass = null;
@@ -59332,10 +59780,10 @@ var ReactHostComponent = {
 };
 
 module.exports = ReactHostComponent;
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(5)))
 
 /***/ }),
-/* 143 */
+/* 155 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -59349,12 +59797,12 @@ module.exports = ReactHostComponent;
 
 
 
-var _assign = __webpack_require__(7);
+var _assign = __webpack_require__(13);
 
-var ReactUpdates = __webpack_require__(16);
-var Transaction = __webpack_require__(53);
+var ReactUpdates = __webpack_require__(23);
+var Transaction = __webpack_require__(64);
 
-var emptyFunction = __webpack_require__(19);
+var emptyFunction = __webpack_require__(27);
 
 var RESET_BATCHED_UPDATES = {
   initialize: emptyFunction,
@@ -59406,7 +59854,7 @@ var ReactDefaultBatchingStrategy = {
 module.exports = ReactDefaultBatchingStrategy;
 
 /***/ }),
-/* 144 */
+/* 156 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -59421,7 +59869,7 @@ module.exports = ReactDefaultBatchingStrategy;
  * @typechecks
  */
 
-var emptyFunction = __webpack_require__(19);
+var emptyFunction = __webpack_require__(27);
 
 /**
  * Upstream version of event listener. Does not take into account specific
@@ -59484,10 +59932,10 @@ var EventListener = {
 };
 
 module.exports = EventListener;
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(5)))
 
 /***/ }),
-/* 145 */
+/* 157 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -59501,14 +59949,14 @@ module.exports = EventListener;
 
 
 
-var DOMProperty = __webpack_require__(24);
-var EventPluginHub = __webpack_require__(44);
-var EventPluginUtils = __webpack_require__(75);
-var ReactComponentEnvironment = __webpack_require__(84);
-var ReactEmptyComponent = __webpack_require__(141);
-var ReactBrowserEventEmitter = __webpack_require__(57);
-var ReactHostComponent = __webpack_require__(142);
-var ReactUpdates = __webpack_require__(16);
+var DOMProperty = __webpack_require__(32);
+var EventPluginHub = __webpack_require__(55);
+var EventPluginUtils = __webpack_require__(88);
+var ReactComponentEnvironment = __webpack_require__(97);
+var ReactEmptyComponent = __webpack_require__(153);
+var ReactBrowserEventEmitter = __webpack_require__(67);
+var ReactHostComponent = __webpack_require__(154);
+var ReactUpdates = __webpack_require__(23);
 
 var ReactInjection = {
   Component: ReactComponentEnvironment.injection,
@@ -59524,7 +59972,7 @@ var ReactInjection = {
 module.exports = ReactInjection;
 
 /***/ }),
-/* 146 */
+/* 158 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -59538,15 +59986,15 @@ module.exports = ReactInjection;
 
 
 
-var _assign = __webpack_require__(7);
+var _assign = __webpack_require__(13);
 
-var CallbackQueue = __webpack_require__(125);
-var PooledClass = __webpack_require__(30);
-var ReactBrowserEventEmitter = __webpack_require__(57);
-var ReactInputSelection = __webpack_require__(147);
-var ReactInstrumentation = __webpack_require__(13);
-var Transaction = __webpack_require__(53);
-var ReactUpdateQueue = __webpack_require__(60);
+var CallbackQueue = __webpack_require__(137);
+var PooledClass = __webpack_require__(39);
+var ReactBrowserEventEmitter = __webpack_require__(67);
+var ReactInputSelection = __webpack_require__(159);
+var ReactInstrumentation = __webpack_require__(19);
+var Transaction = __webpack_require__(64);
+var ReactUpdateQueue = __webpack_require__(70);
 
 /**
  * Ensures that, when possible, the selection range (currently selected text
@@ -59703,10 +60151,10 @@ _assign(ReactReconcileTransaction.prototype, Transaction, Mixin);
 PooledClass.addPoolingTo(ReactReconcileTransaction);
 
 module.exports = ReactReconcileTransaction;
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(5)))
 
 /***/ }),
-/* 147 */
+/* 159 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -59720,11 +60168,11 @@ module.exports = ReactReconcileTransaction;
 
 
 
-var ReactDOMSelection = __webpack_require__(248);
+var ReactDOMSelection = __webpack_require__(256);
 
-var containsNode = __webpack_require__(250);
-var focusNode = __webpack_require__(132);
-var getActiveElement = __webpack_require__(148);
+var containsNode = __webpack_require__(258);
+var focusNode = __webpack_require__(144);
+var getActiveElement = __webpack_require__(160);
 
 function isInDocument(node) {
   return containsNode(document.documentElement, node);
@@ -59832,7 +60280,7 @@ var ReactInputSelection = {
 module.exports = ReactInputSelection;
 
 /***/ }),
-/* 148 */
+/* 160 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -59874,7 +60322,7 @@ function getActiveElement(doc) /*?DOMElement*/{
 module.exports = getActiveElement;
 
 /***/ }),
-/* 149 */
+/* 161 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -59888,30 +60336,30 @@ module.exports = getActiveElement;
 
 
 
-var _prodInvariant = __webpack_require__(5);
+var _prodInvariant = __webpack_require__(11);
 
-var DOMLazyTree = __webpack_require__(37);
-var DOMProperty = __webpack_require__(24);
-var React = __webpack_require__(35);
-var ReactBrowserEventEmitter = __webpack_require__(57);
-var ReactCurrentOwner = __webpack_require__(15);
-var ReactDOMComponentTree = __webpack_require__(8);
-var ReactDOMContainerInfo = __webpack_require__(265);
-var ReactDOMFeatureFlags = __webpack_require__(266);
-var ReactFeatureFlags = __webpack_require__(126);
-var ReactInstanceMap = __webpack_require__(26);
-var ReactInstrumentation = __webpack_require__(13);
-var ReactMarkupChecksum = __webpack_require__(267);
-var ReactReconciler = __webpack_require__(25);
-var ReactUpdateQueue = __webpack_require__(60);
-var ReactUpdates = __webpack_require__(16);
+var DOMLazyTree = __webpack_require__(47);
+var DOMProperty = __webpack_require__(32);
+var React = __webpack_require__(45);
+var ReactBrowserEventEmitter = __webpack_require__(67);
+var ReactCurrentOwner = __webpack_require__(22);
+var ReactDOMComponentTree = __webpack_require__(14);
+var ReactDOMContainerInfo = __webpack_require__(273);
+var ReactDOMFeatureFlags = __webpack_require__(274);
+var ReactFeatureFlags = __webpack_require__(138);
+var ReactInstanceMap = __webpack_require__(34);
+var ReactInstrumentation = __webpack_require__(19);
+var ReactMarkupChecksum = __webpack_require__(275);
+var ReactReconciler = __webpack_require__(33);
+var ReactUpdateQueue = __webpack_require__(70);
+var ReactUpdates = __webpack_require__(23);
 
-var emptyObject = __webpack_require__(51);
-var instantiateReactComponent = __webpack_require__(138);
-var invariant = __webpack_require__(3);
-var setInnerHTML = __webpack_require__(55);
-var shouldUpdateReactComponent = __webpack_require__(59);
-var warning = __webpack_require__(4);
+var emptyObject = __webpack_require__(62);
+var instantiateReactComponent = __webpack_require__(150);
+var invariant = __webpack_require__(8);
+var setInnerHTML = __webpack_require__(65);
+var shouldUpdateReactComponent = __webpack_require__(69);
+var warning = __webpack_require__(9);
 
 var ATTR_NAME = DOMProperty.ID_ATTRIBUTE_NAME;
 var ROOT_ATTR_NAME = DOMProperty.ROOT_ATTRIBUTE_NAME;
@@ -60413,10 +60861,10 @@ var ReactMount = {
 };
 
 module.exports = ReactMount;
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(5)))
 
 /***/ }),
-/* 150 */
+/* 162 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -60430,11 +60878,11 @@ module.exports = ReactMount;
 
 
 
-var DOMProperty = __webpack_require__(24);
-var EventPluginRegistry = __webpack_require__(52);
-var ReactComponentTreeHook = __webpack_require__(12);
+var DOMProperty = __webpack_require__(32);
+var EventPluginRegistry = __webpack_require__(63);
+var ReactComponentTreeHook = __webpack_require__(18);
 
-var warning = __webpack_require__(4);
+var warning = __webpack_require__(9);
 
 if (process.env.NODE_ENV !== 'production') {
   var reactProps = {
@@ -60529,10 +60977,10 @@ var ReactDOMUnknownPropertyHook = {
 };
 
 module.exports = ReactDOMUnknownPropertyHook;
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(5)))
 
 /***/ }),
-/* 151 */
+/* 163 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -60546,9 +60994,9 @@ module.exports = ReactDOMUnknownPropertyHook;
 
 
 
-var ReactComponentTreeHook = __webpack_require__(12);
+var ReactComponentTreeHook = __webpack_require__(18);
 
-var warning = __webpack_require__(4);
+var warning = __webpack_require__(9);
 
 var didWarnValueNull = false;
 
@@ -60576,27 +61024,16 @@ var ReactDOMNullInputValuePropHook = {
 };
 
 module.exports = ReactDOMNullInputValuePropHook;
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(5)))
 
 /***/ }),
-/* 152 */
-/***/ (function(module, exports, __webpack_require__) {
-
-// 7.1.13 ToObject(argument)
-var defined = __webpack_require__(91);
-module.exports = function (it) {
-  return Object(defined(it));
-};
-
-
-/***/ }),
-/* 153 */
+/* 164 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // 19.1.2.9 / 15.2.3.2 Object.getPrototypeOf(O)
-var has = __webpack_require__(31);
-var toObject = __webpack_require__(152);
-var IE_PROTO = __webpack_require__(92)('IE_PROTO');
+var has = __webpack_require__(40);
+var toObject = __webpack_require__(71);
+var IE_PROTO = __webpack_require__(104)('IE_PROTO');
 var ObjectProto = Object.prototype;
 
 module.exports = Object.getPrototypeOf || function (O) {
@@ -60609,11 +61046,11 @@ module.exports = Object.getPrototypeOf || function (O) {
 
 
 /***/ }),
-/* 154 */
+/* 165 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // optional / simple context binding
-var aFunction = __webpack_require__(279);
+var aFunction = __webpack_require__(286);
 module.exports = function (fn, that, length) {
   aFunction(fn);
   if (that === undefined) return fn;
@@ -60635,20 +61072,20 @@ module.exports = function (fn, that, length) {
 
 
 /***/ }),
-/* 155 */
+/* 166 */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = !__webpack_require__(33) && !__webpack_require__(48)(function () {
-  return Object.defineProperty(__webpack_require__(156)('div'), 'a', { get: function () { return 7; } }).a != 7;
+module.exports = !__webpack_require__(42) && !__webpack_require__(50)(function () {
+  return Object.defineProperty(__webpack_require__(167)('div'), 'a', { get: function () { return 7; } }).a != 7;
 });
 
 
 /***/ }),
-/* 156 */
+/* 167 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var isObject = __webpack_require__(47);
-var document = __webpack_require__(27).document;
+var isObject = __webpack_require__(49);
+var document = __webpack_require__(35).document;
 // typeof document.createElement is 'object' in old IE
 var is = isObject(document) && isObject(document.createElement);
 module.exports = function (it) {
@@ -60657,48 +61094,27 @@ module.exports = function (it) {
 
 
 /***/ }),
-/* 157 */
+/* 168 */
 /***/ (function(module, exports, __webpack_require__) {
 
-"use strict";
-
-
-exports.__esModule = true;
-
-var _iterator = __webpack_require__(283);
-
-var _iterator2 = _interopRequireDefault(_iterator);
-
-var _symbol = __webpack_require__(298);
-
-var _symbol2 = _interopRequireDefault(_symbol);
-
-var _typeof = typeof _symbol2.default === "function" && typeof _iterator2.default === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof _symbol2.default === "function" && obj.constructor === _symbol2.default && obj !== _symbol2.default.prototype ? "symbol" : typeof obj; };
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-exports.default = typeof _symbol2.default === "function" && _typeof(_iterator2.default) === "symbol" ? function (obj) {
-  return typeof obj === "undefined" ? "undefined" : _typeof(obj);
-} : function (obj) {
-  return obj && typeof _symbol2.default === "function" && obj.constructor === _symbol2.default && obj !== _symbol2.default.prototype ? "symbol" : typeof obj === "undefined" ? "undefined" : _typeof(obj);
-};
+module.exports = { "default": __webpack_require__(287), __esModule: true };
 
 /***/ }),
-/* 158 */
+/* 169 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
-var LIBRARY = __webpack_require__(99);
-var $export = __webpack_require__(38);
-var redefine = __webpack_require__(159);
-var hide = __webpack_require__(39);
-var has = __webpack_require__(31);
-var Iterators = __webpack_require__(100);
-var $iterCreate = __webpack_require__(287);
-var setToStringTag = __webpack_require__(104);
-var getPrototypeOf = __webpack_require__(153);
-var ITERATOR = __webpack_require__(41)('iterator');
+var LIBRARY = __webpack_require__(108);
+var $export = __webpack_require__(36);
+var redefine = __webpack_require__(170);
+var hide = __webpack_require__(48);
+var has = __webpack_require__(40);
+var Iterators = __webpack_require__(109);
+var $iterCreate = __webpack_require__(293);
+var setToStringTag = __webpack_require__(112);
+var getPrototypeOf = __webpack_require__(164);
+var ITERATOR = __webpack_require__(52)('iterator');
 var BUGGY = !([].keys && 'next' in [].keys()); // Safari has buggy iterators w/o `next`
 var FF_ITERATOR = '@@iterator';
 var KEYS = 'keys';
@@ -60761,20 +61177,20 @@ module.exports = function (Base, NAME, Constructor, next, DEFAULT, IS_SET, FORCE
 
 
 /***/ }),
-/* 159 */
+/* 170 */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(39);
+module.exports = __webpack_require__(48);
 
 
 /***/ }),
-/* 160 */
+/* 171 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var has = __webpack_require__(31);
-var toIObject = __webpack_require__(40);
-var arrayIndexOf = __webpack_require__(290)(false);
-var IE_PROTO = __webpack_require__(92)('IE_PROTO');
+var has = __webpack_require__(40);
+var toIObject = __webpack_require__(37);
+var arrayIndexOf = __webpack_require__(295)(false);
+var IE_PROTO = __webpack_require__(104)('IE_PROTO');
 
 module.exports = function (object, names) {
   var O = toIObject(object);
@@ -60791,7 +61207,19 @@ module.exports = function (object, names) {
 
 
 /***/ }),
-/* 161 */
+/* 172 */
+/***/ (function(module, exports, __webpack_require__) {
+
+// fallback for non-array-like ES3 and non-enumerable old V8 strings
+var cof = __webpack_require__(173);
+// eslint-disable-next-line no-prototype-builtins
+module.exports = Object('z').propertyIsEnumerable(0) ? Object : function (it) {
+  return cof(it) == 'String' ? it.split('') : Object(it);
+};
+
+
+/***/ }),
+/* 173 */
 /***/ (function(module, exports) {
 
 var toString = {}.toString;
@@ -60802,19 +61230,71 @@ module.exports = function (it) {
 
 
 /***/ }),
-/* 162 */
-/***/ (function(module, exports) {
+/* 174 */
+/***/ (function(module, exports, __webpack_require__) {
 
-exports.f = Object.getOwnPropertySymbols;
+var META = __webpack_require__(72)('meta');
+var isObject = __webpack_require__(49);
+var has = __webpack_require__(40);
+var setDesc = __webpack_require__(41).f;
+var id = 0;
+var isExtensible = Object.isExtensible || function () {
+  return true;
+};
+var FREEZE = !__webpack_require__(50)(function () {
+  return isExtensible(Object.preventExtensions({}));
+});
+var setMeta = function (it) {
+  setDesc(it, META, { value: {
+    i: 'O' + ++id, // object ID
+    w: {}          // weak collections IDs
+  } });
+};
+var fastKey = function (it, create) {
+  // return primitive with prefix
+  if (!isObject(it)) return typeof it == 'symbol' ? it : (typeof it == 'string' ? 'S' : 'P') + it;
+  if (!has(it, META)) {
+    // can't set metadata to uncaught frozen object
+    if (!isExtensible(it)) return 'F';
+    // not necessary to add metadata
+    if (!create) return 'E';
+    // add missing metadata
+    setMeta(it);
+  // return object ID
+  } return it[META].i;
+};
+var getWeak = function (it, create) {
+  if (!has(it, META)) {
+    // can't set metadata to uncaught frozen object
+    if (!isExtensible(it)) return true;
+    // not necessary to add metadata
+    if (!create) return false;
+    // add missing metadata
+    setMeta(it);
+  // return hash weak collections IDs
+  } return it[META].w;
+};
+// add metadata on freeze-family methods calling
+var onFreeze = function (it) {
+  if (FREEZE && meta.NEED && isExtensible(it) && !has(it, META)) setMeta(it);
+  return it;
+};
+var meta = module.exports = {
+  KEY: META,
+  NEED: false,
+  fastKey: fastKey,
+  getWeak: getWeak,
+  onFreeze: onFreeze
+};
 
 
 /***/ }),
-/* 163 */
+/* 175 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // 19.1.2.7 / 15.2.3.4 Object.getOwnPropertyNames(O)
-var $keys = __webpack_require__(160);
-var hiddenKeys = __webpack_require__(103).concat('length', 'prototype');
+var $keys = __webpack_require__(171);
+var hiddenKeys = __webpack_require__(111).concat('length', 'prototype');
 
 exports.f = Object.getOwnPropertyNames || function getOwnPropertyNames(O) {
   return $keys(O, hiddenKeys);
@@ -60822,210 +61302,7 @@ exports.f = Object.getOwnPropertyNames || function getOwnPropertyNames(O) {
 
 
 /***/ }),
-/* 164 */
-/***/ (function(module, exports, __webpack_require__) {
-
-var pIE = __webpack_require__(107);
-var createDesc = __webpack_require__(62);
-var toIObject = __webpack_require__(40);
-var toPrimitive = __webpack_require__(94);
-var has = __webpack_require__(31);
-var IE8_DOM_DEFINE = __webpack_require__(155);
-var gOPD = Object.getOwnPropertyDescriptor;
-
-exports.f = __webpack_require__(33) ? gOPD : function getOwnPropertyDescriptor(O, P) {
-  O = toIObject(O);
-  P = toPrimitive(P, true);
-  if (IE8_DOM_DEFINE) try {
-    return gOPD(O, P);
-  } catch (e) { /* empty */ }
-  if (has(O, P)) return createDesc(!pIE.f.call(O, P), O[P]);
-};
-
-
-/***/ }),
-/* 165 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
-
-var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
-var _class, _temp;
-
-var _react = __webpack_require__(29);
-
-var _react2 = _interopRequireDefault(_react);
-
-var _ReactComponentWithPureRenderMixin = __webpack_require__(316);
-
-var _ReactComponentWithPureRenderMixin2 = _interopRequireDefault(_ReactComponentWithPureRenderMixin);
-
-var _propTypes = __webpack_require__(2);
-
-var _propTypes2 = _interopRequireDefault(_propTypes);
-
-var _three = __webpack_require__(1);
-
-var THREE = _interopRequireWildcard(_three);
-
-var _React3Renderer = __webpack_require__(64);
-
-var _React3Renderer2 = _interopRequireDefault(_React3Renderer);
-
-var _propTypeInstanceOf = __webpack_require__(9);
-
-var _propTypeInstanceOf2 = _interopRequireDefault(_propTypeInstanceOf);
-
-function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj.default = obj; return newObj; } }
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-
-function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-
-var React3 = (_temp = _class = function (_React$Component) {
-  _inherits(React3, _React$Component);
-
-  /* eslint-disable react/no-unused-prop-types */
-  /* eslint-disable react/require-default-props */
-  function React3(props, context) {
-    _classCallCheck(this, React3);
-
-    var _this = _possibleConstructorReturn(this, (React3.__proto__ || Object.getPrototypeOf(React3)).call(this, props, context));
-
-    _this.shouldComponentUpdate = _ReactComponentWithPureRenderMixin2.default.shouldComponentUpdate;
-
-    _this._onRecreateCanvas = function () {
-      _this.setState({
-        // changing the key will recreate the element
-        canvasKey: _this.state.canvasKey + 1
-      });
-    };
-
-    _this._canvasRef = function (c) {
-      _this._canvas = c;
-      if (_this.props.canvasRef) {
-        _this.props.canvasRef(c);
-      }
-    };
-
-    _this.state = {
-      canvasKey: 0
-    };
-    return _this;
-  }
-  /* eslint-enable react/require-default-props */
-  /* eslint-enable react/no-unused-prop-types */
-
-  _createClass(React3, [{
-    key: 'componentDidMount',
-    value: function componentDidMount() {
-      this.react3Renderer = new _React3Renderer2.default();
-
-      this._render();
-    }
-  }, {
-    key: 'componentWillReceiveProps',
-    value: function componentWillReceiveProps(newProps) {
-      var lastProps = this.props;
-
-      if (lastProps.canvasRef !== newProps.canvasRef) {
-        if (lastProps.canvasRef) {
-          lastProps.canvasRef(null);
-        }
-
-        if (newProps.canvasRef) {
-          newProps.canvasRef(this._canvas);
-        }
-      }
-    }
-  }, {
-    key: 'componentDidUpdate',
-    value: function componentDidUpdate() {
-      this._render();
-    }
-  }, {
-    key: 'componentWillUnmount',
-    value: function componentWillUnmount() {
-      this.react3Renderer.dispose();
-      delete this.react3Renderer;
-    }
-  }, {
-    key: '_render',
-    value: function _render() {
-      var canvas = this._canvas;
-
-      var propsToClone = _extends({}, this.props);
-
-      delete propsToClone.canvasStyle;
-      delete propsToClone.canvasRef;
-
-      this.react3Renderer.render(_react2.default.createElement(
-        'react3',
-        _extends({}, propsToClone, {
-          onRecreateCanvas: this._onRecreateCanvas
-        }),
-        this.props.children
-      ), canvas);
-    }
-  }, {
-    key: 'render',
-    value: function render() {
-      var canvasKey = this.state.canvasKey;
-
-
-      return _react2.default.createElement('canvas', {
-        ref: this._canvasRef,
-        key: canvasKey,
-        width: this.props.width,
-        height: this.props.height,
-        style: _extends({}, this.props.canvasStyle, {
-          width: this.props.width,
-          height: this.props.height
-        })
-      });
-    }
-  }]);
-
-  return React3;
-}(_react2.default.Component), _class.propTypes = {
-  context: _propTypes2.default.string,
-  width: _propTypes2.default.number.isRequired,
-  height: _propTypes2.default.number.isRequired,
-  children: _propTypes2.default.node,
-  /* eslint-disable react/forbid-prop-types */
-  canvasStyle: _propTypes2.default.any,
-  /* eslint-enable react/forbid-prop-types */
-  customRenderer: _propTypes2.default.func,
-  gammaInput: _propTypes2.default.bool,
-  gammaOutput: _propTypes2.default.bool,
-  sortObjects: _propTypes2.default.bool,
-  mainCamera: _propTypes2.default.string,
-  onAnimate: _propTypes2.default.func,
-  clearColor: _propTypes2.default.oneOfType([(0, _propTypeInstanceOf2.default)(THREE.Color), _propTypes2.default.number, _propTypes2.default.string]),
-  shadowMapEnabled: _propTypes2.default.bool,
-  shadowMapType: _propTypes2.default.oneOf([THREE.BasicShadowMap, THREE.PCFShadowMap, THREE.PCFSoftShadowMap]),
-  shadowMapCullFace: _propTypes2.default.oneOf([THREE.CullFaceNone, THREE.CullFaceBack, THREE.CullFaceFront, THREE.CullFaceFrontBack]),
-  shadowMapDebug: _propTypes2.default.bool,
-  pixelRatio: _propTypes2.default.number,
-  antialias: _propTypes2.default.oneOfType([_propTypes2.default.bool, _propTypes2.default.number]),
-  canvasRef: _propTypes2.default.func
-}, _class.defaultProps = {
-  context: '3d'
-}, _class.findTHREEObject = _React3Renderer2.default.findTHREEObject, _class.eventDispatcher = _React3Renderer2.default.eventDispatcher, _temp);
-
-
-module.exports = React3;
-
-/***/ }),
-/* 166 */
+/* 176 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -61048,10 +61325,10 @@ if (process.env.NODE_ENV !== 'production') {
 }
 
 module.exports = emptyObject;
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(5)))
 
 /***/ }),
-/* 167 */
+/* 177 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -61066,69 +61343,87 @@ var React3ComponentFlags = {
 module.exports = React3ComponentFlags;
 
 /***/ }),
-/* 168 */
+/* 178 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 /* WEBPACK VAR INJECTION */(function(process) {
 
-var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; };
+var _typeof2 = __webpack_require__(75);
 
-var _get = function get(object, property, receiver) { if (object === null) object = Function.prototype; var desc = Object.getOwnPropertyDescriptor(object, property); if (desc === undefined) { var parent = Object.getPrototypeOf(object); if (parent === null) { return undefined; } else { return get(parent, property, receiver); } } else if ("value" in desc) { return desc.value; } else { var getter = desc.get; if (getter === undefined) { return undefined; } return getter.call(receiver); } };
+var _typeof3 = _interopRequireDefault(_typeof2);
 
-var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+var _getPrototypeOf = __webpack_require__(2);
 
-var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+var _getPrototypeOf2 = _interopRequireDefault(_getPrototypeOf);
 
-var _ReactElement = __webpack_require__(21);
+var _possibleConstructorReturn2 = __webpack_require__(3);
+
+var _possibleConstructorReturn3 = _interopRequireDefault(_possibleConstructorReturn2);
+
+var _get2 = __webpack_require__(10);
+
+var _get3 = _interopRequireDefault(_get2);
+
+var _inherits2 = __webpack_require__(4);
+
+var _inherits3 = _interopRequireDefault(_inherits2);
+
+var _createClass2 = __webpack_require__(1);
+
+var _createClass3 = _interopRequireDefault(_createClass2);
+
+var _extends2 = __webpack_require__(20);
+
+var _extends3 = _interopRequireDefault(_extends2);
+
+var _classCallCheck2 = __webpack_require__(0);
+
+var _classCallCheck3 = _interopRequireDefault(_classCallCheck2);
+
+var _ReactElement = __webpack_require__(29);
 
 var _ReactElement2 = _interopRequireDefault(_ReactElement);
 
-var _ReactCurrentOwner = __webpack_require__(15);
+var _ReactCurrentOwner = __webpack_require__(22);
 
 var _ReactCurrentOwner2 = _interopRequireDefault(_ReactCurrentOwner);
 
-var _invariant = __webpack_require__(6);
+var _invariant = __webpack_require__(12);
 
 var _invariant2 = _interopRequireDefault(_invariant);
 
-var _emptyObject = __webpack_require__(166);
+var _emptyObject = __webpack_require__(176);
 
 var _emptyObject2 = _interopRequireDefault(_emptyObject);
 
-var _warning = __webpack_require__(17);
+var _warning = __webpack_require__(25);
 
 var _warning2 = _interopRequireDefault(_warning);
 
-var _ReactCompositeComponent = __webpack_require__(139);
+var _ReactCompositeComponent = __webpack_require__(151);
 
 var _ReactCompositeComponent2 = _interopRequireDefault(_ReactCompositeComponent);
 
-var _ReactInstanceMap = __webpack_require__(26);
+var _ReactInstanceMap = __webpack_require__(34);
 
 var _ReactInstanceMap2 = _interopRequireDefault(_ReactInstanceMap);
 
-var _ReactInstrumentation = __webpack_require__(13);
+var _ReactInstrumentation = __webpack_require__(19);
 
 var _ReactInstrumentation2 = _interopRequireDefault(_ReactInstrumentation);
 
-var _removeDevTool = __webpack_require__(169);
+var _removeDevTool = __webpack_require__(179);
 
 var _removeDevTool2 = _interopRequireDefault(_removeDevTool);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-
-function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
 var ReactCompositeComponentMixinImpl = function ReactCompositeComponentMixinImpl() {
-  _classCallCheck(this, ReactCompositeComponentMixinImpl);
+  (0, _classCallCheck3.default)(this, ReactCompositeComponentMixinImpl);
 };
 
-ReactCompositeComponentMixinImpl.prototype = _extends({}, ReactCompositeComponentMixinImpl.prototype, _ReactCompositeComponent2.default);
+ReactCompositeComponentMixinImpl.prototype = (0, _extends3.default)({}, ReactCompositeComponentMixinImpl.prototype, _ReactCompositeComponent2.default);
 
 function warnIfInvalidElement(Component, element) {
   if (process.env.NODE_ENV !== 'production') {
@@ -61184,10 +61479,10 @@ if (process.env.NODE_ENV !== 'production') {
 
 var StatelessComponent = function () {
   function StatelessComponent() {
-    _classCallCheck(this, StatelessComponent);
+    (0, _classCallCheck3.default)(this, StatelessComponent);
   }
 
-  _createClass(StatelessComponent, [{
+  (0, _createClass3.default)(StatelessComponent, [{
     key: 'render',
     value: function render() {
       var componentCreator = _ReactInstanceMap2.default.get(this)._currentElement.type;
@@ -61196,17 +61491,16 @@ var StatelessComponent = function () {
       return element;
     }
   }]);
-
   return StatelessComponent;
 }();
 
 var React3CompositeComponentWrapper = function (_ReactCompositeCompon) {
-  _inherits(React3CompositeComponentWrapper, _ReactCompositeCompon);
+  (0, _inherits3.default)(React3CompositeComponentWrapper, _ReactCompositeCompon);
 
   function React3CompositeComponentWrapper(element, react3RendererInstance) {
-    _classCallCheck(this, React3CompositeComponentWrapper);
+    (0, _classCallCheck3.default)(this, React3CompositeComponentWrapper);
 
-    var _this = _possibleConstructorReturn(this, (React3CompositeComponentWrapper.__proto__ || Object.getPrototypeOf(React3CompositeComponentWrapper)).call(this));
+    var _this = (0, _possibleConstructorReturn3.default)(this, (React3CompositeComponentWrapper.__proto__ || (0, _getPrototypeOf2.default)(React3CompositeComponentWrapper)).call(this));
 
     _this._react3RendererInstance = react3RendererInstance;
 
@@ -61214,15 +61508,15 @@ var React3CompositeComponentWrapper = function (_ReactCompositeCompon) {
     return _this;
   }
 
-  _createClass(React3CompositeComponentWrapper, [{
+  (0, _createClass3.default)(React3CompositeComponentWrapper, [{
     key: 'getHostMarkup',
     value: function getHostMarkup() {
-      return _get(React3CompositeComponentWrapper.prototype.__proto__ || Object.getPrototypeOf(React3CompositeComponentWrapper.prototype), 'getHostNode', this).call(this);
+      return (0, _get3.default)(React3CompositeComponentWrapper.prototype.__proto__ || (0, _getPrototypeOf2.default)(React3CompositeComponentWrapper.prototype), 'getHostNode', this).call(this);
     }
   }, {
     key: 'construct',
     value: function construct(element) {
-      _get(React3CompositeComponentWrapper.prototype.__proto__ || Object.getPrototypeOf(React3CompositeComponentWrapper.prototype), 'construct', this).call(this, element);
+      (0, _get3.default)(React3CompositeComponentWrapper.prototype.__proto__ || (0, _getPrototypeOf2.default)(React3CompositeComponentWrapper.prototype), 'construct', this).call(this, element);
 
       this._threeObject = null;
     }
@@ -61247,7 +61541,7 @@ var React3CompositeComponentWrapper = function (_ReactCompositeCompon) {
         devToolRemoved = (0, _removeDevTool2.default)();
       }
 
-      _get(React3CompositeComponentWrapper.prototype.__proto__ || Object.getPrototypeOf(React3CompositeComponentWrapper.prototype), '_updateRenderedComponent', this).call(this, transaction, context);
+      (0, _get3.default)(React3CompositeComponentWrapper.prototype.__proto__ || (0, _getPrototypeOf2.default)(React3CompositeComponentWrapper.prototype), '_updateRenderedComponent', this).call(this, transaction, context);
 
       if (process.env.NODE_ENV !== 'production') {
         if (devToolRemoved) {
@@ -61380,7 +61674,7 @@ var React3CompositeComponentWrapper = function (_ReactCompositeCompon) {
         initialState = null;
         inst.state = initialState;
       }
-      if (!((typeof initialState === 'undefined' ? 'undefined' : _typeof(initialState)) === 'object' && !Array.isArray(initialState))) {
+      if (!((typeof initialState === 'undefined' ? 'undefined' : (0, _typeof3.default)(initialState)) === 'object' && !Array.isArray(initialState))) {
         if (process.env.NODE_ENV !== 'production') {
           (0, _invariant2.default)(false, '%s.state: must be set to an object or null', this.getName() || 'ReactCompositeComponent');
         } else {
@@ -61462,29 +61756,28 @@ var React3CompositeComponentWrapper = function (_ReactCompositeCompon) {
       refs[ref] = component.getPublicInstance();
     }
   }]);
-
   return React3CompositeComponentWrapper;
 }(ReactCompositeComponentMixinImpl);
 
 module.exports = React3CompositeComponentWrapper;
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(5)))
 
 /***/ }),
-/* 169 */
+/* 179 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
-var _ReactInstrumentation = __webpack_require__(13);
+var _ReactInstrumentation = __webpack_require__(19);
 
 var _ReactInstrumentation2 = _interopRequireDefault(_ReactInstrumentation);
 
-var _ReactDOMUnknownPropertyHook = __webpack_require__(150);
+var _ReactDOMUnknownPropertyHook = __webpack_require__(162);
 
 var _ReactDOMUnknownPropertyHook2 = _interopRequireDefault(_ReactDOMUnknownPropertyHook);
 
-var _ReactDOMNullInputValuePropHook = __webpack_require__(151);
+var _ReactDOMNullInputValuePropHook = __webpack_require__(163);
 
 var _ReactDOMNullInputValuePropHook2 = _interopRequireDefault(_ReactDOMNullInputValuePropHook);
 
@@ -61515,21 +61808,25 @@ removeDevTool.restore = function restore() {
 module.exports = removeDevTool;
 
 /***/ }),
-/* 170 */
+/* 180 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 /* WEBPACK VAR INJECTION */(function(process) {
 
-var _invariant = __webpack_require__(6);
+var _keys = __webpack_require__(43);
+
+var _keys2 = _interopRequireDefault(_keys);
+
+var _invariant = __webpack_require__(12);
 
 var _invariant2 = _interopRequireDefault(_invariant);
 
-var _React3ComponentFlags = __webpack_require__(167);
+var _React3ComponentFlags = __webpack_require__(177);
 
 var _React3ComponentFlags2 = _interopRequireDefault(_React3ComponentFlags);
 
-var _idPropertyName = __webpack_require__(110);
+var _idPropertyName = __webpack_require__(120);
 
 var _idPropertyName2 = _interopRequireDefault(_idPropertyName);
 
@@ -61600,7 +61897,7 @@ function precacheChildMarkups(instance, markup) {
 
   var renderedChildren = instance._renderedChildren;
 
-  var childrenNames = Object.keys(renderedChildren);
+  var childrenNames = (0, _keys2.default)(renderedChildren);
 
   var childrenMarkup = markup.childrenMarkup;
 
@@ -61765,70 +62062,80 @@ module.exports = {
   getClosestInstanceFromMarkup: getClosestInstanceFromMarkup,
   getRenderedHostOrTextFromComponent: getRenderedHostOrTextFromComponent
 };
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(5)))
 
 /***/ }),
-/* 171 */
+/* 181 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 /* WEBPACK VAR INJECTION */(function(process) {
 
-var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+var _keys = __webpack_require__(43);
 
-var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+var _keys2 = _interopRequireDefault(_keys);
+
+var _extends2 = __webpack_require__(20);
+
+var _extends3 = _interopRequireDefault(_extends2);
+
+var _classCallCheck2 = __webpack_require__(0);
+
+var _classCallCheck3 = _interopRequireDefault(_classCallCheck2);
+
+var _createClass2 = __webpack_require__(1);
+
+var _createClass3 = _interopRequireDefault(_createClass2);
 
 var _class, _temp, _initialiseProps;
 
-var _three = __webpack_require__(1);
+var _three = __webpack_require__(6);
 
 var THREE = _interopRequireWildcard(_three);
 
-var _invariant = __webpack_require__(6);
+var _invariant = __webpack_require__(12);
 
 var _invariant2 = _interopRequireDefault(_invariant);
 
-var _warning = __webpack_require__(17);
+var _warning = __webpack_require__(25);
 
 var _warning2 = _interopRequireDefault(_warning);
 
-var _ReactUpdates = __webpack_require__(16);
+var _ReactUpdates = __webpack_require__(23);
 
 var _ReactUpdates2 = _interopRequireDefault(_ReactUpdates);
 
-var _raf = __webpack_require__(328);
+var _raf = __webpack_require__(345);
 
 var _raf2 = _interopRequireDefault(_raf);
 
-var _Viewport = __webpack_require__(172);
+var _Viewport = __webpack_require__(182);
 
 var _Viewport2 = _interopRequireDefault(_Viewport);
 
-var _Module = __webpack_require__(173);
+var _Module = __webpack_require__(121);
 
 var _Module2 = _interopRequireDefault(_Module);
 
-var _React3Renderer = __webpack_require__(64);
+var _React3Renderer = __webpack_require__(77);
 
 var _React3Renderer2 = _interopRequireDefault(_React3Renderer);
 
-var _ResourceContainer = __webpack_require__(111);
+var _ResourceContainer = __webpack_require__(122);
 
 var _ResourceContainer2 = _interopRequireDefault(_ResourceContainer);
 
-var _CameraUtils = __webpack_require__(174);
+var _CameraUtils = __webpack_require__(183);
 
 var _CameraUtils2 = _interopRequireDefault(_CameraUtils);
 
-var _isWebglSupported = __webpack_require__(331);
+var _isWebglSupported = __webpack_require__(348);
 
 var _isWebglSupported2 = _interopRequireDefault(_isWebglSupported);
 
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
 function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj.default = obj; return newObj; } }
 
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 var rendererProperties = ['gammaInput', 'gammaOutput'];
 
@@ -61836,7 +62143,7 @@ var React3DInstance = (_temp = _class = function () {
   function React3DInstance(props, rendererInstance) {
     var _this = this;
 
-    _classCallCheck(this, React3DInstance);
+    (0, _classCallCheck3.default)(this, React3DInstance);
 
     _initialiseProps.call(this);
 
@@ -61848,7 +62155,7 @@ var React3DInstance = (_temp = _class = function () {
         forceManualRender = props.forceManualRender;
 
 
-    this._parameters = _extends({}, props);
+    this._parameters = (0, _extends3.default)({}, props);
 
     this._rendererInstance = rendererInstance;
 
@@ -61934,7 +62241,7 @@ var React3DInstance = (_temp = _class = function () {
     }
   }
 
-  _createClass(React3DInstance, [{
+  (0, _createClass3.default)(React3DInstance, [{
     key: '_createRenderer',
     value: function _createRenderer() {
       if (!this._canvas) {
@@ -62053,7 +62360,7 @@ var React3DInstance = (_temp = _class = function () {
 
       if (objectsByName) {
         var idToObjectMap = objectsByName.values;
-        result = Object.keys(idToObjectMap).map(function (name) {
+        result = (0, _keys2.default)(idToObjectMap).map(function (name) {
           return idToObjectMap[name];
         });
       } else {
@@ -62628,7 +62935,7 @@ var React3DInstance = (_temp = _class = function () {
 
       delete this._parameters;
 
-      (0, _invariant2.default)(Object.keys(this._objectsByUUID).length === 0, 'Failed to cleanup some child objects for React3DInstance');
+      (0, _invariant2.default)((0, _keys2.default)(this._objectsByUUID).length === 0, 'Failed to cleanup some child objects for React3DInstance');
 
       delete this._objectsByUUID;
       delete this._viewports;
@@ -62758,7 +63065,6 @@ var React3DInstance = (_temp = _class = function () {
       this.objectMounted(this);
     }
   }]);
-
   return React3DInstance;
 }(), _initialiseProps = function _initialiseProps() {
   var _this2 = this;
@@ -62799,7 +63105,7 @@ var React3DInstance = (_temp = _class = function () {
 
         if (objectsWithMainCameraName.count > 0) {
           var values = objectsWithMainCameraName.values;
-          mainCamera = values[Object.keys(values)[0]];
+          mainCamera = values[(0, _keys2.default)(values)[0]];
         }
       }
     }
@@ -62834,7 +63140,7 @@ var React3DInstance = (_temp = _class = function () {
 
             if (objectsWithViewportCameraName.count > 0) {
               var _values = objectsWithViewportCameraName.values;
-              viewportCamera = _values[Object.keys(_values)[0]];
+              viewportCamera = _values[(0, _keys2.default)(_values)[0]];
             }
           }
         }
@@ -62859,25 +63165,29 @@ var React3DInstance = (_temp = _class = function () {
 
 
 module.exports = React3DInstance;
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(5)))
 
 /***/ }),
-/* 172 */
+/* 182 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
-var _three = __webpack_require__(1);
+var _classCallCheck2 = __webpack_require__(0);
+
+var _classCallCheck3 = _interopRequireDefault(_classCallCheck2);
+
+var _three = __webpack_require__(6);
 
 var THREE = _interopRequireWildcard(_three);
 
 function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj.default = obj; return newObj; } }
 
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 var Viewport = function Viewport(props) {
-  _classCallCheck(this, Viewport);
+  (0, _classCallCheck3.default)(this, Viewport);
 
   this.userData = {};
 
@@ -62894,74 +63204,35 @@ var Viewport = function Viewport(props) {
 module.exports = Viewport;
 
 /***/ }),
-/* 173 */
+/* 183 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
-var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+var _classCallCheck2 = __webpack_require__(0);
 
-var _three = __webpack_require__(1);
-
-var THREE = _interopRequireWildcard(_three);
-
-function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj.default = obj; return newObj; } }
-
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-var React3Module = function () {
-  function React3Module() {
-    _classCallCheck(this, React3Module);
-
-    this.userData = {};
-    this.uuid = THREE.Math.generateUUID();
-  }
-
-  _createClass(React3Module, [{
-    key: 'setup',
-    value: function setup(react3RendererInstance) {// eslint-disable-line no-unused-vars
-
-    }
-  }, {
-    key: 'update',
-    value: function update() {}
-  }, {
-    key: 'dispose',
-    value: function dispose() {}
-  }]);
-
-  return React3Module;
-}();
-
-module.exports = React3Module;
-
-/***/ }),
-/* 174 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
+var _classCallCheck3 = _interopRequireDefault(_classCallCheck2);
 
 var _class, _temp;
 
-var _three = __webpack_require__(1);
+var _three = __webpack_require__(6);
 
 var THREE = _interopRequireWildcard(_three);
 
 function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj.default = obj; return newObj; } }
 
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 var CameraUtils = (_temp = _class = function CameraUtils() {
-  _classCallCheck(this, CameraUtils);
+  (0, _classCallCheck3.default)(this, CameraUtils);
 }, _class.current = null, _temp);
 
 
 module.exports = CameraUtils;
 
 /***/ }),
-/* 175 */
+/* 184 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -62984,62 +63255,75 @@ PropTypeError.prototype = Error.prototype;
 module.exports = PropTypeError;
 
 /***/ }),
-/* 176 */
+/* 185 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
-var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+var _getPrototypeOf = __webpack_require__(2);
 
-var _get = function get(object, property, receiver) { if (object === null) object = Function.prototype; var desc = Object.getOwnPropertyDescriptor(object, property); if (desc === undefined) { var parent = Object.getPrototypeOf(object); if (parent === null) { return undefined; } else { return get(parent, property, receiver); } } else if ("value" in desc) { return desc.value; } else { var getter = desc.get; if (getter === undefined) { return undefined; } return getter.call(receiver); } };
+var _getPrototypeOf2 = _interopRequireDefault(_getPrototypeOf);
 
-var _three = __webpack_require__(1);
+var _classCallCheck2 = __webpack_require__(0);
+
+var _classCallCheck3 = _interopRequireDefault(_classCallCheck2);
+
+var _createClass2 = __webpack_require__(1);
+
+var _createClass3 = _interopRequireDefault(_createClass2);
+
+var _possibleConstructorReturn2 = __webpack_require__(3);
+
+var _possibleConstructorReturn3 = _interopRequireDefault(_possibleConstructorReturn2);
+
+var _get2 = __webpack_require__(10);
+
+var _get3 = _interopRequireDefault(_get2);
+
+var _inherits2 = __webpack_require__(4);
+
+var _inherits3 = _interopRequireDefault(_inherits2);
+
+var _three = __webpack_require__(6);
 
 var THREE = _interopRequireWildcard(_three);
 
-var _Object3DDescriptor2 = __webpack_require__(18);
+var _Object3DDescriptor2 = __webpack_require__(26);
 
 var _Object3DDescriptor3 = _interopRequireDefault(_Object3DDescriptor2);
 
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
 function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj.default = obj; return newObj; } }
 
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-
-function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 var CameraDescriptorBase = function (_Object3DDescriptor) {
-  _inherits(CameraDescriptorBase, _Object3DDescriptor);
+  (0, _inherits3.default)(CameraDescriptorBase, _Object3DDescriptor);
 
   function CameraDescriptorBase() {
-    _classCallCheck(this, CameraDescriptorBase);
-
-    return _possibleConstructorReturn(this, (CameraDescriptorBase.__proto__ || Object.getPrototypeOf(CameraDescriptorBase)).apply(this, arguments));
+    (0, _classCallCheck3.default)(this, CameraDescriptorBase);
+    return (0, _possibleConstructorReturn3.default)(this, (CameraDescriptorBase.__proto__ || (0, _getPrototypeOf2.default)(CameraDescriptorBase)).apply(this, arguments));
   }
 
-  _createClass(CameraDescriptorBase, [{
+  (0, _createClass3.default)(CameraDescriptorBase, [{
     key: 'applyInitialProps',
     value: function applyInitialProps(threeObject, props) {
-      _get(CameraDescriptorBase.prototype.__proto__ || Object.getPrototypeOf(CameraDescriptorBase.prototype), 'applyInitialProps', this).call(this, threeObject, props);
+      (0, _get3.default)(CameraDescriptorBase.prototype.__proto__ || (0, _getPrototypeOf2.default)(CameraDescriptorBase.prototype), 'applyInitialProps', this).call(this, threeObject, props);
     }
   }, {
     key: 'setParent',
     value: function setParent(camera, parentObject3D) {
-      _get(CameraDescriptorBase.prototype.__proto__ || Object.getPrototypeOf(CameraDescriptorBase.prototype), 'setParent', this).call(this, camera, parentObject3D);
+      (0, _get3.default)(CameraDescriptorBase.prototype.__proto__ || (0, _getPrototypeOf2.default)(CameraDescriptorBase.prototype), 'setParent', this).call(this, camera, parentObject3D);
     }
   }, {
     key: 'unmount',
     value: function unmount(threeObject) {
-      _get(CameraDescriptorBase.prototype.__proto__ || Object.getPrototypeOf(CameraDescriptorBase.prototype), 'unmount', this).call(this, threeObject);
+      (0, _get3.default)(CameraDescriptorBase.prototype.__proto__ || (0, _getPrototypeOf2.default)(CameraDescriptorBase.prototype), 'unmount', this).call(this, threeObject);
     }
   }, {
     key: 'beginPropertyUpdates',
     value: function beginPropertyUpdates(threeObject) {
-      _get(CameraDescriptorBase.prototype.__proto__ || Object.getPrototypeOf(CameraDescriptorBase.prototype), 'beginPropertyUpdates', this).call(this, threeObject);
+      (0, _get3.default)(CameraDescriptorBase.prototype.__proto__ || (0, _getPrototypeOf2.default)(CameraDescriptorBase.prototype), 'beginPropertyUpdates', this).call(this, threeObject);
 
       threeObject.userData._needsProjectionMatrixUpdate = false;
     }
@@ -63051,7 +63335,7 @@ var CameraDescriptorBase = function (_Object3DDescriptor) {
   }, {
     key: 'completePropertyUpdates',
     value: function completePropertyUpdates(threeObject) {
-      _get(CameraDescriptorBase.prototype.__proto__ || Object.getPrototypeOf(CameraDescriptorBase.prototype), 'completePropertyUpdates', this).call(this, threeObject);
+      (0, _get3.default)(CameraDescriptorBase.prototype.__proto__ || (0, _getPrototypeOf2.default)(CameraDescriptorBase.prototype), 'completePropertyUpdates', this).call(this, threeObject);
 
       if (threeObject.userData._needsProjectionMatrixUpdate) {
         threeObject.userData._needsProjectionMatrixUpdate = false;
@@ -63061,58 +63345,70 @@ var CameraDescriptorBase = function (_Object3DDescriptor) {
       }
     }
   }]);
-
   return CameraDescriptorBase;
 }(_Object3DDescriptor3.default);
 
 module.exports = CameraDescriptorBase;
 
 /***/ }),
-/* 177 */
+/* 186 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
-var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+var _getPrototypeOf = __webpack_require__(2);
 
-var _get = function get(object, property, receiver) { if (object === null) object = Function.prototype; var desc = Object.getOwnPropertyDescriptor(object, property); if (desc === undefined) { var parent = Object.getPrototypeOf(object); if (parent === null) { return undefined; } else { return get(parent, property, receiver); } } else if ("value" in desc) { return desc.value; } else { var getter = desc.get; if (getter === undefined) { return undefined; } return getter.call(receiver); } };
+var _getPrototypeOf2 = _interopRequireDefault(_getPrototypeOf);
 
-var _three = __webpack_require__(1);
+var _classCallCheck2 = __webpack_require__(0);
+
+var _classCallCheck3 = _interopRequireDefault(_classCallCheck2);
+
+var _createClass2 = __webpack_require__(1);
+
+var _createClass3 = _interopRequireDefault(_createClass2);
+
+var _possibleConstructorReturn2 = __webpack_require__(3);
+
+var _possibleConstructorReturn3 = _interopRequireDefault(_possibleConstructorReturn2);
+
+var _get2 = __webpack_require__(10);
+
+var _get3 = _interopRequireDefault(_get2);
+
+var _inherits2 = __webpack_require__(4);
+
+var _inherits3 = _interopRequireDefault(_inherits2);
+
+var _three = __webpack_require__(6);
 
 var THREE = _interopRequireWildcard(_three);
 
-var _invariant = __webpack_require__(6);
+var _invariant = __webpack_require__(12);
 
 var _invariant2 = _interopRequireDefault(_invariant);
 
-var _ResourceDescriptorBase = __webpack_require__(66);
+var _ResourceDescriptorBase = __webpack_require__(79);
 
 var _ResourceDescriptorBase2 = _interopRequireDefault(_ResourceDescriptorBase);
 
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
 function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj.default = obj; return newObj; } }
 
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-
-function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 var GeometryResourceDescriptor = function (_ResourceDescriptorBa) {
-  _inherits(GeometryResourceDescriptor, _ResourceDescriptorBa);
+  (0, _inherits3.default)(GeometryResourceDescriptor, _ResourceDescriptorBa);
 
   function GeometryResourceDescriptor() {
-    _classCallCheck(this, GeometryResourceDescriptor);
-
-    return _possibleConstructorReturn(this, (GeometryResourceDescriptor.__proto__ || Object.getPrototypeOf(GeometryResourceDescriptor)).apply(this, arguments));
+    (0, _classCallCheck3.default)(this, GeometryResourceDescriptor);
+    return (0, _possibleConstructorReturn3.default)(this, (GeometryResourceDescriptor.__proto__ || (0, _getPrototypeOf2.default)(GeometryResourceDescriptor)).apply(this, arguments));
   }
 
-  _createClass(GeometryResourceDescriptor, [{
+  (0, _createClass3.default)(GeometryResourceDescriptor, [{
     key: 'applyInitialProps',
     value: function applyInitialProps(threeObject, props) {
-      _get(GeometryResourceDescriptor.prototype.__proto__ || Object.getPrototypeOf(GeometryResourceDescriptor.prototype), 'applyInitialProps', this).call(this, threeObject, props);
+      (0, _get3.default)(GeometryResourceDescriptor.prototype.__proto__ || (0, _getPrototypeOf2.default)(GeometryResourceDescriptor.prototype), 'applyInitialProps', this).call(this, threeObject, props);
 
       threeObject.userData._propertySlot = 'geometry';
     }
@@ -63121,43 +63417,51 @@ var GeometryResourceDescriptor = function (_ResourceDescriptorBa) {
     value: function setParent(threeObject, parentObject3D) {
       (0, _invariant2.default)(parentObject3D instanceof THREE.Mesh || parentObject3D instanceof THREE.Points || parentObject3D instanceof THREE.Line, 'Parent is not a mesh');
 
-      _get(GeometryResourceDescriptor.prototype.__proto__ || Object.getPrototypeOf(GeometryResourceDescriptor.prototype), 'setParent', this).call(this, threeObject, parentObject3D);
+      (0, _get3.default)(GeometryResourceDescriptor.prototype.__proto__ || (0, _getPrototypeOf2.default)(GeometryResourceDescriptor.prototype), 'setParent', this).call(this, threeObject, parentObject3D);
     }
   }]);
-
   return GeometryResourceDescriptor;
 }(_ResourceDescriptorBase2.default);
 
 module.exports = GeometryResourceDescriptor;
 
 /***/ }),
-/* 178 */
+/* 187 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
-var _ResourceReference2 = __webpack_require__(42);
+var _getPrototypeOf = __webpack_require__(2);
+
+var _getPrototypeOf2 = _interopRequireDefault(_getPrototypeOf);
+
+var _classCallCheck2 = __webpack_require__(0);
+
+var _classCallCheck3 = _interopRequireDefault(_classCallCheck2);
+
+var _possibleConstructorReturn2 = __webpack_require__(3);
+
+var _possibleConstructorReturn3 = _interopRequireDefault(_possibleConstructorReturn2);
+
+var _inherits2 = __webpack_require__(4);
+
+var _inherits3 = _interopRequireDefault(_inherits2);
+
+var _ResourceReference2 = __webpack_require__(53);
 
 var _ResourceReference3 = _interopRequireDefault(_ResourceReference2);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-
-function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-
 // all logic handled within ExtrudeGeometryDescriptor
 // TODO implement here instead
 var ShapeResourceReference = function (_ResourceReference) {
-  _inherits(ShapeResourceReference, _ResourceReference);
+  (0, _inherits3.default)(ShapeResourceReference, _ResourceReference);
 
   function ShapeResourceReference() {
-    _classCallCheck(this, ShapeResourceReference);
-
-    return _possibleConstructorReturn(this, (ShapeResourceReference.__proto__ || Object.getPrototypeOf(ShapeResourceReference)).apply(this, arguments));
+    (0, _classCallCheck3.default)(this, ShapeResourceReference);
+    return (0, _possibleConstructorReturn3.default)(this, (ShapeResourceReference.__proto__ || (0, _getPrototypeOf2.default)(ShapeResourceReference)).apply(this, arguments));
   }
 
   return ShapeResourceReference;
@@ -63166,57 +63470,71 @@ var ShapeResourceReference = function (_ResourceReference) {
 module.exports = ShapeResourceReference;
 
 /***/ }),
-/* 179 */
+/* 188 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 /* WEBPACK VAR INJECTION */(function(process) {
 
-var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+var _getPrototypeOf = __webpack_require__(2);
 
-var _get = function get(object, property, receiver) { if (object === null) object = Function.prototype; var desc = Object.getOwnPropertyDescriptor(object, property); if (desc === undefined) { var parent = Object.getPrototypeOf(object); if (parent === null) { return undefined; } else { return get(parent, property, receiver); } } else if ("value" in desc) { return desc.value; } else { var getter = desc.get; if (getter === undefined) { return undefined; } return getter.call(receiver); } };
+var _getPrototypeOf2 = _interopRequireDefault(_getPrototypeOf);
 
-var _three = __webpack_require__(1);
+var _classCallCheck2 = __webpack_require__(0);
+
+var _classCallCheck3 = _interopRequireDefault(_classCallCheck2);
+
+var _createClass2 = __webpack_require__(1);
+
+var _createClass3 = _interopRequireDefault(_createClass2);
+
+var _possibleConstructorReturn2 = __webpack_require__(3);
+
+var _possibleConstructorReturn3 = _interopRequireDefault(_possibleConstructorReturn2);
+
+var _get2 = __webpack_require__(10);
+
+var _get3 = _interopRequireDefault(_get2);
+
+var _inherits2 = __webpack_require__(4);
+
+var _inherits3 = _interopRequireDefault(_inherits2);
+
+var _three = __webpack_require__(6);
 
 var THREE = _interopRequireWildcard(_three);
 
-var _propTypes = __webpack_require__(2);
+var _propTypes = __webpack_require__(7);
 
 var _propTypes2 = _interopRequireDefault(_propTypes);
 
-var _invariant = __webpack_require__(6);
+var _invariant = __webpack_require__(12);
 
 var _invariant2 = _interopRequireDefault(_invariant);
 
-var _GeometryDescriptorBase = __webpack_require__(11);
+var _GeometryDescriptorBase = __webpack_require__(17);
 
 var _GeometryDescriptorBase2 = _interopRequireDefault(_GeometryDescriptorBase);
 
-var _ShapeResourceReference = __webpack_require__(178);
+var _ShapeResourceReference = __webpack_require__(187);
 
 var _ShapeResourceReference2 = _interopRequireDefault(_ShapeResourceReference);
 
-var _propTypeInstanceOf = __webpack_require__(9);
+var _propTypeInstanceOf = __webpack_require__(15);
 
 var _propTypeInstanceOf2 = _interopRequireDefault(_propTypeInstanceOf);
 
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
 function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj.default = obj; return newObj; } }
 
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-
-function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 var GeometryWithShapesDescriptor = function (_GeometryDescriptorBa) {
-  _inherits(GeometryWithShapesDescriptor, _GeometryDescriptorBa);
+  (0, _inherits3.default)(GeometryWithShapesDescriptor, _GeometryDescriptorBa);
 
   function GeometryWithShapesDescriptor(react3RendererInstance) {
-    _classCallCheck(this, GeometryWithShapesDescriptor);
+    (0, _classCallCheck3.default)(this, GeometryWithShapesDescriptor);
 
-    var _this = _possibleConstructorReturn(this, (GeometryWithShapesDescriptor.__proto__ || Object.getPrototypeOf(GeometryWithShapesDescriptor)).call(this, react3RendererInstance));
+    var _this = (0, _possibleConstructorReturn3.default)(this, (GeometryWithShapesDescriptor.__proto__ || (0, _getPrototypeOf2.default)(GeometryWithShapesDescriptor)).call(this, react3RendererInstance));
 
     _this._invalidChild = function (child) {
       return !(child instanceof THREE.Shape || child instanceof _ShapeResourceReference2.default);
@@ -63258,7 +63576,7 @@ var GeometryWithShapesDescriptor = function (_GeometryDescriptorBa) {
     return _this;
   }
 
-  _createClass(GeometryWithShapesDescriptor, [{
+  (0, _createClass3.default)(GeometryWithShapesDescriptor, [{
     key: 'completePropertyUpdates',
     value: function completePropertyUpdates(threeObject) {
       if (threeObject.userData._needsToRefreshGeometry) {
@@ -63288,7 +63606,7 @@ var GeometryWithShapesDescriptor = function (_GeometryDescriptorBa) {
   }, {
     key: 'applyInitialProps',
     value: function applyInitialProps(threeObject, props) {
-      _get(GeometryWithShapesDescriptor.prototype.__proto__ || Object.getPrototypeOf(GeometryWithShapesDescriptor.prototype), 'applyInitialProps', this).call(this, threeObject, props);
+      (0, _get3.default)(GeometryWithShapesDescriptor.prototype.__proto__ || (0, _getPrototypeOf2.default)(GeometryWithShapesDescriptor.prototype), 'applyInitialProps', this).call(this, threeObject, props);
 
       threeObject.userData._shapeCache = [];
       threeObject.userData._options = this.getOptions(props);
@@ -63383,70 +63701,85 @@ var GeometryWithShapesDescriptor = function (_GeometryDescriptorBa) {
       delete geometry.userData._resourceListenerCleanupFunctions;
       delete geometry.userData._shapesFromProps;
 
-      return _get(GeometryWithShapesDescriptor.prototype.__proto__ || Object.getPrototypeOf(GeometryWithShapesDescriptor.prototype), 'unmount', this).call(this, geometry);
+      return (0, _get3.default)(GeometryWithShapesDescriptor.prototype.__proto__ || (0, _getPrototypeOf2.default)(GeometryWithShapesDescriptor.prototype), 'unmount', this).call(this, geometry);
     }
   }]);
-
   return GeometryWithShapesDescriptor;
 }(_GeometryDescriptorBase2.default);
 
 module.exports = GeometryWithShapesDescriptor;
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(5)))
 
 /***/ }),
-/* 180 */
+/* 189 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 /* WEBPACK VAR INJECTION */(function(process) {
 
-var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+var _extends2 = __webpack_require__(20);
 
-var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+var _extends3 = _interopRequireDefault(_extends2);
 
-var _get = function get(object, property, receiver) { if (object === null) object = Function.prototype; var desc = Object.getOwnPropertyDescriptor(object, property); if (desc === undefined) { var parent = Object.getPrototypeOf(object); if (parent === null) { return undefined; } else { return get(parent, property, receiver); } } else if ("value" in desc) { return desc.value; } else { var getter = desc.get; if (getter === undefined) { return undefined; } return getter.call(receiver); } };
+var _getPrototypeOf = __webpack_require__(2);
 
-var _three = __webpack_require__(1);
+var _getPrototypeOf2 = _interopRequireDefault(_getPrototypeOf);
+
+var _classCallCheck2 = __webpack_require__(0);
+
+var _classCallCheck3 = _interopRequireDefault(_classCallCheck2);
+
+var _createClass2 = __webpack_require__(1);
+
+var _createClass3 = _interopRequireDefault(_createClass2);
+
+var _possibleConstructorReturn2 = __webpack_require__(3);
+
+var _possibleConstructorReturn3 = _interopRequireDefault(_possibleConstructorReturn2);
+
+var _get2 = __webpack_require__(10);
+
+var _get3 = _interopRequireDefault(_get2);
+
+var _inherits2 = __webpack_require__(4);
+
+var _inherits3 = _interopRequireDefault(_inherits2);
+
+var _three = __webpack_require__(6);
 
 var THREE = _interopRequireWildcard(_three);
 
-var _invariant = __webpack_require__(6);
+var _invariant = __webpack_require__(12);
 
 var _invariant2 = _interopRequireDefault(_invariant);
 
-var _propTypes = __webpack_require__(2);
+var _propTypes = __webpack_require__(7);
 
 var _propTypes2 = _interopRequireDefault(_propTypes);
 
-var _THREEElementDescriptor = __webpack_require__(14);
+var _THREEElementDescriptor = __webpack_require__(21);
 
 var _THREEElementDescriptor2 = _interopRequireDefault(_THREEElementDescriptor);
 
-var _ShapeAction = __webpack_require__(23);
+var _ShapeAction = __webpack_require__(31);
 
 var _ShapeAction2 = _interopRequireDefault(_ShapeAction);
 
-var _propTypeInstanceOf = __webpack_require__(9);
+var _propTypeInstanceOf = __webpack_require__(15);
 
 var _propTypeInstanceOf2 = _interopRequireDefault(_propTypeInstanceOf);
 
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
 function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj.default = obj; return newObj; } }
 
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-
-function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 var PathDescriptorBase = function (_THREEElementDescript) {
-  _inherits(PathDescriptorBase, _THREEElementDescript);
+  (0, _inherits3.default)(PathDescriptorBase, _THREEElementDescript);
 
   function PathDescriptorBase(react3RendererInstance) {
-    _classCallCheck(this, PathDescriptorBase);
+    (0, _classCallCheck3.default)(this, PathDescriptorBase);
 
-    var _this = _possibleConstructorReturn(this, (PathDescriptorBase.__proto__ || Object.getPrototypeOf(PathDescriptorBase)).call(this, react3RendererInstance));
+    var _this = (0, _possibleConstructorReturn3.default)(this, (PathDescriptorBase.__proto__ || (0, _getPrototypeOf2.default)(PathDescriptorBase)).call(this, react3RendererInstance));
 
     _this._invalidChild = function (child) {
       var invalid = !(child instanceof _ShapeAction2.default);
@@ -63462,15 +63795,15 @@ var PathDescriptorBase = function (_THREEElementDescript) {
     return _this;
   }
 
-  _createClass(PathDescriptorBase, [{
+  (0, _createClass3.default)(PathDescriptorBase, [{
     key: 'applyInitialProps',
     value: function applyInitialProps(threeObject, props) {
-      threeObject.userData = _extends({}, threeObject.userData);
+      threeObject.userData = (0, _extends3.default)({}, threeObject.userData);
 
       // paths don't have uuids
       threeObject.uuid = THREE.Math.generateUUID();
 
-      return _get(PathDescriptorBase.prototype.__proto__ || Object.getPrototypeOf(PathDescriptorBase.prototype), 'applyInitialProps', this).call(this, threeObject, props);
+      return (0, _get3.default)(PathDescriptorBase.prototype.__proto__ || (0, _getPrototypeOf2.default)(PathDescriptorBase.prototype), 'applyInitialProps', this).call(this, threeObject, props);
     }
   }, {
     key: 'addChildren',
@@ -63525,108 +63858,132 @@ var PathDescriptorBase = function (_THREEElementDescript) {
       return parentObject.userData._descriptor.getBoundingBoxes(parentObject);
     }
   }]);
-
   return PathDescriptorBase;
 }(_THREEElementDescriptor2.default);
 
 module.exports = PathDescriptorBase;
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(5)))
 
 /***/ }),
-/* 181 */
+/* 190 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
-var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+var _getPrototypeOf = __webpack_require__(2);
 
-var _three = __webpack_require__(1);
+var _getPrototypeOf2 = _interopRequireDefault(_getPrototypeOf);
+
+var _classCallCheck2 = __webpack_require__(0);
+
+var _classCallCheck3 = _interopRequireDefault(_classCallCheck2);
+
+var _createClass2 = __webpack_require__(1);
+
+var _createClass3 = _interopRequireDefault(_createClass2);
+
+var _possibleConstructorReturn2 = __webpack_require__(3);
+
+var _possibleConstructorReturn3 = _interopRequireDefault(_possibleConstructorReturn2);
+
+var _inherits2 = __webpack_require__(4);
+
+var _inherits3 = _interopRequireDefault(_inherits2);
+
+var _three = __webpack_require__(6);
 
 var THREE = _interopRequireWildcard(_three);
 
-var _ShapeAction2 = __webpack_require__(23);
+var _ShapeAction2 = __webpack_require__(31);
 
 var _ShapeAction3 = _interopRequireDefault(_ShapeAction2);
 
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
 function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj.default = obj; return newObj; } }
 
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-
-function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 var HoleAction = function (_ShapeAction) {
-  _inherits(HoleAction, _ShapeAction);
+  (0, _inherits3.default)(HoleAction, _ShapeAction);
 
   function HoleAction() {
-    _classCallCheck(this, HoleAction);
+    (0, _classCallCheck3.default)(this, HoleAction);
 
-    var _this = _possibleConstructorReturn(this, (HoleAction.__proto__ || Object.getPrototypeOf(HoleAction)).call(this));
+    var _this = (0, _possibleConstructorReturn3.default)(this, (HoleAction.__proto__ || (0, _getPrototypeOf2.default)(HoleAction)).call(this));
 
     _this.path = new THREE.Path();
     return _this;
   }
 
-  _createClass(HoleAction, [{
+  (0, _createClass3.default)(HoleAction, [{
     key: 'performAction',
     value: function performAction(shape) {
       shape.holes.push(this.path);
     }
   }]);
-
   return HoleAction;
 }(_ShapeAction3.default);
 
 module.exports = HoleAction;
 
 /***/ }),
-/* 182 */
+/* 191 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
-var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+var _getPrototypeOf = __webpack_require__(2);
 
-var _get = function get(object, property, receiver) { if (object === null) object = Function.prototype; var desc = Object.getOwnPropertyDescriptor(object, property); if (desc === undefined) { var parent = Object.getPrototypeOf(object); if (parent === null) { return undefined; } else { return get(parent, property, receiver); } } else if ("value" in desc) { return desc.value; } else { var getter = desc.get; if (getter === undefined) { return undefined; } return getter.call(receiver); } };
+var _getPrototypeOf2 = _interopRequireDefault(_getPrototypeOf);
 
-var _three = __webpack_require__(1);
+var _classCallCheck2 = __webpack_require__(0);
+
+var _classCallCheck3 = _interopRequireDefault(_classCallCheck2);
+
+var _createClass2 = __webpack_require__(1);
+
+var _createClass3 = _interopRequireDefault(_createClass2);
+
+var _possibleConstructorReturn2 = __webpack_require__(3);
+
+var _possibleConstructorReturn3 = _interopRequireDefault(_possibleConstructorReturn2);
+
+var _get2 = __webpack_require__(10);
+
+var _get3 = _interopRequireDefault(_get2);
+
+var _inherits2 = __webpack_require__(4);
+
+var _inherits3 = _interopRequireDefault(_inherits2);
+
+var _three = __webpack_require__(6);
 
 var THREE = _interopRequireWildcard(_three);
 
-var _propTypes = __webpack_require__(2);
+var _propTypes = __webpack_require__(7);
 
 var _propTypes2 = _interopRequireDefault(_propTypes);
 
-var _MaterialDescriptorBase = __webpack_require__(20);
+var _MaterialDescriptorBase = __webpack_require__(28);
 
 var _MaterialDescriptorBase2 = _interopRequireDefault(_MaterialDescriptorBase);
 
-var _UniformContainer = __webpack_require__(112);
+var _UniformContainer = __webpack_require__(123);
 
 var _UniformContainer2 = _interopRequireDefault(_UniformContainer);
 
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
 function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj.default = obj; return newObj; } }
 
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-
-function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 var ShaderMaterialDescriptor = function (_MaterialDescriptorBa) {
-  _inherits(ShaderMaterialDescriptor, _MaterialDescriptorBa);
+  (0, _inherits3.default)(ShaderMaterialDescriptor, _MaterialDescriptorBa);
 
   function ShaderMaterialDescriptor(react3RendererInstance) {
-    _classCallCheck(this, ShaderMaterialDescriptor);
+    (0, _classCallCheck3.default)(this, ShaderMaterialDescriptor);
 
-    var _this = _possibleConstructorReturn(this, (ShaderMaterialDescriptor.__proto__ || Object.getPrototypeOf(ShaderMaterialDescriptor)).call(this, react3RendererInstance));
+    var _this = (0, _possibleConstructorReturn3.default)(this, (ShaderMaterialDescriptor.__proto__ || (0, _getPrototypeOf2.default)(ShaderMaterialDescriptor)).call(this, react3RendererInstance));
 
     ['vertexShader', 'fragmentShader'].forEach(function (propName) {
       _this.hasProp(propName, {
@@ -63645,10 +64002,10 @@ var ShaderMaterialDescriptor = function (_MaterialDescriptorBa) {
     return _this;
   }
 
-  _createClass(ShaderMaterialDescriptor, [{
+  (0, _createClass3.default)(ShaderMaterialDescriptor, [{
     key: 'getMaterialDescription',
     value: function getMaterialDescription(props) {
-      var materialDescription = _get(ShaderMaterialDescriptor.prototype.__proto__ || Object.getPrototypeOf(ShaderMaterialDescriptor.prototype), 'getMaterialDescription', this).call(this, props);
+      var materialDescription = (0, _get3.default)(ShaderMaterialDescriptor.prototype.__proto__ || (0, _getPrototypeOf2.default)(ShaderMaterialDescriptor.prototype), 'getMaterialDescription', this).call(this, props);
 
       if (props.hasOwnProperty('uniforms')) {
         materialDescription.uniforms = props.uniforms;
@@ -63674,40 +64031,39 @@ var ShaderMaterialDescriptor = function (_MaterialDescriptorBa) {
   }, {
     key: 'invalidChildInternal',
     value: function invalidChildInternal(child) {
-      return !(child instanceof _UniformContainer2.default || _get(ShaderMaterialDescriptor.prototype.__proto__ || Object.getPrototypeOf(ShaderMaterialDescriptor.prototype), 'invalidChildInternal', this).call(this, child));
+      return !(child instanceof _UniformContainer2.default || (0, _get3.default)(ShaderMaterialDescriptor.prototype.__proto__ || (0, _getPrototypeOf2.default)(ShaderMaterialDescriptor.prototype), 'invalidChildInternal', this).call(this, child));
     }
   }, {
     key: 'applyInitialProps',
     value: function applyInitialProps(threeObject, props) {
-      _get(ShaderMaterialDescriptor.prototype.__proto__ || Object.getPrototypeOf(ShaderMaterialDescriptor.prototype), 'applyInitialProps', this).call(this, threeObject, props);
+      (0, _get3.default)(ShaderMaterialDescriptor.prototype.__proto__ || (0, _getPrototypeOf2.default)(ShaderMaterialDescriptor.prototype), 'applyInitialProps', this).call(this, threeObject, props);
 
       if (!props.hasOwnProperty('uniforms')) {
         threeObject.uniforms = {};
       }
     }
   }]);
-
   return ShaderMaterialDescriptor;
 }(_MaterialDescriptorBase2.default);
 
 module.exports = ShaderMaterialDescriptor;
 
 /***/ }),
-/* 183 */
+/* 192 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
-var _react = __webpack_require__(29);
+var _react = __webpack_require__(38);
 
 var _react2 = _interopRequireDefault(_react);
 
-var _reactDom = __webpack_require__(195);
+var _reactDom = __webpack_require__(203);
 
 var _reactDom2 = _interopRequireDefault(_reactDom);
 
-var _app = __webpack_require__(273);
+var _app = __webpack_require__(281);
 
 var _app2 = _interopRequireDefault(_app);
 
@@ -63718,7 +64074,7 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 
 /***/ }),
-/* 184 */
+/* 193 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -63732,11 +64088,11 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
 
-var PooledClass = __webpack_require__(185);
-var ReactElement = __webpack_require__(21);
+var PooledClass = __webpack_require__(194);
+var ReactElement = __webpack_require__(29);
 
-var emptyFunction = __webpack_require__(19);
-var traverseAllChildren = __webpack_require__(115);
+var emptyFunction = __webpack_require__(27);
+var traverseAllChildren = __webpack_require__(126);
 
 var twoArgumentPooler = PooledClass.twoArgumentPooler;
 var fourArgumentPooler = PooledClass.fourArgumentPooler;
@@ -63912,7 +64268,7 @@ var ReactChildren = {
 module.exports = ReactChildren;
 
 /***/ }),
-/* 185 */
+/* 194 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -63927,9 +64283,9 @@ module.exports = ReactChildren;
 
 
 
-var _prodInvariant = __webpack_require__(36);
+var _prodInvariant = __webpack_require__(46);
 
-var invariant = __webpack_require__(3);
+var invariant = __webpack_require__(8);
 
 /**
  * Static poolers. Several custom versions for each potential number of
@@ -64025,10 +64381,10 @@ var PooledClass = {
 };
 
 module.exports = PooledClass;
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(5)))
 
 /***/ }),
-/* 186 */
+/* 195 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -64042,7 +64398,7 @@ module.exports = PooledClass;
 
 
 
-var ReactElement = __webpack_require__(21);
+var ReactElement = __webpack_require__(29);
 
 /**
  * Create a factory that creates HTML tag elements.
@@ -64051,7 +64407,7 @@ var ReactElement = __webpack_require__(21);
  */
 var createDOMFactory = ReactElement.createFactory;
 if (process.env.NODE_ENV !== 'production') {
-  var ReactElementValidator = __webpack_require__(117);
+  var ReactElementValidator = __webpack_require__(128);
   createDOMFactory = ReactElementValidator.createFactory;
 }
 
@@ -64198,10 +64554,10 @@ var ReactDOMFactories = {
 };
 
 module.exports = ReactDOMFactories;
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(5)))
 
 /***/ }),
-/* 187 */
+/* 196 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -64221,29 +64577,7 @@ var ReactPropTypesSecret = 'SECRET_DO_NOT_PASS_THIS_OR_YOU_WILL_BE_FIRED';
 module.exports = ReactPropTypesSecret;
 
 /***/ }),
-/* 188 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-/**
- * Copyright (c) 2013-present, Facebook, Inc.
- *
- * This source code is licensed under the MIT license found in the
- * LICENSE file in the root directory of this source tree.
- *
- */
-
-
-
-var _require = __webpack_require__(21),
-    isValidElement = _require.isValidElement;
-
-var factory = __webpack_require__(119);
-
-module.exports = factory(isValidElement);
-
-/***/ }),
-/* 189 */
+/* 197 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -64256,13 +64590,13 @@ module.exports = factory(isValidElement);
 
 
 
-var emptyFunction = __webpack_require__(19);
-var invariant = __webpack_require__(3);
-var warning = __webpack_require__(4);
-var assign = __webpack_require__(7);
+var emptyFunction = __webpack_require__(27);
+var invariant = __webpack_require__(8);
+var warning = __webpack_require__(9);
+var assign = __webpack_require__(13);
 
-var ReactPropTypesSecret = __webpack_require__(120);
-var checkPropTypes = __webpack_require__(190);
+var ReactPropTypesSecret = __webpack_require__(132);
+var checkPropTypes = __webpack_require__(198);
 
 module.exports = function(isValidElement, throwOnDirectAccess) {
   /* global Symbol */
@@ -64790,10 +65124,10 @@ module.exports = function(isValidElement, throwOnDirectAccess) {
   return ReactPropTypes;
 };
 
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(5)))
 
 /***/ }),
-/* 190 */
+/* 198 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -64807,9 +65141,9 @@ module.exports = function(isValidElement, throwOnDirectAccess) {
 
 
 if (process.env.NODE_ENV !== 'production') {
-  var invariant = __webpack_require__(3);
-  var warning = __webpack_require__(4);
-  var ReactPropTypesSecret = __webpack_require__(120);
+  var invariant = __webpack_require__(8);
+  var warning = __webpack_require__(9);
+  var ReactPropTypesSecret = __webpack_require__(132);
   var loggedTypeFailures = {};
 }
 
@@ -64857,10 +65191,10 @@ function checkPropTypes(typeSpecs, values, location, componentName, getStack) {
 
 module.exports = checkPropTypes;
 
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(5)))
 
 /***/ }),
-/* 191 */
+/* 199 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -64877,7 +65211,7 @@ module.exports = checkPropTypes;
 module.exports = '15.6.2';
 
 /***/ }),
-/* 192 */
+/* 200 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -64891,19 +65225,19 @@ module.exports = '15.6.2';
 
 
 
-var _require = __webpack_require__(71),
+var _require = __webpack_require__(84),
     Component = _require.Component;
 
-var _require2 = __webpack_require__(21),
+var _require2 = __webpack_require__(29),
     isValidElement = _require2.isValidElement;
 
-var ReactNoopUpdateQueue = __webpack_require__(113);
-var factory = __webpack_require__(193);
+var ReactNoopUpdateQueue = __webpack_require__(124);
+var factory = __webpack_require__(201);
 
 module.exports = factory(Component, isValidElement, ReactNoopUpdateQueue);
 
 /***/ }),
-/* 193 */
+/* 201 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -64917,13 +65251,13 @@ module.exports = factory(Component, isValidElement, ReactNoopUpdateQueue);
 
 
 
-var _assign = __webpack_require__(7);
+var _assign = __webpack_require__(13);
 
-var emptyObject = __webpack_require__(51);
-var _invariant = __webpack_require__(3);
+var emptyObject = __webpack_require__(62);
+var _invariant = __webpack_require__(8);
 
 if (process.env.NODE_ENV !== 'production') {
-  var warning = __webpack_require__(4);
+  var warning = __webpack_require__(9);
 }
 
 var MIXINS_KEY = 'mixins';
@@ -65778,10 +66112,10 @@ function factory(ReactComponent, isValidElement, ReactNoopUpdateQueue) {
 
 module.exports = factory;
 
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(5)))
 
 /***/ }),
-/* 194 */
+/* 202 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -65794,11 +66128,11 @@ module.exports = factory;
  */
 
 
-var _prodInvariant = __webpack_require__(36);
+var _prodInvariant = __webpack_require__(46);
 
-var ReactElement = __webpack_require__(21);
+var ReactElement = __webpack_require__(29);
 
-var invariant = __webpack_require__(3);
+var invariant = __webpack_require__(8);
 
 /**
  * Returns the first child in a collection of children and verifies that there
@@ -65820,20 +66154,20 @@ function onlyChild(children) {
 }
 
 module.exports = onlyChild;
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(5)))
 
 /***/ }),
-/* 195 */
+/* 203 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
-module.exports = __webpack_require__(196);
+module.exports = __webpack_require__(204);
 
 
 /***/ }),
-/* 196 */
+/* 204 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -65849,17 +66183,17 @@ module.exports = __webpack_require__(196);
 
 
 
-var ReactDOMComponentTree = __webpack_require__(8);
-var ReactDefaultInjection = __webpack_require__(197);
-var ReactMount = __webpack_require__(149);
-var ReactReconciler = __webpack_require__(25);
-var ReactUpdates = __webpack_require__(16);
-var ReactVersion = __webpack_require__(269);
+var ReactDOMComponentTree = __webpack_require__(14);
+var ReactDefaultInjection = __webpack_require__(205);
+var ReactMount = __webpack_require__(161);
+var ReactReconciler = __webpack_require__(33);
+var ReactUpdates = __webpack_require__(23);
+var ReactVersion = __webpack_require__(277);
 
-var findDOMNode = __webpack_require__(270);
-var getHostComponentFromComposite = __webpack_require__(89);
-var renderSubtreeIntoContainer = __webpack_require__(271);
-var warning = __webpack_require__(4);
+var findDOMNode = __webpack_require__(278);
+var getHostComponentFromComposite = __webpack_require__(102);
+var renderSubtreeIntoContainer = __webpack_require__(279);
+var warning = __webpack_require__(9);
 
 ReactDefaultInjection.inject();
 
@@ -65899,7 +66233,7 @@ if (typeof __REACT_DEVTOOLS_GLOBAL_HOOK__ !== 'undefined' && typeof __REACT_DEVT
 }
 
 if (process.env.NODE_ENV !== 'production') {
-  var ExecutionEnvironment = __webpack_require__(10);
+  var ExecutionEnvironment = __webpack_require__(16);
   if (ExecutionEnvironment.canUseDOM && window.top === window.self) {
     // First check if devtools is not installed
     if (typeof __REACT_DEVTOOLS_GLOBAL_HOOK__ === 'undefined') {
@@ -65934,10 +66268,10 @@ if (process.env.NODE_ENV !== 'production') {
 }
 
 if (process.env.NODE_ENV !== 'production') {
-  var ReactInstrumentation = __webpack_require__(13);
-  var ReactDOMUnknownPropertyHook = __webpack_require__(150);
-  var ReactDOMNullInputValuePropHook = __webpack_require__(151);
-  var ReactDOMInvalidARIAHook = __webpack_require__(272);
+  var ReactInstrumentation = __webpack_require__(19);
+  var ReactDOMUnknownPropertyHook = __webpack_require__(162);
+  var ReactDOMNullInputValuePropHook = __webpack_require__(163);
+  var ReactDOMInvalidARIAHook = __webpack_require__(280);
 
   ReactInstrumentation.debugTool.addHook(ReactDOMUnknownPropertyHook);
   ReactInstrumentation.debugTool.addHook(ReactDOMNullInputValuePropHook);
@@ -65945,10 +66279,10 @@ if (process.env.NODE_ENV !== 'production') {
 }
 
 module.exports = ReactDOM;
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(5)))
 
 /***/ }),
-/* 197 */
+/* 205 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -65962,25 +66296,25 @@ module.exports = ReactDOM;
 
 
 
-var ARIADOMPropertyConfig = __webpack_require__(198);
-var BeforeInputEventPlugin = __webpack_require__(199);
-var ChangeEventPlugin = __webpack_require__(203);
-var DefaultEventPluginOrder = __webpack_require__(210);
-var EnterLeaveEventPlugin = __webpack_require__(211);
-var HTMLDOMPropertyConfig = __webpack_require__(212);
-var ReactComponentBrowserEnvironment = __webpack_require__(213);
-var ReactDOMComponent = __webpack_require__(219);
-var ReactDOMComponentTree = __webpack_require__(8);
-var ReactDOMEmptyComponent = __webpack_require__(243);
-var ReactDOMTreeTraversal = __webpack_require__(244);
-var ReactDOMTextComponent = __webpack_require__(245);
-var ReactDefaultBatchingStrategy = __webpack_require__(143);
-var ReactEventListener = __webpack_require__(246);
-var ReactInjection = __webpack_require__(145);
-var ReactReconcileTransaction = __webpack_require__(146);
-var SVGDOMPropertyConfig = __webpack_require__(253);
-var SelectEventPlugin = __webpack_require__(254);
-var SimpleEventPlugin = __webpack_require__(255);
+var ARIADOMPropertyConfig = __webpack_require__(206);
+var BeforeInputEventPlugin = __webpack_require__(207);
+var ChangeEventPlugin = __webpack_require__(211);
+var DefaultEventPluginOrder = __webpack_require__(218);
+var EnterLeaveEventPlugin = __webpack_require__(219);
+var HTMLDOMPropertyConfig = __webpack_require__(220);
+var ReactComponentBrowserEnvironment = __webpack_require__(221);
+var ReactDOMComponent = __webpack_require__(227);
+var ReactDOMComponentTree = __webpack_require__(14);
+var ReactDOMEmptyComponent = __webpack_require__(251);
+var ReactDOMTreeTraversal = __webpack_require__(252);
+var ReactDOMTextComponent = __webpack_require__(253);
+var ReactDefaultBatchingStrategy = __webpack_require__(155);
+var ReactEventListener = __webpack_require__(254);
+var ReactInjection = __webpack_require__(157);
+var ReactReconcileTransaction = __webpack_require__(158);
+var SVGDOMPropertyConfig = __webpack_require__(261);
+var SelectEventPlugin = __webpack_require__(262);
+var SimpleEventPlugin = __webpack_require__(263);
 
 var alreadyInjected = false;
 
@@ -66037,7 +66371,7 @@ module.exports = {
 };
 
 /***/ }),
-/* 198 */
+/* 206 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -66114,7 +66448,7 @@ var ARIADOMPropertyConfig = {
 module.exports = ARIADOMPropertyConfig;
 
 /***/ }),
-/* 199 */
+/* 207 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -66128,11 +66462,11 @@ module.exports = ARIADOMPropertyConfig;
 
 
 
-var EventPropagators = __webpack_require__(43);
-var ExecutionEnvironment = __webpack_require__(10);
-var FallbackCompositionState = __webpack_require__(200);
-var SyntheticCompositionEvent = __webpack_require__(201);
-var SyntheticInputEvent = __webpack_require__(202);
+var EventPropagators = __webpack_require__(54);
+var ExecutionEnvironment = __webpack_require__(16);
+var FallbackCompositionState = __webpack_require__(208);
+var SyntheticCompositionEvent = __webpack_require__(209);
+var SyntheticInputEvent = __webpack_require__(210);
 
 var END_KEYCODES = [9, 13, 27, 32]; // Tab, Return, Esc, Space
 var START_KEYCODE = 229;
@@ -66501,7 +66835,7 @@ var BeforeInputEventPlugin = {
 module.exports = BeforeInputEventPlugin;
 
 /***/ }),
-/* 200 */
+/* 208 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -66515,11 +66849,11 @@ module.exports = BeforeInputEventPlugin;
 
 
 
-var _assign = __webpack_require__(7);
+var _assign = __webpack_require__(13);
 
-var PooledClass = __webpack_require__(30);
+var PooledClass = __webpack_require__(39);
 
-var getTextContentAccessor = __webpack_require__(124);
+var getTextContentAccessor = __webpack_require__(136);
 
 /**
  * This helper class stores information about text content of a target node,
@@ -66599,7 +66933,7 @@ PooledClass.addPoolingTo(FallbackCompositionState);
 module.exports = FallbackCompositionState;
 
 /***/ }),
-/* 201 */
+/* 209 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -66613,7 +66947,7 @@ module.exports = FallbackCompositionState;
 
 
 
-var SyntheticEvent = __webpack_require__(22);
+var SyntheticEvent = __webpack_require__(30);
 
 /**
  * @interface Event
@@ -66638,7 +66972,7 @@ SyntheticEvent.augmentClass(SyntheticCompositionEvent, CompositionEventInterface
 module.exports = SyntheticCompositionEvent;
 
 /***/ }),
-/* 202 */
+/* 210 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -66652,7 +66986,7 @@ module.exports = SyntheticCompositionEvent;
 
 
 
-var SyntheticEvent = __webpack_require__(22);
+var SyntheticEvent = __webpack_require__(30);
 
 /**
  * @interface Event
@@ -66678,7 +67012,7 @@ SyntheticEvent.augmentClass(SyntheticInputEvent, InputEventInterface);
 module.exports = SyntheticInputEvent;
 
 /***/ }),
-/* 203 */
+/* 211 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -66692,17 +67026,17 @@ module.exports = SyntheticInputEvent;
 
 
 
-var EventPluginHub = __webpack_require__(44);
-var EventPropagators = __webpack_require__(43);
-var ExecutionEnvironment = __webpack_require__(10);
-var ReactDOMComponentTree = __webpack_require__(8);
-var ReactUpdates = __webpack_require__(16);
-var SyntheticEvent = __webpack_require__(22);
+var EventPluginHub = __webpack_require__(55);
+var EventPropagators = __webpack_require__(54);
+var ExecutionEnvironment = __webpack_require__(16);
+var ReactDOMComponentTree = __webpack_require__(14);
+var ReactUpdates = __webpack_require__(23);
+var SyntheticEvent = __webpack_require__(30);
 
-var inputValueTracking = __webpack_require__(128);
-var getEventTarget = __webpack_require__(77);
-var isEventSupported = __webpack_require__(78);
-var isTextInputElement = __webpack_require__(129);
+var inputValueTracking = __webpack_require__(140);
+var getEventTarget = __webpack_require__(90);
+var isEventSupported = __webpack_require__(91);
+var isTextInputElement = __webpack_require__(141);
 
 var eventTypes = {
   change: {
@@ -66993,7 +67327,7 @@ var ChangeEventPlugin = {
 module.exports = ChangeEventPlugin;
 
 /***/ }),
-/* 204 */
+/* 212 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -67008,9 +67342,9 @@ module.exports = ChangeEventPlugin;
 
 
 
-var _prodInvariant = __webpack_require__(5);
+var _prodInvariant = __webpack_require__(11);
 
-var invariant = __webpack_require__(3);
+var invariant = __webpack_require__(8);
 
 /**
  * @param {?object} object
@@ -67087,10 +67421,10 @@ var ReactOwner = {
 };
 
 module.exports = ReactOwner;
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(5)))
 
 /***/ }),
-/* 205 */
+/* 213 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -67105,13 +67439,13 @@ module.exports = ReactOwner;
 
 
 
-var ReactInvalidSetStateWarningHook = __webpack_require__(206);
-var ReactHostOperationHistoryHook = __webpack_require__(207);
-var ReactComponentTreeHook = __webpack_require__(12);
-var ExecutionEnvironment = __webpack_require__(10);
+var ReactInvalidSetStateWarningHook = __webpack_require__(214);
+var ReactHostOperationHistoryHook = __webpack_require__(215);
+var ReactComponentTreeHook = __webpack_require__(18);
+var ExecutionEnvironment = __webpack_require__(16);
 
-var performanceNow = __webpack_require__(208);
-var warning = __webpack_require__(4);
+var performanceNow = __webpack_require__(216);
+var warning = __webpack_require__(9);
 
 var hooks = [];
 var didHookThrowForEvent = {};
@@ -67452,10 +67786,10 @@ if (/[?&]react_perf\b/.test(url)) {
 }
 
 module.exports = ReactDebugTool;
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(5)))
 
 /***/ }),
-/* 206 */
+/* 214 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -67470,7 +67804,7 @@ module.exports = ReactDebugTool;
 
 
 
-var warning = __webpack_require__(4);
+var warning = __webpack_require__(9);
 
 if (process.env.NODE_ENV !== 'production') {
   var processingChildContext = false;
@@ -67493,10 +67827,10 @@ var ReactInvalidSetStateWarningHook = {
 };
 
 module.exports = ReactInvalidSetStateWarningHook;
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(5)))
 
 /***/ }),
-/* 207 */
+/* 215 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -67533,7 +67867,7 @@ var ReactHostOperationHistoryHook = {
 module.exports = ReactHostOperationHistoryHook;
 
 /***/ }),
-/* 208 */
+/* 216 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -67548,7 +67882,7 @@ module.exports = ReactHostOperationHistoryHook;
  * @typechecks
  */
 
-var performance = __webpack_require__(209);
+var performance = __webpack_require__(217);
 
 var performanceNow;
 
@@ -67570,7 +67904,7 @@ if (performance.now) {
 module.exports = performanceNow;
 
 /***/ }),
-/* 209 */
+/* 217 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -67585,7 +67919,7 @@ module.exports = performanceNow;
 
 
 
-var ExecutionEnvironment = __webpack_require__(10);
+var ExecutionEnvironment = __webpack_require__(16);
 
 var performance;
 
@@ -67596,7 +67930,7 @@ if (ExecutionEnvironment.canUseDOM) {
 module.exports = performance || {};
 
 /***/ }),
-/* 210 */
+/* 218 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -67625,7 +67959,7 @@ var DefaultEventPluginOrder = ['ResponderEventPlugin', 'SimpleEventPlugin', 'Tap
 module.exports = DefaultEventPluginOrder;
 
 /***/ }),
-/* 211 */
+/* 219 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -67639,9 +67973,9 @@ module.exports = DefaultEventPluginOrder;
 
 
 
-var EventPropagators = __webpack_require__(43);
-var ReactDOMComponentTree = __webpack_require__(8);
-var SyntheticMouseEvent = __webpack_require__(54);
+var EventPropagators = __webpack_require__(54);
+var ReactDOMComponentTree = __webpack_require__(14);
+var SyntheticMouseEvent = __webpack_require__(56);
 
 var eventTypes = {
   mouseEnter: {
@@ -67726,7 +68060,7 @@ var EnterLeaveEventPlugin = {
 module.exports = EnterLeaveEventPlugin;
 
 /***/ }),
-/* 212 */
+/* 220 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -67740,7 +68074,7 @@ module.exports = EnterLeaveEventPlugin;
 
 
 
-var DOMProperty = __webpack_require__(24);
+var DOMProperty = __webpack_require__(32);
 
 var MUST_USE_PROPERTY = DOMProperty.injection.MUST_USE_PROPERTY;
 var HAS_BOOLEAN_VALUE = DOMProperty.injection.HAS_BOOLEAN_VALUE;
@@ -67966,7 +68300,7 @@ var HTMLDOMPropertyConfig = {
 module.exports = HTMLDOMPropertyConfig;
 
 /***/ }),
-/* 213 */
+/* 221 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -67980,8 +68314,8 @@ module.exports = HTMLDOMPropertyConfig;
 
 
 
-var DOMChildrenOperations = __webpack_require__(80);
-var ReactDOMIDOperations = __webpack_require__(218);
+var DOMChildrenOperations = __webpack_require__(93);
+var ReactDOMIDOperations = __webpack_require__(226);
 
 /**
  * Abstracts away all functionality of the reconciler that requires knowledge of
@@ -67997,7 +68331,7 @@ var ReactComponentBrowserEnvironment = {
 module.exports = ReactComponentBrowserEnvironment;
 
 /***/ }),
-/* 214 */
+/* 222 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -68011,14 +68345,14 @@ module.exports = ReactComponentBrowserEnvironment;
 
 
 
-var _prodInvariant = __webpack_require__(5);
+var _prodInvariant = __webpack_require__(11);
 
-var DOMLazyTree = __webpack_require__(37);
-var ExecutionEnvironment = __webpack_require__(10);
+var DOMLazyTree = __webpack_require__(47);
+var ExecutionEnvironment = __webpack_require__(16);
 
-var createNodesFromMarkup = __webpack_require__(215);
-var emptyFunction = __webpack_require__(19);
-var invariant = __webpack_require__(3);
+var createNodesFromMarkup = __webpack_require__(223);
+var emptyFunction = __webpack_require__(27);
+var invariant = __webpack_require__(8);
 
 var Danger = {
   /**
@@ -68044,10 +68378,10 @@ var Danger = {
 };
 
 module.exports = Danger;
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(5)))
 
 /***/ }),
-/* 215 */
+/* 223 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -68064,11 +68398,11 @@ module.exports = Danger;
 
 /*eslint-disable fb-www/unsafe-html*/
 
-var ExecutionEnvironment = __webpack_require__(10);
+var ExecutionEnvironment = __webpack_require__(16);
 
-var createArrayFromMixed = __webpack_require__(216);
-var getMarkupWrap = __webpack_require__(217);
-var invariant = __webpack_require__(3);
+var createArrayFromMixed = __webpack_require__(224);
+var getMarkupWrap = __webpack_require__(225);
+var invariant = __webpack_require__(8);
 
 /**
  * Dummy container used to render all markup.
@@ -68132,10 +68466,10 @@ function createNodesFromMarkup(markup, handleScript) {
 }
 
 module.exports = createNodesFromMarkup;
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(5)))
 
 /***/ }),
-/* 216 */
+/* 224 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -68150,7 +68484,7 @@ module.exports = createNodesFromMarkup;
  * @typechecks
  */
 
-var invariant = __webpack_require__(3);
+var invariant = __webpack_require__(8);
 
 /**
  * Convert array-like objects to arrays.
@@ -68263,10 +68597,10 @@ function createArrayFromMixed(obj) {
 }
 
 module.exports = createArrayFromMixed;
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(5)))
 
 /***/ }),
-/* 217 */
+/* 225 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -68282,9 +68616,9 @@ module.exports = createArrayFromMixed;
 
 /*eslint-disable fb-www/unsafe-html */
 
-var ExecutionEnvironment = __webpack_require__(10);
+var ExecutionEnvironment = __webpack_require__(16);
 
-var invariant = __webpack_require__(3);
+var invariant = __webpack_require__(8);
 
 /**
  * Dummy container used to detect which wraps are necessary.
@@ -68362,10 +68696,10 @@ function getMarkupWrap(nodeName) {
 }
 
 module.exports = getMarkupWrap;
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(5)))
 
 /***/ }),
-/* 218 */
+/* 226 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -68379,8 +68713,8 @@ module.exports = getMarkupWrap;
 
 
 
-var DOMChildrenOperations = __webpack_require__(80);
-var ReactDOMComponentTree = __webpack_require__(8);
+var DOMChildrenOperations = __webpack_require__(93);
+var ReactDOMComponentTree = __webpack_require__(14);
 
 /**
  * Operations used to process updates to DOM nodes.
@@ -68401,7 +68735,7 @@ var ReactDOMIDOperations = {
 module.exports = ReactDOMIDOperations;
 
 /***/ }),
-/* 219 */
+/* 227 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -68417,36 +68751,36 @@ module.exports = ReactDOMIDOperations;
 
 
 
-var _prodInvariant = __webpack_require__(5),
-    _assign = __webpack_require__(7);
+var _prodInvariant = __webpack_require__(11),
+    _assign = __webpack_require__(13);
 
-var AutoFocusUtils = __webpack_require__(220);
-var CSSPropertyOperations = __webpack_require__(221);
-var DOMLazyTree = __webpack_require__(37);
-var DOMNamespaces = __webpack_require__(81);
-var DOMProperty = __webpack_require__(24);
-var DOMPropertyOperations = __webpack_require__(134);
-var EventPluginHub = __webpack_require__(44);
-var EventPluginRegistry = __webpack_require__(52);
-var ReactBrowserEventEmitter = __webpack_require__(57);
-var ReactDOMComponentFlags = __webpack_require__(121);
-var ReactDOMComponentTree = __webpack_require__(8);
-var ReactDOMInput = __webpack_require__(231);
-var ReactDOMOption = __webpack_require__(232);
-var ReactDOMSelect = __webpack_require__(136);
-var ReactDOMTextarea = __webpack_require__(233);
-var ReactInstrumentation = __webpack_require__(13);
-var ReactMultiChild = __webpack_require__(137);
-var ReactServerRenderingTransaction = __webpack_require__(241);
+var AutoFocusUtils = __webpack_require__(228);
+var CSSPropertyOperations = __webpack_require__(229);
+var DOMLazyTree = __webpack_require__(47);
+var DOMNamespaces = __webpack_require__(94);
+var DOMProperty = __webpack_require__(32);
+var DOMPropertyOperations = __webpack_require__(146);
+var EventPluginHub = __webpack_require__(55);
+var EventPluginRegistry = __webpack_require__(63);
+var ReactBrowserEventEmitter = __webpack_require__(67);
+var ReactDOMComponentFlags = __webpack_require__(133);
+var ReactDOMComponentTree = __webpack_require__(14);
+var ReactDOMInput = __webpack_require__(239);
+var ReactDOMOption = __webpack_require__(240);
+var ReactDOMSelect = __webpack_require__(148);
+var ReactDOMTextarea = __webpack_require__(241);
+var ReactInstrumentation = __webpack_require__(19);
+var ReactMultiChild = __webpack_require__(149);
+var ReactServerRenderingTransaction = __webpack_require__(249);
 
-var emptyFunction = __webpack_require__(19);
-var escapeTextContentForBrowser = __webpack_require__(56);
-var invariant = __webpack_require__(3);
-var isEventSupported = __webpack_require__(78);
-var shallowEqual = __webpack_require__(58);
-var inputValueTracking = __webpack_require__(128);
-var validateDOMNesting = __webpack_require__(87);
-var warning = __webpack_require__(4);
+var emptyFunction = __webpack_require__(27);
+var escapeTextContentForBrowser = __webpack_require__(66);
+var invariant = __webpack_require__(8);
+var isEventSupported = __webpack_require__(91);
+var shallowEqual = __webpack_require__(68);
+var inputValueTracking = __webpack_require__(140);
+var validateDOMNesting = __webpack_require__(100);
+var warning = __webpack_require__(9);
 
 var Flags = ReactDOMComponentFlags;
 var deleteListener = EventPluginHub.deleteListener;
@@ -69416,10 +69750,10 @@ ReactDOMComponent.Mixin = {
 _assign(ReactDOMComponent.prototype, ReactDOMComponent.Mixin, ReactMultiChild.Mixin);
 
 module.exports = ReactDOMComponent;
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(5)))
 
 /***/ }),
-/* 220 */
+/* 228 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -69433,9 +69767,9 @@ module.exports = ReactDOMComponent;
 
 
 
-var ReactDOMComponentTree = __webpack_require__(8);
+var ReactDOMComponentTree = __webpack_require__(14);
 
-var focusNode = __webpack_require__(132);
+var focusNode = __webpack_require__(144);
 
 var AutoFocusUtils = {
   focusDOMComponent: function () {
@@ -69446,7 +69780,7 @@ var AutoFocusUtils = {
 module.exports = AutoFocusUtils;
 
 /***/ }),
-/* 221 */
+/* 229 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -69460,15 +69794,15 @@ module.exports = AutoFocusUtils;
 
 
 
-var CSSProperty = __webpack_require__(133);
-var ExecutionEnvironment = __webpack_require__(10);
-var ReactInstrumentation = __webpack_require__(13);
+var CSSProperty = __webpack_require__(145);
+var ExecutionEnvironment = __webpack_require__(16);
+var ReactInstrumentation = __webpack_require__(19);
 
-var camelizeStyleName = __webpack_require__(222);
-var dangerousStyleValue = __webpack_require__(224);
-var hyphenateStyleName = __webpack_require__(225);
-var memoizeStringOnly = __webpack_require__(227);
-var warning = __webpack_require__(4);
+var camelizeStyleName = __webpack_require__(230);
+var dangerousStyleValue = __webpack_require__(232);
+var hyphenateStyleName = __webpack_require__(233);
+var memoizeStringOnly = __webpack_require__(235);
+var warning = __webpack_require__(9);
 
 var processStyleName = memoizeStringOnly(function (styleName) {
   return hyphenateStyleName(styleName);
@@ -69662,10 +69996,10 @@ var CSSPropertyOperations = {
 };
 
 module.exports = CSSPropertyOperations;
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(5)))
 
 /***/ }),
-/* 222 */
+/* 230 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -69680,7 +70014,7 @@ module.exports = CSSPropertyOperations;
 
 
 
-var camelize = __webpack_require__(223);
+var camelize = __webpack_require__(231);
 
 var msPattern = /^-ms-/;
 
@@ -69708,7 +70042,7 @@ function camelizeStyleName(string) {
 module.exports = camelizeStyleName;
 
 /***/ }),
-/* 223 */
+/* 231 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -69743,7 +70077,7 @@ function camelize(string) {
 module.exports = camelize;
 
 /***/ }),
-/* 224 */
+/* 232 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -69757,8 +70091,8 @@ module.exports = camelize;
 
 
 
-var CSSProperty = __webpack_require__(133);
-var warning = __webpack_require__(4);
+var CSSProperty = __webpack_require__(145);
+var warning = __webpack_require__(9);
 
 var isUnitlessNumber = CSSProperty.isUnitlessNumber;
 var styleWarnings = {};
@@ -69823,10 +70157,10 @@ function dangerousStyleValue(name, value, component, isCustomProperty) {
 }
 
 module.exports = dangerousStyleValue;
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(5)))
 
 /***/ }),
-/* 225 */
+/* 233 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -69841,7 +70175,7 @@ module.exports = dangerousStyleValue;
 
 
 
-var hyphenate = __webpack_require__(226);
+var hyphenate = __webpack_require__(234);
 
 var msPattern = /^ms-/;
 
@@ -69868,7 +70202,7 @@ function hyphenateStyleName(string) {
 module.exports = hyphenateStyleName;
 
 /***/ }),
-/* 226 */
+/* 234 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -69904,7 +70238,7 @@ function hyphenate(string) {
 module.exports = hyphenate;
 
 /***/ }),
-/* 227 */
+/* 235 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -69937,7 +70271,7 @@ function memoizeStringOnly(callback) {
 module.exports = memoizeStringOnly;
 
 /***/ }),
-/* 228 */
+/* 236 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -69951,7 +70285,7 @@ module.exports = memoizeStringOnly;
 
 
 
-var escapeTextContentForBrowser = __webpack_require__(56);
+var escapeTextContentForBrowser = __webpack_require__(66);
 
 /**
  * Escapes attribute value to prevent scripting attacks.
@@ -69966,7 +70300,7 @@ function quoteAttributeValueForBrowser(value) {
 module.exports = quoteAttributeValueForBrowser;
 
 /***/ }),
-/* 229 */
+/* 237 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -69980,7 +70314,7 @@ module.exports = quoteAttributeValueForBrowser;
 
 
 
-var EventPluginHub = __webpack_require__(44);
+var EventPluginHub = __webpack_require__(55);
 
 function runEventQueueInBatch(events) {
   EventPluginHub.enqueueEvents(events);
@@ -70001,7 +70335,7 @@ var ReactEventEmitterMixin = {
 module.exports = ReactEventEmitterMixin;
 
 /***/ }),
-/* 230 */
+/* 238 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -70015,7 +70349,7 @@ module.exports = ReactEventEmitterMixin;
 
 
 
-var ExecutionEnvironment = __webpack_require__(10);
+var ExecutionEnvironment = __webpack_require__(16);
 
 /**
  * Generate a mapping of standard vendor prefixes using the defined style property and event name.
@@ -70105,7 +70439,7 @@ function getVendorPrefixedEventName(eventName) {
 module.exports = getVendorPrefixedEventName;
 
 /***/ }),
-/* 231 */
+/* 239 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -70119,16 +70453,16 @@ module.exports = getVendorPrefixedEventName;
 
 
 
-var _prodInvariant = __webpack_require__(5),
-    _assign = __webpack_require__(7);
+var _prodInvariant = __webpack_require__(11),
+    _assign = __webpack_require__(13);
 
-var DOMPropertyOperations = __webpack_require__(134);
-var LinkedValueUtils = __webpack_require__(83);
-var ReactDOMComponentTree = __webpack_require__(8);
-var ReactUpdates = __webpack_require__(16);
+var DOMPropertyOperations = __webpack_require__(146);
+var LinkedValueUtils = __webpack_require__(96);
+var ReactDOMComponentTree = __webpack_require__(14);
+var ReactUpdates = __webpack_require__(23);
 
-var invariant = __webpack_require__(3);
-var warning = __webpack_require__(4);
+var invariant = __webpack_require__(8);
+var warning = __webpack_require__(9);
 
 var didWarnValueLink = false;
 var didWarnCheckedLink = false;
@@ -70393,10 +70727,10 @@ function _handleChange(event) {
 }
 
 module.exports = ReactDOMInput;
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(5)))
 
 /***/ }),
-/* 232 */
+/* 240 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -70410,13 +70744,13 @@ module.exports = ReactDOMInput;
 
 
 
-var _assign = __webpack_require__(7);
+var _assign = __webpack_require__(13);
 
-var React = __webpack_require__(35);
-var ReactDOMComponentTree = __webpack_require__(8);
-var ReactDOMSelect = __webpack_require__(136);
+var React = __webpack_require__(45);
+var ReactDOMComponentTree = __webpack_require__(14);
+var ReactDOMSelect = __webpack_require__(148);
 
-var warning = __webpack_require__(4);
+var warning = __webpack_require__(9);
 var didWarnInvalidOptionChildren = false;
 
 function flattenChildren(children) {
@@ -70519,10 +70853,10 @@ var ReactDOMOption = {
 };
 
 module.exports = ReactDOMOption;
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(5)))
 
 /***/ }),
-/* 233 */
+/* 241 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -70536,15 +70870,15 @@ module.exports = ReactDOMOption;
 
 
 
-var _prodInvariant = __webpack_require__(5),
-    _assign = __webpack_require__(7);
+var _prodInvariant = __webpack_require__(11),
+    _assign = __webpack_require__(13);
 
-var LinkedValueUtils = __webpack_require__(83);
-var ReactDOMComponentTree = __webpack_require__(8);
-var ReactUpdates = __webpack_require__(16);
+var LinkedValueUtils = __webpack_require__(96);
+var ReactDOMComponentTree = __webpack_require__(14);
+var ReactUpdates = __webpack_require__(23);
 
-var invariant = __webpack_require__(3);
-var warning = __webpack_require__(4);
+var invariant = __webpack_require__(8);
+var warning = __webpack_require__(9);
 
 var didWarnValueLink = false;
 var didWarnValDefaultVal = false;
@@ -70683,10 +71017,10 @@ function _handleChange(event) {
 }
 
 module.exports = ReactDOMTextarea;
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(5)))
 
 /***/ }),
-/* 234 */
+/* 242 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -70700,13 +71034,13 @@ module.exports = ReactDOMTextarea;
 
 
 
-var ReactReconciler = __webpack_require__(25);
+var ReactReconciler = __webpack_require__(33);
 
-var instantiateReactComponent = __webpack_require__(138);
-var KeyEscapeUtils = __webpack_require__(85);
-var shouldUpdateReactComponent = __webpack_require__(59);
-var traverseAllChildren = __webpack_require__(86);
-var warning = __webpack_require__(4);
+var instantiateReactComponent = __webpack_require__(150);
+var KeyEscapeUtils = __webpack_require__(98);
+var shouldUpdateReactComponent = __webpack_require__(69);
+var traverseAllChildren = __webpack_require__(99);
+var warning = __webpack_require__(9);
 
 var ReactComponentTreeHook;
 
@@ -70716,7 +71050,7 @@ if (typeof process !== 'undefined' && process.env && process.env.NODE_ENV === 't
   // https://github.com/facebook/react/issues/7240
   // Remove the inline requires when we don't need them anymore:
   // https://github.com/facebook/react/pull/7178
-  ReactComponentTreeHook = __webpack_require__(12);
+  ReactComponentTreeHook = __webpack_require__(18);
 }
 
 function instantiateChild(childInstances, child, name, selfDebugID) {
@@ -70724,7 +71058,7 @@ function instantiateChild(childInstances, child, name, selfDebugID) {
   var keyUnique = childInstances[name] === undefined;
   if (process.env.NODE_ENV !== 'production') {
     if (!ReactComponentTreeHook) {
-      ReactComponentTreeHook = __webpack_require__(12);
+      ReactComponentTreeHook = __webpack_require__(18);
     }
     if (!keyUnique) {
       process.env.NODE_ENV !== 'production' ? warning(false, 'flattenChildren(...): Encountered two children with the same key, ' + '`%s`. Child keys must be unique; when two children share a key, only ' + 'the first child will be used.%s', KeyEscapeUtils.unescape(name), ReactComponentTreeHook.getStackAddendumByID(selfDebugID)) : void 0;
@@ -70840,10 +71174,10 @@ var ReactChildReconciler = {
 };
 
 module.exports = ReactChildReconciler;
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(5)))
 
 /***/ }),
-/* 235 */
+/* 243 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -70857,13 +71191,13 @@ module.exports = ReactChildReconciler;
 
 
 
-var _prodInvariant = __webpack_require__(5);
+var _prodInvariant = __webpack_require__(11);
 
-var ReactPropTypeLocationNames = __webpack_require__(236);
-var ReactPropTypesSecret = __webpack_require__(135);
+var ReactPropTypeLocationNames = __webpack_require__(244);
+var ReactPropTypesSecret = __webpack_require__(147);
 
-var invariant = __webpack_require__(3);
-var warning = __webpack_require__(4);
+var invariant = __webpack_require__(8);
+var warning = __webpack_require__(9);
 
 var ReactComponentTreeHook;
 
@@ -70873,7 +71207,7 @@ if (typeof process !== 'undefined' && process.env && process.env.NODE_ENV === 't
   // https://github.com/facebook/react/issues/7240
   // Remove the inline requires when we don't need them anymore:
   // https://github.com/facebook/react/pull/7178
-  ReactComponentTreeHook = __webpack_require__(12);
+  ReactComponentTreeHook = __webpack_require__(18);
 }
 
 var loggedTypeFailures = {};
@@ -70915,7 +71249,7 @@ function checkReactTypeSpec(typeSpecs, values, location, componentName, element,
 
         if (process.env.NODE_ENV !== 'production') {
           if (!ReactComponentTreeHook) {
-            ReactComponentTreeHook = __webpack_require__(12);
+            ReactComponentTreeHook = __webpack_require__(18);
           }
           if (debugID !== null) {
             componentStackInfo = ReactComponentTreeHook.getStackAddendumByID(debugID);
@@ -70931,10 +71265,10 @@ function checkReactTypeSpec(typeSpecs, values, location, componentName, element,
 }
 
 module.exports = checkReactTypeSpec;
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(5)))
 
 /***/ }),
-/* 236 */
+/* 244 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -70960,10 +71294,10 @@ if (process.env.NODE_ENV !== 'production') {
 }
 
 module.exports = ReactPropTypeLocationNames;
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(5)))
 
 /***/ }),
-/* 237 */
+/* 245 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -70987,7 +71321,7 @@ function getNextDebugID() {
 module.exports = getNextDebugID;
 
 /***/ }),
-/* 238 */
+/* 246 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -71010,7 +71344,7 @@ var REACT_ELEMENT_TYPE = typeof Symbol === 'function' && Symbol['for'] && Symbol
 module.exports = REACT_ELEMENT_TYPE;
 
 /***/ }),
-/* 239 */
+/* 247 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -71054,7 +71388,7 @@ function getIteratorFn(maybeIterable) {
 module.exports = getIteratorFn;
 
 /***/ }),
-/* 240 */
+/* 248 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -71069,9 +71403,9 @@ module.exports = getIteratorFn;
 
 
 
-var KeyEscapeUtils = __webpack_require__(85);
-var traverseAllChildren = __webpack_require__(86);
-var warning = __webpack_require__(4);
+var KeyEscapeUtils = __webpack_require__(98);
+var traverseAllChildren = __webpack_require__(99);
+var warning = __webpack_require__(9);
 
 var ReactComponentTreeHook;
 
@@ -71081,7 +71415,7 @@ if (typeof process !== 'undefined' && process.env && process.env.NODE_ENV === 't
   // https://github.com/facebook/react/issues/7240
   // Remove the inline requires when we don't need them anymore:
   // https://github.com/facebook/react/pull/7178
-  ReactComponentTreeHook = __webpack_require__(12);
+  ReactComponentTreeHook = __webpack_require__(18);
 }
 
 /**
@@ -71097,7 +71431,7 @@ function flattenSingleChildIntoContext(traverseContext, child, name, selfDebugID
     var keyUnique = result[name] === undefined;
     if (process.env.NODE_ENV !== 'production') {
       if (!ReactComponentTreeHook) {
-        ReactComponentTreeHook = __webpack_require__(12);
+        ReactComponentTreeHook = __webpack_require__(18);
       }
       if (!keyUnique) {
         process.env.NODE_ENV !== 'production' ? warning(false, 'flattenChildren(...): Encountered two children with the same key, ' + '`%s`. Child keys must be unique; when two children share a key, only ' + 'the first child will be used.%s', KeyEscapeUtils.unescape(name), ReactComponentTreeHook.getStackAddendumByID(selfDebugID)) : void 0;
@@ -71131,10 +71465,10 @@ function flattenChildren(children, selfDebugID) {
 }
 
 module.exports = flattenChildren;
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(5)))
 
 /***/ }),
-/* 241 */
+/* 249 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -71148,12 +71482,12 @@ module.exports = flattenChildren;
 
 
 
-var _assign = __webpack_require__(7);
+var _assign = __webpack_require__(13);
 
-var PooledClass = __webpack_require__(30);
-var Transaction = __webpack_require__(53);
-var ReactInstrumentation = __webpack_require__(13);
-var ReactServerUpdateQueue = __webpack_require__(242);
+var PooledClass = __webpack_require__(39);
+var Transaction = __webpack_require__(64);
+var ReactInstrumentation = __webpack_require__(19);
+var ReactServerUpdateQueue = __webpack_require__(250);
 
 /**
  * Executed within the scope of the `Transaction` instance. Consider these as
@@ -71225,10 +71559,10 @@ _assign(ReactServerRenderingTransaction.prototype, Transaction, Mixin);
 PooledClass.addPoolingTo(ReactServerRenderingTransaction);
 
 module.exports = ReactServerRenderingTransaction;
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(5)))
 
 /***/ }),
-/* 242 */
+/* 250 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -71245,9 +71579,9 @@ module.exports = ReactServerRenderingTransaction;
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
-var ReactUpdateQueue = __webpack_require__(60);
+var ReactUpdateQueue = __webpack_require__(70);
 
-var warning = __webpack_require__(4);
+var warning = __webpack_require__(9);
 
 function warnNoop(publicInstance, callerName) {
   if (process.env.NODE_ENV !== 'production') {
@@ -71368,10 +71702,10 @@ var ReactServerUpdateQueue = function () {
 }();
 
 module.exports = ReactServerUpdateQueue;
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(5)))
 
 /***/ }),
-/* 243 */
+/* 251 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -71385,10 +71719,10 @@ module.exports = ReactServerUpdateQueue;
 
 
 
-var _assign = __webpack_require__(7);
+var _assign = __webpack_require__(13);
 
-var DOMLazyTree = __webpack_require__(37);
-var ReactDOMComponentTree = __webpack_require__(8);
+var DOMLazyTree = __webpack_require__(47);
+var ReactDOMComponentTree = __webpack_require__(14);
 
 var ReactDOMEmptyComponent = function (instantiate) {
   // ReactCompositeComponent uses this:
@@ -71434,7 +71768,7 @@ _assign(ReactDOMEmptyComponent.prototype, {
 module.exports = ReactDOMEmptyComponent;
 
 /***/ }),
-/* 244 */
+/* 252 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -71448,9 +71782,9 @@ module.exports = ReactDOMEmptyComponent;
 
 
 
-var _prodInvariant = __webpack_require__(5);
+var _prodInvariant = __webpack_require__(11);
 
-var invariant = __webpack_require__(3);
+var invariant = __webpack_require__(8);
 
 /**
  * Return the lowest common ancestor of A and B, or null if they are in
@@ -71571,10 +71905,10 @@ module.exports = {
   traverseTwoPhase: traverseTwoPhase,
   traverseEnterLeave: traverseEnterLeave
 };
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(5)))
 
 /***/ }),
-/* 245 */
+/* 253 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -71588,16 +71922,16 @@ module.exports = {
 
 
 
-var _prodInvariant = __webpack_require__(5),
-    _assign = __webpack_require__(7);
+var _prodInvariant = __webpack_require__(11),
+    _assign = __webpack_require__(13);
 
-var DOMChildrenOperations = __webpack_require__(80);
-var DOMLazyTree = __webpack_require__(37);
-var ReactDOMComponentTree = __webpack_require__(8);
+var DOMChildrenOperations = __webpack_require__(93);
+var DOMLazyTree = __webpack_require__(47);
+var ReactDOMComponentTree = __webpack_require__(14);
 
-var escapeTextContentForBrowser = __webpack_require__(56);
-var invariant = __webpack_require__(3);
-var validateDOMNesting = __webpack_require__(87);
+var escapeTextContentForBrowser = __webpack_require__(66);
+var invariant = __webpack_require__(8);
+var validateDOMNesting = __webpack_require__(100);
 
 /**
  * Text nodes violate a couple assumptions that React makes about components:
@@ -71737,10 +72071,10 @@ _assign(ReactDOMTextComponent.prototype, {
 });
 
 module.exports = ReactDOMTextComponent;
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(5)))
 
 /***/ }),
-/* 246 */
+/* 254 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -71754,16 +72088,16 @@ module.exports = ReactDOMTextComponent;
 
 
 
-var _assign = __webpack_require__(7);
+var _assign = __webpack_require__(13);
 
-var EventListener = __webpack_require__(144);
-var ExecutionEnvironment = __webpack_require__(10);
-var PooledClass = __webpack_require__(30);
-var ReactDOMComponentTree = __webpack_require__(8);
-var ReactUpdates = __webpack_require__(16);
+var EventListener = __webpack_require__(156);
+var ExecutionEnvironment = __webpack_require__(16);
+var PooledClass = __webpack_require__(39);
+var ReactDOMComponentTree = __webpack_require__(14);
+var ReactUpdates = __webpack_require__(23);
 
-var getEventTarget = __webpack_require__(77);
-var getUnboundedScrollPosition = __webpack_require__(247);
+var getEventTarget = __webpack_require__(90);
+var getUnboundedScrollPosition = __webpack_require__(255);
 
 /**
  * Find the deepest React component completely containing the root of the
@@ -71898,7 +72232,7 @@ var ReactEventListener = {
 module.exports = ReactEventListener;
 
 /***/ }),
-/* 247 */
+/* 255 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -71940,7 +72274,7 @@ function getUnboundedScrollPosition(scrollable) {
 module.exports = getUnboundedScrollPosition;
 
 /***/ }),
-/* 248 */
+/* 256 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -71954,10 +72288,10 @@ module.exports = getUnboundedScrollPosition;
 
 
 
-var ExecutionEnvironment = __webpack_require__(10);
+var ExecutionEnvironment = __webpack_require__(16);
 
-var getNodeForCharacterOffset = __webpack_require__(249);
-var getTextContentAccessor = __webpack_require__(124);
+var getNodeForCharacterOffset = __webpack_require__(257);
+var getTextContentAccessor = __webpack_require__(136);
 
 /**
  * While `isCollapsed` is available on the Selection object and `collapsed`
@@ -72155,7 +72489,7 @@ var ReactDOMSelection = {
 module.exports = ReactDOMSelection;
 
 /***/ }),
-/* 249 */
+/* 257 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -72232,7 +72566,7 @@ function getNodeForCharacterOffset(root, offset) {
 module.exports = getNodeForCharacterOffset;
 
 /***/ }),
-/* 250 */
+/* 258 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -72247,7 +72581,7 @@ module.exports = getNodeForCharacterOffset;
  * 
  */
 
-var isTextNode = __webpack_require__(251);
+var isTextNode = __webpack_require__(259);
 
 /*eslint-disable no-bitwise */
 
@@ -72275,7 +72609,7 @@ function containsNode(outerNode, innerNode) {
 module.exports = containsNode;
 
 /***/ }),
-/* 251 */
+/* 259 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -72290,7 +72624,7 @@ module.exports = containsNode;
  * @typechecks
  */
 
-var isNode = __webpack_require__(252);
+var isNode = __webpack_require__(260);
 
 /**
  * @param {*} object The object to check.
@@ -72303,7 +72637,7 @@ function isTextNode(object) {
 module.exports = isTextNode;
 
 /***/ }),
-/* 252 */
+/* 260 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -72331,7 +72665,7 @@ function isNode(object) {
 module.exports = isNode;
 
 /***/ }),
-/* 253 */
+/* 261 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -72636,7 +72970,7 @@ Object.keys(ATTRS).forEach(function (key) {
 module.exports = SVGDOMPropertyConfig;
 
 /***/ }),
-/* 254 */
+/* 262 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -72650,15 +72984,15 @@ module.exports = SVGDOMPropertyConfig;
 
 
 
-var EventPropagators = __webpack_require__(43);
-var ExecutionEnvironment = __webpack_require__(10);
-var ReactDOMComponentTree = __webpack_require__(8);
-var ReactInputSelection = __webpack_require__(147);
-var SyntheticEvent = __webpack_require__(22);
+var EventPropagators = __webpack_require__(54);
+var ExecutionEnvironment = __webpack_require__(16);
+var ReactDOMComponentTree = __webpack_require__(14);
+var ReactInputSelection = __webpack_require__(159);
+var SyntheticEvent = __webpack_require__(30);
 
-var getActiveElement = __webpack_require__(148);
-var isTextInputElement = __webpack_require__(129);
-var shallowEqual = __webpack_require__(58);
+var getActiveElement = __webpack_require__(160);
+var isTextInputElement = __webpack_require__(141);
+var shallowEqual = __webpack_require__(68);
 
 var skipSelectionChangeEvent = ExecutionEnvironment.canUseDOM && 'documentMode' in document && document.documentMode <= 11;
 
@@ -72827,7 +73161,7 @@ var SelectEventPlugin = {
 module.exports = SelectEventPlugin;
 
 /***/ }),
-/* 255 */
+/* 263 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -72842,26 +73176,26 @@ module.exports = SelectEventPlugin;
 
 
 
-var _prodInvariant = __webpack_require__(5);
+var _prodInvariant = __webpack_require__(11);
 
-var EventListener = __webpack_require__(144);
-var EventPropagators = __webpack_require__(43);
-var ReactDOMComponentTree = __webpack_require__(8);
-var SyntheticAnimationEvent = __webpack_require__(256);
-var SyntheticClipboardEvent = __webpack_require__(257);
-var SyntheticEvent = __webpack_require__(22);
-var SyntheticFocusEvent = __webpack_require__(258);
-var SyntheticKeyboardEvent = __webpack_require__(259);
-var SyntheticMouseEvent = __webpack_require__(54);
-var SyntheticDragEvent = __webpack_require__(261);
-var SyntheticTouchEvent = __webpack_require__(262);
-var SyntheticTransitionEvent = __webpack_require__(263);
-var SyntheticUIEvent = __webpack_require__(45);
-var SyntheticWheelEvent = __webpack_require__(264);
+var EventListener = __webpack_require__(156);
+var EventPropagators = __webpack_require__(54);
+var ReactDOMComponentTree = __webpack_require__(14);
+var SyntheticAnimationEvent = __webpack_require__(264);
+var SyntheticClipboardEvent = __webpack_require__(265);
+var SyntheticEvent = __webpack_require__(30);
+var SyntheticFocusEvent = __webpack_require__(266);
+var SyntheticKeyboardEvent = __webpack_require__(267);
+var SyntheticMouseEvent = __webpack_require__(56);
+var SyntheticDragEvent = __webpack_require__(269);
+var SyntheticTouchEvent = __webpack_require__(270);
+var SyntheticTransitionEvent = __webpack_require__(271);
+var SyntheticUIEvent = __webpack_require__(57);
+var SyntheticWheelEvent = __webpack_require__(272);
 
-var emptyFunction = __webpack_require__(19);
-var getEventCharCode = __webpack_require__(88);
-var invariant = __webpack_require__(3);
+var emptyFunction = __webpack_require__(27);
+var getEventCharCode = __webpack_require__(101);
+var invariant = __webpack_require__(8);
 
 /**
  * Turns
@@ -73054,10 +73388,10 @@ var SimpleEventPlugin = {
 };
 
 module.exports = SimpleEventPlugin;
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(5)))
 
 /***/ }),
-/* 256 */
+/* 264 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -73071,7 +73405,7 @@ module.exports = SimpleEventPlugin;
 
 
 
-var SyntheticEvent = __webpack_require__(22);
+var SyntheticEvent = __webpack_require__(30);
 
 /**
  * @interface Event
@@ -73099,7 +73433,7 @@ SyntheticEvent.augmentClass(SyntheticAnimationEvent, AnimationEventInterface);
 module.exports = SyntheticAnimationEvent;
 
 /***/ }),
-/* 257 */
+/* 265 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -73113,7 +73447,7 @@ module.exports = SyntheticAnimationEvent;
 
 
 
-var SyntheticEvent = __webpack_require__(22);
+var SyntheticEvent = __webpack_require__(30);
 
 /**
  * @interface Event
@@ -73140,7 +73474,7 @@ SyntheticEvent.augmentClass(SyntheticClipboardEvent, ClipboardEventInterface);
 module.exports = SyntheticClipboardEvent;
 
 /***/ }),
-/* 258 */
+/* 266 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -73154,7 +73488,7 @@ module.exports = SyntheticClipboardEvent;
 
 
 
-var SyntheticUIEvent = __webpack_require__(45);
+var SyntheticUIEvent = __webpack_require__(57);
 
 /**
  * @interface FocusEvent
@@ -73179,7 +73513,7 @@ SyntheticUIEvent.augmentClass(SyntheticFocusEvent, FocusEventInterface);
 module.exports = SyntheticFocusEvent;
 
 /***/ }),
-/* 259 */
+/* 267 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -73193,11 +73527,11 @@ module.exports = SyntheticFocusEvent;
 
 
 
-var SyntheticUIEvent = __webpack_require__(45);
+var SyntheticUIEvent = __webpack_require__(57);
 
-var getEventCharCode = __webpack_require__(88);
-var getEventKey = __webpack_require__(260);
-var getEventModifierState = __webpack_require__(79);
+var getEventCharCode = __webpack_require__(101);
+var getEventKey = __webpack_require__(268);
+var getEventModifierState = __webpack_require__(92);
 
 /**
  * @interface KeyboardEvent
@@ -73266,7 +73600,7 @@ SyntheticUIEvent.augmentClass(SyntheticKeyboardEvent, KeyboardEventInterface);
 module.exports = SyntheticKeyboardEvent;
 
 /***/ }),
-/* 260 */
+/* 268 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -73280,7 +73614,7 @@ module.exports = SyntheticKeyboardEvent;
 
 
 
-var getEventCharCode = __webpack_require__(88);
+var getEventCharCode = __webpack_require__(101);
 
 /**
  * Normalization of deprecated HTML5 `key` values
@@ -73381,7 +73715,7 @@ function getEventKey(nativeEvent) {
 module.exports = getEventKey;
 
 /***/ }),
-/* 261 */
+/* 269 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -73395,7 +73729,7 @@ module.exports = getEventKey;
 
 
 
-var SyntheticMouseEvent = __webpack_require__(54);
+var SyntheticMouseEvent = __webpack_require__(56);
 
 /**
  * @interface DragEvent
@@ -73420,7 +73754,7 @@ SyntheticMouseEvent.augmentClass(SyntheticDragEvent, DragEventInterface);
 module.exports = SyntheticDragEvent;
 
 /***/ }),
-/* 262 */
+/* 270 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -73434,9 +73768,9 @@ module.exports = SyntheticDragEvent;
 
 
 
-var SyntheticUIEvent = __webpack_require__(45);
+var SyntheticUIEvent = __webpack_require__(57);
 
-var getEventModifierState = __webpack_require__(79);
+var getEventModifierState = __webpack_require__(92);
 
 /**
  * @interface TouchEvent
@@ -73468,7 +73802,7 @@ SyntheticUIEvent.augmentClass(SyntheticTouchEvent, TouchEventInterface);
 module.exports = SyntheticTouchEvent;
 
 /***/ }),
-/* 263 */
+/* 271 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -73482,7 +73816,7 @@ module.exports = SyntheticTouchEvent;
 
 
 
-var SyntheticEvent = __webpack_require__(22);
+var SyntheticEvent = __webpack_require__(30);
 
 /**
  * @interface Event
@@ -73510,7 +73844,7 @@ SyntheticEvent.augmentClass(SyntheticTransitionEvent, TransitionEventInterface);
 module.exports = SyntheticTransitionEvent;
 
 /***/ }),
-/* 264 */
+/* 272 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -73524,7 +73858,7 @@ module.exports = SyntheticTransitionEvent;
 
 
 
-var SyntheticMouseEvent = __webpack_require__(54);
+var SyntheticMouseEvent = __webpack_require__(56);
 
 /**
  * @interface WheelEvent
@@ -73564,7 +73898,7 @@ SyntheticMouseEvent.augmentClass(SyntheticWheelEvent, WheelEventInterface);
 module.exports = SyntheticWheelEvent;
 
 /***/ }),
-/* 265 */
+/* 273 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -73578,7 +73912,7 @@ module.exports = SyntheticWheelEvent;
 
 
 
-var validateDOMNesting = __webpack_require__(87);
+var validateDOMNesting = __webpack_require__(100);
 
 var DOC_NODE_TYPE = 9;
 
@@ -73598,10 +73932,10 @@ function ReactDOMContainerInfo(topLevelWrapper, node) {
 }
 
 module.exports = ReactDOMContainerInfo;
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(5)))
 
 /***/ }),
-/* 266 */
+/* 274 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -73623,7 +73957,7 @@ var ReactDOMFeatureFlags = {
 module.exports = ReactDOMFeatureFlags;
 
 /***/ }),
-/* 267 */
+/* 275 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -73637,7 +73971,7 @@ module.exports = ReactDOMFeatureFlags;
 
 
 
-var adler32 = __webpack_require__(268);
+var adler32 = __webpack_require__(276);
 
 var TAG_END = /\/?>/;
 var COMMENT_START = /^<\!\-\-/;
@@ -73676,7 +74010,7 @@ var ReactMarkupChecksum = {
 module.exports = ReactMarkupChecksum;
 
 /***/ }),
-/* 268 */
+/* 276 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -73723,7 +74057,7 @@ function adler32(data) {
 module.exports = adler32;
 
 /***/ }),
-/* 269 */
+/* 277 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -73740,7 +74074,7 @@ module.exports = adler32;
 module.exports = '15.6.2';
 
 /***/ }),
-/* 270 */
+/* 278 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -73754,15 +74088,15 @@ module.exports = '15.6.2';
 
 
 
-var _prodInvariant = __webpack_require__(5);
+var _prodInvariant = __webpack_require__(11);
 
-var ReactCurrentOwner = __webpack_require__(15);
-var ReactDOMComponentTree = __webpack_require__(8);
-var ReactInstanceMap = __webpack_require__(26);
+var ReactCurrentOwner = __webpack_require__(22);
+var ReactDOMComponentTree = __webpack_require__(14);
+var ReactInstanceMap = __webpack_require__(34);
 
-var getHostComponentFromComposite = __webpack_require__(89);
-var invariant = __webpack_require__(3);
-var warning = __webpack_require__(4);
+var getHostComponentFromComposite = __webpack_require__(102);
+var invariant = __webpack_require__(8);
+var warning = __webpack_require__(9);
 
 /**
  * Returns the DOM node rendered by this element.
@@ -73801,10 +74135,10 @@ function findDOMNode(componentOrElement) {
 }
 
 module.exports = findDOMNode;
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(5)))
 
 /***/ }),
-/* 271 */
+/* 279 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -73818,12 +74152,12 @@ module.exports = findDOMNode;
 
 
 
-var ReactMount = __webpack_require__(149);
+var ReactMount = __webpack_require__(161);
 
 module.exports = ReactMount.renderSubtreeIntoContainer;
 
 /***/ }),
-/* 272 */
+/* 280 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -73837,10 +74171,10 @@ module.exports = ReactMount.renderSubtreeIntoContainer;
 
 
 
-var DOMProperty = __webpack_require__(24);
-var ReactComponentTreeHook = __webpack_require__(12);
+var DOMProperty = __webpack_require__(32);
+var ReactComponentTreeHook = __webpack_require__(18);
 
-var warning = __webpack_require__(4);
+var warning = __webpack_require__(9);
 
 var warnedProperties = {};
 var rARIA = new RegExp('^(aria)-[' + DOMProperty.ATTRIBUTE_NAME_CHAR + ']*$');
@@ -73917,10 +74251,10 @@ var ReactDOMInvalidARIAHook = {
 };
 
 module.exports = ReactDOMInvalidARIAHook;
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(5)))
 
 /***/ }),
-/* 273 */
+/* 281 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -73930,15 +74264,15 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 
-var _react = __webpack_require__(29);
+var _react = __webpack_require__(38);
 
 var _react2 = _interopRequireDefault(_react);
 
-var _header = __webpack_require__(274);
+var _header = __webpack_require__(282);
 
 var _header2 = _interopRequireDefault(_header);
 
-var _scene = __webpack_require__(275);
+var _scene = __webpack_require__(283);
 
 var _scene2 = _interopRequireDefault(_scene);
 
@@ -73956,7 +74290,7 @@ var App = function App() {
 exports.default = App;
 
 /***/ }),
-/* 274 */
+/* 282 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -73966,7 +74300,7 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 
-var _react = __webpack_require__(29);
+var _react = __webpack_require__(38);
 
 var _react2 = _interopRequireDefault(_react);
 
@@ -73983,7 +74317,7 @@ var Header = function Header() {
 exports.default = Header;
 
 /***/ }),
-/* 275 */
+/* 283 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -73993,31 +74327,31 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 
-var _getPrototypeOf = __webpack_require__(90);
+var _getPrototypeOf = __webpack_require__(2);
 
 var _getPrototypeOf2 = _interopRequireDefault(_getPrototypeOf);
 
-var _classCallCheck2 = __webpack_require__(95);
+var _classCallCheck2 = __webpack_require__(0);
 
 var _classCallCheck3 = _interopRequireDefault(_classCallCheck2);
 
-var _createClass2 = __webpack_require__(96);
+var _createClass2 = __webpack_require__(1);
 
 var _createClass3 = _interopRequireDefault(_createClass2);
 
-var _possibleConstructorReturn2 = __webpack_require__(97);
+var _possibleConstructorReturn2 = __webpack_require__(3);
 
 var _possibleConstructorReturn3 = _interopRequireDefault(_possibleConstructorReturn2);
 
-var _inherits2 = __webpack_require__(108);
+var _inherits2 = __webpack_require__(4);
 
 var _inherits3 = _interopRequireDefault(_inherits2);
 
-var _react = __webpack_require__(29);
+var _react = __webpack_require__(38);
 
 var _react2 = _interopRequireDefault(_react);
 
-var _simple = __webpack_require__(315);
+var _simple = __webpack_require__(319);
 
 var _simple2 = _interopRequireDefault(_simple);
 
@@ -74047,22 +74381,22 @@ var Scene = function (_Component) {
 exports.default = Scene;
 
 /***/ }),
-/* 276 */
+/* 284 */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(277);
-module.exports = __webpack_require__(28).Object.getPrototypeOf;
+__webpack_require__(285);
+module.exports = __webpack_require__(24).Object.getPrototypeOf;
 
 
 /***/ }),
-/* 277 */
+/* 285 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // 19.1.2.9 Object.getPrototypeOf(O)
-var toObject = __webpack_require__(152);
-var $getPrototypeOf = __webpack_require__(153);
+var toObject = __webpack_require__(71);
+var $getPrototypeOf = __webpack_require__(164);
 
-__webpack_require__(278)('getPrototypeOf', function () {
+__webpack_require__(73)('getPrototypeOf', function () {
   return function getPrototypeOf(it) {
     return $getPrototypeOf(toObject(it));
   };
@@ -74070,23 +74404,7 @@ __webpack_require__(278)('getPrototypeOf', function () {
 
 
 /***/ }),
-/* 278 */
-/***/ (function(module, exports, __webpack_require__) {
-
-// most Object methods by ES6 should accept primitives
-var $export = __webpack_require__(38);
-var core = __webpack_require__(28);
-var fails = __webpack_require__(48);
-module.exports = function (KEY, exec) {
-  var fn = (core.Object || {})[KEY] || Object[KEY];
-  var exp = {};
-  exp[KEY] = exec(fn);
-  $export($export.S + $export.F * fails(function () { fn(1); }), 'Object', exp);
-};
-
-
-/***/ }),
-/* 279 */
+/* 286 */
 /***/ (function(module, exports) {
 
 module.exports = function (it) {
@@ -74096,56 +74414,50 @@ module.exports = function (it) {
 
 
 /***/ }),
-/* 280 */
+/* 287 */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = { "default": __webpack_require__(281), __esModule: true };
-
-/***/ }),
-/* 281 */
-/***/ (function(module, exports, __webpack_require__) {
-
-__webpack_require__(282);
-var $Object = __webpack_require__(28).Object;
+__webpack_require__(288);
+var $Object = __webpack_require__(24).Object;
 module.exports = function defineProperty(it, key, desc) {
   return $Object.defineProperty(it, key, desc);
 };
 
 
 /***/ }),
-/* 282 */
+/* 288 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var $export = __webpack_require__(38);
+var $export = __webpack_require__(36);
 // 19.1.2.4 / 15.2.3.6 Object.defineProperty(O, P, Attributes)
-$export($export.S + $export.F * !__webpack_require__(33), 'Object', { defineProperty: __webpack_require__(32).f });
+$export($export.S + $export.F * !__webpack_require__(42), 'Object', { defineProperty: __webpack_require__(41).f });
 
 
 /***/ }),
-/* 283 */
+/* 289 */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = { "default": __webpack_require__(284), __esModule: true };
+module.exports = { "default": __webpack_require__(290), __esModule: true };
 
 /***/ }),
-/* 284 */
+/* 290 */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(285);
-__webpack_require__(294);
-module.exports = __webpack_require__(105).f('iterator');
+__webpack_require__(291);
+__webpack_require__(299);
+module.exports = __webpack_require__(113).f('iterator');
 
 
 /***/ }),
-/* 285 */
+/* 291 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
-var $at = __webpack_require__(286)(true);
+var $at = __webpack_require__(292)(true);
 
 // 21.1.3.27 String.prototype[@@iterator]()
-__webpack_require__(158)(String, 'String', function (iterated) {
+__webpack_require__(169)(String, 'String', function (iterated) {
   this._t = String(iterated); // target
   this._i = 0;                // next index
 // 21.1.5.2.1 %StringIteratorPrototype%.next()
@@ -74161,11 +74473,11 @@ __webpack_require__(158)(String, 'String', function (iterated) {
 
 
 /***/ }),
-/* 286 */
+/* 292 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var toInteger = __webpack_require__(98);
-var defined = __webpack_require__(91);
+var toInteger = __webpack_require__(107);
+var defined = __webpack_require__(103);
 // true  -> String#at
 // false -> String#codePointAt
 module.exports = function (TO_STRING) {
@@ -74184,18 +74496,18 @@ module.exports = function (TO_STRING) {
 
 
 /***/ }),
-/* 287 */
+/* 293 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
-var create = __webpack_require__(101);
-var descriptor = __webpack_require__(62);
-var setToStringTag = __webpack_require__(104);
+var create = __webpack_require__(110);
+var descriptor = __webpack_require__(74);
+var setToStringTag = __webpack_require__(112);
 var IteratorPrototype = {};
 
 // 25.1.2.1.1 %IteratorPrototype%[@@iterator]()
-__webpack_require__(39)(IteratorPrototype, __webpack_require__(41)('iterator'), function () { return this; });
+__webpack_require__(48)(IteratorPrototype, __webpack_require__(52)('iterator'), function () { return this; });
 
 module.exports = function (Constructor, NAME, next) {
   Constructor.prototype = create(IteratorPrototype, { next: descriptor(1, next) });
@@ -74204,14 +74516,14 @@ module.exports = function (Constructor, NAME, next) {
 
 
 /***/ }),
-/* 288 */
+/* 294 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var dP = __webpack_require__(32);
-var anObject = __webpack_require__(46);
-var getKeys = __webpack_require__(102);
+var dP = __webpack_require__(41);
+var anObject = __webpack_require__(58);
+var getKeys = __webpack_require__(51);
 
-module.exports = __webpack_require__(33) ? Object.defineProperties : function defineProperties(O, Properties) {
+module.exports = __webpack_require__(42) ? Object.defineProperties : function defineProperties(O, Properties) {
   anObject(O);
   var keys = getKeys(Properties);
   var length = keys.length;
@@ -74223,26 +74535,14 @@ module.exports = __webpack_require__(33) ? Object.defineProperties : function de
 
 
 /***/ }),
-/* 289 */
-/***/ (function(module, exports, __webpack_require__) {
-
-// fallback for non-array-like ES3 and non-enumerable old V8 strings
-var cof = __webpack_require__(161);
-// eslint-disable-next-line no-prototype-builtins
-module.exports = Object('z').propertyIsEnumerable(0) ? Object : function (it) {
-  return cof(it) == 'String' ? it.split('') : Object(it);
-};
-
-
-/***/ }),
-/* 290 */
+/* 295 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // false -> Array#indexOf
 // true  -> Array#includes
-var toIObject = __webpack_require__(40);
-var toLength = __webpack_require__(291);
-var toAbsoluteIndex = __webpack_require__(292);
+var toIObject = __webpack_require__(37);
+var toLength = __webpack_require__(296);
+var toAbsoluteIndex = __webpack_require__(297);
 module.exports = function (IS_INCLUDES) {
   return function ($this, el, fromIndex) {
     var O = toIObject($this);
@@ -74264,11 +74564,11 @@ module.exports = function (IS_INCLUDES) {
 
 
 /***/ }),
-/* 291 */
+/* 296 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // 7.1.15 ToLength
-var toInteger = __webpack_require__(98);
+var toInteger = __webpack_require__(107);
 var min = Math.min;
 module.exports = function (it) {
   return it > 0 ? min(toInteger(it), 0x1fffffffffffff) : 0; // pow(2, 53) - 1 == 9007199254740991
@@ -74276,10 +74576,10 @@ module.exports = function (it) {
 
 
 /***/ }),
-/* 292 */
+/* 297 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var toInteger = __webpack_require__(98);
+var toInteger = __webpack_require__(107);
 var max = Math.max;
 var min = Math.min;
 module.exports = function (index, length) {
@@ -74289,22 +74589,22 @@ module.exports = function (index, length) {
 
 
 /***/ }),
-/* 293 */
+/* 298 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var document = __webpack_require__(27).document;
+var document = __webpack_require__(35).document;
 module.exports = document && document.documentElement;
 
 
 /***/ }),
-/* 294 */
+/* 299 */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(295);
-var global = __webpack_require__(27);
-var hide = __webpack_require__(39);
-var Iterators = __webpack_require__(100);
-var TO_STRING_TAG = __webpack_require__(41)('toStringTag');
+__webpack_require__(300);
+var global = __webpack_require__(35);
+var hide = __webpack_require__(48);
+var Iterators = __webpack_require__(109);
+var TO_STRING_TAG = __webpack_require__(52)('toStringTag');
 
 var DOMIterables = ('CSSRuleList,CSSStyleDeclaration,CSSValueList,ClientRectList,DOMRectList,DOMStringList,' +
   'DOMTokenList,DataTransferItemList,FileList,HTMLAllCollection,HTMLCollection,HTMLFormElement,HTMLSelectElement,' +
@@ -74322,21 +74622,21 @@ for (var i = 0; i < DOMIterables.length; i++) {
 
 
 /***/ }),
-/* 295 */
+/* 300 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
-var addToUnscopables = __webpack_require__(296);
-var step = __webpack_require__(297);
-var Iterators = __webpack_require__(100);
-var toIObject = __webpack_require__(40);
+var addToUnscopables = __webpack_require__(301);
+var step = __webpack_require__(302);
+var Iterators = __webpack_require__(109);
+var toIObject = __webpack_require__(37);
 
 // 22.1.3.4 Array.prototype.entries()
 // 22.1.3.13 Array.prototype.keys()
 // 22.1.3.29 Array.prototype.values()
 // 22.1.3.30 Array.prototype[@@iterator]()
-module.exports = __webpack_require__(158)(Array, 'Array', function (iterated, kind) {
+module.exports = __webpack_require__(169)(Array, 'Array', function (iterated, kind) {
   this._t = toIObject(iterated); // target
   this._i = 0;                   // next index
   this._k = kind;                // kind
@@ -74363,14 +74663,14 @@ addToUnscopables('entries');
 
 
 /***/ }),
-/* 296 */
+/* 301 */
 /***/ (function(module, exports) {
 
 module.exports = function () { /* empty */ };
 
 
 /***/ }),
-/* 297 */
+/* 302 */
 /***/ (function(module, exports) {
 
 module.exports = function (done, value) {
@@ -74379,53 +74679,53 @@ module.exports = function (done, value) {
 
 
 /***/ }),
-/* 298 */
+/* 303 */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = { "default": __webpack_require__(299), __esModule: true };
+module.exports = { "default": __webpack_require__(304), __esModule: true };
 
 /***/ }),
-/* 299 */
+/* 304 */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(300);
 __webpack_require__(305);
-__webpack_require__(306);
-__webpack_require__(307);
-module.exports = __webpack_require__(28).Symbol;
+__webpack_require__(309);
+__webpack_require__(310);
+__webpack_require__(311);
+module.exports = __webpack_require__(24).Symbol;
 
 
 /***/ }),
-/* 300 */
+/* 305 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 // ECMAScript 6 symbols shim
-var global = __webpack_require__(27);
-var has = __webpack_require__(31);
-var DESCRIPTORS = __webpack_require__(33);
-var $export = __webpack_require__(38);
-var redefine = __webpack_require__(159);
-var META = __webpack_require__(301).KEY;
-var $fails = __webpack_require__(48);
-var shared = __webpack_require__(93);
-var setToStringTag = __webpack_require__(104);
-var uid = __webpack_require__(61);
-var wks = __webpack_require__(41);
-var wksExt = __webpack_require__(105);
-var wksDefine = __webpack_require__(106);
-var enumKeys = __webpack_require__(302);
-var isArray = __webpack_require__(303);
-var anObject = __webpack_require__(46);
-var toIObject = __webpack_require__(40);
-var toPrimitive = __webpack_require__(94);
-var createDesc = __webpack_require__(62);
-var _create = __webpack_require__(101);
-var gOPNExt = __webpack_require__(304);
-var $GOPD = __webpack_require__(164);
-var $DP = __webpack_require__(32);
-var $keys = __webpack_require__(102);
+var global = __webpack_require__(35);
+var has = __webpack_require__(40);
+var DESCRIPTORS = __webpack_require__(42);
+var $export = __webpack_require__(36);
+var redefine = __webpack_require__(170);
+var META = __webpack_require__(174).KEY;
+var $fails = __webpack_require__(50);
+var shared = __webpack_require__(105);
+var setToStringTag = __webpack_require__(112);
+var uid = __webpack_require__(72);
+var wks = __webpack_require__(52);
+var wksExt = __webpack_require__(113);
+var wksDefine = __webpack_require__(114);
+var enumKeys = __webpack_require__(306);
+var isArray = __webpack_require__(307);
+var anObject = __webpack_require__(58);
+var toIObject = __webpack_require__(37);
+var toPrimitive = __webpack_require__(106);
+var createDesc = __webpack_require__(74);
+var _create = __webpack_require__(110);
+var gOPNExt = __webpack_require__(308);
+var $GOPD = __webpack_require__(116);
+var $DP = __webpack_require__(41);
+var $keys = __webpack_require__(51);
 var gOPD = $GOPD.f;
 var dP = $DP.f;
 var gOPN = gOPNExt.f;
@@ -74548,11 +74848,11 @@ if (!USE_NATIVE) {
 
   $GOPD.f = $getOwnPropertyDescriptor;
   $DP.f = $defineProperty;
-  __webpack_require__(163).f = gOPNExt.f = $getOwnPropertyNames;
-  __webpack_require__(107).f = $propertyIsEnumerable;
-  __webpack_require__(162).f = $getOwnPropertySymbols;
+  __webpack_require__(175).f = gOPNExt.f = $getOwnPropertyNames;
+  __webpack_require__(59).f = $propertyIsEnumerable;
+  __webpack_require__(115).f = $getOwnPropertySymbols;
 
-  if (DESCRIPTORS && !__webpack_require__(99)) {
+  if (DESCRIPTORS && !__webpack_require__(108)) {
     redefine(ObjectProto, 'propertyIsEnumerable', $propertyIsEnumerable, true);
   }
 
@@ -74627,7 +74927,7 @@ $JSON && $export($export.S + $export.F * (!USE_NATIVE || $fails(function () {
 });
 
 // 19.4.3.4 Symbol.prototype[@@toPrimitive](hint)
-$Symbol[PROTOTYPE][TO_PRIMITIVE] || __webpack_require__(39)($Symbol[PROTOTYPE], TO_PRIMITIVE, $Symbol[PROTOTYPE].valueOf);
+$Symbol[PROTOTYPE][TO_PRIMITIVE] || __webpack_require__(48)($Symbol[PROTOTYPE], TO_PRIMITIVE, $Symbol[PROTOTYPE].valueOf);
 // 19.4.3.5 Symbol.prototype[@@toStringTag]
 setToStringTag($Symbol, 'Symbol');
 // 20.2.1.9 Math[@@toStringTag]
@@ -74637,72 +74937,13 @@ setToStringTag(global.JSON, 'JSON', true);
 
 
 /***/ }),
-/* 301 */
-/***/ (function(module, exports, __webpack_require__) {
-
-var META = __webpack_require__(61)('meta');
-var isObject = __webpack_require__(47);
-var has = __webpack_require__(31);
-var setDesc = __webpack_require__(32).f;
-var id = 0;
-var isExtensible = Object.isExtensible || function () {
-  return true;
-};
-var FREEZE = !__webpack_require__(48)(function () {
-  return isExtensible(Object.preventExtensions({}));
-});
-var setMeta = function (it) {
-  setDesc(it, META, { value: {
-    i: 'O' + ++id, // object ID
-    w: {}          // weak collections IDs
-  } });
-};
-var fastKey = function (it, create) {
-  // return primitive with prefix
-  if (!isObject(it)) return typeof it == 'symbol' ? it : (typeof it == 'string' ? 'S' : 'P') + it;
-  if (!has(it, META)) {
-    // can't set metadata to uncaught frozen object
-    if (!isExtensible(it)) return 'F';
-    // not necessary to add metadata
-    if (!create) return 'E';
-    // add missing metadata
-    setMeta(it);
-  // return object ID
-  } return it[META].i;
-};
-var getWeak = function (it, create) {
-  if (!has(it, META)) {
-    // can't set metadata to uncaught frozen object
-    if (!isExtensible(it)) return true;
-    // not necessary to add metadata
-    if (!create) return false;
-    // add missing metadata
-    setMeta(it);
-  // return hash weak collections IDs
-  } return it[META].w;
-};
-// add metadata on freeze-family methods calling
-var onFreeze = function (it) {
-  if (FREEZE && meta.NEED && isExtensible(it) && !has(it, META)) setMeta(it);
-  return it;
-};
-var meta = module.exports = {
-  KEY: META,
-  NEED: false,
-  fastKey: fastKey,
-  getWeak: getWeak,
-  onFreeze: onFreeze
-};
-
-
-/***/ }),
-/* 302 */
+/* 306 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // all enumerable object keys, includes symbols
-var getKeys = __webpack_require__(102);
-var gOPS = __webpack_require__(162);
-var pIE = __webpack_require__(107);
+var getKeys = __webpack_require__(51);
+var gOPS = __webpack_require__(115);
+var pIE = __webpack_require__(59);
 module.exports = function (it) {
   var result = getKeys(it);
   var getSymbols = gOPS.f;
@@ -74717,23 +74958,23 @@ module.exports = function (it) {
 
 
 /***/ }),
-/* 303 */
+/* 307 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // 7.2.2 IsArray(argument)
-var cof = __webpack_require__(161);
+var cof = __webpack_require__(173);
 module.exports = Array.isArray || function isArray(arg) {
   return cof(arg) == 'Array';
 };
 
 
 /***/ }),
-/* 304 */
+/* 308 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // fallback for IE11 buggy Object.getOwnPropertyNames with iframe and window
-var toIObject = __webpack_require__(40);
-var gOPN = __webpack_require__(163).f;
+var toIObject = __webpack_require__(37);
+var gOPN = __webpack_require__(175).f;
 var toString = {}.toString;
 
 var windowNames = typeof window == 'object' && window && Object.getOwnPropertyNames
@@ -74753,56 +74994,56 @@ module.exports.f = function getOwnPropertyNames(it) {
 
 
 /***/ }),
-/* 305 */
+/* 309 */
 /***/ (function(module, exports) {
 
-
-
-/***/ }),
-/* 306 */
-/***/ (function(module, exports, __webpack_require__) {
-
-__webpack_require__(106)('asyncIterator');
-
-
-/***/ }),
-/* 307 */
-/***/ (function(module, exports, __webpack_require__) {
-
-__webpack_require__(106)('observable');
-
-
-/***/ }),
-/* 308 */
-/***/ (function(module, exports, __webpack_require__) {
-
-module.exports = { "default": __webpack_require__(309), __esModule: true };
-
-/***/ }),
-/* 309 */
-/***/ (function(module, exports, __webpack_require__) {
-
-__webpack_require__(310);
-module.exports = __webpack_require__(28).Object.setPrototypeOf;
 
 
 /***/ }),
 /* 310 */
 /***/ (function(module, exports, __webpack_require__) {
 
-// 19.1.3.19 Object.setPrototypeOf(O, proto)
-var $export = __webpack_require__(38);
-$export($export.S, 'Object', { setPrototypeOf: __webpack_require__(311).set });
+__webpack_require__(114)('asyncIterator');
 
 
 /***/ }),
 /* 311 */
 /***/ (function(module, exports, __webpack_require__) {
 
+__webpack_require__(114)('observable');
+
+
+/***/ }),
+/* 312 */
+/***/ (function(module, exports, __webpack_require__) {
+
+module.exports = { "default": __webpack_require__(313), __esModule: true };
+
+/***/ }),
+/* 313 */
+/***/ (function(module, exports, __webpack_require__) {
+
+__webpack_require__(314);
+module.exports = __webpack_require__(24).Object.setPrototypeOf;
+
+
+/***/ }),
+/* 314 */
+/***/ (function(module, exports, __webpack_require__) {
+
+// 19.1.3.19 Object.setPrototypeOf(O, proto)
+var $export = __webpack_require__(36);
+$export($export.S, 'Object', { setPrototypeOf: __webpack_require__(315).set });
+
+
+/***/ }),
+/* 315 */
+/***/ (function(module, exports, __webpack_require__) {
+
 // Works with __proto__ only. Old v8 can't work with null proto objects.
 /* eslint-disable no-proto */
-var isObject = __webpack_require__(47);
-var anObject = __webpack_require__(46);
+var isObject = __webpack_require__(49);
+var anObject = __webpack_require__(58);
 var check = function (O, proto) {
   anObject(O);
   if (!isObject(proto) && proto !== null) throw TypeError(proto + ": can't set as prototype!");
@@ -74811,7 +75052,7 @@ module.exports = {
   set: Object.setPrototypeOf || ('__proto__' in {} ? // eslint-disable-line
     function (test, buggy, set) {
       try {
-        set = __webpack_require__(154)(Function.call, __webpack_require__(164).f(Object.prototype, '__proto__').set, 2);
+        set = __webpack_require__(165)(Function.call, __webpack_require__(116).f(Object.prototype, '__proto__').set, 2);
         set(test, []);
         buggy = !(test instanceof Array);
       } catch (e) { buggy = true; }
@@ -74827,33 +75068,33 @@ module.exports = {
 
 
 /***/ }),
-/* 312 */
+/* 316 */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = { "default": __webpack_require__(313), __esModule: true };
+module.exports = { "default": __webpack_require__(317), __esModule: true };
 
 /***/ }),
-/* 313 */
+/* 317 */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(314);
-var $Object = __webpack_require__(28).Object;
+__webpack_require__(318);
+var $Object = __webpack_require__(24).Object;
 module.exports = function create(P, D) {
   return $Object.create(P, D);
 };
 
 
 /***/ }),
-/* 314 */
+/* 318 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var $export = __webpack_require__(38);
+var $export = __webpack_require__(36);
 // 19.1.2.2 / 15.2.3.5 Object.create(O [, Properties])
-$export($export.S, 'Object', { create: __webpack_require__(101) });
+$export($export.S, 'Object', { create: __webpack_require__(110) });
 
 
 /***/ }),
-/* 315 */
+/* 319 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -74863,43 +75104,43 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 
-var _getPrototypeOf = __webpack_require__(90);
+var _getPrototypeOf = __webpack_require__(2);
 
 var _getPrototypeOf2 = _interopRequireDefault(_getPrototypeOf);
 
-var _classCallCheck2 = __webpack_require__(95);
+var _classCallCheck2 = __webpack_require__(0);
 
 var _classCallCheck3 = _interopRequireDefault(_classCallCheck2);
 
-var _createClass2 = __webpack_require__(96);
+var _createClass2 = __webpack_require__(1);
 
 var _createClass3 = _interopRequireDefault(_createClass2);
 
-var _possibleConstructorReturn2 = __webpack_require__(97);
+var _possibleConstructorReturn2 = __webpack_require__(3);
 
 var _possibleConstructorReturn3 = _interopRequireDefault(_possibleConstructorReturn2);
 
-var _inherits2 = __webpack_require__(108);
+var _inherits2 = __webpack_require__(4);
 
 var _inherits3 = _interopRequireDefault(_inherits2);
 
-var _react = __webpack_require__(29);
+var _react = __webpack_require__(38);
 
 var _react2 = _interopRequireDefault(_react);
 
-var _reactThreeRenderer = __webpack_require__(165);
+var _reactThreeRenderer = __webpack_require__(117);
 
 var _reactThreeRenderer2 = _interopRequireDefault(_reactThreeRenderer);
 
-var _three = __webpack_require__(1);
+var _three = __webpack_require__(6);
 
 var Three = _interopRequireWildcard(_three);
 
-var _node = __webpack_require__(411);
+var _node = __webpack_require__(428);
 
 var _node2 = _interopRequireDefault(_node);
 
-var _mouse_input = __webpack_require__(412);
+var _mouse_input = __webpack_require__(429);
 
 var _mouse_input2 = _interopRequireDefault(_mouse_input);
 
@@ -74962,7 +75203,7 @@ var Simple = function (_Component) {
   }, {
     key: 'generateNode',
     value: function generateNode(posArr) {
-      return _react2.default.createElement(_node2.default, { key: posArr, position: posArr, life: false, mouseInput: mouseInput });
+      return _react2.default.createElement(_node2.default, { key: posArr, position: posArr, life: false });
     }
   }, {
     key: 'generateNodeRow',
@@ -75048,7 +75289,260 @@ var Simple = function (_Component) {
 exports.default = Simple;
 
 /***/ }),
-/* 316 */
+/* 320 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var _extends2 = __webpack_require__(20);
+
+var _extends3 = _interopRequireDefault(_extends2);
+
+var _getPrototypeOf = __webpack_require__(2);
+
+var _getPrototypeOf2 = _interopRequireDefault(_getPrototypeOf);
+
+var _classCallCheck2 = __webpack_require__(0);
+
+var _classCallCheck3 = _interopRequireDefault(_classCallCheck2);
+
+var _createClass2 = __webpack_require__(1);
+
+var _createClass3 = _interopRequireDefault(_createClass2);
+
+var _possibleConstructorReturn2 = __webpack_require__(3);
+
+var _possibleConstructorReturn3 = _interopRequireDefault(_possibleConstructorReturn2);
+
+var _inherits2 = __webpack_require__(4);
+
+var _inherits3 = _interopRequireDefault(_inherits2);
+
+var _class, _temp;
+
+var _react = __webpack_require__(38);
+
+var _react2 = _interopRequireDefault(_react);
+
+var _ReactComponentWithPureRenderMixin = __webpack_require__(324);
+
+var _ReactComponentWithPureRenderMixin2 = _interopRequireDefault(_ReactComponentWithPureRenderMixin);
+
+var _propTypes = __webpack_require__(7);
+
+var _propTypes2 = _interopRequireDefault(_propTypes);
+
+var _three = __webpack_require__(6);
+
+var THREE = _interopRequireWildcard(_three);
+
+var _React3Renderer = __webpack_require__(77);
+
+var _React3Renderer2 = _interopRequireDefault(_React3Renderer);
+
+var _propTypeInstanceOf = __webpack_require__(15);
+
+var _propTypeInstanceOf2 = _interopRequireDefault(_propTypeInstanceOf);
+
+function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj.default = obj; return newObj; } }
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+var React3 = (_temp = _class = function (_React$Component) {
+  (0, _inherits3.default)(React3, _React$Component);
+
+  /* eslint-disable react/no-unused-prop-types */
+  /* eslint-disable react/require-default-props */
+  function React3(props, context) {
+    (0, _classCallCheck3.default)(this, React3);
+
+    var _this = (0, _possibleConstructorReturn3.default)(this, (React3.__proto__ || (0, _getPrototypeOf2.default)(React3)).call(this, props, context));
+
+    _this.shouldComponentUpdate = _ReactComponentWithPureRenderMixin2.default.shouldComponentUpdate;
+
+    _this._onRecreateCanvas = function () {
+      _this.setState({
+        // changing the key will recreate the element
+        canvasKey: _this.state.canvasKey + 1
+      });
+    };
+
+    _this._canvasRef = function (c) {
+      _this._canvas = c;
+      if (_this.props.canvasRef) {
+        _this.props.canvasRef(c);
+      }
+    };
+
+    _this.state = {
+      canvasKey: 0
+    };
+    return _this;
+  }
+  /* eslint-enable react/require-default-props */
+  /* eslint-enable react/no-unused-prop-types */
+
+  (0, _createClass3.default)(React3, [{
+    key: 'componentDidMount',
+    value: function componentDidMount() {
+      this.react3Renderer = new _React3Renderer2.default();
+
+      this._render();
+    }
+  }, {
+    key: 'componentWillReceiveProps',
+    value: function componentWillReceiveProps(newProps) {
+      var lastProps = this.props;
+
+      if (lastProps.canvasRef !== newProps.canvasRef) {
+        if (lastProps.canvasRef) {
+          lastProps.canvasRef(null);
+        }
+
+        if (newProps.canvasRef) {
+          newProps.canvasRef(this._canvas);
+        }
+      }
+    }
+  }, {
+    key: 'componentDidUpdate',
+    value: function componentDidUpdate() {
+      this._render();
+    }
+  }, {
+    key: 'componentWillUnmount',
+    value: function componentWillUnmount() {
+      this.react3Renderer.dispose();
+      delete this.react3Renderer;
+    }
+  }, {
+    key: '_render',
+    value: function _render() {
+      var canvas = this._canvas;
+
+      var propsToClone = (0, _extends3.default)({}, this.props);
+
+      delete propsToClone.canvasStyle;
+      delete propsToClone.canvasRef;
+
+      this.react3Renderer.render(_react2.default.createElement(
+        'react3',
+        (0, _extends3.default)({}, propsToClone, {
+          onRecreateCanvas: this._onRecreateCanvas
+        }),
+        this.props.children
+      ), canvas);
+    }
+  }, {
+    key: 'render',
+    value: function render() {
+      var canvasKey = this.state.canvasKey;
+
+
+      return _react2.default.createElement('canvas', {
+        ref: this._canvasRef,
+        key: canvasKey,
+        width: this.props.width,
+        height: this.props.height,
+        style: (0, _extends3.default)({}, this.props.canvasStyle, {
+          width: this.props.width,
+          height: this.props.height
+        })
+      });
+    }
+  }]);
+  return React3;
+}(_react2.default.Component), _class.propTypes = {
+  context: _propTypes2.default.string,
+  width: _propTypes2.default.number.isRequired,
+  height: _propTypes2.default.number.isRequired,
+  children: _propTypes2.default.node,
+  /* eslint-disable react/forbid-prop-types */
+  canvasStyle: _propTypes2.default.any,
+  /* eslint-enable react/forbid-prop-types */
+  customRenderer: _propTypes2.default.func,
+  gammaInput: _propTypes2.default.bool,
+  gammaOutput: _propTypes2.default.bool,
+  sortObjects: _propTypes2.default.bool,
+  mainCamera: _propTypes2.default.string,
+  onAnimate: _propTypes2.default.func,
+  clearColor: _propTypes2.default.oneOfType([(0, _propTypeInstanceOf2.default)(THREE.Color), _propTypes2.default.number, _propTypes2.default.string]),
+  shadowMapEnabled: _propTypes2.default.bool,
+  shadowMapType: _propTypes2.default.oneOf([THREE.BasicShadowMap, THREE.PCFShadowMap, THREE.PCFSoftShadowMap]),
+  shadowMapCullFace: _propTypes2.default.oneOf([THREE.CullFaceNone, THREE.CullFaceBack, THREE.CullFaceFront, THREE.CullFaceFrontBack]),
+  shadowMapDebug: _propTypes2.default.bool,
+  pixelRatio: _propTypes2.default.number,
+  antialias: _propTypes2.default.oneOfType([_propTypes2.default.bool, _propTypes2.default.number]),
+  canvasRef: _propTypes2.default.func
+}, _class.defaultProps = {
+  context: '3d'
+}, _class.findTHREEObject = _React3Renderer2.default.findTHREEObject, _class.eventDispatcher = _React3Renderer2.default.eventDispatcher, _temp);
+
+
+module.exports = React3;
+
+/***/ }),
+/* 321 */
+/***/ (function(module, exports, __webpack_require__) {
+
+__webpack_require__(322);
+module.exports = __webpack_require__(24).Object.assign;
+
+
+/***/ }),
+/* 322 */
+/***/ (function(module, exports, __webpack_require__) {
+
+// 19.1.3.1 Object.assign(target, source)
+var $export = __webpack_require__(36);
+
+$export($export.S + $export.F, 'Object', { assign: __webpack_require__(323) });
+
+
+/***/ }),
+/* 323 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+// 19.1.2.1 Object.assign(target, source, ...)
+var getKeys = __webpack_require__(51);
+var gOPS = __webpack_require__(115);
+var pIE = __webpack_require__(59);
+var toObject = __webpack_require__(71);
+var IObject = __webpack_require__(172);
+var $assign = Object.assign;
+
+// should work with symbols and should have deterministic property order (V8 bug)
+module.exports = !$assign || __webpack_require__(50)(function () {
+  var A = {};
+  var B = {};
+  // eslint-disable-next-line no-undef
+  var S = Symbol();
+  var K = 'abcdefghijklmnopqrst';
+  A[S] = 7;
+  K.split('').forEach(function (k) { B[k] = k; });
+  return $assign({}, A)[S] != 7 || Object.keys($assign({}, B)).join('') != K;
+}) ? function assign(target, source) { // eslint-disable-line no-unused-vars
+  var T = toObject(target);
+  var aLen = arguments.length;
+  var index = 1;
+  var getSymbols = gOPS.f;
+  var isEnum = pIE.f;
+  while (aLen > index) {
+    var S = IObject(arguments[index++]);
+    var keys = getSymbols ? getKeys(S).concat(getSymbols(S)) : getKeys(S);
+    var length = keys.length;
+    var j = 0;
+    var key;
+    while (length > j) if (isEnum.call(S, key = keys[j++])) T[key] = S[key];
+  } return T;
+} : $assign;
+
+
+/***/ }),
+/* 324 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -75062,7 +75556,7 @@ exports.default = Simple;
 
 
 
-var shallowCompare = __webpack_require__(317);
+var shallowCompare = __webpack_require__(325);
 
 /**
  * If your React component's render function is "pure", e.g. it will render the
@@ -75099,7 +75593,7 @@ var ReactComponentWithPureRenderMixin = {
 module.exports = ReactComponentWithPureRenderMixin;
 
 /***/ }),
-/* 317 */
+/* 325 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -75113,7 +75607,7 @@ module.exports = ReactComponentWithPureRenderMixin;
 
 
 
-var shallowEqual = __webpack_require__(58);
+var shallowEqual = __webpack_require__(68);
 
 /**
  * Does a shallow comparison for props and state.
@@ -75127,7 +75621,7 @@ function shallowCompare(instance, nextProps, nextState) {
 module.exports = shallowCompare;
 
 /***/ }),
-/* 318 */
+/* 326 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -75142,12 +75636,12 @@ module.exports = shallowCompare;
 
 
 
-var emptyFunction = __webpack_require__(63);
-var invariant = __webpack_require__(6);
-var warning = __webpack_require__(17);
+var emptyFunction = __webpack_require__(76);
+var invariant = __webpack_require__(12);
+var warning = __webpack_require__(25);
 
-var ReactPropTypesSecret = __webpack_require__(109);
-var checkPropTypes = __webpack_require__(319);
+var ReactPropTypesSecret = __webpack_require__(119);
+var checkPropTypes = __webpack_require__(327);
 
 module.exports = function(isValidElement, throwOnDirectAccess) {
   /* global Symbol */
@@ -75644,10 +76138,10 @@ module.exports = function(isValidElement, throwOnDirectAccess) {
   return ReactPropTypes;
 };
 
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(5)))
 
 /***/ }),
-/* 319 */
+/* 327 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -75663,9 +76157,9 @@ module.exports = function(isValidElement, throwOnDirectAccess) {
 
 
 if (process.env.NODE_ENV !== 'production') {
-  var invariant = __webpack_require__(6);
-  var warning = __webpack_require__(17);
-  var ReactPropTypesSecret = __webpack_require__(109);
+  var invariant = __webpack_require__(12);
+  var warning = __webpack_require__(25);
+  var ReactPropTypesSecret = __webpack_require__(119);
   var loggedTypeFailures = {};
 }
 
@@ -75713,10 +76207,10 @@ function checkPropTypes(typeSpecs, values, location, componentName, getStack) {
 
 module.exports = checkPropTypes;
 
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(5)))
 
 /***/ }),
-/* 320 */
+/* 328 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -75731,9 +76225,9 @@ module.exports = checkPropTypes;
 
 
 
-var emptyFunction = __webpack_require__(63);
-var invariant = __webpack_require__(6);
-var ReactPropTypesSecret = __webpack_require__(109);
+var emptyFunction = __webpack_require__(76);
+var invariant = __webpack_require__(12);
+var ReactPropTypesSecret = __webpack_require__(119);
 
 module.exports = function() {
   function shim(props, propName, componentName, location, propFullName, secret) {
@@ -75782,7 +76276,59 @@ module.exports = function() {
 
 
 /***/ }),
-/* 321 */
+/* 329 */
+/***/ (function(module, exports, __webpack_require__) {
+
+module.exports = { "default": __webpack_require__(330), __esModule: true };
+
+/***/ }),
+/* 330 */
+/***/ (function(module, exports, __webpack_require__) {
+
+__webpack_require__(331);
+module.exports = __webpack_require__(24).Object.preventExtensions;
+
+
+/***/ }),
+/* 331 */
+/***/ (function(module, exports, __webpack_require__) {
+
+// 19.1.2.15 Object.preventExtensions(O)
+var isObject = __webpack_require__(49);
+var meta = __webpack_require__(174).onFreeze;
+
+__webpack_require__(73)('preventExtensions', function ($preventExtensions) {
+  return function preventExtensions(it) {
+    return $preventExtensions && isObject(it) ? $preventExtensions(meta(it)) : it;
+  };
+});
+
+
+/***/ }),
+/* 332 */
+/***/ (function(module, exports, __webpack_require__) {
+
+__webpack_require__(333);
+module.exports = __webpack_require__(24).Object.keys;
+
+
+/***/ }),
+/* 333 */
+/***/ (function(module, exports, __webpack_require__) {
+
+// 19.1.2.14 Object.keys(O)
+var toObject = __webpack_require__(71);
+var $keys = __webpack_require__(51);
+
+__webpack_require__(73)('keys', function () {
+  return function keys(it) {
+    return $keys(toObject(it));
+  };
+});
+
+
+/***/ }),
+/* 334 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -75801,22 +76347,28 @@ function React3ContainerInfo(topLevelWrapper, instance) {
 module.exports = React3ContainerInfo;
 
 /***/ }),
-/* 322 */
+/* 335 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
-var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+var _classCallCheck2 = __webpack_require__(0);
 
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+var _classCallCheck3 = _interopRequireDefault(_classCallCheck2);
+
+var _createClass2 = __webpack_require__(1);
+
+var _createClass3 = _interopRequireDefault(_createClass2);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 var EventDispatcher = function () {
   function EventDispatcher() {
-    _classCallCheck(this, EventDispatcher);
+    (0, _classCallCheck3.default)(this, EventDispatcher);
   }
 
-  _createClass(EventDispatcher, [{
+  (0, _createClass3.default)(EventDispatcher, [{
     key: "dispatchEvent",
     value: function dispatchEvent(threeObject, eventName) {
       var eventCallbacks = threeObject.userData._eventCallbacks;
@@ -75831,80 +76383,93 @@ var EventDispatcher = function () {
       }
     }
   }]);
-
   return EventDispatcher;
 }();
 
 module.exports = EventDispatcher;
 
 /***/ }),
-/* 323 */
+/* 336 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 /* WEBPACK VAR INJECTION */(function(process) {
 
-var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+var _assign = __webpack_require__(118);
+
+var _assign2 = _interopRequireDefault(_assign);
+
+var _defineProperty2 = __webpack_require__(337);
+
+var _defineProperty3 = _interopRequireDefault(_defineProperty2);
+
+var _createClass2 = __webpack_require__(1);
+
+var _createClass3 = _interopRequireDefault(_createClass2);
+
+var _keys = __webpack_require__(43);
+
+var _keys2 = _interopRequireDefault(_keys);
+
+var _classCallCheck2 = __webpack_require__(0);
+
+var _classCallCheck3 = _interopRequireDefault(_classCallCheck2);
 
 var _class, _temp;
 
-var _invariant = __webpack_require__(6);
+var _invariant = __webpack_require__(12);
 
 var _invariant2 = _interopRequireDefault(_invariant);
 
-var _emptyFunction = __webpack_require__(63);
+var _emptyFunction = __webpack_require__(76);
 
 var _emptyFunction2 = _interopRequireDefault(_emptyFunction);
 
-var _flattenChildren = __webpack_require__(324);
+var _flattenChildren = __webpack_require__(338);
 
 var _flattenChildren2 = _interopRequireDefault(_flattenChildren);
 
-var _ReactCurrentOwner = __webpack_require__(15);
+var _ReactCurrentOwner = __webpack_require__(22);
 
 var _ReactCurrentOwner2 = _interopRequireDefault(_ReactCurrentOwner);
 
-var _ReactElement = __webpack_require__(21);
+var _ReactElement = __webpack_require__(29);
 
 var _ReactElement2 = _interopRequireDefault(_ReactElement);
 
-var _ReactInstrumentation = __webpack_require__(13);
+var _ReactInstrumentation = __webpack_require__(19);
 
 var _ReactInstrumentation2 = _interopRequireDefault(_ReactInstrumentation);
 
-var _ReactReconciler = __webpack_require__(25);
+var _ReactReconciler = __webpack_require__(33);
 
 var _ReactReconciler2 = _interopRequireDefault(_ReactReconciler);
 
-var _ReactMultiChild = __webpack_require__(137);
+var _ReactMultiChild = __webpack_require__(149);
 
 var _ReactMultiChild2 = _interopRequireDefault(_ReactMultiChild);
 
-var _ReactRef = __webpack_require__(127);
+var _ReactRef = __webpack_require__(139);
 
 var _ReactRef2 = _interopRequireDefault(_ReactRef);
 
-var _React3ComponentFlags = __webpack_require__(167);
+var _React3ComponentFlags = __webpack_require__(177);
 
 var _React3ComponentFlags2 = _interopRequireDefault(_React3ComponentFlags);
 
-var _idPropertyName = __webpack_require__(110);
+var _idPropertyName = __webpack_require__(120);
 
 var _idPropertyName2 = _interopRequireDefault(_idPropertyName);
 
-var _React3CompositeComponentWrapper = __webpack_require__(168);
+var _React3CompositeComponentWrapper = __webpack_require__(178);
 
 var _React3CompositeComponentWrapper2 = _interopRequireDefault(_React3CompositeComponentWrapper);
 
-var _React3ComponentTree = __webpack_require__(170);
+var _React3ComponentTree = __webpack_require__(180);
 
 var _React3ComponentTree2 = _interopRequireDefault(_React3ComponentTree);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
-
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
 function processChildContext(context) {
   return context;
@@ -75913,7 +76478,7 @@ function processChildContext(context) {
 var RemountTrigger = function RemountTrigger() {
   var _this = this;
 
-  _classCallCheck(this, RemountTrigger);
+  (0, _classCallCheck3.default)(this, RemountTrigger);
 
   this.wantRemount = false;
   this.onTrigger = function onTrigger() {};
@@ -75948,7 +76513,7 @@ var getDebugID = void 0;
 if (process.env.NODE_ENV !== 'production') {
   /* eslint-disable global-require */
 
-  var ReactInstanceMap = __webpack_require__(26);
+  var ReactInstanceMap = __webpack_require__(34);
 
   /* eslint-enable global-require */
 
@@ -75964,7 +76529,7 @@ if (process.env.NODE_ENV !== 'production') {
   };
 
   setChildrenForInstrumentation = function _(children) {
-    _ReactInstrumentation2.default.debugTool.onSetChildren(this._debugID, children ? Object.keys(children).map(function (key) {
+    _ReactInstrumentation2.default.debugTool.onSetChildren(this._debugID, children ? (0, _keys2.default)(children).map(function (key) {
       return children[key]._debugID;
     }) : []);
   };
@@ -76006,8 +76571,7 @@ var InternalComponent = (_temp = _class = function () {
   function InternalComponent(element, react3RendererInstance) {
     var _this2 = this;
 
-    _classCallCheck(this, InternalComponent);
-
+    (0, _classCallCheck3.default)(this, InternalComponent);
     this.updateChildren = ReactMultiChildMixin.updateChildren.bind(this);
     this._mountChildAtIndex = ReactMultiChildMixin._mountChildAtIndex.bind(this);
     this._unmountChild = ReactMultiChildMixin._unmountChild.bind(this);
@@ -76065,7 +76629,7 @@ var InternalComponent = (_temp = _class = function () {
     };
   }
 
-  _createClass(InternalComponent, [{
+  (0, _createClass3.default)(InternalComponent, [{
     key: 'getHostMarkup',
     value: function getHostMarkup() {
       return this._markup;
@@ -76120,7 +76684,7 @@ var InternalComponent = (_temp = _class = function () {
         mountImages = [];
       }
 
-      var markup = (_markup = {}, _defineProperty(_markup, _idPropertyName2.default, this._hostID), _defineProperty(_markup, '_rootInstance', null), _defineProperty(_markup, 'elementType', element.type), _defineProperty(_markup, 'threeObject', this._threeObject), _defineProperty(_markup, 'parentMarkup', null), _defineProperty(_markup, 'childrenMarkup', mountImages), _defineProperty(_markup, 'toJSON', function toJSON() {
+      var markup = (_markup = {}, (0, _defineProperty3.default)(_markup, _idPropertyName2.default, this._hostID), (0, _defineProperty3.default)(_markup, '_rootInstance', null), (0, _defineProperty3.default)(_markup, 'elementType', element.type), (0, _defineProperty3.default)(_markup, 'threeObject', this._threeObject), (0, _defineProperty3.default)(_markup, 'parentMarkup', null), (0, _defineProperty3.default)(_markup, 'childrenMarkup', mountImages), (0, _defineProperty3.default)(_markup, 'toJSON', function toJSON() {
         return '---MARKUP---';
       }), _markup);
 
@@ -76130,7 +76694,7 @@ var InternalComponent = (_temp = _class = function () {
         (0, _invariant2.default)(!!this._threeObject.userData);
       }
 
-      Object.assign(this._threeObject.userData, {
+      (0, _assign2.default)(this._threeObject.userData, {
         object3D: this._threeObject,
         react3internalComponent: this, // used for highlighting etc
         toJSON: function toJSON() {
@@ -76265,7 +76829,7 @@ var InternalComponent = (_temp = _class = function () {
       var index = 0;
 
       if (children) {
-        var childrenNames = Object.keys(children);
+        var childrenNames = (0, _keys2.default)(children);
         for (var i = 0; i < childrenNames.length; ++i) {
           var name = childrenNames[i];
           var child = children[name];
@@ -76381,7 +76945,7 @@ var InternalComponent = (_temp = _class = function () {
         this.threeElementDescriptor.checkPropTypes(this._currentElement, this._currentElement._owner, this._debugID, nextProps);
       }
 
-      var lastPropKeys = Object.keys(lastProps);
+      var lastPropKeys = (0, _keys2.default)(lastProps);
 
       // https://jsperf.com/object-keys-vs-for-in-with-closure/3
       for (var i = 0; i < lastPropKeys.length; ++i) {
@@ -76411,7 +76975,7 @@ var InternalComponent = (_temp = _class = function () {
         }
       }
 
-      var nextPropKeys = Object.keys(nextProps);
+      var nextPropKeys = (0, _keys2.default)(nextProps);
 
       for (var _i = 0; _i < nextPropKeys.length; ++_i) {
         var _propKey = nextPropKeys[_i];
@@ -76450,7 +77014,7 @@ var InternalComponent = (_temp = _class = function () {
       var renderedChildren = this._renderedChildren;
 
       if (renderedChildren) {
-        var renderedChildrenKeys = Object.keys(renderedChildren);
+        var renderedChildrenKeys = (0, _keys2.default)(renderedChildren);
 
         for (var i = 0; i < renderedChildrenKeys.length; ++i) {
           var name = renderedChildrenKeys[i];
@@ -76557,7 +77121,7 @@ var InternalComponent = (_temp = _class = function () {
       var nextMountIndex = 0;
 
       if (nextChildren) {
-        var nextChildrenNames = Object.keys(nextChildren);
+        var nextChildrenNames = (0, _keys2.default)(nextChildren);
 
         for (var i = 0; i < nextChildrenNames.length; ++i) {
           var childName = nextChildrenNames[i];
@@ -76605,7 +77169,7 @@ var InternalComponent = (_temp = _class = function () {
         }
       }
 
-      var removedMarkupNames = Object.keys(removedMarkups);
+      var removedMarkupNames = (0, _keys2.default)(removedMarkups);
 
       for (var _i2 = 0; _i2 < removedMarkupNames.length; ++_i2) {
         var removedMarkupName = removedMarkupNames[_i2];
@@ -76687,16 +77251,45 @@ var InternalComponent = (_temp = _class = function () {
       }
     }
   }]);
-
   return InternalComponent;
 }(), _class.displayName = 'React3Component', _temp);
 
 
 module.exports = InternalComponent;
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(5)))
 
 /***/ }),
-/* 324 */
+/* 337 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+exports.__esModule = true;
+
+var _defineProperty = __webpack_require__(168);
+
+var _defineProperty2 = _interopRequireDefault(_defineProperty);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+exports.default = function (obj, key, value) {
+  if (key in obj) {
+    (0, _defineProperty2.default)(obj, key, {
+      value: value,
+      enumerable: true,
+      configurable: true,
+      writable: true
+    });
+  } else {
+    obj[key] = value;
+  }
+
+  return obj;
+};
+
+/***/ }),
+/* 338 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -76711,9 +77304,9 @@ module.exports = InternalComponent;
 
 
 
-var KeyEscapeUtils = __webpack_require__(73);
-var traverseAllChildren = __webpack_require__(115);
-var warning = __webpack_require__(4);
+var KeyEscapeUtils = __webpack_require__(86);
+var traverseAllChildren = __webpack_require__(126);
+var warning = __webpack_require__(9);
 
 var ReactComponentTreeHook;
 
@@ -76723,7 +77316,7 @@ if (typeof process !== 'undefined' && process.env && process.env.NODE_ENV === 't
   // https://github.com/facebook/react/issues/7240
   // Remove the inline requires when we don't need them anymore:
   // https://github.com/facebook/react/pull/7178
-  ReactComponentTreeHook = __webpack_require__(12);
+  ReactComponentTreeHook = __webpack_require__(18);
 }
 
 /**
@@ -76739,7 +77332,7 @@ function flattenSingleChildIntoContext(traverseContext, child, name, selfDebugID
     var keyUnique = result[name] === undefined;
     if (process.env.NODE_ENV !== 'production') {
       if (!ReactComponentTreeHook) {
-        ReactComponentTreeHook = __webpack_require__(12);
+        ReactComponentTreeHook = __webpack_require__(18);
       }
       if (!keyUnique) {
         process.env.NODE_ENV !== 'production' ? warning(false, 'flattenChildren(...): Encountered two children with the same key, ' + '`%s`. Child keys must be unique; when two children share a key, only ' + 'the first child will be used.%s', KeyEscapeUtils.unescape(name), ReactComponentTreeHook.getStackAddendumByID(selfDebugID)) : void 0;
@@ -76773,329 +77366,363 @@ function flattenChildren(children, selfDebugID) {
 }
 
 module.exports = flattenChildren;
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(5)))
 
 /***/ }),
-/* 325 */
+/* 339 */
+/***/ (function(module, exports, __webpack_require__) {
+
+module.exports = { "default": __webpack_require__(340), __esModule: true };
+
+/***/ }),
+/* 340 */
+/***/ (function(module, exports, __webpack_require__) {
+
+__webpack_require__(341);
+var $Object = __webpack_require__(24).Object;
+module.exports = function getOwnPropertyDescriptor(it, key) {
+  return $Object.getOwnPropertyDescriptor(it, key);
+};
+
+
+/***/ }),
+/* 341 */
+/***/ (function(module, exports, __webpack_require__) {
+
+// 19.1.2.6 Object.getOwnPropertyDescriptor(O, P)
+var toIObject = __webpack_require__(37);
+var $getOwnPropertyDescriptor = __webpack_require__(116).f;
+
+__webpack_require__(73)('getOwnPropertyDescriptor', function () {
+  return function getOwnPropertyDescriptor(it, key) {
+    return $getOwnPropertyDescriptor(toIObject(it), key);
+  };
+});
+
+
+/***/ }),
+/* 342 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
-var _React3Descriptor = __webpack_require__(326);
+var _classCallCheck2 = __webpack_require__(0);
+
+var _classCallCheck3 = _interopRequireDefault(_classCallCheck2);
+
+var _React3Descriptor = __webpack_require__(343);
 
 var _React3Descriptor2 = _interopRequireDefault(_React3Descriptor);
 
-var _ModuleDescriptor = __webpack_require__(332);
+var _ModuleDescriptor = __webpack_require__(349);
 
 var _ModuleDescriptor2 = _interopRequireDefault(_ModuleDescriptor);
 
-var _ViewportDescriptor = __webpack_require__(333);
+var _ViewportDescriptor = __webpack_require__(350);
 
 var _ViewportDescriptor2 = _interopRequireDefault(_ViewportDescriptor);
 
-var _SceneDescriptor = __webpack_require__(334);
+var _SceneDescriptor = __webpack_require__(351);
 
 var _SceneDescriptor2 = _interopRequireDefault(_SceneDescriptor);
 
-var _Object3DDescriptor = __webpack_require__(18);
+var _Object3DDescriptor = __webpack_require__(26);
 
 var _Object3DDescriptor2 = _interopRequireDefault(_Object3DDescriptor);
 
-var _GroupDescriptor = __webpack_require__(335);
+var _GroupDescriptor = __webpack_require__(352);
 
 var _GroupDescriptor2 = _interopRequireDefault(_GroupDescriptor);
 
-var _OrthographicCameraDescriptor = __webpack_require__(336);
+var _OrthographicCameraDescriptor = __webpack_require__(353);
 
 var _OrthographicCameraDescriptor2 = _interopRequireDefault(_OrthographicCameraDescriptor);
 
-var _PerspectiveCameraDescriptor = __webpack_require__(337);
+var _PerspectiveCameraDescriptor = __webpack_require__(354);
 
 var _PerspectiveCameraDescriptor2 = _interopRequireDefault(_PerspectiveCameraDescriptor);
 
-var _CubeCameraDescriptor = __webpack_require__(338);
+var _CubeCameraDescriptor = __webpack_require__(355);
 
 var _CubeCameraDescriptor2 = _interopRequireDefault(_CubeCameraDescriptor);
 
-var _MeshDescriptor = __webpack_require__(65);
+var _MeshDescriptor = __webpack_require__(78);
 
 var _MeshDescriptor2 = _interopRequireDefault(_MeshDescriptor);
 
-var _LineDescriptor = __webpack_require__(339);
+var _LineDescriptor = __webpack_require__(356);
 
 var _LineDescriptor2 = _interopRequireDefault(_LineDescriptor);
 
-var _LineSegmentsDescriptor = __webpack_require__(340);
+var _LineSegmentsDescriptor = __webpack_require__(357);
 
 var _LineSegmentsDescriptor2 = _interopRequireDefault(_LineSegmentsDescriptor);
 
-var _PointsDescriptor = __webpack_require__(341);
+var _PointsDescriptor = __webpack_require__(358);
 
 var _PointsDescriptor2 = _interopRequireDefault(_PointsDescriptor);
 
-var _SpriteDescriptor = __webpack_require__(342);
+var _SpriteDescriptor = __webpack_require__(359);
 
 var _SpriteDescriptor2 = _interopRequireDefault(_SpriteDescriptor);
 
-var _AmbientLightDescriptor = __webpack_require__(343);
+var _AmbientLightDescriptor = __webpack_require__(360);
 
 var _AmbientLightDescriptor2 = _interopRequireDefault(_AmbientLightDescriptor);
 
-var _DirectionalLightDescriptor = __webpack_require__(344);
+var _DirectionalLightDescriptor = __webpack_require__(361);
 
 var _DirectionalLightDescriptor2 = _interopRequireDefault(_DirectionalLightDescriptor);
 
-var _SpotLightDescriptor = __webpack_require__(345);
+var _SpotLightDescriptor = __webpack_require__(362);
 
 var _SpotLightDescriptor2 = _interopRequireDefault(_SpotLightDescriptor);
 
-var _PointLightDescriptor = __webpack_require__(346);
+var _PointLightDescriptor = __webpack_require__(363);
 
 var _PointLightDescriptor2 = _interopRequireDefault(_PointLightDescriptor);
 
-var _HemisphereLightDescriptor = __webpack_require__(347);
+var _HemisphereLightDescriptor = __webpack_require__(364);
 
 var _HemisphereLightDescriptor2 = _interopRequireDefault(_HemisphereLightDescriptor);
 
-var _ResourcesDescriptor = __webpack_require__(348);
+var _ResourcesDescriptor = __webpack_require__(365);
 
 var _ResourcesDescriptor2 = _interopRequireDefault(_ResourcesDescriptor);
 
-var _GeometryResourceDescriptor = __webpack_require__(177);
+var _GeometryResourceDescriptor = __webpack_require__(186);
 
 var _GeometryResourceDescriptor2 = _interopRequireDefault(_GeometryResourceDescriptor);
 
-var _ShapeGeometryResourceDescriptor = __webpack_require__(349);
+var _ShapeGeometryResourceDescriptor = __webpack_require__(366);
 
 var _ShapeGeometryResourceDescriptor2 = _interopRequireDefault(_ShapeGeometryResourceDescriptor);
 
-var _TextureResourceDescriptor = __webpack_require__(350);
+var _TextureResourceDescriptor = __webpack_require__(367);
 
 var _TextureResourceDescriptor2 = _interopRequireDefault(_TextureResourceDescriptor);
 
-var _ShapeResourceDescriptor = __webpack_require__(351);
+var _ShapeResourceDescriptor = __webpack_require__(368);
 
 var _ShapeResourceDescriptor2 = _interopRequireDefault(_ShapeResourceDescriptor);
 
-var _GeometryDescriptor = __webpack_require__(352);
+var _GeometryDescriptor = __webpack_require__(369);
 
 var _GeometryDescriptor2 = _interopRequireDefault(_GeometryDescriptor);
 
-var _BufferGeometryDescriptor = __webpack_require__(353);
+var _BufferGeometryDescriptor = __webpack_require__(370);
 
 var _BufferGeometryDescriptor2 = _interopRequireDefault(_BufferGeometryDescriptor);
 
-var _BoxGeometryDescriptor = __webpack_require__(354);
+var _BoxGeometryDescriptor = __webpack_require__(371);
 
 var _BoxGeometryDescriptor2 = _interopRequireDefault(_BoxGeometryDescriptor);
 
-var _SphereGeometryDescriptor = __webpack_require__(355);
+var _SphereGeometryDescriptor = __webpack_require__(372);
 
 var _SphereGeometryDescriptor2 = _interopRequireDefault(_SphereGeometryDescriptor);
 
-var _ParametricGeometryDescriptor = __webpack_require__(356);
+var _ParametricGeometryDescriptor = __webpack_require__(373);
 
 var _ParametricGeometryDescriptor2 = _interopRequireDefault(_ParametricGeometryDescriptor);
 
-var _PlaneBufferGeometryDescriptor = __webpack_require__(357);
+var _PlaneBufferGeometryDescriptor = __webpack_require__(374);
 
 var _PlaneBufferGeometryDescriptor2 = _interopRequireDefault(_PlaneBufferGeometryDescriptor);
 
-var _PlaneGeometryDescriptor = __webpack_require__(358);
+var _PlaneGeometryDescriptor = __webpack_require__(375);
 
 var _PlaneGeometryDescriptor2 = _interopRequireDefault(_PlaneGeometryDescriptor);
 
-var _PolyhedronGeometryDescriptor = __webpack_require__(359);
+var _PolyhedronGeometryDescriptor = __webpack_require__(376);
 
 var _PolyhedronGeometryDescriptor2 = _interopRequireDefault(_PolyhedronGeometryDescriptor);
 
-var _IcosahedronGeometryDescriptor = __webpack_require__(360);
+var _IcosahedronGeometryDescriptor = __webpack_require__(377);
 
 var _IcosahedronGeometryDescriptor2 = _interopRequireDefault(_IcosahedronGeometryDescriptor);
 
-var _OctahedronGeometryDescriptor = __webpack_require__(361);
+var _OctahedronGeometryDescriptor = __webpack_require__(378);
 
 var _OctahedronGeometryDescriptor2 = _interopRequireDefault(_OctahedronGeometryDescriptor);
 
-var _TetrahedronGeometryDescriptor = __webpack_require__(362);
+var _TetrahedronGeometryDescriptor = __webpack_require__(379);
 
 var _TetrahedronGeometryDescriptor2 = _interopRequireDefault(_TetrahedronGeometryDescriptor);
 
-var _CircleGeometryDescriptor = __webpack_require__(363);
+var _CircleGeometryDescriptor = __webpack_require__(380);
 
 var _CircleGeometryDescriptor2 = _interopRequireDefault(_CircleGeometryDescriptor);
 
-var _CircleBufferGeometryDescriptor = __webpack_require__(364);
+var _CircleBufferGeometryDescriptor = __webpack_require__(381);
 
 var _CircleBufferGeometryDescriptor2 = _interopRequireDefault(_CircleBufferGeometryDescriptor);
 
-var _RingGeometryDescriptor = __webpack_require__(365);
+var _RingGeometryDescriptor = __webpack_require__(382);
 
 var _RingGeometryDescriptor2 = _interopRequireDefault(_RingGeometryDescriptor);
 
-var _CylinderGeometryDescriptor = __webpack_require__(366);
+var _CylinderGeometryDescriptor = __webpack_require__(383);
 
 var _CylinderGeometryDescriptor2 = _interopRequireDefault(_CylinderGeometryDescriptor);
 
-var _LatheGeometryDescriptor = __webpack_require__(367);
+var _LatheGeometryDescriptor = __webpack_require__(384);
 
 var _LatheGeometryDescriptor2 = _interopRequireDefault(_LatheGeometryDescriptor);
 
-var _TorusGeometryDescriptor = __webpack_require__(368);
+var _TorusGeometryDescriptor = __webpack_require__(385);
 
 var _TorusGeometryDescriptor2 = _interopRequireDefault(_TorusGeometryDescriptor);
 
-var _TorusKnotGeometryDescriptor = __webpack_require__(369);
+var _TorusKnotGeometryDescriptor = __webpack_require__(386);
 
 var _TorusKnotGeometryDescriptor2 = _interopRequireDefault(_TorusKnotGeometryDescriptor);
 
-var _ExtrudeGeometryDescriptor = __webpack_require__(370);
+var _ExtrudeGeometryDescriptor = __webpack_require__(387);
 
 var _ExtrudeGeometryDescriptor2 = _interopRequireDefault(_ExtrudeGeometryDescriptor);
 
-var _TubeGeometryDescriptor = __webpack_require__(371);
+var _TubeGeometryDescriptor = __webpack_require__(388);
 
 var _TubeGeometryDescriptor2 = _interopRequireDefault(_TubeGeometryDescriptor);
 
-var _DodecahedronGeometryDescriptor = __webpack_require__(372);
+var _DodecahedronGeometryDescriptor = __webpack_require__(389);
 
 var _DodecahedronGeometryDescriptor2 = _interopRequireDefault(_DodecahedronGeometryDescriptor);
 
-var _TextGeometryDescriptor = __webpack_require__(373);
+var _TextGeometryDescriptor = __webpack_require__(390);
 
 var _TextGeometryDescriptor2 = _interopRequireDefault(_TextGeometryDescriptor);
 
-var _ShapeGeometryDescriptor = __webpack_require__(374);
+var _ShapeGeometryDescriptor = __webpack_require__(391);
 
 var _ShapeGeometryDescriptor2 = _interopRequireDefault(_ShapeGeometryDescriptor);
 
-var _EdgesGeometryDescriptor = __webpack_require__(375);
+var _EdgesGeometryDescriptor = __webpack_require__(392);
 
 var _EdgesGeometryDescriptor2 = _interopRequireDefault(_EdgesGeometryDescriptor);
 
-var _ShapeDescriptor = __webpack_require__(376);
+var _ShapeDescriptor = __webpack_require__(393);
 
 var _ShapeDescriptor2 = _interopRequireDefault(_ShapeDescriptor);
 
-var _MoveToDescriptor = __webpack_require__(377);
+var _MoveToDescriptor = __webpack_require__(394);
 
 var _MoveToDescriptor2 = _interopRequireDefault(_MoveToDescriptor);
 
-var _LineToDescriptor = __webpack_require__(379);
+var _LineToDescriptor = __webpack_require__(396);
 
 var _LineToDescriptor2 = _interopRequireDefault(_LineToDescriptor);
 
-var _BezierCurveToDescriptor = __webpack_require__(381);
+var _BezierCurveToDescriptor = __webpack_require__(398);
 
 var _BezierCurveToDescriptor2 = _interopRequireDefault(_BezierCurveToDescriptor);
 
-var _QuadraticCurveToDescriptor = __webpack_require__(383);
+var _QuadraticCurveToDescriptor = __webpack_require__(400);
 
 var _QuadraticCurveToDescriptor2 = _interopRequireDefault(_QuadraticCurveToDescriptor);
 
-var _AbsArcDescriptor = __webpack_require__(385);
+var _AbsArcDescriptor = __webpack_require__(402);
 
 var _AbsArcDescriptor2 = _interopRequireDefault(_AbsArcDescriptor);
 
-var _AbsEllipseDescriptor = __webpack_require__(387);
+var _AbsEllipseDescriptor = __webpack_require__(404);
 
 var _AbsEllipseDescriptor2 = _interopRequireDefault(_AbsEllipseDescriptor);
 
-var _HoleDescriptor = __webpack_require__(389);
+var _HoleDescriptor = __webpack_require__(406);
 
 var _HoleDescriptor2 = _interopRequireDefault(_HoleDescriptor);
 
-var _SplineThruDescriptor = __webpack_require__(390);
+var _SplineThruDescriptor = __webpack_require__(407);
 
 var _SplineThruDescriptor2 = _interopRequireDefault(_SplineThruDescriptor);
 
-var _PointsMaterialDescriptor = __webpack_require__(392);
+var _PointsMaterialDescriptor = __webpack_require__(409);
 
 var _PointsMaterialDescriptor2 = _interopRequireDefault(_PointsMaterialDescriptor);
 
-var _MeshBasicMaterialDescriptor = __webpack_require__(393);
+var _MeshBasicMaterialDescriptor = __webpack_require__(410);
 
 var _MeshBasicMaterialDescriptor2 = _interopRequireDefault(_MeshBasicMaterialDescriptor);
 
-var _MeshPhongMaterialDescriptor = __webpack_require__(394);
+var _MeshPhongMaterialDescriptor = __webpack_require__(411);
 
 var _MeshPhongMaterialDescriptor2 = _interopRequireDefault(_MeshPhongMaterialDescriptor);
 
-var _MeshLambertMaterialDescriptor = __webpack_require__(395);
+var _MeshLambertMaterialDescriptor = __webpack_require__(412);
 
 var _MeshLambertMaterialDescriptor2 = _interopRequireDefault(_MeshLambertMaterialDescriptor);
 
-var _MeshStandardMaterialDescriptor = __webpack_require__(396);
+var _MeshStandardMaterialDescriptor = __webpack_require__(413);
 
 var _MeshStandardMaterialDescriptor2 = _interopRequireDefault(_MeshStandardMaterialDescriptor);
 
-var _ShaderMaterialDescriptor = __webpack_require__(182);
+var _ShaderMaterialDescriptor = __webpack_require__(191);
 
 var _ShaderMaterialDescriptor2 = _interopRequireDefault(_ShaderMaterialDescriptor);
 
-var _RawShaderMaterialDescriptor = __webpack_require__(397);
+var _RawShaderMaterialDescriptor = __webpack_require__(414);
 
 var _RawShaderMaterialDescriptor2 = _interopRequireDefault(_RawShaderMaterialDescriptor);
 
-var _TextureDescriptor = __webpack_require__(398);
+var _TextureDescriptor = __webpack_require__(415);
 
 var _TextureDescriptor2 = _interopRequireDefault(_TextureDescriptor);
 
-var _MaterialResourceDescriptor = __webpack_require__(399);
+var _MaterialResourceDescriptor = __webpack_require__(416);
 
 var _MaterialResourceDescriptor2 = _interopRequireDefault(_MaterialResourceDescriptor);
 
-var _UniformsDescriptor = __webpack_require__(400);
+var _UniformsDescriptor = __webpack_require__(417);
 
 var _UniformsDescriptor2 = _interopRequireDefault(_UniformsDescriptor);
 
-var _UniformDescriptor = __webpack_require__(401);
+var _UniformDescriptor = __webpack_require__(418);
 
 var _UniformDescriptor2 = _interopRequireDefault(_UniformDescriptor);
 
-var _LineBasicMaterialDescriptor = __webpack_require__(402);
+var _LineBasicMaterialDescriptor = __webpack_require__(419);
 
 var _LineBasicMaterialDescriptor2 = _interopRequireDefault(_LineBasicMaterialDescriptor);
 
-var _LineDashedMaterialDescriptor = __webpack_require__(403);
+var _LineDashedMaterialDescriptor = __webpack_require__(420);
 
 var _LineDashedMaterialDescriptor2 = _interopRequireDefault(_LineDashedMaterialDescriptor);
 
-var _MeshDepthMaterialDescriptor = __webpack_require__(404);
+var _MeshDepthMaterialDescriptor = __webpack_require__(421);
 
 var _MeshDepthMaterialDescriptor2 = _interopRequireDefault(_MeshDepthMaterialDescriptor);
 
-var _MeshNormalMaterialDescriptor = __webpack_require__(405);
+var _MeshNormalMaterialDescriptor = __webpack_require__(422);
 
 var _MeshNormalMaterialDescriptor2 = _interopRequireDefault(_MeshNormalMaterialDescriptor);
 
-var _SpriteMaterialDescriptor = __webpack_require__(406);
+var _SpriteMaterialDescriptor = __webpack_require__(423);
 
 var _SpriteMaterialDescriptor2 = _interopRequireDefault(_SpriteMaterialDescriptor);
 
-var _CameraHelperDescriptor = __webpack_require__(407);
+var _CameraHelperDescriptor = __webpack_require__(424);
 
 var _CameraHelperDescriptor2 = _interopRequireDefault(_CameraHelperDescriptor);
 
-var _AxisHelperDescriptor = __webpack_require__(408);
+var _AxisHelperDescriptor = __webpack_require__(425);
 
 var _AxisHelperDescriptor2 = _interopRequireDefault(_AxisHelperDescriptor);
 
-var _ArrowHelperDescriptor = __webpack_require__(409);
+var _ArrowHelperDescriptor = __webpack_require__(426);
 
 var _ArrowHelperDescriptor2 = _interopRequireDefault(_ArrowHelperDescriptor);
 
-var _GridHelperDescriptor = __webpack_require__(410);
+var _GridHelperDescriptor = __webpack_require__(427);
 
 var _GridHelperDescriptor2 = _interopRequireDefault(_GridHelperDescriptor);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
 var ElementDescriptorContainer = function ElementDescriptorContainer(react3RendererInstance) {
-      _classCallCheck(this, ElementDescriptorContainer);
+      (0, _classCallCheck3.default)(this, ElementDescriptorContainer);
 
       this.react3RendererInstance = react3RendererInstance;
 
@@ -77199,53 +77826,71 @@ var ElementDescriptorContainer = function ElementDescriptorContainer(react3Rende
 module.exports = ElementDescriptorContainer;
 
 /***/ }),
-/* 326 */
+/* 343 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 /* WEBPACK VAR INJECTION */(function(process) {
 
-var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+var _keys = __webpack_require__(43);
 
-var _get = function get(object, property, receiver) { if (object === null) object = Function.prototype; var desc = Object.getOwnPropertyDescriptor(object, property); if (desc === undefined) { var parent = Object.getPrototypeOf(object); if (parent === null) { return undefined; } else { return get(parent, property, receiver); } } else if ("value" in desc) { return desc.value; } else { var getter = desc.get; if (getter === undefined) { return undefined; } return getter.call(receiver); } };
+var _keys2 = _interopRequireDefault(_keys);
 
-var _three = __webpack_require__(1);
+var _getPrototypeOf = __webpack_require__(2);
+
+var _getPrototypeOf2 = _interopRequireDefault(_getPrototypeOf);
+
+var _classCallCheck2 = __webpack_require__(0);
+
+var _classCallCheck3 = _interopRequireDefault(_classCallCheck2);
+
+var _createClass2 = __webpack_require__(1);
+
+var _createClass3 = _interopRequireDefault(_createClass2);
+
+var _possibleConstructorReturn2 = __webpack_require__(3);
+
+var _possibleConstructorReturn3 = _interopRequireDefault(_possibleConstructorReturn2);
+
+var _get2 = __webpack_require__(10);
+
+var _get3 = _interopRequireDefault(_get2);
+
+var _inherits2 = __webpack_require__(4);
+
+var _inherits3 = _interopRequireDefault(_inherits2);
+
+var _three = __webpack_require__(6);
 
 var THREE = _interopRequireWildcard(_three);
 
-var _propTypes = __webpack_require__(2);
+var _propTypes = __webpack_require__(7);
 
 var _propTypes2 = _interopRequireDefault(_propTypes);
 
-var _warning = __webpack_require__(17);
+var _warning = __webpack_require__(25);
 
 var _warning2 = _interopRequireDefault(_warning);
 
-var _invariant = __webpack_require__(6);
+var _invariant = __webpack_require__(12);
 
 var _invariant2 = _interopRequireDefault(_invariant);
 
-var _THREEElementDescriptor = __webpack_require__(14);
+var _THREEElementDescriptor = __webpack_require__(21);
 
 var _THREEElementDescriptor2 = _interopRequireDefault(_THREEElementDescriptor);
 
-var _React3Instance = __webpack_require__(171);
+var _React3Instance = __webpack_require__(181);
 
 var _React3Instance2 = _interopRequireDefault(_React3Instance);
 
-var _propTypeInstanceOf = __webpack_require__(9);
+var _propTypeInstanceOf = __webpack_require__(15);
 
 var _propTypeInstanceOf2 = _interopRequireDefault(_propTypeInstanceOf);
 
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
 function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj.default = obj; return newObj; } }
 
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-
-function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 var propProxy = {
   gammaInput: {
@@ -77363,14 +78008,14 @@ var propProxy = {
 };
 
 var React3Descriptor = function (_THREEElementDescript) {
-  _inherits(React3Descriptor, _THREEElementDescript);
+  (0, _inherits3.default)(React3Descriptor, _THREEElementDescript);
 
   function React3Descriptor(react3RendererInstance) {
-    _classCallCheck(this, React3Descriptor);
+    (0, _classCallCheck3.default)(this, React3Descriptor);
 
-    var _this = _possibleConstructorReturn(this, (React3Descriptor.__proto__ || Object.getPrototypeOf(React3Descriptor)).call(this, react3RendererInstance));
+    var _this = (0, _possibleConstructorReturn3.default)(this, (React3Descriptor.__proto__ || (0, _getPrototypeOf2.default)(React3Descriptor)).call(this, react3RendererInstance));
 
-    Object.keys(propProxy).forEach(function (propName) {
+    (0, _keys2.default)(propProxy).forEach(function (propName) {
       var info = propProxy[propName];
       var propNameFirstLetterCapital = propName[0].toUpperCase() + propName.substr(1);
 
@@ -77396,7 +78041,7 @@ var React3Descriptor = function (_THREEElementDescript) {
     return _this;
   }
 
-  _createClass(React3Descriptor, [{
+  (0, _createClass3.default)(React3Descriptor, [{
     key: 'completePropertyUpdates',
     value: function completePropertyUpdates(threeObject) {
       if (process.env.NODE_ENV !== 'production') {
@@ -77413,7 +78058,7 @@ var React3Descriptor = function (_THREEElementDescript) {
     value: function setParent(threeObject, parentObject3D) {
       (0, _invariant2.default)(parentObject3D instanceof HTMLCanvasElement, 'The `react3` element can only be rendered into a canvas.');
 
-      _get(React3Descriptor.prototype.__proto__ || Object.getPrototypeOf(React3Descriptor.prototype), 'setParent', this).call(this, threeObject, parentObject3D);
+      (0, _get3.default)(React3Descriptor.prototype.__proto__ || (0, _getPrototypeOf2.default)(React3Descriptor.prototype), 'setParent', this).call(this, threeObject, parentObject3D);
 
       threeObject.updateCanvas(parentObject3D);
     }
@@ -77425,7 +78070,7 @@ var React3Descriptor = function (_THREEElementDescript) {
   }, {
     key: 'applyInitialProps',
     value: function applyInitialProps(threeObject, props) {
-      _get(React3Descriptor.prototype.__proto__ || Object.getPrototypeOf(React3Descriptor.prototype), 'applyInitialProps', this).call(this, threeObject, props);
+      (0, _get3.default)(React3Descriptor.prototype.__proto__ || (0, _getPrototypeOf2.default)(React3Descriptor.prototype), 'applyInitialProps', this).call(this, threeObject, props);
 
       threeObject.initialize();
     }
@@ -77467,7 +78112,7 @@ var React3Descriptor = function (_THREEElementDescript) {
     key: 'unmount',
     value: function unmount(threeObject) {
       // call super unmount first so react3instance can clean itself up
-      _get(React3Descriptor.prototype.__proto__ || Object.getPrototypeOf(React3Descriptor.prototype), 'unmount', this).call(this, threeObject);
+      (0, _get3.default)(React3Descriptor.prototype.__proto__ || (0, _getPrototypeOf2.default)(React3Descriptor.prototype), 'unmount', this).call(this, threeObject);
 
       threeObject.unmount();
     }
@@ -77476,18 +78121,17 @@ var React3Descriptor = function (_THREEElementDescript) {
     value: function componentWillUnmount(threeObject) {
       threeObject.willUnmount();
 
-      return _get(React3Descriptor.prototype.__proto__ || Object.getPrototypeOf(React3Descriptor.prototype), 'componentWillUnmount', this).call(this, threeObject);
+      return (0, _get3.default)(React3Descriptor.prototype.__proto__ || (0, _getPrototypeOf2.default)(React3Descriptor.prototype), 'componentWillUnmount', this).call(this, threeObject);
     }
   }]);
-
   return React3Descriptor;
 }(_THREEElementDescriptor2.default);
 
 module.exports = React3Descriptor;
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(5)))
 
 /***/ }),
-/* 327 */
+/* 344 */
 /***/ (function(module, exports) {
 
 // Copyright Joyent, Inc. and other Node contributors.
@@ -77795,10 +78439,10 @@ function isUndefined(arg) {
 
 
 /***/ }),
-/* 328 */
+/* 345 */
 /***/ (function(module, exports, __webpack_require__) {
 
-/* WEBPACK VAR INJECTION */(function(global) {var now = __webpack_require__(330)
+/* WEBPACK VAR INJECTION */(function(global) {var now = __webpack_require__(347)
   , root = typeof window === 'undefined' ? global : window
   , vendors = ['moz', 'webkit']
   , suffix = 'AnimationFrame'
@@ -77874,10 +78518,10 @@ module.exports.polyfill = function(object) {
   object.cancelAnimationFrame = caf
 }
 
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(329)))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(346)))
 
 /***/ }),
-/* 329 */
+/* 346 */
 /***/ (function(module, exports) {
 
 var g;
@@ -77904,7 +78548,7 @@ module.exports = g;
 
 
 /***/ }),
-/* 330 */
+/* 347 */
 /***/ (function(module, exports, __webpack_require__) {
 
 /* WEBPACK VAR INJECTION */(function(process) {// Generated by CoffeeScript 1.12.2
@@ -77944,10 +78588,10 @@ module.exports = g;
 
 //# sourceMappingURL=performance-now.js.map
 
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(5)))
 
 /***/ }),
-/* 331 */
+/* 348 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -77963,39 +78607,53 @@ module.exports = function () {
 };
 
 /***/ }),
-/* 332 */
+/* 349 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
-var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+var _getPrototypeOf = __webpack_require__(2);
 
-var _get = function get(object, property, receiver) { if (object === null) object = Function.prototype; var desc = Object.getOwnPropertyDescriptor(object, property); if (desc === undefined) { var parent = Object.getPrototypeOf(object); if (parent === null) { return undefined; } else { return get(parent, property, receiver); } } else if ("value" in desc) { return desc.value; } else { var getter = desc.get; if (getter === undefined) { return undefined; } return getter.call(receiver); } };
+var _getPrototypeOf2 = _interopRequireDefault(_getPrototypeOf);
 
-var _ReactPropTypeLocationNames = __webpack_require__(74);
+var _classCallCheck2 = __webpack_require__(0);
+
+var _classCallCheck3 = _interopRequireDefault(_classCallCheck2);
+
+var _createClass2 = __webpack_require__(1);
+
+var _createClass3 = _interopRequireDefault(_createClass2);
+
+var _possibleConstructorReturn2 = __webpack_require__(3);
+
+var _possibleConstructorReturn3 = _interopRequireDefault(_possibleConstructorReturn2);
+
+var _get2 = __webpack_require__(10);
+
+var _get3 = _interopRequireDefault(_get2);
+
+var _inherits2 = __webpack_require__(4);
+
+var _inherits3 = _interopRequireDefault(_inherits2);
+
+var _ReactPropTypeLocationNames = __webpack_require__(87);
 
 var _ReactPropTypeLocationNames2 = _interopRequireDefault(_ReactPropTypeLocationNames);
 
-var _THREEElementDescriptor = __webpack_require__(14);
+var _THREEElementDescriptor = __webpack_require__(21);
 
 var _THREEElementDescriptor2 = _interopRequireDefault(_THREEElementDescriptor);
 
-var _Module = __webpack_require__(173);
+var _Module = __webpack_require__(121);
 
 var _Module2 = _interopRequireDefault(_Module);
 
-var _PropTypeError = __webpack_require__(175);
+var _PropTypeError = __webpack_require__(184);
 
 var _PropTypeError2 = _interopRequireDefault(_PropTypeError);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-
-function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
 // Returns class name of the object, if any.
 // Used for the subclass proptype checker
@@ -78007,12 +78665,12 @@ function getClassName(propValue) {
 }
 
 var ModuleDescriptor = function (_THREEElementDescript) {
-  _inherits(ModuleDescriptor, _THREEElementDescript);
+  (0, _inherits3.default)(ModuleDescriptor, _THREEElementDescript);
 
   function ModuleDescriptor(react3RendererInstance) {
-    _classCallCheck(this, ModuleDescriptor);
+    (0, _classCallCheck3.default)(this, ModuleDescriptor);
 
-    var _this = _possibleConstructorReturn(this, (ModuleDescriptor.__proto__ || Object.getPrototypeOf(ModuleDescriptor)).call(this, react3RendererInstance));
+    var _this = (0, _possibleConstructorReturn3.default)(this, (ModuleDescriptor.__proto__ || (0, _getPrototypeOf2.default)(ModuleDescriptor)).call(this, react3RendererInstance));
 
     var moduleSubclassValidator = function moduleSubclassValidator(props, propName, componentName, location, propFullName) {
       var locationName = _ReactPropTypeLocationNames2.default[location];
@@ -78043,7 +78701,7 @@ var ModuleDescriptor = function (_THREEElementDescript) {
     return _this;
   }
 
-  _createClass(ModuleDescriptor, [{
+  (0, _createClass3.default)(ModuleDescriptor, [{
     key: 'construct',
     value: function construct(props) {
       // going insane here but... let's... just do this.
@@ -78053,7 +78711,7 @@ var ModuleDescriptor = function (_THREEElementDescript) {
   }, {
     key: 'applyInitialProps',
     value: function applyInitialProps(threeObject, props) {
-      _get(ModuleDescriptor.prototype.__proto__ || Object.getPrototypeOf(ModuleDescriptor.prototype), 'applyInitialProps', this).call(this, threeObject, props);
+      (0, _get3.default)(ModuleDescriptor.prototype.__proto__ || (0, _getPrototypeOf2.default)(ModuleDescriptor.prototype), 'applyInitialProps', this).call(this, threeObject, props);
 
       threeObject.setup(this.react3RendererInstance);
     }
@@ -78062,51 +78720,62 @@ var ModuleDescriptor = function (_THREEElementDescript) {
     value: function unmount(threeObject) {
       threeObject.dispose();
 
-      _get(ModuleDescriptor.prototype.__proto__ || Object.getPrototypeOf(ModuleDescriptor.prototype), 'unmount', this).call(this, threeObject);
+      (0, _get3.default)(ModuleDescriptor.prototype.__proto__ || (0, _getPrototypeOf2.default)(ModuleDescriptor.prototype), 'unmount', this).call(this, threeObject);
     }
   }]);
-
   return ModuleDescriptor;
 }(_THREEElementDescriptor2.default);
 
 module.exports = ModuleDescriptor;
 
 /***/ }),
-/* 333 */
+/* 350 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
-var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+var _getPrototypeOf = __webpack_require__(2);
 
-var _propTypes = __webpack_require__(2);
+var _getPrototypeOf2 = _interopRequireDefault(_getPrototypeOf);
+
+var _classCallCheck2 = __webpack_require__(0);
+
+var _classCallCheck3 = _interopRequireDefault(_classCallCheck2);
+
+var _createClass2 = __webpack_require__(1);
+
+var _createClass3 = _interopRequireDefault(_createClass2);
+
+var _possibleConstructorReturn2 = __webpack_require__(3);
+
+var _possibleConstructorReturn3 = _interopRequireDefault(_possibleConstructorReturn2);
+
+var _inherits2 = __webpack_require__(4);
+
+var _inherits3 = _interopRequireDefault(_inherits2);
+
+var _propTypes = __webpack_require__(7);
 
 var _propTypes2 = _interopRequireDefault(_propTypes);
 
-var _Viewport = __webpack_require__(172);
+var _Viewport = __webpack_require__(182);
 
 var _Viewport2 = _interopRequireDefault(_Viewport);
 
-var _THREEElementDescriptor = __webpack_require__(14);
+var _THREEElementDescriptor = __webpack_require__(21);
 
 var _THREEElementDescriptor2 = _interopRequireDefault(_THREEElementDescriptor);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-
-function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-
 var ViewportDescriptor = function (_THREEElementDescript) {
-  _inherits(ViewportDescriptor, _THREEElementDescript);
+  (0, _inherits3.default)(ViewportDescriptor, _THREEElementDescript);
 
   function ViewportDescriptor(react3Instance) {
-    _classCallCheck(this, ViewportDescriptor);
+    (0, _classCallCheck3.default)(this, ViewportDescriptor);
 
-    var _this = _possibleConstructorReturn(this, (ViewportDescriptor.__proto__ || Object.getPrototypeOf(ViewportDescriptor)).call(this, react3Instance));
+    var _this = (0, _possibleConstructorReturn3.default)(this, (ViewportDescriptor.__proto__ || (0, _getPrototypeOf2.default)(ViewportDescriptor)).call(this, react3Instance));
 
     ['x', 'y', 'width', 'height'].forEach(function (propName) {
       _this.hasProp(propName, {
@@ -78122,62 +78791,75 @@ var ViewportDescriptor = function (_THREEElementDescript) {
     return _this;
   }
 
-  _createClass(ViewportDescriptor, [{
+  (0, _createClass3.default)(ViewportDescriptor, [{
     key: 'construct',
     value: function construct(props) {
       return new _Viewport2.default(props);
     }
   }]);
-
   return ViewportDescriptor;
 }(_THREEElementDescriptor2.default);
 
 module.exports = ViewportDescriptor;
 
 /***/ }),
-/* 334 */
+/* 351 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
-var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+var _getPrototypeOf = __webpack_require__(2);
 
-var _get = function get(object, property, receiver) { if (object === null) object = Function.prototype; var desc = Object.getOwnPropertyDescriptor(object, property); if (desc === undefined) { var parent = Object.getPrototypeOf(object); if (parent === null) { return undefined; } else { return get(parent, property, receiver); } } else if ("value" in desc) { return desc.value; } else { var getter = desc.get; if (getter === undefined) { return undefined; } return getter.call(receiver); } };
+var _getPrototypeOf2 = _interopRequireDefault(_getPrototypeOf);
 
-var _three = __webpack_require__(1);
+var _classCallCheck2 = __webpack_require__(0);
+
+var _classCallCheck3 = _interopRequireDefault(_classCallCheck2);
+
+var _createClass2 = __webpack_require__(1);
+
+var _createClass3 = _interopRequireDefault(_createClass2);
+
+var _possibleConstructorReturn2 = __webpack_require__(3);
+
+var _possibleConstructorReturn3 = _interopRequireDefault(_possibleConstructorReturn2);
+
+var _get2 = __webpack_require__(10);
+
+var _get3 = _interopRequireDefault(_get2);
+
+var _inherits2 = __webpack_require__(4);
+
+var _inherits3 = _interopRequireDefault(_inherits2);
+
+var _three = __webpack_require__(6);
 
 var THREE = _interopRequireWildcard(_three);
 
-var _propTypes = __webpack_require__(2);
+var _propTypes = __webpack_require__(7);
 
 var _propTypes2 = _interopRequireDefault(_propTypes);
 
-var _Object3DDescriptor2 = __webpack_require__(18);
+var _Object3DDescriptor2 = __webpack_require__(26);
 
 var _Object3DDescriptor3 = _interopRequireDefault(_Object3DDescriptor2);
 
-var _propTypeInstanceOf = __webpack_require__(9);
+var _propTypeInstanceOf = __webpack_require__(15);
 
 var _propTypeInstanceOf2 = _interopRequireDefault(_propTypeInstanceOf);
 
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
 function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj.default = obj; return newObj; } }
 
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-
-function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 var SceneDescriptor = function (_Object3DDescriptor) {
-  _inherits(SceneDescriptor, _Object3DDescriptor);
+  (0, _inherits3.default)(SceneDescriptor, _Object3DDescriptor);
 
   function SceneDescriptor(react3Instance) {
-    _classCallCheck(this, SceneDescriptor);
+    (0, _classCallCheck3.default)(this, SceneDescriptor);
 
-    var _this = _possibleConstructorReturn(this, (SceneDescriptor.__proto__ || Object.getPrototypeOf(SceneDescriptor)).call(this, react3Instance));
+    var _this = (0, _possibleConstructorReturn3.default)(this, (SceneDescriptor.__proto__ || (0, _getPrototypeOf2.default)(SceneDescriptor)).call(this, react3Instance));
 
     _this.hasProp('fog', {
       type: _propTypes2.default.oneOfType([(0, _propTypeInstanceOf2.default)(THREE.Fog), (0, _propTypeInstanceOf2.default)(THREE.FogExp2)]),
@@ -78187,10 +78869,10 @@ var SceneDescriptor = function (_Object3DDescriptor) {
     return _this;
   }
 
-  _createClass(SceneDescriptor, [{
+  (0, _createClass3.default)(SceneDescriptor, [{
     key: 'applyInitialProps',
     value: function applyInitialProps(threeObject, props) {
-      _get(SceneDescriptor.prototype.__proto__ || Object.getPrototypeOf(SceneDescriptor.prototype), 'applyInitialProps', this).call(this, threeObject, props);
+      (0, _get3.default)(SceneDescriptor.prototype.__proto__ || (0, _getPrototypeOf2.default)(SceneDescriptor.prototype), 'applyInitialProps', this).call(this, threeObject, props);
     }
   }, {
     key: 'construct',
@@ -78198,102 +78880,125 @@ var SceneDescriptor = function (_Object3DDescriptor) {
       return new THREE.Scene();
     }
   }]);
-
   return SceneDescriptor;
 }(_Object3DDescriptor3.default);
 
 module.exports = SceneDescriptor;
 
 /***/ }),
-/* 335 */
+/* 352 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
-var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+var _getPrototypeOf = __webpack_require__(2);
 
-var _three = __webpack_require__(1);
+var _getPrototypeOf2 = _interopRequireDefault(_getPrototypeOf);
+
+var _classCallCheck2 = __webpack_require__(0);
+
+var _classCallCheck3 = _interopRequireDefault(_classCallCheck2);
+
+var _createClass2 = __webpack_require__(1);
+
+var _createClass3 = _interopRequireDefault(_createClass2);
+
+var _possibleConstructorReturn2 = __webpack_require__(3);
+
+var _possibleConstructorReturn3 = _interopRequireDefault(_possibleConstructorReturn2);
+
+var _inherits2 = __webpack_require__(4);
+
+var _inherits3 = _interopRequireDefault(_inherits2);
+
+var _three = __webpack_require__(6);
 
 var THREE = _interopRequireWildcard(_three);
 
-var _Object3DDescriptor2 = __webpack_require__(18);
+var _Object3DDescriptor2 = __webpack_require__(26);
 
 var _Object3DDescriptor3 = _interopRequireDefault(_Object3DDescriptor2);
 
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
 function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj.default = obj; return newObj; } }
 
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-
-function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 var GroupDescriptor = function (_Object3DDescriptor) {
-  _inherits(GroupDescriptor, _Object3DDescriptor);
+  (0, _inherits3.default)(GroupDescriptor, _Object3DDescriptor);
 
   function GroupDescriptor() {
-    _classCallCheck(this, GroupDescriptor);
-
-    return _possibleConstructorReturn(this, (GroupDescriptor.__proto__ || Object.getPrototypeOf(GroupDescriptor)).apply(this, arguments));
+    (0, _classCallCheck3.default)(this, GroupDescriptor);
+    return (0, _possibleConstructorReturn3.default)(this, (GroupDescriptor.__proto__ || (0, _getPrototypeOf2.default)(GroupDescriptor)).apply(this, arguments));
   }
 
-  _createClass(GroupDescriptor, [{
+  (0, _createClass3.default)(GroupDescriptor, [{
     key: 'construct',
     value: function construct() {
       return new THREE.Group();
     }
   }]);
-
   return GroupDescriptor;
 }(_Object3DDescriptor3.default);
 
 module.exports = GroupDescriptor;
 
 /***/ }),
-/* 336 */
+/* 353 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
-var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+var _extends2 = __webpack_require__(20);
 
-var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+var _extends3 = _interopRequireDefault(_extends2);
 
-var _three = __webpack_require__(1);
+var _getPrototypeOf = __webpack_require__(2);
+
+var _getPrototypeOf2 = _interopRequireDefault(_getPrototypeOf);
+
+var _classCallCheck2 = __webpack_require__(0);
+
+var _classCallCheck3 = _interopRequireDefault(_classCallCheck2);
+
+var _createClass2 = __webpack_require__(1);
+
+var _createClass3 = _interopRequireDefault(_createClass2);
+
+var _possibleConstructorReturn2 = __webpack_require__(3);
+
+var _possibleConstructorReturn3 = _interopRequireDefault(_possibleConstructorReturn2);
+
+var _inherits2 = __webpack_require__(4);
+
+var _inherits3 = _interopRequireDefault(_inherits2);
+
+var _three = __webpack_require__(6);
 
 var THREE = _interopRequireWildcard(_three);
 
-var _propTypes = __webpack_require__(2);
+var _propTypes = __webpack_require__(7);
 
 var _propTypes2 = _interopRequireDefault(_propTypes);
 
-var _CameraDescriptorBase2 = __webpack_require__(176);
+var _CameraDescriptorBase2 = __webpack_require__(185);
 
 var _CameraDescriptorBase3 = _interopRequireDefault(_CameraDescriptorBase2);
 
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
 function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj.default = obj; return newObj; } }
 
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-
-function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 var OrthographicCameraDescriptor = function (_CameraDescriptorBase) {
-  _inherits(OrthographicCameraDescriptor, _CameraDescriptorBase);
+  (0, _inherits3.default)(OrthographicCameraDescriptor, _CameraDescriptorBase);
 
   function OrthographicCameraDescriptor(react3Instance) {
-    _classCallCheck(this, OrthographicCameraDescriptor);
+    (0, _classCallCheck3.default)(this, OrthographicCameraDescriptor);
 
-    var _this = _possibleConstructorReturn(this, (OrthographicCameraDescriptor.__proto__ || Object.getPrototypeOf(OrthographicCameraDescriptor)).call(this, react3Instance));
+    var _this = (0, _possibleConstructorReturn3.default)(this, (OrthographicCameraDescriptor.__proto__ || (0, _getPrototypeOf2.default)(OrthographicCameraDescriptor)).call(this, react3Instance));
 
-    _this.propTypes = _extends({}, _this.propTypes, {
+    _this.propTypes = (0, _extends3.default)({}, _this.propTypes, {
 
       left: _propTypes2.default.number.isRequired,
       right: _propTypes2.default.number.isRequired,
@@ -78303,7 +79008,7 @@ var OrthographicCameraDescriptor = function (_CameraDescriptorBase) {
       far: _propTypes2.default.number
     });
 
-    _this.propUpdates = _extends({}, _this.propUpdates, {
+    _this.propUpdates = (0, _extends3.default)({}, _this.propUpdates, {
 
       left: _this._updateAndRefreshProjection.bind(_this, 'left'),
       right: _this._updateAndRefreshProjection.bind(_this, 'right'),
@@ -78315,7 +79020,7 @@ var OrthographicCameraDescriptor = function (_CameraDescriptorBase) {
     return _this;
   }
 
-  _createClass(OrthographicCameraDescriptor, [{
+  (0, _createClass3.default)(OrthographicCameraDescriptor, [{
     key: '_updateFov',
     value: function _updateFov(threeObject, fov) {
       threeObject.fov = fov;
@@ -78342,54 +79047,67 @@ var OrthographicCameraDescriptor = function (_CameraDescriptorBase) {
       camera.userData._needsProjectionMatrixUpdate = true;
     }
   }]);
-
   return OrthographicCameraDescriptor;
 }(_CameraDescriptorBase3.default);
 
 module.exports = OrthographicCameraDescriptor;
 
 /***/ }),
-/* 337 */
+/* 354 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
-var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+var _extends2 = __webpack_require__(20);
 
-var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+var _extends3 = _interopRequireDefault(_extends2);
 
-var _three = __webpack_require__(1);
+var _getPrototypeOf = __webpack_require__(2);
+
+var _getPrototypeOf2 = _interopRequireDefault(_getPrototypeOf);
+
+var _classCallCheck2 = __webpack_require__(0);
+
+var _classCallCheck3 = _interopRequireDefault(_classCallCheck2);
+
+var _createClass2 = __webpack_require__(1);
+
+var _createClass3 = _interopRequireDefault(_createClass2);
+
+var _possibleConstructorReturn2 = __webpack_require__(3);
+
+var _possibleConstructorReturn3 = _interopRequireDefault(_possibleConstructorReturn2);
+
+var _inherits2 = __webpack_require__(4);
+
+var _inherits3 = _interopRequireDefault(_inherits2);
+
+var _three = __webpack_require__(6);
 
 var THREE = _interopRequireWildcard(_three);
 
-var _propTypes = __webpack_require__(2);
+var _propTypes = __webpack_require__(7);
 
 var _propTypes2 = _interopRequireDefault(_propTypes);
 
-var _CameraDescriptorBase2 = __webpack_require__(176);
+var _CameraDescriptorBase2 = __webpack_require__(185);
 
 var _CameraDescriptorBase3 = _interopRequireDefault(_CameraDescriptorBase2);
 
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
 function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj.default = obj; return newObj; } }
 
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-
-function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 var PerspectiveCameraDescriptor = function (_CameraDescriptorBase) {
-  _inherits(PerspectiveCameraDescriptor, _CameraDescriptorBase);
+  (0, _inherits3.default)(PerspectiveCameraDescriptor, _CameraDescriptorBase);
 
   function PerspectiveCameraDescriptor(react3Instance) {
-    _classCallCheck(this, PerspectiveCameraDescriptor);
+    (0, _classCallCheck3.default)(this, PerspectiveCameraDescriptor);
 
-    var _this = _possibleConstructorReturn(this, (PerspectiveCameraDescriptor.__proto__ || Object.getPrototypeOf(PerspectiveCameraDescriptor)).call(this, react3Instance));
+    var _this = (0, _possibleConstructorReturn3.default)(this, (PerspectiveCameraDescriptor.__proto__ || (0, _getPrototypeOf2.default)(PerspectiveCameraDescriptor)).call(this, react3Instance));
 
-    _this.propTypes = _extends({}, _this.propTypes, {
+    _this.propTypes = (0, _extends3.default)({}, _this.propTypes, {
 
       fov: _propTypes2.default.number,
       aspect: _propTypes2.default.number,
@@ -78397,7 +79115,7 @@ var PerspectiveCameraDescriptor = function (_CameraDescriptorBase) {
       far: _propTypes2.default.number
     });
 
-    _this.propUpdates = _extends({}, _this.propUpdates, {
+    _this.propUpdates = (0, _extends3.default)({}, _this.propUpdates, {
       aspect: _this._updateAspect,
       fov: _this._updateFov,
       far: _this._updateFar,
@@ -78406,7 +79124,7 @@ var PerspectiveCameraDescriptor = function (_CameraDescriptorBase) {
     return _this;
   }
 
-  _createClass(PerspectiveCameraDescriptor, [{
+  (0, _createClass3.default)(PerspectiveCameraDescriptor, [{
     key: 'construct',
     value: function construct(props) {
       return new THREE.PerspectiveCamera(props.fov, props.aspect, props.near, props.far);
@@ -78447,54 +79165,67 @@ var PerspectiveCameraDescriptor = function (_CameraDescriptorBase) {
       threeObject.userData._needsProjectionMatrixUpdate = true;
     }
   }]);
-
   return PerspectiveCameraDescriptor;
 }(_CameraDescriptorBase3.default);
 
 module.exports = PerspectiveCameraDescriptor;
 
 /***/ }),
-/* 338 */
+/* 355 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
-var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+var _extends2 = __webpack_require__(20);
 
-var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+var _extends3 = _interopRequireDefault(_extends2);
 
-var _three = __webpack_require__(1);
+var _getPrototypeOf = __webpack_require__(2);
+
+var _getPrototypeOf2 = _interopRequireDefault(_getPrototypeOf);
+
+var _classCallCheck2 = __webpack_require__(0);
+
+var _classCallCheck3 = _interopRequireDefault(_classCallCheck2);
+
+var _createClass2 = __webpack_require__(1);
+
+var _createClass3 = _interopRequireDefault(_createClass2);
+
+var _possibleConstructorReturn2 = __webpack_require__(3);
+
+var _possibleConstructorReturn3 = _interopRequireDefault(_possibleConstructorReturn2);
+
+var _inherits2 = __webpack_require__(4);
+
+var _inherits3 = _interopRequireDefault(_inherits2);
+
+var _three = __webpack_require__(6);
 
 var THREE = _interopRequireWildcard(_three);
 
-var _propTypes = __webpack_require__(2);
+var _propTypes = __webpack_require__(7);
 
 var _propTypes2 = _interopRequireDefault(_propTypes);
 
-var _Object3DDescriptor2 = __webpack_require__(18);
+var _Object3DDescriptor2 = __webpack_require__(26);
 
 var _Object3DDescriptor3 = _interopRequireDefault(_Object3DDescriptor2);
 
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
 function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj.default = obj; return newObj; } }
 
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-
-function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 var CubeCameraDescriptor = function (_Object3DDescriptor) {
-  _inherits(CubeCameraDescriptor, _Object3DDescriptor);
+  (0, _inherits3.default)(CubeCameraDescriptor, _Object3DDescriptor);
 
   function CubeCameraDescriptor(react3Instance) {
-    _classCallCheck(this, CubeCameraDescriptor);
+    (0, _classCallCheck3.default)(this, CubeCameraDescriptor);
 
-    var _this = _possibleConstructorReturn(this, (CubeCameraDescriptor.__proto__ || Object.getPrototypeOf(CubeCameraDescriptor)).call(this, react3Instance));
+    var _this = (0, _possibleConstructorReturn3.default)(this, (CubeCameraDescriptor.__proto__ || (0, _getPrototypeOf2.default)(CubeCameraDescriptor)).call(this, react3Instance));
 
-    _this.propTypes = _extends({}, _this.propTypes, {
+    _this.propTypes = (0, _extends3.default)({}, _this.propTypes, {
 
       near: _propTypes2.default.number,
       far: _propTypes2.default.number,
@@ -78503,55 +79234,65 @@ var CubeCameraDescriptor = function (_Object3DDescriptor) {
     return _this;
   }
 
-  _createClass(CubeCameraDescriptor, [{
+  (0, _createClass3.default)(CubeCameraDescriptor, [{
     key: 'construct',
     value: function construct(props) {
       return new THREE.CubeCamera(props.near, props.far, props.cubeResolution);
     }
   }]);
-
   return CubeCameraDescriptor;
 }(_Object3DDescriptor3.default);
 
 module.exports = CubeCameraDescriptor;
 
 /***/ }),
-/* 339 */
+/* 356 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
-var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+var _getPrototypeOf = __webpack_require__(2);
 
-var _three = __webpack_require__(1);
+var _getPrototypeOf2 = _interopRequireDefault(_getPrototypeOf);
+
+var _classCallCheck2 = __webpack_require__(0);
+
+var _classCallCheck3 = _interopRequireDefault(_classCallCheck2);
+
+var _createClass2 = __webpack_require__(1);
+
+var _createClass3 = _interopRequireDefault(_createClass2);
+
+var _possibleConstructorReturn2 = __webpack_require__(3);
+
+var _possibleConstructorReturn3 = _interopRequireDefault(_possibleConstructorReturn2);
+
+var _inherits2 = __webpack_require__(4);
+
+var _inherits3 = _interopRequireDefault(_inherits2);
+
+var _three = __webpack_require__(6);
 
 var THREE = _interopRequireWildcard(_three);
 
-var _MeshDescriptor2 = __webpack_require__(65);
+var _MeshDescriptor2 = __webpack_require__(78);
 
 var _MeshDescriptor3 = _interopRequireDefault(_MeshDescriptor2);
 
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
 function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj.default = obj; return newObj; } }
 
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-
-function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 var LineDescriptor = function (_MeshDescriptor) {
-  _inherits(LineDescriptor, _MeshDescriptor);
+  (0, _inherits3.default)(LineDescriptor, _MeshDescriptor);
 
   function LineDescriptor() {
-    _classCallCheck(this, LineDescriptor);
-
-    return _possibleConstructorReturn(this, (LineDescriptor.__proto__ || Object.getPrototypeOf(LineDescriptor)).apply(this, arguments));
+    (0, _classCallCheck3.default)(this, LineDescriptor);
+    return (0, _possibleConstructorReturn3.default)(this, (LineDescriptor.__proto__ || (0, _getPrototypeOf2.default)(LineDescriptor)).apply(this, arguments));
   }
 
-  _createClass(LineDescriptor, [{
+  (0, _createClass3.default)(LineDescriptor, [{
     key: 'construct',
     value: function construct(props) {
       var geometry = props.hasOwnProperty('geometry') ? props.geometry : undefined;
@@ -78572,49 +79313,59 @@ var LineDescriptor = function (_MeshDescriptor) {
       return mesh;
     }
   }]);
-
   return LineDescriptor;
 }(_MeshDescriptor3.default);
 
 module.exports = LineDescriptor;
 
 /***/ }),
-/* 340 */
+/* 357 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
-var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+var _getPrototypeOf = __webpack_require__(2);
 
-var _three = __webpack_require__(1);
+var _getPrototypeOf2 = _interopRequireDefault(_getPrototypeOf);
+
+var _classCallCheck2 = __webpack_require__(0);
+
+var _classCallCheck3 = _interopRequireDefault(_classCallCheck2);
+
+var _createClass2 = __webpack_require__(1);
+
+var _createClass3 = _interopRequireDefault(_createClass2);
+
+var _possibleConstructorReturn2 = __webpack_require__(3);
+
+var _possibleConstructorReturn3 = _interopRequireDefault(_possibleConstructorReturn2);
+
+var _inherits2 = __webpack_require__(4);
+
+var _inherits3 = _interopRequireDefault(_inherits2);
+
+var _three = __webpack_require__(6);
 
 var THREE = _interopRequireWildcard(_three);
 
-var _MeshDescriptor2 = __webpack_require__(65);
+var _MeshDescriptor2 = __webpack_require__(78);
 
 var _MeshDescriptor3 = _interopRequireDefault(_MeshDescriptor2);
 
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
 function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj.default = obj; return newObj; } }
 
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-
-function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 var LineSegmentDescriptor = function (_MeshDescriptor) {
-  _inherits(LineSegmentDescriptor, _MeshDescriptor);
+  (0, _inherits3.default)(LineSegmentDescriptor, _MeshDescriptor);
 
   function LineSegmentDescriptor() {
-    _classCallCheck(this, LineSegmentDescriptor);
-
-    return _possibleConstructorReturn(this, (LineSegmentDescriptor.__proto__ || Object.getPrototypeOf(LineSegmentDescriptor)).apply(this, arguments));
+    (0, _classCallCheck3.default)(this, LineSegmentDescriptor);
+    return (0, _possibleConstructorReturn3.default)(this, (LineSegmentDescriptor.__proto__ || (0, _getPrototypeOf2.default)(LineSegmentDescriptor)).apply(this, arguments));
   }
 
-  _createClass(LineSegmentDescriptor, [{
+  (0, _createClass3.default)(LineSegmentDescriptor, [{
     key: 'construct',
     value: function construct(props) {
       var geometry = props.hasOwnProperty('geometry') ? props.geometry : undefined;
@@ -78635,49 +79386,59 @@ var LineSegmentDescriptor = function (_MeshDescriptor) {
       return mesh;
     }
   }]);
-
   return LineSegmentDescriptor;
 }(_MeshDescriptor3.default);
 
 module.exports = LineSegmentDescriptor;
 
 /***/ }),
-/* 341 */
+/* 358 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
-var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+var _getPrototypeOf = __webpack_require__(2);
 
-var _three = __webpack_require__(1);
+var _getPrototypeOf2 = _interopRequireDefault(_getPrototypeOf);
+
+var _classCallCheck2 = __webpack_require__(0);
+
+var _classCallCheck3 = _interopRequireDefault(_classCallCheck2);
+
+var _createClass2 = __webpack_require__(1);
+
+var _createClass3 = _interopRequireDefault(_createClass2);
+
+var _possibleConstructorReturn2 = __webpack_require__(3);
+
+var _possibleConstructorReturn3 = _interopRequireDefault(_possibleConstructorReturn2);
+
+var _inherits2 = __webpack_require__(4);
+
+var _inherits3 = _interopRequireDefault(_inherits2);
+
+var _three = __webpack_require__(6);
 
 var THREE = _interopRequireWildcard(_three);
 
-var _MeshDescriptor2 = __webpack_require__(65);
+var _MeshDescriptor2 = __webpack_require__(78);
 
 var _MeshDescriptor3 = _interopRequireDefault(_MeshDescriptor2);
 
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
 function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj.default = obj; return newObj; } }
 
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-
-function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 var PointsDescriptor = function (_MeshDescriptor) {
-    _inherits(PointsDescriptor, _MeshDescriptor);
+    (0, _inherits3.default)(PointsDescriptor, _MeshDescriptor);
 
     function PointsDescriptor() {
-        _classCallCheck(this, PointsDescriptor);
-
-        return _possibleConstructorReturn(this, (PointsDescriptor.__proto__ || Object.getPrototypeOf(PointsDescriptor)).apply(this, arguments));
+        (0, _classCallCheck3.default)(this, PointsDescriptor);
+        return (0, _possibleConstructorReturn3.default)(this, (PointsDescriptor.__proto__ || (0, _getPrototypeOf2.default)(PointsDescriptor)).apply(this, arguments));
     }
 
-    _createClass(PointsDescriptor, [{
+    (0, _createClass3.default)(PointsDescriptor, [{
         key: 'construct',
         value: function construct() {
             var points = new THREE.Points();
@@ -78691,69 +79452,80 @@ var PointsDescriptor = function (_MeshDescriptor) {
             return points;
         }
     }]);
-
     return PointsDescriptor;
 }(_MeshDescriptor3.default);
 
 module.exports = PointsDescriptor;
 
 /***/ }),
-/* 342 */
+/* 359 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 /* WEBPACK VAR INJECTION */(function(process) {
 
-var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+var _getPrototypeOf = __webpack_require__(2);
 
-var _three = __webpack_require__(1);
+var _getPrototypeOf2 = _interopRequireDefault(_getPrototypeOf);
+
+var _classCallCheck2 = __webpack_require__(0);
+
+var _classCallCheck3 = _interopRequireDefault(_classCallCheck2);
+
+var _createClass2 = __webpack_require__(1);
+
+var _createClass3 = _interopRequireDefault(_createClass2);
+
+var _possibleConstructorReturn2 = __webpack_require__(3);
+
+var _possibleConstructorReturn3 = _interopRequireDefault(_possibleConstructorReturn2);
+
+var _inherits2 = __webpack_require__(4);
+
+var _inherits3 = _interopRequireDefault(_inherits2);
+
+var _three = __webpack_require__(6);
 
 var THREE = _interopRequireWildcard(_three);
 
-var _invariant = __webpack_require__(6);
+var _invariant = __webpack_require__(12);
 
 var _invariant2 = _interopRequireDefault(_invariant);
 
-var _Object3DDescriptor2 = __webpack_require__(18);
+var _Object3DDescriptor2 = __webpack_require__(26);
 
 var _Object3DDescriptor3 = _interopRequireDefault(_Object3DDescriptor2);
 
-var _ResourceReference = __webpack_require__(42);
+var _ResourceReference = __webpack_require__(53);
 
 var _ResourceReference2 = _interopRequireDefault(_ResourceReference);
 
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
 function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj.default = obj; return newObj; } }
 
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-
-function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 var SpriteDescriptor = function (_Object3DDescriptor) {
-  _inherits(SpriteDescriptor, _Object3DDescriptor);
+  (0, _inherits3.default)(SpriteDescriptor, _Object3DDescriptor);
 
   function SpriteDescriptor() {
     var _ref;
 
     var _temp, _this, _ret;
 
-    _classCallCheck(this, SpriteDescriptor);
+    (0, _classCallCheck3.default)(this, SpriteDescriptor);
 
     for (var _len = arguments.length, args = Array(_len), _key = 0; _key < _len; _key++) {
       args[_key] = arguments[_key];
     }
 
-    return _ret = (_temp = (_this = _possibleConstructorReturn(this, (_ref = SpriteDescriptor.__proto__ || Object.getPrototypeOf(SpriteDescriptor)).call.apply(_ref, [this].concat(args))), _this), _this._invalidChild = function (child) {
+    return _ret = (_temp = (_this = (0, _possibleConstructorReturn3.default)(this, (_ref = SpriteDescriptor.__proto__ || (0, _getPrototypeOf2.default)(SpriteDescriptor)).call.apply(_ref, [this].concat(args))), _this), _this._invalidChild = function (child) {
       var invalid = !(child instanceof THREE.SpriteMaterial || child instanceof _ResourceReference2.default);
 
       return invalid;
-    }, _temp), _possibleConstructorReturn(_this, _ret);
+    }, _temp), (0, _possibleConstructorReturn3.default)(_this, _ret);
   }
 
-  _createClass(SpriteDescriptor, [{
+  (0, _createClass3.default)(SpriteDescriptor, [{
     key: 'construct',
     value: function construct(props) {
       var material = props.hasOwnProperty('material') ? props.material : undefined;
@@ -78786,51 +79558,62 @@ var SpriteDescriptor = function (_Object3DDescriptor) {
       // doesn't matter
     }
   }]);
-
   return SpriteDescriptor;
 }(_Object3DDescriptor3.default);
 
 module.exports = SpriteDescriptor;
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(5)))
 
 /***/ }),
-/* 343 */
+/* 360 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
-var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+var _getPrototypeOf = __webpack_require__(2);
 
-var _three = __webpack_require__(1);
+var _getPrototypeOf2 = _interopRequireDefault(_getPrototypeOf);
+
+var _classCallCheck2 = __webpack_require__(0);
+
+var _classCallCheck3 = _interopRequireDefault(_classCallCheck2);
+
+var _createClass2 = __webpack_require__(1);
+
+var _createClass3 = _interopRequireDefault(_createClass2);
+
+var _possibleConstructorReturn2 = __webpack_require__(3);
+
+var _possibleConstructorReturn3 = _interopRequireDefault(_possibleConstructorReturn2);
+
+var _inherits2 = __webpack_require__(4);
+
+var _inherits3 = _interopRequireDefault(_inherits2);
+
+var _three = __webpack_require__(6);
 
 var THREE = _interopRequireWildcard(_three);
 
-var _propTypes = __webpack_require__(2);
+var _propTypes = __webpack_require__(7);
 
 var _propTypes2 = _interopRequireDefault(_propTypes);
 
-var _LightDescriptorBase2 = __webpack_require__(49);
+var _LightDescriptorBase2 = __webpack_require__(60);
 
 var _LightDescriptorBase3 = _interopRequireDefault(_LightDescriptorBase2);
 
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
 function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj.default = obj; return newObj; } }
 
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-
-function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 var AmbientLightDescriptor = function (_LightDescriptorBase) {
-  _inherits(AmbientLightDescriptor, _LightDescriptorBase);
+  (0, _inherits3.default)(AmbientLightDescriptor, _LightDescriptorBase);
 
   function AmbientLightDescriptor(react3Instance) {
-    _classCallCheck(this, AmbientLightDescriptor);
+    (0, _classCallCheck3.default)(this, AmbientLightDescriptor);
 
-    var _this = _possibleConstructorReturn(this, (AmbientLightDescriptor.__proto__ || Object.getPrototypeOf(AmbientLightDescriptor)).call(this, react3Instance));
+    var _this = (0, _possibleConstructorReturn3.default)(this, (AmbientLightDescriptor.__proto__ || (0, _getPrototypeOf2.default)(AmbientLightDescriptor)).call(this, react3Instance));
 
     _this.hasProp('intensity', {
       type: _propTypes2.default.number,
@@ -78842,7 +79625,7 @@ var AmbientLightDescriptor = function (_LightDescriptorBase) {
     return _this;
   }
 
-  _createClass(AmbientLightDescriptor, [{
+  (0, _createClass3.default)(AmbientLightDescriptor, [{
     key: 'construct',
     value: function construct(props) {
       var color = props.color,
@@ -78852,54 +79635,67 @@ var AmbientLightDescriptor = function (_LightDescriptorBase) {
       return new THREE.AmbientLight(color, intensity);
     }
   }]);
-
   return AmbientLightDescriptor;
 }(_LightDescriptorBase3.default);
 
 module.exports = AmbientLightDescriptor;
 
 /***/ }),
-/* 344 */
+/* 361 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
-var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+var _getPrototypeOf = __webpack_require__(2);
 
-var _get = function get(object, property, receiver) { if (object === null) object = Function.prototype; var desc = Object.getOwnPropertyDescriptor(object, property); if (desc === undefined) { var parent = Object.getPrototypeOf(object); if (parent === null) { return undefined; } else { return get(parent, property, receiver); } } else if ("value" in desc) { return desc.value; } else { var getter = desc.get; if (getter === undefined) { return undefined; } return getter.call(receiver); } };
+var _getPrototypeOf2 = _interopRequireDefault(_getPrototypeOf);
+
+var _classCallCheck2 = __webpack_require__(0);
+
+var _classCallCheck3 = _interopRequireDefault(_classCallCheck2);
+
+var _createClass2 = __webpack_require__(1);
+
+var _createClass3 = _interopRequireDefault(_createClass2);
+
+var _possibleConstructorReturn2 = __webpack_require__(3);
+
+var _possibleConstructorReturn3 = _interopRequireDefault(_possibleConstructorReturn2);
+
+var _get2 = __webpack_require__(10);
+
+var _get3 = _interopRequireDefault(_get2);
+
+var _inherits2 = __webpack_require__(4);
+
+var _inherits3 = _interopRequireDefault(_inherits2);
 
 var _class, _temp;
 
-var _three = __webpack_require__(1);
+var _three = __webpack_require__(6);
 
 var THREE = _interopRequireWildcard(_three);
 
-var _propTypes = __webpack_require__(2);
+var _propTypes = __webpack_require__(7);
 
 var _propTypes2 = _interopRequireDefault(_propTypes);
 
-var _LightDescriptorBase2 = __webpack_require__(49);
+var _LightDescriptorBase2 = __webpack_require__(60);
 
 var _LightDescriptorBase3 = _interopRequireDefault(_LightDescriptorBase2);
 
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
 function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj.default = obj; return newObj; } }
 
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-
-function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 var DirectionalLightDescriptor = (_temp = _class = function (_LightDescriptorBase) {
-  _inherits(DirectionalLightDescriptor, _LightDescriptorBase);
+  (0, _inherits3.default)(DirectionalLightDescriptor, _LightDescriptorBase);
 
   function DirectionalLightDescriptor(react3Instance) {
-    _classCallCheck(this, DirectionalLightDescriptor);
+    (0, _classCallCheck3.default)(this, DirectionalLightDescriptor);
 
-    var _this = _possibleConstructorReturn(this, (DirectionalLightDescriptor.__proto__ || Object.getPrototypeOf(DirectionalLightDescriptor)).call(this, react3Instance));
+    var _this = (0, _possibleConstructorReturn3.default)(this, (DirectionalLightDescriptor.__proto__ || (0, _getPrototypeOf2.default)(DirectionalLightDescriptor)).call(this, react3Instance));
 
     _this.hasProp('intensity', {
       type: _propTypes2.default.number,
@@ -78960,7 +79756,7 @@ var DirectionalLightDescriptor = (_temp = _class = function (_LightDescriptorBas
     return _this;
   }
 
-  _createClass(DirectionalLightDescriptor, [{
+  (0, _createClass3.default)(DirectionalLightDescriptor, [{
     key: 'construct',
     value: function construct(props) {
       var color = props.color;
@@ -78975,10 +79771,9 @@ var DirectionalLightDescriptor = (_temp = _class = function (_LightDescriptorBas
   }, {
     key: 'unmount',
     value: function unmount(threeObject) {
-      _get(DirectionalLightDescriptor.prototype.__proto__ || Object.getPrototypeOf(DirectionalLightDescriptor.prototype), 'unmount', this).call(this, threeObject);
+      (0, _get3.default)(DirectionalLightDescriptor.prototype.__proto__ || (0, _getPrototypeOf2.default)(DirectionalLightDescriptor.prototype), 'unmount', this).call(this, threeObject);
     }
   }]);
-
   return DirectionalLightDescriptor;
 }(_LightDescriptorBase3.default), _class.defaultShadowCameraLeft = -5, _class.defaultShadowCameraRight = 5, _class.defaultShadowCameraTop = 5, _class.defaultShadowCameraBottom = -5, _temp);
 
@@ -78986,43 +79781,55 @@ var DirectionalLightDescriptor = (_temp = _class = function (_LightDescriptorBas
 module.exports = DirectionalLightDescriptor;
 
 /***/ }),
-/* 345 */
+/* 362 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
-var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+var _getPrototypeOf = __webpack_require__(2);
 
-var _three = __webpack_require__(1);
+var _getPrototypeOf2 = _interopRequireDefault(_getPrototypeOf);
+
+var _classCallCheck2 = __webpack_require__(0);
+
+var _classCallCheck3 = _interopRequireDefault(_classCallCheck2);
+
+var _createClass2 = __webpack_require__(1);
+
+var _createClass3 = _interopRequireDefault(_createClass2);
+
+var _possibleConstructorReturn2 = __webpack_require__(3);
+
+var _possibleConstructorReturn3 = _interopRequireDefault(_possibleConstructorReturn2);
+
+var _inherits2 = __webpack_require__(4);
+
+var _inherits3 = _interopRequireDefault(_inherits2);
+
+var _three = __webpack_require__(6);
 
 var THREE = _interopRequireWildcard(_three);
 
-var _propTypes = __webpack_require__(2);
+var _propTypes = __webpack_require__(7);
 
 var _propTypes2 = _interopRequireDefault(_propTypes);
 
-var _LightDescriptorBase2 = __webpack_require__(49);
+var _LightDescriptorBase2 = __webpack_require__(60);
 
 var _LightDescriptorBase3 = _interopRequireDefault(_LightDescriptorBase2);
 
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
 function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj.default = obj; return newObj; } }
 
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-
-function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 var SpotLightDescriptor = function (_LightDescriptorBase) {
-  _inherits(SpotLightDescriptor, _LightDescriptorBase);
+  (0, _inherits3.default)(SpotLightDescriptor, _LightDescriptorBase);
 
   function SpotLightDescriptor(react3Instance) {
-    _classCallCheck(this, SpotLightDescriptor);
+    (0, _classCallCheck3.default)(this, SpotLightDescriptor);
 
-    var _this = _possibleConstructorReturn(this, (SpotLightDescriptor.__proto__ || Object.getPrototypeOf(SpotLightDescriptor)).call(this, react3Instance));
+    var _this = (0, _possibleConstructorReturn3.default)(this, (SpotLightDescriptor.__proto__ || (0, _getPrototypeOf2.default)(SpotLightDescriptor)).call(this, react3Instance));
 
     var defaults = [1, // intensity
     0, // distance
@@ -79056,7 +79863,7 @@ var SpotLightDescriptor = function (_LightDescriptorBase) {
     return _this;
   }
 
-  _createClass(SpotLightDescriptor, [{
+  (0, _createClass3.default)(SpotLightDescriptor, [{
     key: 'construct',
     value: function construct(props) {
       var color = props.color,
@@ -79070,52 +79877,63 @@ var SpotLightDescriptor = function (_LightDescriptorBase) {
       return new THREE.SpotLight(color, intensity, distance, angle, exponent, decay);
     }
   }]);
-
   return SpotLightDescriptor;
 }(_LightDescriptorBase3.default);
 
 module.exports = SpotLightDescriptor;
 
 /***/ }),
-/* 346 */
+/* 363 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
-var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+var _getPrototypeOf = __webpack_require__(2);
+
+var _getPrototypeOf2 = _interopRequireDefault(_getPrototypeOf);
+
+var _classCallCheck2 = __webpack_require__(0);
+
+var _classCallCheck3 = _interopRequireDefault(_classCallCheck2);
+
+var _createClass2 = __webpack_require__(1);
+
+var _createClass3 = _interopRequireDefault(_createClass2);
+
+var _possibleConstructorReturn2 = __webpack_require__(3);
+
+var _possibleConstructorReturn3 = _interopRequireDefault(_possibleConstructorReturn2);
+
+var _inherits2 = __webpack_require__(4);
+
+var _inherits3 = _interopRequireDefault(_inherits2);
 
 var _class, _temp;
 
-var _three = __webpack_require__(1);
+var _three = __webpack_require__(6);
 
 var THREE = _interopRequireWildcard(_three);
 
-var _propTypes = __webpack_require__(2);
+var _propTypes = __webpack_require__(7);
 
 var _propTypes2 = _interopRequireDefault(_propTypes);
 
-var _LightDescriptorBase2 = __webpack_require__(49);
+var _LightDescriptorBase2 = __webpack_require__(60);
 
 var _LightDescriptorBase3 = _interopRequireDefault(_LightDescriptorBase2);
 
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
 function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj.default = obj; return newObj; } }
 
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-
-function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 var PointLightDescriptor = (_temp = _class = function (_LightDescriptorBase) {
-  _inherits(PointLightDescriptor, _LightDescriptorBase);
+  (0, _inherits3.default)(PointLightDescriptor, _LightDescriptorBase);
 
   function PointLightDescriptor(react3Instance) {
-    _classCallCheck(this, PointLightDescriptor);
+    (0, _classCallCheck3.default)(this, PointLightDescriptor);
 
-    var _this = _possibleConstructorReturn(this, (PointLightDescriptor.__proto__ || Object.getPrototypeOf(PointLightDescriptor)).call(this, react3Instance));
+    var _this = (0, _possibleConstructorReturn3.default)(this, (PointLightDescriptor.__proto__ || (0, _getPrototypeOf2.default)(PointLightDescriptor)).call(this, react3Instance));
 
     _this.hasColor();
 
@@ -79163,7 +79981,7 @@ var PointLightDescriptor = (_temp = _class = function (_LightDescriptorBase) {
     return _this;
   }
 
-  _createClass(PointLightDescriptor, [{
+  (0, _createClass3.default)(PointLightDescriptor, [{
     key: 'construct',
     value: function construct(props) {
       var color = props.color,
@@ -79175,7 +79993,6 @@ var PointLightDescriptor = (_temp = _class = function (_LightDescriptorBase) {
       return new THREE.PointLight(color, intensity, distance, decay);
     }
   }]);
-
   return PointLightDescriptor;
 }(_LightDescriptorBase3.default), _class.defaultShadowCameraFov = 90, _class.defaultShadowCameraAspect = 1, _temp);
 
@@ -79183,43 +80000,55 @@ var PointLightDescriptor = (_temp = _class = function (_LightDescriptorBase) {
 module.exports = PointLightDescriptor;
 
 /***/ }),
-/* 347 */
+/* 364 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
-var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+var _getPrototypeOf = __webpack_require__(2);
 
-var _three = __webpack_require__(1);
+var _getPrototypeOf2 = _interopRequireDefault(_getPrototypeOf);
+
+var _classCallCheck2 = __webpack_require__(0);
+
+var _classCallCheck3 = _interopRequireDefault(_classCallCheck2);
+
+var _createClass2 = __webpack_require__(1);
+
+var _createClass3 = _interopRequireDefault(_createClass2);
+
+var _possibleConstructorReturn2 = __webpack_require__(3);
+
+var _possibleConstructorReturn3 = _interopRequireDefault(_possibleConstructorReturn2);
+
+var _inherits2 = __webpack_require__(4);
+
+var _inherits3 = _interopRequireDefault(_inherits2);
+
+var _three = __webpack_require__(6);
 
 var THREE = _interopRequireWildcard(_three);
 
-var _propTypes = __webpack_require__(2);
+var _propTypes = __webpack_require__(7);
 
 var _propTypes2 = _interopRequireDefault(_propTypes);
 
-var _LightDescriptorBase2 = __webpack_require__(49);
+var _LightDescriptorBase2 = __webpack_require__(60);
 
 var _LightDescriptorBase3 = _interopRequireDefault(_LightDescriptorBase2);
 
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
 function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj.default = obj; return newObj; } }
 
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-
-function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 var HemisphereLightDescriptor = function (_LightDescriptorBase) {
-  _inherits(HemisphereLightDescriptor, _LightDescriptorBase);
+  (0, _inherits3.default)(HemisphereLightDescriptor, _LightDescriptorBase);
 
   function HemisphereLightDescriptor(react3Instance) {
-    _classCallCheck(this, HemisphereLightDescriptor);
+    (0, _classCallCheck3.default)(this, HemisphereLightDescriptor);
 
-    var _this = _possibleConstructorReturn(this, (HemisphereLightDescriptor.__proto__ || Object.getPrototypeOf(HemisphereLightDescriptor)).call(this, react3Instance));
+    var _this = (0, _possibleConstructorReturn3.default)(this, (HemisphereLightDescriptor.__proto__ || (0, _getPrototypeOf2.default)(HemisphereLightDescriptor)).call(this, react3Instance));
 
     _this.hasColor('skyColor');
     _this.hasColor('groundColor', 0xcccccc);
@@ -79232,7 +80061,7 @@ var HemisphereLightDescriptor = function (_LightDescriptorBase) {
     return _this;
   }
 
-  _createClass(HemisphereLightDescriptor, [{
+  (0, _createClass3.default)(HemisphereLightDescriptor, [{
     key: 'construct',
     value: function construct(props) {
       var skyColor = props.skyColor,
@@ -79243,59 +80072,71 @@ var HemisphereLightDescriptor = function (_LightDescriptorBase) {
       return new THREE.HemisphereLight(skyColor, groundColor, intensity);
     }
   }]);
-
   return HemisphereLightDescriptor;
 }(_LightDescriptorBase3.default);
 
 module.exports = HemisphereLightDescriptor;
 
 /***/ }),
-/* 348 */
+/* 365 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 /* WEBPACK VAR INJECTION */(function(process) {
 
-var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+var _getPrototypeOf = __webpack_require__(2);
 
-var _get = function get(object, property, receiver) { if (object === null) object = Function.prototype; var desc = Object.getOwnPropertyDescriptor(object, property); if (desc === undefined) { var parent = Object.getPrototypeOf(object); if (parent === null) { return undefined; } else { return get(parent, property, receiver); } } else if ("value" in desc) { return desc.value; } else { var getter = desc.get; if (getter === undefined) { return undefined; } return getter.call(receiver); } };
+var _getPrototypeOf2 = _interopRequireDefault(_getPrototypeOf);
 
-var _three = __webpack_require__(1);
+var _classCallCheck2 = __webpack_require__(0);
+
+var _classCallCheck3 = _interopRequireDefault(_classCallCheck2);
+
+var _createClass2 = __webpack_require__(1);
+
+var _createClass3 = _interopRequireDefault(_createClass2);
+
+var _possibleConstructorReturn2 = __webpack_require__(3);
+
+var _possibleConstructorReturn3 = _interopRequireDefault(_possibleConstructorReturn2);
+
+var _get2 = __webpack_require__(10);
+
+var _get3 = _interopRequireDefault(_get2);
+
+var _inherits2 = __webpack_require__(4);
+
+var _inherits3 = _interopRequireDefault(_inherits2);
+
+var _three = __webpack_require__(6);
 
 var THREE = _interopRequireWildcard(_three);
 
-var _invariant = __webpack_require__(6);
+var _invariant = __webpack_require__(12);
 
 var _invariant2 = _interopRequireDefault(_invariant);
 
-var _THREEElementDescriptor = __webpack_require__(14);
+var _THREEElementDescriptor = __webpack_require__(21);
 
 var _THREEElementDescriptor2 = _interopRequireDefault(_THREEElementDescriptor);
 
-var _ResourceContainer = __webpack_require__(111);
+var _ResourceContainer = __webpack_require__(122);
 
 var _ResourceContainer2 = _interopRequireDefault(_ResourceContainer);
 
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
 function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj.default = obj; return newObj; } }
 
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-
-function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 var ResourcesDescriptor = function (_THREEElementDescript) {
-  _inherits(ResourcesDescriptor, _THREEElementDescript);
+  (0, _inherits3.default)(ResourcesDescriptor, _THREEElementDescript);
 
   function ResourcesDescriptor() {
-    _classCallCheck(this, ResourcesDescriptor);
-
-    return _possibleConstructorReturn(this, (ResourcesDescriptor.__proto__ || Object.getPrototypeOf(ResourcesDescriptor)).apply(this, arguments));
+    (0, _classCallCheck3.default)(this, ResourcesDescriptor);
+    return (0, _possibleConstructorReturn3.default)(this, (ResourcesDescriptor.__proto__ || (0, _getPrototypeOf2.default)(ResourcesDescriptor)).apply(this, arguments));
   }
 
-  _createClass(ResourcesDescriptor, [{
+  (0, _createClass3.default)(ResourcesDescriptor, [{
     key: 'construct',
     value: function construct() {
       return new _ResourceContainer2.default();
@@ -79314,7 +80155,7 @@ var ResourcesDescriptor = function (_THREEElementDescript) {
         });
       });
 
-      _get(ResourcesDescriptor.prototype.__proto__ || Object.getPrototypeOf(ResourcesDescriptor.prototype), 'unmount', this).call(this, threeObject);
+      (0, _get3.default)(ResourcesDescriptor.prototype.__proto__ || (0, _getPrototypeOf2.default)(ResourcesDescriptor.prototype), 'unmount', this).call(this, threeObject);
     }
   }, {
     key: 'addChildren',
@@ -79370,7 +80211,7 @@ var ResourcesDescriptor = function (_THREEElementDescript) {
   }, {
     key: 'setParent',
     value: function setParent(threeObject, parentObject) {
-      _get(ResourcesDescriptor.prototype.__proto__ || Object.getPrototypeOf(ResourcesDescriptor.prototype), 'setParent', this).call(this, threeObject, parentObject);
+      (0, _get3.default)(ResourcesDescriptor.prototype.__proto__ || (0, _getPrototypeOf2.default)(ResourcesDescriptor.prototype), 'setParent', this).call(this, threeObject, parentObject);
 
       var parentEvents = parentObject.userData.events;
 
@@ -79415,33 +80256,52 @@ var ResourcesDescriptor = function (_THREEElementDescript) {
       // child order doesn't matter
     }
   }]);
-
   return ResourcesDescriptor;
 }(_THREEElementDescriptor2.default);
 
 module.exports = ResourcesDescriptor;
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(5)))
 
 /***/ }),
-/* 349 */
+/* 366 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
-var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+var _getPrototypeOf = __webpack_require__(2);
 
-var _get = function get(object, property, receiver) { if (object === null) object = Function.prototype; var desc = Object.getOwnPropertyDescriptor(object, property); if (desc === undefined) { var parent = Object.getPrototypeOf(object); if (parent === null) { return undefined; } else { return get(parent, property, receiver); } } else if ("value" in desc) { return desc.value; } else { var getter = desc.get; if (getter === undefined) { return undefined; } return getter.call(receiver); } };
+var _getPrototypeOf2 = _interopRequireDefault(_getPrototypeOf);
 
-var _propTypes = __webpack_require__(2);
+var _classCallCheck2 = __webpack_require__(0);
+
+var _classCallCheck3 = _interopRequireDefault(_classCallCheck2);
+
+var _createClass2 = __webpack_require__(1);
+
+var _createClass3 = _interopRequireDefault(_createClass2);
+
+var _possibleConstructorReturn2 = __webpack_require__(3);
+
+var _possibleConstructorReturn3 = _interopRequireDefault(_possibleConstructorReturn2);
+
+var _get2 = __webpack_require__(10);
+
+var _get3 = _interopRequireDefault(_get2);
+
+var _inherits2 = __webpack_require__(4);
+
+var _inherits3 = _interopRequireDefault(_inherits2);
+
+var _propTypes = __webpack_require__(7);
 
 var _propTypes2 = _interopRequireDefault(_propTypes);
 
-var _three = __webpack_require__(1);
+var _three = __webpack_require__(6);
 
 var THREE = _interopRequireWildcard(_three);
 
-var _GeometryResourceDescriptor = __webpack_require__(177);
+var _GeometryResourceDescriptor = __webpack_require__(186);
 
 var _GeometryResourceDescriptor2 = _interopRequireDefault(_GeometryResourceDescriptor);
 
@@ -79449,19 +80309,13 @@ function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj;
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-
-function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-
 var ShapeGeometryResourceDescriptor = function (_GeometryResourceDesc) {
-  _inherits(ShapeGeometryResourceDescriptor, _GeometryResourceDesc);
+  (0, _inherits3.default)(ShapeGeometryResourceDescriptor, _GeometryResourceDesc);
 
   function ShapeGeometryResourceDescriptor(react3RendererInstance) {
-    _classCallCheck(this, ShapeGeometryResourceDescriptor);
+    (0, _classCallCheck3.default)(this, ShapeGeometryResourceDescriptor);
 
-    var _this = _possibleConstructorReturn(this, (ShapeGeometryResourceDescriptor.__proto__ || Object.getPrototypeOf(ShapeGeometryResourceDescriptor)).call(this, react3RendererInstance));
+    var _this = (0, _possibleConstructorReturn3.default)(this, (ShapeGeometryResourceDescriptor.__proto__ || (0, _getPrototypeOf2.default)(ShapeGeometryResourceDescriptor)).call(this, react3RendererInstance));
 
     _this.hasProp('type', {
       type: _propTypes2.default.oneOf(['points', 'spacedPoints', 'shape']).isRequired,
@@ -79477,10 +80331,10 @@ var ShapeGeometryResourceDescriptor = function (_GeometryResourceDesc) {
     return _this;
   }
 
-  _createClass(ShapeGeometryResourceDescriptor, [{
+  (0, _createClass3.default)(ShapeGeometryResourceDescriptor, [{
     key: 'applyInitialProps',
     value: function applyInitialProps(threeObject, props) {
-      _get(ShapeGeometryResourceDescriptor.prototype.__proto__ || Object.getPrototypeOf(ShapeGeometryResourceDescriptor.prototype), 'applyInitialProps', this).call(this, threeObject, props);
+      (0, _get3.default)(ShapeGeometryResourceDescriptor.prototype.__proto__ || (0, _getPrototypeOf2.default)(ShapeGeometryResourceDescriptor.prototype), 'applyInitialProps', this).call(this, threeObject, props);
 
       threeObject.userData._divisions = props.divisions;
 
@@ -79490,7 +80344,7 @@ var ShapeGeometryResourceDescriptor = function (_GeometryResourceDesc) {
     key: 'applyToSlot',
     value: function applyToSlot(threeObject, parentObject, shape) {
       if (!shape) {
-        return _get(ShapeGeometryResourceDescriptor.prototype.__proto__ || Object.getPrototypeOf(ShapeGeometryResourceDescriptor.prototype), 'applyToSlot', this).call(this, threeObject, parentObject, null);
+        return (0, _get3.default)(ShapeGeometryResourceDescriptor.prototype.__proto__ || (0, _getPrototypeOf2.default)(ShapeGeometryResourceDescriptor.prototype), 'applyToSlot', this).call(this, threeObject, parentObject, null);
       }
 
       var geometry = void 0;
@@ -79510,65 +80364,77 @@ var ShapeGeometryResourceDescriptor = function (_GeometryResourceDesc) {
           break;
       }
 
-      return _get(ShapeGeometryResourceDescriptor.prototype.__proto__ || Object.getPrototypeOf(ShapeGeometryResourceDescriptor.prototype), 'applyToSlot', this).call(this, threeObject, parentObject, geometry);
+      return (0, _get3.default)(ShapeGeometryResourceDescriptor.prototype.__proto__ || (0, _getPrototypeOf2.default)(ShapeGeometryResourceDescriptor.prototype), 'applyToSlot', this).call(this, threeObject, parentObject, geometry);
     }
   }]);
-
   return ShapeGeometryResourceDescriptor;
 }(_GeometryResourceDescriptor2.default);
 
 module.exports = ShapeGeometryResourceDescriptor;
 
 /***/ }),
-/* 350 */
+/* 367 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
-var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+var _getPrototypeOf = __webpack_require__(2);
 
-var _get = function get(object, property, receiver) { if (object === null) object = Function.prototype; var desc = Object.getOwnPropertyDescriptor(object, property); if (desc === undefined) { var parent = Object.getPrototypeOf(object); if (parent === null) { return undefined; } else { return get(parent, property, receiver); } } else if ("value" in desc) { return desc.value; } else { var getter = desc.get; if (getter === undefined) { return undefined; } return getter.call(receiver); } };
+var _getPrototypeOf2 = _interopRequireDefault(_getPrototypeOf);
 
-var _three = __webpack_require__(1);
+var _classCallCheck2 = __webpack_require__(0);
+
+var _classCallCheck3 = _interopRequireDefault(_classCallCheck2);
+
+var _createClass2 = __webpack_require__(1);
+
+var _createClass3 = _interopRequireDefault(_createClass2);
+
+var _possibleConstructorReturn2 = __webpack_require__(3);
+
+var _possibleConstructorReturn3 = _interopRequireDefault(_possibleConstructorReturn2);
+
+var _get2 = __webpack_require__(10);
+
+var _get3 = _interopRequireDefault(_get2);
+
+var _inherits2 = __webpack_require__(4);
+
+var _inherits3 = _interopRequireDefault(_inherits2);
+
+var _three = __webpack_require__(6);
 
 var THREE = _interopRequireWildcard(_three);
 
-var _invariant = __webpack_require__(6);
+var _invariant = __webpack_require__(12);
 
 var _invariant2 = _interopRequireDefault(_invariant);
 
-var _ResourceDescriptorBase = __webpack_require__(66);
+var _ResourceDescriptorBase = __webpack_require__(79);
 
 var _ResourceDescriptorBase2 = _interopRequireDefault(_ResourceDescriptorBase);
 
-var _Uniform = __webpack_require__(67);
+var _Uniform = __webpack_require__(80);
 
 var _Uniform2 = _interopRequireDefault(_Uniform);
 
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
 function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj.default = obj; return newObj; } }
 
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-
-function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 var TextureResourceDescriptor = function (_ResourceDescriptorBa) {
-  _inherits(TextureResourceDescriptor, _ResourceDescriptorBa);
+  (0, _inherits3.default)(TextureResourceDescriptor, _ResourceDescriptorBa);
 
   function TextureResourceDescriptor() {
-    _classCallCheck(this, TextureResourceDescriptor);
-
-    return _possibleConstructorReturn(this, (TextureResourceDescriptor.__proto__ || Object.getPrototypeOf(TextureResourceDescriptor)).apply(this, arguments));
+    (0, _classCallCheck3.default)(this, TextureResourceDescriptor);
+    return (0, _possibleConstructorReturn3.default)(this, (TextureResourceDescriptor.__proto__ || (0, _getPrototypeOf2.default)(TextureResourceDescriptor)).apply(this, arguments));
   }
 
-  _createClass(TextureResourceDescriptor, [{
+  (0, _createClass3.default)(TextureResourceDescriptor, [{
     key: 'applyInitialProps',
     value: function applyInitialProps(threeObject, props) {
-      _get(TextureResourceDescriptor.prototype.__proto__ || Object.getPrototypeOf(TextureResourceDescriptor.prototype), 'applyInitialProps', this).call(this, threeObject, props);
+      (0, _get3.default)(TextureResourceDescriptor.prototype.__proto__ || (0, _getPrototypeOf2.default)(TextureResourceDescriptor.prototype), 'applyInitialProps', this).call(this, threeObject, props);
 
       threeObject.userData._propertySlot = 'map';
     }
@@ -79576,7 +80442,7 @@ var TextureResourceDescriptor = function (_ResourceDescriptorBa) {
     key: 'applyToSlot',
     value: function applyToSlot(threeObject, parentObject3D, newResource) {
       if (parentObject3D instanceof THREE.Material) {
-        _get(TextureResourceDescriptor.prototype.__proto__ || Object.getPrototypeOf(TextureResourceDescriptor.prototype), 'applyToSlot', this).call(this, threeObject, parentObject3D, newResource);
+        (0, _get3.default)(TextureResourceDescriptor.prototype.__proto__ || (0, _getPrototypeOf2.default)(TextureResourceDescriptor.prototype), 'applyToSlot', this).call(this, threeObject, parentObject3D, newResource);
         parentObject3D.dispose();
       } else if (parentObject3D instanceof _Uniform2.default) {
         parentObject3D.setValue(newResource);
@@ -79588,71 +80454,83 @@ var TextureResourceDescriptor = function (_ResourceDescriptorBa) {
     key: 'setParent',
     value: function setParent(threeObject, parentObject3D) {
       if (parentObject3D instanceof THREE.Material) {
-        _get(TextureResourceDescriptor.prototype.__proto__ || Object.getPrototypeOf(TextureResourceDescriptor.prototype), 'setParent', this).call(this, threeObject, parentObject3D);
+        (0, _get3.default)(TextureResourceDescriptor.prototype.__proto__ || (0, _getPrototypeOf2.default)(TextureResourceDescriptor.prototype), 'setParent', this).call(this, threeObject, parentObject3D);
       } else if (parentObject3D instanceof _Uniform2.default) {
         threeObject.userData._propertySlot = 'value';
-        _get(TextureResourceDescriptor.prototype.__proto__ || Object.getPrototypeOf(TextureResourceDescriptor.prototype), 'setParent', this).call(this, threeObject, parentObject3D);
+        (0, _get3.default)(TextureResourceDescriptor.prototype.__proto__ || (0, _getPrototypeOf2.default)(TextureResourceDescriptor.prototype), 'setParent', this).call(this, threeObject, parentObject3D);
       } else {
         (0, _invariant2.default)(false, 'Parent is not a material or a uniform');
       }
     }
   }]);
-
   return TextureResourceDescriptor;
 }(_ResourceDescriptorBase2.default);
 
 module.exports = TextureResourceDescriptor;
 
 /***/ }),
-/* 351 */
+/* 368 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
-var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+var _getPrototypeOf = __webpack_require__(2);
 
-var _get = function get(object, property, receiver) { if (object === null) object = Function.prototype; var desc = Object.getOwnPropertyDescriptor(object, property); if (desc === undefined) { var parent = Object.getPrototypeOf(object); if (parent === null) { return undefined; } else { return get(parent, property, receiver); } } else if ("value" in desc) { return desc.value; } else { var getter = desc.get; if (getter === undefined) { return undefined; } return getter.call(receiver); } };
+var _getPrototypeOf2 = _interopRequireDefault(_getPrototypeOf);
 
-var _three = __webpack_require__(1);
+var _classCallCheck2 = __webpack_require__(0);
+
+var _classCallCheck3 = _interopRequireDefault(_classCallCheck2);
+
+var _createClass2 = __webpack_require__(1);
+
+var _createClass3 = _interopRequireDefault(_createClass2);
+
+var _possibleConstructorReturn2 = __webpack_require__(3);
+
+var _possibleConstructorReturn3 = _interopRequireDefault(_possibleConstructorReturn2);
+
+var _get2 = __webpack_require__(10);
+
+var _get3 = _interopRequireDefault(_get2);
+
+var _inherits2 = __webpack_require__(4);
+
+var _inherits3 = _interopRequireDefault(_inherits2);
+
+var _three = __webpack_require__(6);
 
 var THREE = _interopRequireWildcard(_three);
 
-var _invariant = __webpack_require__(6);
+var _invariant = __webpack_require__(12);
 
 var _invariant2 = _interopRequireDefault(_invariant);
 
-var _ResourceDescriptorBase = __webpack_require__(66);
+var _ResourceDescriptorBase = __webpack_require__(79);
 
 var _ResourceDescriptorBase2 = _interopRequireDefault(_ResourceDescriptorBase);
 
-var _ShapeResourceReference = __webpack_require__(178);
+var _ShapeResourceReference = __webpack_require__(187);
 
 var _ShapeResourceReference2 = _interopRequireDefault(_ShapeResourceReference);
 
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
 function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj.default = obj; return newObj; } }
 
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-
-function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 var ShapeResourceDescriptor = function (_ResourceDescriptorBa) {
-  _inherits(ShapeResourceDescriptor, _ResourceDescriptorBa);
+  (0, _inherits3.default)(ShapeResourceDescriptor, _ResourceDescriptorBa);
 
   function ShapeResourceDescriptor() {
-    _classCallCheck(this, ShapeResourceDescriptor);
-
-    return _possibleConstructorReturn(this, (ShapeResourceDescriptor.__proto__ || Object.getPrototypeOf(ShapeResourceDescriptor)).apply(this, arguments));
+    (0, _classCallCheck3.default)(this, ShapeResourceDescriptor);
+    return (0, _possibleConstructorReturn3.default)(this, (ShapeResourceDescriptor.__proto__ || (0, _getPrototypeOf2.default)(ShapeResourceDescriptor)).apply(this, arguments));
   }
 
-  _createClass(ShapeResourceDescriptor, [{
+  (0, _createClass3.default)(ShapeResourceDescriptor, [{
     key: 'applyInitialProps',
     value: function applyInitialProps(threeObject, props) {
-      _get(ShapeResourceDescriptor.prototype.__proto__ || Object.getPrototypeOf(ShapeResourceDescriptor.prototype), 'applyInitialProps', this).call(this, threeObject, props);
+      (0, _get3.default)(ShapeResourceDescriptor.prototype.__proto__ || (0, _getPrototypeOf2.default)(ShapeResourceDescriptor.prototype), 'applyInitialProps', this).call(this, threeObject, props);
 
       threeObject.userData._remountOnUpdate = true;
     }
@@ -79666,7 +80544,7 @@ var ShapeResourceDescriptor = function (_ResourceDescriptorBa) {
     value: function setParent(threeObject, parentObject3D) {
       (0, _invariant2.default)(parentObject3D instanceof THREE.ExtrudeGeometry || parentObject3D instanceof THREE.BufferGeometry, 'Parent is not an extrude geometry');
 
-      _get(ShapeResourceDescriptor.prototype.__proto__ || Object.getPrototypeOf(ShapeResourceDescriptor.prototype), 'setParent', this).call(this, threeObject, parentObject3D);
+      (0, _get3.default)(ShapeResourceDescriptor.prototype.__proto__ || (0, _getPrototypeOf2.default)(ShapeResourceDescriptor.prototype), 'setParent', this).call(this, threeObject, parentObject3D);
     }
   }, {
     key: 'applyToSlot',
@@ -79674,54 +80552,65 @@ var ShapeResourceDescriptor = function (_ResourceDescriptorBa) {
       threeObject.userData.events.emit('resource.set', newResource);
     }
   }]);
-
   return ShapeResourceDescriptor;
 }(_ResourceDescriptorBase2.default);
 
 module.exports = ShapeResourceDescriptor;
 
 /***/ }),
-/* 352 */
+/* 369 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
-var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+var _getPrototypeOf = __webpack_require__(2);
 
-var _three = __webpack_require__(1);
+var _getPrototypeOf2 = _interopRequireDefault(_getPrototypeOf);
+
+var _classCallCheck2 = __webpack_require__(0);
+
+var _classCallCheck3 = _interopRequireDefault(_classCallCheck2);
+
+var _createClass2 = __webpack_require__(1);
+
+var _createClass3 = _interopRequireDefault(_createClass2);
+
+var _possibleConstructorReturn2 = __webpack_require__(3);
+
+var _possibleConstructorReturn3 = _interopRequireDefault(_possibleConstructorReturn2);
+
+var _inherits2 = __webpack_require__(4);
+
+var _inherits3 = _interopRequireDefault(_inherits2);
+
+var _three = __webpack_require__(6);
 
 var THREE = _interopRequireWildcard(_three);
 
-var _propTypes = __webpack_require__(2);
+var _propTypes = __webpack_require__(7);
 
 var _propTypes2 = _interopRequireDefault(_propTypes);
 
-var _GeometryDescriptorBase = __webpack_require__(11);
+var _GeometryDescriptorBase = __webpack_require__(17);
 
 var _GeometryDescriptorBase2 = _interopRequireDefault(_GeometryDescriptorBase);
 
-var _propTypeInstanceOf = __webpack_require__(9);
+var _propTypeInstanceOf = __webpack_require__(15);
 
 var _propTypeInstanceOf2 = _interopRequireDefault(_propTypeInstanceOf);
 
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
 function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj.default = obj; return newObj; } }
 
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-
-function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 var GeometryDescriptor = function (_GeometryDescriptorBa) {
-  _inherits(GeometryDescriptor, _GeometryDescriptorBa);
+  (0, _inherits3.default)(GeometryDescriptor, _GeometryDescriptorBa);
 
   function GeometryDescriptor(react3RendererInstance) {
-    _classCallCheck(this, GeometryDescriptor);
+    (0, _classCallCheck3.default)(this, GeometryDescriptor);
 
-    var _this = _possibleConstructorReturn(this, (GeometryDescriptor.__proto__ || Object.getPrototypeOf(GeometryDescriptor)).call(this, react3RendererInstance));
+    var _this = (0, _possibleConstructorReturn3.default)(this, (GeometryDescriptor.__proto__ || (0, _getPrototypeOf2.default)(GeometryDescriptor)).call(this, react3RendererInstance));
 
     _this.hasProp('vertices', {
       override: true,
@@ -79740,60 +80629,71 @@ var GeometryDescriptor = function (_GeometryDescriptorBa) {
     return _this;
   }
 
-  _createClass(GeometryDescriptor, [{
+  (0, _createClass3.default)(GeometryDescriptor, [{
     key: 'construct',
     value: function construct() {
       return new THREE.Geometry();
     }
   }]);
-
   return GeometryDescriptor;
 }(_GeometryDescriptorBase2.default);
 
 module.exports = GeometryDescriptor;
 
 /***/ }),
-/* 353 */
+/* 370 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
-var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+var _getPrototypeOf = __webpack_require__(2);
 
-var _three = __webpack_require__(1);
+var _getPrototypeOf2 = _interopRequireDefault(_getPrototypeOf);
+
+var _classCallCheck2 = __webpack_require__(0);
+
+var _classCallCheck3 = _interopRequireDefault(_classCallCheck2);
+
+var _createClass2 = __webpack_require__(1);
+
+var _createClass3 = _interopRequireDefault(_createClass2);
+
+var _possibleConstructorReturn2 = __webpack_require__(3);
+
+var _possibleConstructorReturn3 = _interopRequireDefault(_possibleConstructorReturn2);
+
+var _inherits2 = __webpack_require__(4);
+
+var _inherits3 = _interopRequireDefault(_inherits2);
+
+var _three = __webpack_require__(6);
 
 var THREE = _interopRequireWildcard(_three);
 
-var _propTypes = __webpack_require__(2);
+var _propTypes = __webpack_require__(7);
 
 var _propTypes2 = _interopRequireDefault(_propTypes);
 
-var _GeometryDescriptorBase = __webpack_require__(11);
+var _GeometryDescriptorBase = __webpack_require__(17);
 
 var _GeometryDescriptorBase2 = _interopRequireDefault(_GeometryDescriptorBase);
 
-var _propTypeInstanceOf = __webpack_require__(9);
+var _propTypeInstanceOf = __webpack_require__(15);
 
 var _propTypeInstanceOf2 = _interopRequireDefault(_propTypeInstanceOf);
 
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
 function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj.default = obj; return newObj; } }
 
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-
-function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 var BufferGeometryDescriptor = function (_GeometryDescriptorBa) {
-  _inherits(BufferGeometryDescriptor, _GeometryDescriptorBa);
+  (0, _inherits3.default)(BufferGeometryDescriptor, _GeometryDescriptorBa);
 
   function BufferGeometryDescriptor(react3RendererInstance) {
-    _classCallCheck(this, BufferGeometryDescriptor);
+    (0, _classCallCheck3.default)(this, BufferGeometryDescriptor);
 
-    var _this = _possibleConstructorReturn(this, (BufferGeometryDescriptor.__proto__ || Object.getPrototypeOf(BufferGeometryDescriptor)).call(this, react3RendererInstance));
+    var _this = (0, _possibleConstructorReturn3.default)(this, (BufferGeometryDescriptor.__proto__ || (0, _getPrototypeOf2.default)(BufferGeometryDescriptor)).call(this, react3RendererInstance));
 
     ['vertices', 'colors', 'faceVertexUvs', 'faces', 'dynamic'].forEach(function (propName) {
       _this.removeProp(propName);
@@ -79827,56 +80727,67 @@ var BufferGeometryDescriptor = function (_GeometryDescriptorBa) {
     return _this;
   }
 
-  _createClass(BufferGeometryDescriptor, [{
+  (0, _createClass3.default)(BufferGeometryDescriptor, [{
     key: 'construct',
     value: function construct() {
       return new THREE.BufferGeometry();
     }
   }]);
-
   return BufferGeometryDescriptor;
 }(_GeometryDescriptorBase2.default);
 
 module.exports = BufferGeometryDescriptor;
 
 /***/ }),
-/* 354 */
+/* 371 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
-var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+var _getPrototypeOf = __webpack_require__(2);
 
-var _three = __webpack_require__(1);
+var _getPrototypeOf2 = _interopRequireDefault(_getPrototypeOf);
+
+var _classCallCheck2 = __webpack_require__(0);
+
+var _classCallCheck3 = _interopRequireDefault(_classCallCheck2);
+
+var _createClass2 = __webpack_require__(1);
+
+var _createClass3 = _interopRequireDefault(_createClass2);
+
+var _possibleConstructorReturn2 = __webpack_require__(3);
+
+var _possibleConstructorReturn3 = _interopRequireDefault(_possibleConstructorReturn2);
+
+var _inherits2 = __webpack_require__(4);
+
+var _inherits3 = _interopRequireDefault(_inherits2);
+
+var _three = __webpack_require__(6);
 
 var THREE = _interopRequireWildcard(_three);
 
-var _propTypes = __webpack_require__(2);
+var _propTypes = __webpack_require__(7);
 
 var _propTypes2 = _interopRequireDefault(_propTypes);
 
-var _GeometryDescriptorBase = __webpack_require__(11);
+var _GeometryDescriptorBase = __webpack_require__(17);
 
 var _GeometryDescriptorBase2 = _interopRequireDefault(_GeometryDescriptorBase);
 
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
 function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj.default = obj; return newObj; } }
 
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-
-function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 var BoxGeometryDescriptor = function (_GeometryDescriptorBa) {
-  _inherits(BoxGeometryDescriptor, _GeometryDescriptorBa);
+  (0, _inherits3.default)(BoxGeometryDescriptor, _GeometryDescriptorBa);
 
   function BoxGeometryDescriptor(react3RendererInstance) {
-    _classCallCheck(this, BoxGeometryDescriptor);
+    (0, _classCallCheck3.default)(this, BoxGeometryDescriptor);
 
-    var _this = _possibleConstructorReturn(this, (BoxGeometryDescriptor.__proto__ || Object.getPrototypeOf(BoxGeometryDescriptor)).call(this, react3RendererInstance));
+    var _this = (0, _possibleConstructorReturn3.default)(this, (BoxGeometryDescriptor.__proto__ || (0, _getPrototypeOf2.default)(BoxGeometryDescriptor)).call(this, react3RendererInstance));
 
     ['width', 'height', 'depth'].forEach(function (propName) {
       _this.hasProp(propName, {
@@ -79896,7 +80807,7 @@ var BoxGeometryDescriptor = function (_GeometryDescriptorBa) {
     return _this;
   }
 
-  _createClass(BoxGeometryDescriptor, [{
+  (0, _createClass3.default)(BoxGeometryDescriptor, [{
     key: 'construct',
     value: function construct(props) {
       var width = props.width,
@@ -79910,50 +80821,61 @@ var BoxGeometryDescriptor = function (_GeometryDescriptorBa) {
       return new THREE.BoxGeometry(width, height, depth, widthSegments, heightSegments, depthSegments);
     }
   }]);
-
   return BoxGeometryDescriptor;
 }(_GeometryDescriptorBase2.default);
 
 module.exports = BoxGeometryDescriptor;
 
 /***/ }),
-/* 355 */
+/* 372 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
-var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+var _getPrototypeOf = __webpack_require__(2);
 
-var _three = __webpack_require__(1);
+var _getPrototypeOf2 = _interopRequireDefault(_getPrototypeOf);
+
+var _classCallCheck2 = __webpack_require__(0);
+
+var _classCallCheck3 = _interopRequireDefault(_classCallCheck2);
+
+var _createClass2 = __webpack_require__(1);
+
+var _createClass3 = _interopRequireDefault(_createClass2);
+
+var _possibleConstructorReturn2 = __webpack_require__(3);
+
+var _possibleConstructorReturn3 = _interopRequireDefault(_possibleConstructorReturn2);
+
+var _inherits2 = __webpack_require__(4);
+
+var _inherits3 = _interopRequireDefault(_inherits2);
+
+var _three = __webpack_require__(6);
 
 var THREE = _interopRequireWildcard(_three);
 
-var _propTypes = __webpack_require__(2);
+var _propTypes = __webpack_require__(7);
 
 var _propTypes2 = _interopRequireDefault(_propTypes);
 
-var _BufferGeometryDescriptorBase = __webpack_require__(69);
+var _BufferGeometryDescriptorBase = __webpack_require__(82);
 
 var _BufferGeometryDescriptorBase2 = _interopRequireDefault(_BufferGeometryDescriptorBase);
 
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
 function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj.default = obj; return newObj; } }
 
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-
-function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 var SphereGeometryDescriptor = function (_BufferGeometryDescri) {
-  _inherits(SphereGeometryDescriptor, _BufferGeometryDescri);
+  (0, _inherits3.default)(SphereGeometryDescriptor, _BufferGeometryDescri);
 
   function SphereGeometryDescriptor(react3Instance) {
-    _classCallCheck(this, SphereGeometryDescriptor);
+    (0, _classCallCheck3.default)(this, SphereGeometryDescriptor);
 
-    var _this = _possibleConstructorReturn(this, (SphereGeometryDescriptor.__proto__ || Object.getPrototypeOf(SphereGeometryDescriptor)).call(this, react3Instance));
+    var _this = (0, _possibleConstructorReturn3.default)(this, (SphereGeometryDescriptor.__proto__ || (0, _getPrototypeOf2.default)(SphereGeometryDescriptor)).call(this, react3Instance));
 
     _this.hasProp('radius', {
       type: _propTypes2.default.number,
@@ -79979,7 +80901,7 @@ var SphereGeometryDescriptor = function (_BufferGeometryDescri) {
     return _this;
   }
 
-  _createClass(SphereGeometryDescriptor, [{
+  (0, _createClass3.default)(SphereGeometryDescriptor, [{
     key: 'construct',
     value: function construct(props) {
       var radius = props.radius,
@@ -79994,50 +80916,61 @@ var SphereGeometryDescriptor = function (_BufferGeometryDescri) {
       return new THREE.SphereBufferGeometry(radius, widthSegments, heightSegments, phiStart, phiLength, thetaStart, thetaLength);
     }
   }]);
-
   return SphereGeometryDescriptor;
 }(_BufferGeometryDescriptorBase2.default);
 
 module.exports = SphereGeometryDescriptor;
 
 /***/ }),
-/* 356 */
+/* 373 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
-var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+var _getPrototypeOf = __webpack_require__(2);
 
-var _three = __webpack_require__(1);
+var _getPrototypeOf2 = _interopRequireDefault(_getPrototypeOf);
+
+var _classCallCheck2 = __webpack_require__(0);
+
+var _classCallCheck3 = _interopRequireDefault(_classCallCheck2);
+
+var _createClass2 = __webpack_require__(1);
+
+var _createClass3 = _interopRequireDefault(_createClass2);
+
+var _possibleConstructorReturn2 = __webpack_require__(3);
+
+var _possibleConstructorReturn3 = _interopRequireDefault(_possibleConstructorReturn2);
+
+var _inherits2 = __webpack_require__(4);
+
+var _inherits3 = _interopRequireDefault(_inherits2);
+
+var _three = __webpack_require__(6);
 
 var THREE = _interopRequireWildcard(_three);
 
-var _propTypes = __webpack_require__(2);
+var _propTypes = __webpack_require__(7);
 
 var _propTypes2 = _interopRequireDefault(_propTypes);
 
-var _GeometryDescriptorBase = __webpack_require__(11);
+var _GeometryDescriptorBase = __webpack_require__(17);
 
 var _GeometryDescriptorBase2 = _interopRequireDefault(_GeometryDescriptorBase);
 
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
 function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj.default = obj; return newObj; } }
 
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-
-function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 var ParametricGeometryDescriptor = function (_GeometryDescriptorBa) {
-  _inherits(ParametricGeometryDescriptor, _GeometryDescriptorBa);
+  (0, _inherits3.default)(ParametricGeometryDescriptor, _GeometryDescriptorBa);
 
   function ParametricGeometryDescriptor(react3Instance) {
-    _classCallCheck(this, ParametricGeometryDescriptor);
+    (0, _classCallCheck3.default)(this, ParametricGeometryDescriptor);
 
-    var _this = _possibleConstructorReturn(this, (ParametricGeometryDescriptor.__proto__ || Object.getPrototypeOf(ParametricGeometryDescriptor)).call(this, react3Instance));
+    var _this = (0, _possibleConstructorReturn3.default)(this, (ParametricGeometryDescriptor.__proto__ || (0, _getPrototypeOf2.default)(ParametricGeometryDescriptor)).call(this, react3Instance));
 
     ['slices', 'stacks'].forEach(function (propName) {
       _this.hasProp(propName, {
@@ -80055,7 +80988,7 @@ var ParametricGeometryDescriptor = function (_GeometryDescriptorBa) {
     return _this;
   }
 
-  _createClass(ParametricGeometryDescriptor, [{
+  (0, _createClass3.default)(ParametricGeometryDescriptor, [{
     key: 'construct',
     value: function construct(props) {
       var parametricFunction = props.parametricFunction,
@@ -80066,50 +80999,61 @@ var ParametricGeometryDescriptor = function (_GeometryDescriptorBa) {
       return new THREE.ParametricGeometry(parametricFunction, slices, stacks);
     }
   }]);
-
   return ParametricGeometryDescriptor;
 }(_GeometryDescriptorBase2.default);
 
 module.exports = ParametricGeometryDescriptor;
 
 /***/ }),
-/* 357 */
+/* 374 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
-var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+var _getPrototypeOf = __webpack_require__(2);
 
-var _three = __webpack_require__(1);
+var _getPrototypeOf2 = _interopRequireDefault(_getPrototypeOf);
+
+var _classCallCheck2 = __webpack_require__(0);
+
+var _classCallCheck3 = _interopRequireDefault(_classCallCheck2);
+
+var _createClass2 = __webpack_require__(1);
+
+var _createClass3 = _interopRequireDefault(_createClass2);
+
+var _possibleConstructorReturn2 = __webpack_require__(3);
+
+var _possibleConstructorReturn3 = _interopRequireDefault(_possibleConstructorReturn2);
+
+var _inherits2 = __webpack_require__(4);
+
+var _inherits3 = _interopRequireDefault(_inherits2);
+
+var _three = __webpack_require__(6);
 
 var THREE = _interopRequireWildcard(_three);
 
-var _propTypes = __webpack_require__(2);
+var _propTypes = __webpack_require__(7);
 
 var _propTypes2 = _interopRequireDefault(_propTypes);
 
-var _BufferGeometryDescriptorBase = __webpack_require__(69);
+var _BufferGeometryDescriptorBase = __webpack_require__(82);
 
 var _BufferGeometryDescriptorBase2 = _interopRequireDefault(_BufferGeometryDescriptorBase);
 
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
 function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj.default = obj; return newObj; } }
 
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-
-function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 var PlaneBufferGeometryDescriptor = function (_BufferGeometryDescri) {
-  _inherits(PlaneBufferGeometryDescriptor, _BufferGeometryDescri);
+  (0, _inherits3.default)(PlaneBufferGeometryDescriptor, _BufferGeometryDescri);
 
   function PlaneBufferGeometryDescriptor(react3Instance) {
-    _classCallCheck(this, PlaneBufferGeometryDescriptor);
+    (0, _classCallCheck3.default)(this, PlaneBufferGeometryDescriptor);
 
-    var _this = _possibleConstructorReturn(this, (PlaneBufferGeometryDescriptor.__proto__ || Object.getPrototypeOf(PlaneBufferGeometryDescriptor)).call(this, react3Instance));
+    var _this = (0, _possibleConstructorReturn3.default)(this, (PlaneBufferGeometryDescriptor.__proto__ || (0, _getPrototypeOf2.default)(PlaneBufferGeometryDescriptor)).call(this, react3Instance));
 
     ['width', 'height'].forEach(function (propName) {
       _this.hasProp(propName, {
@@ -80129,7 +81073,7 @@ var PlaneBufferGeometryDescriptor = function (_BufferGeometryDescri) {
     return _this;
   }
 
-  _createClass(PlaneBufferGeometryDescriptor, [{
+  (0, _createClass3.default)(PlaneBufferGeometryDescriptor, [{
     key: 'construct',
     value: function construct(props) {
       var width = props.width,
@@ -80141,50 +81085,61 @@ var PlaneBufferGeometryDescriptor = function (_BufferGeometryDescri) {
       return new THREE.PlaneBufferGeometry(width, height, widthSegments, heightSegments);
     }
   }]);
-
   return PlaneBufferGeometryDescriptor;
 }(_BufferGeometryDescriptorBase2.default);
 
 module.exports = PlaneBufferGeometryDescriptor;
 
 /***/ }),
-/* 358 */
+/* 375 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
-var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+var _getPrototypeOf = __webpack_require__(2);
 
-var _three = __webpack_require__(1);
+var _getPrototypeOf2 = _interopRequireDefault(_getPrototypeOf);
+
+var _classCallCheck2 = __webpack_require__(0);
+
+var _classCallCheck3 = _interopRequireDefault(_classCallCheck2);
+
+var _createClass2 = __webpack_require__(1);
+
+var _createClass3 = _interopRequireDefault(_createClass2);
+
+var _possibleConstructorReturn2 = __webpack_require__(3);
+
+var _possibleConstructorReturn3 = _interopRequireDefault(_possibleConstructorReturn2);
+
+var _inherits2 = __webpack_require__(4);
+
+var _inherits3 = _interopRequireDefault(_inherits2);
+
+var _three = __webpack_require__(6);
 
 var THREE = _interopRequireWildcard(_three);
 
-var _propTypes = __webpack_require__(2);
+var _propTypes = __webpack_require__(7);
 
 var _propTypes2 = _interopRequireDefault(_propTypes);
 
-var _GeometryDescriptorBase = __webpack_require__(11);
+var _GeometryDescriptorBase = __webpack_require__(17);
 
 var _GeometryDescriptorBase2 = _interopRequireDefault(_GeometryDescriptorBase);
 
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
 function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj.default = obj; return newObj; } }
 
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-
-function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 var PlaneGeometryDescriptor = function (_GeometryDescriptorBa) {
-  _inherits(PlaneGeometryDescriptor, _GeometryDescriptorBa);
+  (0, _inherits3.default)(PlaneGeometryDescriptor, _GeometryDescriptorBa);
 
   function PlaneGeometryDescriptor(react3RendererInstance) {
-    _classCallCheck(this, PlaneGeometryDescriptor);
+    (0, _classCallCheck3.default)(this, PlaneGeometryDescriptor);
 
-    var _this = _possibleConstructorReturn(this, (PlaneGeometryDescriptor.__proto__ || Object.getPrototypeOf(PlaneGeometryDescriptor)).call(this, react3RendererInstance));
+    var _this = (0, _possibleConstructorReturn3.default)(this, (PlaneGeometryDescriptor.__proto__ || (0, _getPrototypeOf2.default)(PlaneGeometryDescriptor)).call(this, react3RendererInstance));
 
     ['width', 'height'].forEach(function (propName) {
       _this.hasProp(propName, {
@@ -80204,7 +81159,7 @@ var PlaneGeometryDescriptor = function (_GeometryDescriptorBa) {
     return _this;
   }
 
-  _createClass(PlaneGeometryDescriptor, [{
+  (0, _createClass3.default)(PlaneGeometryDescriptor, [{
     key: 'construct',
     value: function construct(props) {
       var width = props.width,
@@ -80216,50 +81171,61 @@ var PlaneGeometryDescriptor = function (_GeometryDescriptorBa) {
       return new THREE.PlaneGeometry(width, height, widthSegments, heightSegments);
     }
   }]);
-
   return PlaneGeometryDescriptor;
 }(_GeometryDescriptorBase2.default);
 
 module.exports = PlaneGeometryDescriptor;
 
 /***/ }),
-/* 359 */
+/* 376 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
-var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+var _getPrototypeOf = __webpack_require__(2);
 
-var _three = __webpack_require__(1);
+var _getPrototypeOf2 = _interopRequireDefault(_getPrototypeOf);
+
+var _classCallCheck2 = __webpack_require__(0);
+
+var _classCallCheck3 = _interopRequireDefault(_classCallCheck2);
+
+var _createClass2 = __webpack_require__(1);
+
+var _createClass3 = _interopRequireDefault(_createClass2);
+
+var _possibleConstructorReturn2 = __webpack_require__(3);
+
+var _possibleConstructorReturn3 = _interopRequireDefault(_possibleConstructorReturn2);
+
+var _inherits2 = __webpack_require__(4);
+
+var _inherits3 = _interopRequireDefault(_inherits2);
+
+var _three = __webpack_require__(6);
 
 var THREE = _interopRequireWildcard(_three);
 
-var _propTypes = __webpack_require__(2);
+var _propTypes = __webpack_require__(7);
 
 var _propTypes2 = _interopRequireDefault(_propTypes);
 
-var _PolyhedronGeometryDescriptorBase = __webpack_require__(70);
+var _PolyhedronGeometryDescriptorBase = __webpack_require__(83);
 
 var _PolyhedronGeometryDescriptorBase2 = _interopRequireDefault(_PolyhedronGeometryDescriptorBase);
 
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
 function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj.default = obj; return newObj; } }
 
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-
-function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 var PolyhedronGeometryDescriptor = function (_PolyhedronGeometryDe) {
-  _inherits(PolyhedronGeometryDescriptor, _PolyhedronGeometryDe);
+  (0, _inherits3.default)(PolyhedronGeometryDescriptor, _PolyhedronGeometryDe);
 
   function PolyhedronGeometryDescriptor(react3RendererInstance) {
-    _classCallCheck(this, PolyhedronGeometryDescriptor);
+    (0, _classCallCheck3.default)(this, PolyhedronGeometryDescriptor);
 
-    var _this = _possibleConstructorReturn(this, (PolyhedronGeometryDescriptor.__proto__ || Object.getPrototypeOf(PolyhedronGeometryDescriptor)).call(this, react3RendererInstance));
+    var _this = (0, _possibleConstructorReturn3.default)(this, (PolyhedronGeometryDescriptor.__proto__ || (0, _getPrototypeOf2.default)(PolyhedronGeometryDescriptor)).call(this, react3RendererInstance));
 
     _this.hasProp('vertices', {
       override: true,
@@ -80276,7 +81242,7 @@ var PolyhedronGeometryDescriptor = function (_PolyhedronGeometryDe) {
     return _this;
   }
 
-  _createClass(PolyhedronGeometryDescriptor, [{
+  (0, _createClass3.default)(PolyhedronGeometryDescriptor, [{
     key: 'construct',
     value: function construct(props) {
       var vertices = props.vertices,
@@ -80288,49 +81254,59 @@ var PolyhedronGeometryDescriptor = function (_PolyhedronGeometryDe) {
       return new THREE.PolyhedronGeometry(vertices, indices, radius, detail);
     }
   }]);
-
   return PolyhedronGeometryDescriptor;
 }(_PolyhedronGeometryDescriptorBase2.default);
 
 module.exports = PolyhedronGeometryDescriptor;
 
 /***/ }),
-/* 360 */
+/* 377 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
-var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+var _getPrototypeOf = __webpack_require__(2);
 
-var _three = __webpack_require__(1);
+var _getPrototypeOf2 = _interopRequireDefault(_getPrototypeOf);
+
+var _classCallCheck2 = __webpack_require__(0);
+
+var _classCallCheck3 = _interopRequireDefault(_classCallCheck2);
+
+var _createClass2 = __webpack_require__(1);
+
+var _createClass3 = _interopRequireDefault(_createClass2);
+
+var _possibleConstructorReturn2 = __webpack_require__(3);
+
+var _possibleConstructorReturn3 = _interopRequireDefault(_possibleConstructorReturn2);
+
+var _inherits2 = __webpack_require__(4);
+
+var _inherits3 = _interopRequireDefault(_inherits2);
+
+var _three = __webpack_require__(6);
 
 var THREE = _interopRequireWildcard(_three);
 
-var _PolyhedronGeometryDescriptorBase = __webpack_require__(70);
+var _PolyhedronGeometryDescriptorBase = __webpack_require__(83);
 
 var _PolyhedronGeometryDescriptorBase2 = _interopRequireDefault(_PolyhedronGeometryDescriptorBase);
 
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
 function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj.default = obj; return newObj; } }
 
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-
-function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 var IcosahedronGeometryDescriptor = function (_PolyhedronGeometryDe) {
-  _inherits(IcosahedronGeometryDescriptor, _PolyhedronGeometryDe);
+  (0, _inherits3.default)(IcosahedronGeometryDescriptor, _PolyhedronGeometryDe);
 
   function IcosahedronGeometryDescriptor() {
-    _classCallCheck(this, IcosahedronGeometryDescriptor);
-
-    return _possibleConstructorReturn(this, (IcosahedronGeometryDescriptor.__proto__ || Object.getPrototypeOf(IcosahedronGeometryDescriptor)).apply(this, arguments));
+    (0, _classCallCheck3.default)(this, IcosahedronGeometryDescriptor);
+    return (0, _possibleConstructorReturn3.default)(this, (IcosahedronGeometryDescriptor.__proto__ || (0, _getPrototypeOf2.default)(IcosahedronGeometryDescriptor)).apply(this, arguments));
   }
 
-  _createClass(IcosahedronGeometryDescriptor, [{
+  (0, _createClass3.default)(IcosahedronGeometryDescriptor, [{
     key: 'construct',
     value: function construct(props) {
       var radius = props.radius,
@@ -80340,49 +81316,59 @@ var IcosahedronGeometryDescriptor = function (_PolyhedronGeometryDe) {
       return new THREE.IcosahedronGeometry(radius, detail);
     }
   }]);
-
   return IcosahedronGeometryDescriptor;
 }(_PolyhedronGeometryDescriptorBase2.default);
 
 module.exports = IcosahedronGeometryDescriptor;
 
 /***/ }),
-/* 361 */
+/* 378 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
-var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+var _getPrototypeOf = __webpack_require__(2);
 
-var _three = __webpack_require__(1);
+var _getPrototypeOf2 = _interopRequireDefault(_getPrototypeOf);
+
+var _classCallCheck2 = __webpack_require__(0);
+
+var _classCallCheck3 = _interopRequireDefault(_classCallCheck2);
+
+var _createClass2 = __webpack_require__(1);
+
+var _createClass3 = _interopRequireDefault(_createClass2);
+
+var _possibleConstructorReturn2 = __webpack_require__(3);
+
+var _possibleConstructorReturn3 = _interopRequireDefault(_possibleConstructorReturn2);
+
+var _inherits2 = __webpack_require__(4);
+
+var _inherits3 = _interopRequireDefault(_inherits2);
+
+var _three = __webpack_require__(6);
 
 var THREE = _interopRequireWildcard(_three);
 
-var _PolyhedronGeometryDescriptorBase = __webpack_require__(70);
+var _PolyhedronGeometryDescriptorBase = __webpack_require__(83);
 
 var _PolyhedronGeometryDescriptorBase2 = _interopRequireDefault(_PolyhedronGeometryDescriptorBase);
 
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
 function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj.default = obj; return newObj; } }
 
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-
-function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 var OctahedronGeometryDescriptor = function (_PolyhedronGeometryDe) {
-  _inherits(OctahedronGeometryDescriptor, _PolyhedronGeometryDe);
+  (0, _inherits3.default)(OctahedronGeometryDescriptor, _PolyhedronGeometryDe);
 
   function OctahedronGeometryDescriptor() {
-    _classCallCheck(this, OctahedronGeometryDescriptor);
-
-    return _possibleConstructorReturn(this, (OctahedronGeometryDescriptor.__proto__ || Object.getPrototypeOf(OctahedronGeometryDescriptor)).apply(this, arguments));
+    (0, _classCallCheck3.default)(this, OctahedronGeometryDescriptor);
+    return (0, _possibleConstructorReturn3.default)(this, (OctahedronGeometryDescriptor.__proto__ || (0, _getPrototypeOf2.default)(OctahedronGeometryDescriptor)).apply(this, arguments));
   }
 
-  _createClass(OctahedronGeometryDescriptor, [{
+  (0, _createClass3.default)(OctahedronGeometryDescriptor, [{
     key: 'construct',
     value: function construct(props) {
       var radius = props.radius,
@@ -80392,49 +81378,59 @@ var OctahedronGeometryDescriptor = function (_PolyhedronGeometryDe) {
       return new THREE.OctahedronGeometry(radius, detail);
     }
   }]);
-
   return OctahedronGeometryDescriptor;
 }(_PolyhedronGeometryDescriptorBase2.default);
 
 module.exports = OctahedronGeometryDescriptor;
 
 /***/ }),
-/* 362 */
+/* 379 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
-var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+var _getPrototypeOf = __webpack_require__(2);
 
-var _three = __webpack_require__(1);
+var _getPrototypeOf2 = _interopRequireDefault(_getPrototypeOf);
+
+var _classCallCheck2 = __webpack_require__(0);
+
+var _classCallCheck3 = _interopRequireDefault(_classCallCheck2);
+
+var _createClass2 = __webpack_require__(1);
+
+var _createClass3 = _interopRequireDefault(_createClass2);
+
+var _possibleConstructorReturn2 = __webpack_require__(3);
+
+var _possibleConstructorReturn3 = _interopRequireDefault(_possibleConstructorReturn2);
+
+var _inherits2 = __webpack_require__(4);
+
+var _inherits3 = _interopRequireDefault(_inherits2);
+
+var _three = __webpack_require__(6);
 
 var THREE = _interopRequireWildcard(_three);
 
-var _PolyhedronGeometryDescriptorBase = __webpack_require__(70);
+var _PolyhedronGeometryDescriptorBase = __webpack_require__(83);
 
 var _PolyhedronGeometryDescriptorBase2 = _interopRequireDefault(_PolyhedronGeometryDescriptorBase);
 
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
 function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj.default = obj; return newObj; } }
 
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-
-function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 var TetrahedronGeometryDescriptor = function (_PolyhedronGeometryDe) {
-  _inherits(TetrahedronGeometryDescriptor, _PolyhedronGeometryDe);
+  (0, _inherits3.default)(TetrahedronGeometryDescriptor, _PolyhedronGeometryDe);
 
   function TetrahedronGeometryDescriptor() {
-    _classCallCheck(this, TetrahedronGeometryDescriptor);
-
-    return _possibleConstructorReturn(this, (TetrahedronGeometryDescriptor.__proto__ || Object.getPrototypeOf(TetrahedronGeometryDescriptor)).apply(this, arguments));
+    (0, _classCallCheck3.default)(this, TetrahedronGeometryDescriptor);
+    return (0, _possibleConstructorReturn3.default)(this, (TetrahedronGeometryDescriptor.__proto__ || (0, _getPrototypeOf2.default)(TetrahedronGeometryDescriptor)).apply(this, arguments));
   }
 
-  _createClass(TetrahedronGeometryDescriptor, [{
+  (0, _createClass3.default)(TetrahedronGeometryDescriptor, [{
     key: 'construct',
     value: function construct(props) {
       var radius = props.radius,
@@ -80444,50 +81440,61 @@ var TetrahedronGeometryDescriptor = function (_PolyhedronGeometryDe) {
       return new THREE.TetrahedronGeometry(radius, detail);
     }
   }]);
-
   return TetrahedronGeometryDescriptor;
 }(_PolyhedronGeometryDescriptorBase2.default);
 
 module.exports = TetrahedronGeometryDescriptor;
 
 /***/ }),
-/* 363 */
+/* 380 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
-var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+var _getPrototypeOf = __webpack_require__(2);
 
-var _three = __webpack_require__(1);
+var _getPrototypeOf2 = _interopRequireDefault(_getPrototypeOf);
+
+var _classCallCheck2 = __webpack_require__(0);
+
+var _classCallCheck3 = _interopRequireDefault(_classCallCheck2);
+
+var _createClass2 = __webpack_require__(1);
+
+var _createClass3 = _interopRequireDefault(_createClass2);
+
+var _possibleConstructorReturn2 = __webpack_require__(3);
+
+var _possibleConstructorReturn3 = _interopRequireDefault(_possibleConstructorReturn2);
+
+var _inherits2 = __webpack_require__(4);
+
+var _inherits3 = _interopRequireDefault(_inherits2);
+
+var _three = __webpack_require__(6);
 
 var THREE = _interopRequireWildcard(_three);
 
-var _propTypes = __webpack_require__(2);
+var _propTypes = __webpack_require__(7);
 
 var _propTypes2 = _interopRequireDefault(_propTypes);
 
-var _GeometryDescriptorBase = __webpack_require__(11);
+var _GeometryDescriptorBase = __webpack_require__(17);
 
 var _GeometryDescriptorBase2 = _interopRequireDefault(_GeometryDescriptorBase);
 
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
 function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj.default = obj; return newObj; } }
 
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-
-function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 var CircleGeometryDescriptor = function (_GeometryDescriptorBa) {
-  _inherits(CircleGeometryDescriptor, _GeometryDescriptorBa);
+  (0, _inherits3.default)(CircleGeometryDescriptor, _GeometryDescriptorBa);
 
   function CircleGeometryDescriptor(react3RendererInstance) {
-    _classCallCheck(this, CircleGeometryDescriptor);
+    (0, _classCallCheck3.default)(this, CircleGeometryDescriptor);
 
-    var _this = _possibleConstructorReturn(this, (CircleGeometryDescriptor.__proto__ || Object.getPrototypeOf(CircleGeometryDescriptor)).call(this, react3RendererInstance));
+    var _this = (0, _possibleConstructorReturn3.default)(this, (CircleGeometryDescriptor.__proto__ || (0, _getPrototypeOf2.default)(CircleGeometryDescriptor)).call(this, react3RendererInstance));
 
     ['radius', 'segments', 'thetaStart', 'thetaLength'].forEach(function (propName) {
       _this.hasProp(propName, {
@@ -80499,7 +81506,7 @@ var CircleGeometryDescriptor = function (_GeometryDescriptorBa) {
     return _this;
   }
 
-  _createClass(CircleGeometryDescriptor, [{
+  (0, _createClass3.default)(CircleGeometryDescriptor, [{
     key: 'construct',
     value: function construct(props) {
       var radius = props.radius,
@@ -80511,50 +81518,61 @@ var CircleGeometryDescriptor = function (_GeometryDescriptorBa) {
       return new THREE.CircleGeometry(radius, segments, thetaStart, thetaLength);
     }
   }]);
-
   return CircleGeometryDescriptor;
 }(_GeometryDescriptorBase2.default);
 
 module.exports = CircleGeometryDescriptor;
 
 /***/ }),
-/* 364 */
+/* 381 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
-var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+var _getPrototypeOf = __webpack_require__(2);
 
-var _three = __webpack_require__(1);
+var _getPrototypeOf2 = _interopRequireDefault(_getPrototypeOf);
+
+var _classCallCheck2 = __webpack_require__(0);
+
+var _classCallCheck3 = _interopRequireDefault(_classCallCheck2);
+
+var _createClass2 = __webpack_require__(1);
+
+var _createClass3 = _interopRequireDefault(_createClass2);
+
+var _possibleConstructorReturn2 = __webpack_require__(3);
+
+var _possibleConstructorReturn3 = _interopRequireDefault(_possibleConstructorReturn2);
+
+var _inherits2 = __webpack_require__(4);
+
+var _inherits3 = _interopRequireDefault(_inherits2);
+
+var _three = __webpack_require__(6);
 
 var THREE = _interopRequireWildcard(_three);
 
-var _propTypes = __webpack_require__(2);
+var _propTypes = __webpack_require__(7);
 
 var _propTypes2 = _interopRequireDefault(_propTypes);
 
-var _BufferGeometryDescriptorBase = __webpack_require__(69);
+var _BufferGeometryDescriptorBase = __webpack_require__(82);
 
 var _BufferGeometryDescriptorBase2 = _interopRequireDefault(_BufferGeometryDescriptorBase);
 
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
 function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj.default = obj; return newObj; } }
 
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-
-function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 var CircleBufferGeometryDescriptor = function (_BufferGeometryDescri) {
-  _inherits(CircleBufferGeometryDescriptor, _BufferGeometryDescri);
+  (0, _inherits3.default)(CircleBufferGeometryDescriptor, _BufferGeometryDescri);
 
   function CircleBufferGeometryDescriptor(react3RendererInstance) {
-    _classCallCheck(this, CircleBufferGeometryDescriptor);
+    (0, _classCallCheck3.default)(this, CircleBufferGeometryDescriptor);
 
-    var _this = _possibleConstructorReturn(this, (CircleBufferGeometryDescriptor.__proto__ || Object.getPrototypeOf(CircleBufferGeometryDescriptor)).call(this, react3RendererInstance));
+    var _this = (0, _possibleConstructorReturn3.default)(this, (CircleBufferGeometryDescriptor.__proto__ || (0, _getPrototypeOf2.default)(CircleBufferGeometryDescriptor)).call(this, react3RendererInstance));
 
     ['radius', 'segments', 'thetaStart', 'thetaLength'].forEach(function (propName) {
       _this.hasProp(propName, {
@@ -80566,7 +81584,7 @@ var CircleBufferGeometryDescriptor = function (_BufferGeometryDescri) {
     return _this;
   }
 
-  _createClass(CircleBufferGeometryDescriptor, [{
+  (0, _createClass3.default)(CircleBufferGeometryDescriptor, [{
     key: 'construct',
     value: function construct(props) {
       var radius = props.radius,
@@ -80578,50 +81596,61 @@ var CircleBufferGeometryDescriptor = function (_BufferGeometryDescri) {
       return new THREE.CircleBufferGeometry(radius, segments, thetaStart, thetaLength);
     }
   }]);
-
   return CircleBufferGeometryDescriptor;
 }(_BufferGeometryDescriptorBase2.default);
 
 module.exports = CircleBufferGeometryDescriptor;
 
 /***/ }),
-/* 365 */
+/* 382 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
-var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+var _getPrototypeOf = __webpack_require__(2);
 
-var _three = __webpack_require__(1);
+var _getPrototypeOf2 = _interopRequireDefault(_getPrototypeOf);
+
+var _classCallCheck2 = __webpack_require__(0);
+
+var _classCallCheck3 = _interopRequireDefault(_classCallCheck2);
+
+var _createClass2 = __webpack_require__(1);
+
+var _createClass3 = _interopRequireDefault(_createClass2);
+
+var _possibleConstructorReturn2 = __webpack_require__(3);
+
+var _possibleConstructorReturn3 = _interopRequireDefault(_possibleConstructorReturn2);
+
+var _inherits2 = __webpack_require__(4);
+
+var _inherits3 = _interopRequireDefault(_inherits2);
+
+var _three = __webpack_require__(6);
 
 var THREE = _interopRequireWildcard(_three);
 
-var _propTypes = __webpack_require__(2);
+var _propTypes = __webpack_require__(7);
 
 var _propTypes2 = _interopRequireDefault(_propTypes);
 
-var _GeometryDescriptorBase = __webpack_require__(11);
+var _GeometryDescriptorBase = __webpack_require__(17);
 
 var _GeometryDescriptorBase2 = _interopRequireDefault(_GeometryDescriptorBase);
 
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
 function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj.default = obj; return newObj; } }
 
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-
-function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 var RingGeometryDescriptor = function (_GeometryDescriptorBa) {
-  _inherits(RingGeometryDescriptor, _GeometryDescriptorBa);
+  (0, _inherits3.default)(RingGeometryDescriptor, _GeometryDescriptorBa);
 
   function RingGeometryDescriptor(react3RendererInstance) {
-    _classCallCheck(this, RingGeometryDescriptor);
+    (0, _classCallCheck3.default)(this, RingGeometryDescriptor);
 
-    var _this = _possibleConstructorReturn(this, (RingGeometryDescriptor.__proto__ || Object.getPrototypeOf(RingGeometryDescriptor)).call(this, react3RendererInstance));
+    var _this = (0, _possibleConstructorReturn3.default)(this, (RingGeometryDescriptor.__proto__ || (0, _getPrototypeOf2.default)(RingGeometryDescriptor)).call(this, react3RendererInstance));
 
     ['innerRadius', 'outerRadius', 'thetaSegments', 'phiSegments', 'thetaStart', 'thetaLength'].forEach(function (propName) {
       _this.hasProp(propName, {
@@ -80633,7 +81662,7 @@ var RingGeometryDescriptor = function (_GeometryDescriptorBa) {
     return _this;
   }
 
-  _createClass(RingGeometryDescriptor, [{
+  (0, _createClass3.default)(RingGeometryDescriptor, [{
     key: 'construct',
     value: function construct(props) {
       var innerRadius = props.innerRadius,
@@ -80647,50 +81676,61 @@ var RingGeometryDescriptor = function (_GeometryDescriptorBa) {
       return new THREE.RingGeometry(innerRadius, outerRadius, thetaSegments, phiSegments, thetaStart, thetaLength);
     }
   }]);
-
   return RingGeometryDescriptor;
 }(_GeometryDescriptorBase2.default);
 
 module.exports = RingGeometryDescriptor;
 
 /***/ }),
-/* 366 */
+/* 383 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
-var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+var _getPrototypeOf = __webpack_require__(2);
 
-var _three = __webpack_require__(1);
+var _getPrototypeOf2 = _interopRequireDefault(_getPrototypeOf);
+
+var _classCallCheck2 = __webpack_require__(0);
+
+var _classCallCheck3 = _interopRequireDefault(_classCallCheck2);
+
+var _createClass2 = __webpack_require__(1);
+
+var _createClass3 = _interopRequireDefault(_createClass2);
+
+var _possibleConstructorReturn2 = __webpack_require__(3);
+
+var _possibleConstructorReturn3 = _interopRequireDefault(_possibleConstructorReturn2);
+
+var _inherits2 = __webpack_require__(4);
+
+var _inherits3 = _interopRequireDefault(_inherits2);
+
+var _three = __webpack_require__(6);
 
 var THREE = _interopRequireWildcard(_three);
 
-var _propTypes = __webpack_require__(2);
+var _propTypes = __webpack_require__(7);
 
 var _propTypes2 = _interopRequireDefault(_propTypes);
 
-var _GeometryDescriptorBase = __webpack_require__(11);
+var _GeometryDescriptorBase = __webpack_require__(17);
 
 var _GeometryDescriptorBase2 = _interopRequireDefault(_GeometryDescriptorBase);
 
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
 function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj.default = obj; return newObj; } }
 
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-
-function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 var CylinderGeometryDescriptor = function (_GeometryDescriptorBa) {
-  _inherits(CylinderGeometryDescriptor, _GeometryDescriptorBa);
+  (0, _inherits3.default)(CylinderGeometryDescriptor, _GeometryDescriptorBa);
 
   function CylinderGeometryDescriptor(react3RendererInstance) {
-    _classCallCheck(this, CylinderGeometryDescriptor);
+    (0, _classCallCheck3.default)(this, CylinderGeometryDescriptor);
 
-    var _this = _possibleConstructorReturn(this, (CylinderGeometryDescriptor.__proto__ || Object.getPrototypeOf(CylinderGeometryDescriptor)).call(this, react3RendererInstance));
+    var _this = (0, _possibleConstructorReturn3.default)(this, (CylinderGeometryDescriptor.__proto__ || (0, _getPrototypeOf2.default)(CylinderGeometryDescriptor)).call(this, react3RendererInstance));
 
     ['radiusTop', 'radiusBottom', 'height', 'radialSegments', 'heightSegments', 'openEnded', 'thetaStart', 'thetaLength'].forEach(function (propName) {
       _this.hasProp(propName, {
@@ -80702,7 +81742,7 @@ var CylinderGeometryDescriptor = function (_GeometryDescriptorBa) {
     return _this;
   }
 
-  _createClass(CylinderGeometryDescriptor, [{
+  (0, _createClass3.default)(CylinderGeometryDescriptor, [{
     key: 'construct',
     value: function construct(props) {
       var radiusTop = props.radiusTop,
@@ -80718,54 +81758,65 @@ var CylinderGeometryDescriptor = function (_GeometryDescriptorBa) {
       return new THREE.CylinderGeometry(radiusTop, radiusBottom, height, radialSegments, heightSegments, openEnded, thetaStart, thetaLength);
     }
   }]);
-
   return CylinderGeometryDescriptor;
 }(_GeometryDescriptorBase2.default);
 
 module.exports = CylinderGeometryDescriptor;
 
 /***/ }),
-/* 367 */
+/* 384 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
-var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+var _getPrototypeOf = __webpack_require__(2);
 
-var _three = __webpack_require__(1);
+var _getPrototypeOf2 = _interopRequireDefault(_getPrototypeOf);
+
+var _classCallCheck2 = __webpack_require__(0);
+
+var _classCallCheck3 = _interopRequireDefault(_classCallCheck2);
+
+var _createClass2 = __webpack_require__(1);
+
+var _createClass3 = _interopRequireDefault(_createClass2);
+
+var _possibleConstructorReturn2 = __webpack_require__(3);
+
+var _possibleConstructorReturn3 = _interopRequireDefault(_possibleConstructorReturn2);
+
+var _inherits2 = __webpack_require__(4);
+
+var _inherits3 = _interopRequireDefault(_inherits2);
+
+var _three = __webpack_require__(6);
 
 var THREE = _interopRequireWildcard(_three);
 
-var _propTypes = __webpack_require__(2);
+var _propTypes = __webpack_require__(7);
 
 var _propTypes2 = _interopRequireDefault(_propTypes);
 
-var _GeometryDescriptorBase = __webpack_require__(11);
+var _GeometryDescriptorBase = __webpack_require__(17);
 
 var _GeometryDescriptorBase2 = _interopRequireDefault(_GeometryDescriptorBase);
 
-var _propTypeInstanceOf = __webpack_require__(9);
+var _propTypeInstanceOf = __webpack_require__(15);
 
 var _propTypeInstanceOf2 = _interopRequireDefault(_propTypeInstanceOf);
 
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
 function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj.default = obj; return newObj; } }
 
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-
-function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 var LatheGeometryDescriptor = function (_GeometryDescriptorBa) {
-  _inherits(LatheGeometryDescriptor, _GeometryDescriptorBa);
+  (0, _inherits3.default)(LatheGeometryDescriptor, _GeometryDescriptorBa);
 
   function LatheGeometryDescriptor(react3RendererInstance) {
-    _classCallCheck(this, LatheGeometryDescriptor);
+    (0, _classCallCheck3.default)(this, LatheGeometryDescriptor);
 
-    var _this = _possibleConstructorReturn(this, (LatheGeometryDescriptor.__proto__ || Object.getPrototypeOf(LatheGeometryDescriptor)).call(this, react3RendererInstance));
+    var _this = (0, _possibleConstructorReturn3.default)(this, (LatheGeometryDescriptor.__proto__ || (0, _getPrototypeOf2.default)(LatheGeometryDescriptor)).call(this, react3RendererInstance));
 
     ['segments', 'phiStart', 'phiLength'].forEach(function (propName) {
       _this.hasProp(propName, {
@@ -80783,7 +81834,7 @@ var LatheGeometryDescriptor = function (_GeometryDescriptorBa) {
     return _this;
   }
 
-  _createClass(LatheGeometryDescriptor, [{
+  (0, _createClass3.default)(LatheGeometryDescriptor, [{
     key: 'construct',
     value: function construct(props) {
       var points = props.points,
@@ -80795,50 +81846,61 @@ var LatheGeometryDescriptor = function (_GeometryDescriptorBa) {
       return new THREE.LatheGeometry(points, segments, phiStart, phiLength);
     }
   }]);
-
   return LatheGeometryDescriptor;
 }(_GeometryDescriptorBase2.default);
 
 module.exports = LatheGeometryDescriptor;
 
 /***/ }),
-/* 368 */
+/* 385 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
-var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+var _getPrototypeOf = __webpack_require__(2);
 
-var _three = __webpack_require__(1);
+var _getPrototypeOf2 = _interopRequireDefault(_getPrototypeOf);
+
+var _classCallCheck2 = __webpack_require__(0);
+
+var _classCallCheck3 = _interopRequireDefault(_classCallCheck2);
+
+var _createClass2 = __webpack_require__(1);
+
+var _createClass3 = _interopRequireDefault(_createClass2);
+
+var _possibleConstructorReturn2 = __webpack_require__(3);
+
+var _possibleConstructorReturn3 = _interopRequireDefault(_possibleConstructorReturn2);
+
+var _inherits2 = __webpack_require__(4);
+
+var _inherits3 = _interopRequireDefault(_inherits2);
+
+var _three = __webpack_require__(6);
 
 var THREE = _interopRequireWildcard(_three);
 
-var _propTypes = __webpack_require__(2);
+var _propTypes = __webpack_require__(7);
 
 var _propTypes2 = _interopRequireDefault(_propTypes);
 
-var _GeometryDescriptorBase = __webpack_require__(11);
+var _GeometryDescriptorBase = __webpack_require__(17);
 
 var _GeometryDescriptorBase2 = _interopRequireDefault(_GeometryDescriptorBase);
 
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
 function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj.default = obj; return newObj; } }
 
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-
-function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 var TorusGeometryDescriptor = function (_GeometryDescriptorBa) {
-  _inherits(TorusGeometryDescriptor, _GeometryDescriptorBa);
+  (0, _inherits3.default)(TorusGeometryDescriptor, _GeometryDescriptorBa);
 
   function TorusGeometryDescriptor(react3RendererInstance) {
-    _classCallCheck(this, TorusGeometryDescriptor);
+    (0, _classCallCheck3.default)(this, TorusGeometryDescriptor);
 
-    var _this = _possibleConstructorReturn(this, (TorusGeometryDescriptor.__proto__ || Object.getPrototypeOf(TorusGeometryDescriptor)).call(this, react3RendererInstance));
+    var _this = (0, _possibleConstructorReturn3.default)(this, (TorusGeometryDescriptor.__proto__ || (0, _getPrototypeOf2.default)(TorusGeometryDescriptor)).call(this, react3RendererInstance));
 
     ['radius', 'tube', 'radialSegments', 'tubularSegments', 'arc'].forEach(function (propName) {
       _this.hasProp(propName, {
@@ -80850,7 +81912,7 @@ var TorusGeometryDescriptor = function (_GeometryDescriptorBa) {
     return _this;
   }
 
-  _createClass(TorusGeometryDescriptor, [{
+  (0, _createClass3.default)(TorusGeometryDescriptor, [{
     key: 'construct',
     value: function construct(props) {
       var radius = props.radius,
@@ -80863,50 +81925,61 @@ var TorusGeometryDescriptor = function (_GeometryDescriptorBa) {
       return new THREE.TorusGeometry(radius, tube, radialSegments, tubularSegments, arc);
     }
   }]);
-
   return TorusGeometryDescriptor;
 }(_GeometryDescriptorBase2.default);
 
 module.exports = TorusGeometryDescriptor;
 
 /***/ }),
-/* 369 */
+/* 386 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
-var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+var _getPrototypeOf = __webpack_require__(2);
 
-var _three = __webpack_require__(1);
+var _getPrototypeOf2 = _interopRequireDefault(_getPrototypeOf);
+
+var _classCallCheck2 = __webpack_require__(0);
+
+var _classCallCheck3 = _interopRequireDefault(_classCallCheck2);
+
+var _createClass2 = __webpack_require__(1);
+
+var _createClass3 = _interopRequireDefault(_createClass2);
+
+var _possibleConstructorReturn2 = __webpack_require__(3);
+
+var _possibleConstructorReturn3 = _interopRequireDefault(_possibleConstructorReturn2);
+
+var _inherits2 = __webpack_require__(4);
+
+var _inherits3 = _interopRequireDefault(_inherits2);
+
+var _three = __webpack_require__(6);
 
 var THREE = _interopRequireWildcard(_three);
 
-var _propTypes = __webpack_require__(2);
+var _propTypes = __webpack_require__(7);
 
 var _propTypes2 = _interopRequireDefault(_propTypes);
 
-var _GeometryDescriptorBase = __webpack_require__(11);
+var _GeometryDescriptorBase = __webpack_require__(17);
 
 var _GeometryDescriptorBase2 = _interopRequireDefault(_GeometryDescriptorBase);
 
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
 function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj.default = obj; return newObj; } }
 
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-
-function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 var TorusKnotGeometryDescriptor = function (_GeometryDescriptorBa) {
-  _inherits(TorusKnotGeometryDescriptor, _GeometryDescriptorBa);
+  (0, _inherits3.default)(TorusKnotGeometryDescriptor, _GeometryDescriptorBa);
 
   function TorusKnotGeometryDescriptor(react3RendererInstance) {
-    _classCallCheck(this, TorusKnotGeometryDescriptor);
+    (0, _classCallCheck3.default)(this, TorusKnotGeometryDescriptor);
 
-    var _this = _possibleConstructorReturn(this, (TorusKnotGeometryDescriptor.__proto__ || Object.getPrototypeOf(TorusKnotGeometryDescriptor)).call(this, react3RendererInstance));
+    var _this = (0, _possibleConstructorReturn3.default)(this, (TorusKnotGeometryDescriptor.__proto__ || (0, _getPrototypeOf2.default)(TorusKnotGeometryDescriptor)).call(this, react3RendererInstance));
 
     var defaultValues = [100, // 'radius',
     40, // 'tube',
@@ -80926,7 +81999,7 @@ var TorusKnotGeometryDescriptor = function (_GeometryDescriptorBa) {
     return _this;
   }
 
-  _createClass(TorusKnotGeometryDescriptor, [{
+  (0, _createClass3.default)(TorusKnotGeometryDescriptor, [{
     key: 'construct',
     value: function construct(props) {
       var radius = props.radius,
@@ -80941,58 +82014,73 @@ var TorusKnotGeometryDescriptor = function (_GeometryDescriptorBa) {
       return new THREE.TorusKnotGeometry(radius, tube, tubularSegments, radialSegments, p, q, heightScale);
     }
   }]);
-
   return TorusKnotGeometryDescriptor;
 }(_GeometryDescriptorBase2.default);
 
 module.exports = TorusKnotGeometryDescriptor;
 
 /***/ }),
-/* 370 */
+/* 387 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
-var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+var _extends2 = __webpack_require__(20);
 
-var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+var _extends3 = _interopRequireDefault(_extends2);
 
-var _get = function get(object, property, receiver) { if (object === null) object = Function.prototype; var desc = Object.getOwnPropertyDescriptor(object, property); if (desc === undefined) { var parent = Object.getPrototypeOf(object); if (parent === null) { return undefined; } else { return get(parent, property, receiver); } } else if ("value" in desc) { return desc.value; } else { var getter = desc.get; if (getter === undefined) { return undefined; } return getter.call(receiver); } };
+var _getPrototypeOf = __webpack_require__(2);
 
-var _three = __webpack_require__(1);
+var _getPrototypeOf2 = _interopRequireDefault(_getPrototypeOf);
+
+var _classCallCheck2 = __webpack_require__(0);
+
+var _classCallCheck3 = _interopRequireDefault(_classCallCheck2);
+
+var _createClass2 = __webpack_require__(1);
+
+var _createClass3 = _interopRequireDefault(_createClass2);
+
+var _possibleConstructorReturn2 = __webpack_require__(3);
+
+var _possibleConstructorReturn3 = _interopRequireDefault(_possibleConstructorReturn2);
+
+var _get2 = __webpack_require__(10);
+
+var _get3 = _interopRequireDefault(_get2);
+
+var _inherits2 = __webpack_require__(4);
+
+var _inherits3 = _interopRequireDefault(_inherits2);
+
+var _three = __webpack_require__(6);
 
 var THREE = _interopRequireWildcard(_three);
 
-var _propTypes = __webpack_require__(2);
+var _propTypes = __webpack_require__(7);
 
 var _propTypes2 = _interopRequireDefault(_propTypes);
 
-var _GeometryWithShapesDescriptor = __webpack_require__(179);
+var _GeometryWithShapesDescriptor = __webpack_require__(188);
 
 var _GeometryWithShapesDescriptor2 = _interopRequireDefault(_GeometryWithShapesDescriptor);
 
-var _propTypeInstanceOf = __webpack_require__(9);
+var _propTypeInstanceOf = __webpack_require__(15);
 
 var _propTypeInstanceOf2 = _interopRequireDefault(_propTypeInstanceOf);
 
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
 function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj.default = obj; return newObj; } }
 
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-
-function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 var ExtrudeGeometryDescriptor = function (_GeometryWithShapesDe) {
-  _inherits(ExtrudeGeometryDescriptor, _GeometryWithShapesDe);
+  (0, _inherits3.default)(ExtrudeGeometryDescriptor, _GeometryWithShapesDe);
 
   function ExtrudeGeometryDescriptor(react3RendererInstance) {
-    _classCallCheck(this, ExtrudeGeometryDescriptor);
+    (0, _classCallCheck3.default)(this, ExtrudeGeometryDescriptor);
 
-    var _this = _possibleConstructorReturn(this, (ExtrudeGeometryDescriptor.__proto__ || Object.getPrototypeOf(ExtrudeGeometryDescriptor)).call(this, react3RendererInstance));
+    var _this = (0, _possibleConstructorReturn3.default)(this, (ExtrudeGeometryDescriptor.__proto__ || (0, _getPrototypeOf2.default)(ExtrudeGeometryDescriptor)).call(this, react3RendererInstance));
 
     _this.hasProp('settings', {
       type: _propTypes2.default.any,
@@ -81068,19 +82156,19 @@ var ExtrudeGeometryDescriptor = function (_GeometryWithShapesDe) {
   // noinspection JSMethodCanBeStatic
 
 
-  _createClass(ExtrudeGeometryDescriptor, [{
+  (0, _createClass3.default)(ExtrudeGeometryDescriptor, [{
     key: 'refreshGeometry',
     value: function refreshGeometry(threeObject) {
       var shapes = threeObject.userData._shapeCache.filter(function (shape) {
         return !!shape;
       }).concat(threeObject.userData._shapesFromProps);
 
-      threeObject.fromGeometry(new THREE.ExtrudeGeometry(shapes, _extends({}, threeObject.userData._options, threeObject.userData._settings)));
+      threeObject.fromGeometry(new THREE.ExtrudeGeometry(shapes, (0, _extends3.default)({}, threeObject.userData._options, threeObject.userData._settings)));
     }
   }, {
     key: 'getOptions',
     value: function getOptions(props) {
-      var options = _get(ExtrudeGeometryDescriptor.prototype.__proto__ || Object.getPrototypeOf(ExtrudeGeometryDescriptor.prototype), 'getOptions', this).call(this, props);
+      var options = (0, _get3.default)(ExtrudeGeometryDescriptor.prototype.__proto__ || (0, _getPrototypeOf2.default)(ExtrudeGeometryDescriptor.prototype), 'getOptions', this).call(this, props);
 
       ['steps', 'amount', 'bevelEnabled', 'bevelThickness', 'bevelSize', 'bevelSegments', 'extrudePath', 'frames', 'extrudeMaterial'].forEach(function (propName) {
         if (props.hasOwnProperty(propName)) {
@@ -81091,54 +82179,65 @@ var ExtrudeGeometryDescriptor = function (_GeometryWithShapesDe) {
       return options;
     }
   }]);
-
   return ExtrudeGeometryDescriptor;
 }(_GeometryWithShapesDescriptor2.default);
 
 module.exports = ExtrudeGeometryDescriptor;
 
 /***/ }),
-/* 371 */
+/* 388 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
-var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+var _getPrototypeOf = __webpack_require__(2);
 
-var _three = __webpack_require__(1);
+var _getPrototypeOf2 = _interopRequireDefault(_getPrototypeOf);
+
+var _classCallCheck2 = __webpack_require__(0);
+
+var _classCallCheck3 = _interopRequireDefault(_classCallCheck2);
+
+var _createClass2 = __webpack_require__(1);
+
+var _createClass3 = _interopRequireDefault(_createClass2);
+
+var _possibleConstructorReturn2 = __webpack_require__(3);
+
+var _possibleConstructorReturn3 = _interopRequireDefault(_possibleConstructorReturn2);
+
+var _inherits2 = __webpack_require__(4);
+
+var _inherits3 = _interopRequireDefault(_inherits2);
+
+var _three = __webpack_require__(6);
 
 var THREE = _interopRequireWildcard(_three);
 
-var _propTypes = __webpack_require__(2);
+var _propTypes = __webpack_require__(7);
 
 var _propTypes2 = _interopRequireDefault(_propTypes);
 
-var _GeometryDescriptorBase = __webpack_require__(11);
+var _GeometryDescriptorBase = __webpack_require__(17);
 
 var _GeometryDescriptorBase2 = _interopRequireDefault(_GeometryDescriptorBase);
 
-var _propTypeInstanceOf = __webpack_require__(9);
+var _propTypeInstanceOf = __webpack_require__(15);
 
 var _propTypeInstanceOf2 = _interopRequireDefault(_propTypeInstanceOf);
 
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
 function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj.default = obj; return newObj; } }
 
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-
-function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 var TubeGeometryDescriptor = function (_GeometryDescriptorBa) {
-  _inherits(TubeGeometryDescriptor, _GeometryDescriptorBa);
+  (0, _inherits3.default)(TubeGeometryDescriptor, _GeometryDescriptorBa);
 
   function TubeGeometryDescriptor(react3RendererInstance) {
-    _classCallCheck(this, TubeGeometryDescriptor);
+    (0, _classCallCheck3.default)(this, TubeGeometryDescriptor);
 
-    var _this = _possibleConstructorReturn(this, (TubeGeometryDescriptor.__proto__ || Object.getPrototypeOf(TubeGeometryDescriptor)).call(this, react3RendererInstance));
+    var _this = (0, _possibleConstructorReturn3.default)(this, (TubeGeometryDescriptor.__proto__ || (0, _getPrototypeOf2.default)(TubeGeometryDescriptor)).call(this, react3RendererInstance));
 
     _this.hasProp('path', {
       type: (0, _propTypeInstanceOf2.default)(THREE.Curve).isRequired,
@@ -81171,7 +82270,7 @@ var TubeGeometryDescriptor = function (_GeometryDescriptorBa) {
     return _this;
   }
 
-  _createClass(TubeGeometryDescriptor, [{
+  (0, _createClass3.default)(TubeGeometryDescriptor, [{
     key: 'construct',
     value: function construct(props) {
       // props from https://threejs.org/docs/#api/geometries/TubeGeometry:
@@ -81185,50 +82284,61 @@ var TubeGeometryDescriptor = function (_GeometryDescriptorBa) {
       return new THREE.TubeGeometry(path, segments, radius, radiusSegments, closed);
     }
   }]);
-
   return TubeGeometryDescriptor;
 }(_GeometryDescriptorBase2.default);
 
 module.exports = TubeGeometryDescriptor;
 
 /***/ }),
-/* 372 */
+/* 389 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
-var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+var _getPrototypeOf = __webpack_require__(2);
 
-var _three = __webpack_require__(1);
+var _getPrototypeOf2 = _interopRequireDefault(_getPrototypeOf);
+
+var _classCallCheck2 = __webpack_require__(0);
+
+var _classCallCheck3 = _interopRequireDefault(_classCallCheck2);
+
+var _createClass2 = __webpack_require__(1);
+
+var _createClass3 = _interopRequireDefault(_createClass2);
+
+var _possibleConstructorReturn2 = __webpack_require__(3);
+
+var _possibleConstructorReturn3 = _interopRequireDefault(_possibleConstructorReturn2);
+
+var _inherits2 = __webpack_require__(4);
+
+var _inherits3 = _interopRequireDefault(_inherits2);
+
+var _three = __webpack_require__(6);
 
 var THREE = _interopRequireWildcard(_three);
 
-var _propTypes = __webpack_require__(2);
+var _propTypes = __webpack_require__(7);
 
 var _propTypes2 = _interopRequireDefault(_propTypes);
 
-var _GeometryDescriptorBase = __webpack_require__(11);
+var _GeometryDescriptorBase = __webpack_require__(17);
 
 var _GeometryDescriptorBase2 = _interopRequireDefault(_GeometryDescriptorBase);
 
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
 function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj.default = obj; return newObj; } }
 
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-
-function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 var DodecahedronGeometryDescriptor = function (_GeometryDescriptorBa) {
-  _inherits(DodecahedronGeometryDescriptor, _GeometryDescriptorBa);
+  (0, _inherits3.default)(DodecahedronGeometryDescriptor, _GeometryDescriptorBa);
 
   function DodecahedronGeometryDescriptor(react3RendererInstance) {
-    _classCallCheck(this, DodecahedronGeometryDescriptor);
+    (0, _classCallCheck3.default)(this, DodecahedronGeometryDescriptor);
 
-    var _this = _possibleConstructorReturn(this, (DodecahedronGeometryDescriptor.__proto__ || Object.getPrototypeOf(DodecahedronGeometryDescriptor)).call(this, react3RendererInstance));
+    var _this = (0, _possibleConstructorReturn3.default)(this, (DodecahedronGeometryDescriptor.__proto__ || (0, _getPrototypeOf2.default)(DodecahedronGeometryDescriptor)).call(this, react3RendererInstance));
 
     _this.hasProp('radius', {
       type: _propTypes2.default.number,
@@ -81244,7 +82354,7 @@ var DodecahedronGeometryDescriptor = function (_GeometryDescriptorBa) {
     return _this;
   }
 
-  _createClass(DodecahedronGeometryDescriptor, [{
+  (0, _createClass3.default)(DodecahedronGeometryDescriptor, [{
     key: 'construct',
     value: function construct(props) {
       // props from https://threejs.org/docs/#api/geometries/DodecahedronGeometry:
@@ -81255,50 +82365,61 @@ var DodecahedronGeometryDescriptor = function (_GeometryDescriptorBa) {
       return new THREE.DodecahedronGeometry(radius, detail);
     }
   }]);
-
   return DodecahedronGeometryDescriptor;
 }(_GeometryDescriptorBase2.default);
 
 module.exports = DodecahedronGeometryDescriptor;
 
 /***/ }),
-/* 373 */
+/* 390 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
-var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+var _getPrototypeOf = __webpack_require__(2);
 
-var _three = __webpack_require__(1);
+var _getPrototypeOf2 = _interopRequireDefault(_getPrototypeOf);
+
+var _classCallCheck2 = __webpack_require__(0);
+
+var _classCallCheck3 = _interopRequireDefault(_classCallCheck2);
+
+var _createClass2 = __webpack_require__(1);
+
+var _createClass3 = _interopRequireDefault(_createClass2);
+
+var _possibleConstructorReturn2 = __webpack_require__(3);
+
+var _possibleConstructorReturn3 = _interopRequireDefault(_possibleConstructorReturn2);
+
+var _inherits2 = __webpack_require__(4);
+
+var _inherits3 = _interopRequireDefault(_inherits2);
+
+var _three = __webpack_require__(6);
 
 var THREE = _interopRequireWildcard(_three);
 
-var _propTypes = __webpack_require__(2);
+var _propTypes = __webpack_require__(7);
 
 var _propTypes2 = _interopRequireDefault(_propTypes);
 
-var _GeometryDescriptorBase = __webpack_require__(11);
+var _GeometryDescriptorBase = __webpack_require__(17);
 
 var _GeometryDescriptorBase2 = _interopRequireDefault(_GeometryDescriptorBase);
 
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
 function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj.default = obj; return newObj; } }
 
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-
-function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 var TextGeometryDescriptor = function (_GeometryDescriptorBa) {
-  _inherits(TextGeometryDescriptor, _GeometryDescriptorBa);
+  (0, _inherits3.default)(TextGeometryDescriptor, _GeometryDescriptorBa);
 
   function TextGeometryDescriptor(react3RendererInstance) {
-    _classCallCheck(this, TextGeometryDescriptor);
+    (0, _classCallCheck3.default)(this, TextGeometryDescriptor);
 
-    var _this = _possibleConstructorReturn(this, (TextGeometryDescriptor.__proto__ || Object.getPrototypeOf(TextGeometryDescriptor)).call(this, react3RendererInstance));
+    var _this = (0, _possibleConstructorReturn3.default)(this, (TextGeometryDescriptor.__proto__ || (0, _getPrototypeOf2.default)(TextGeometryDescriptor)).call(this, react3RendererInstance));
 
     _this.hasProp('text', {
       type: _propTypes2.default.string.isRequired,
@@ -81348,7 +82469,7 @@ var TextGeometryDescriptor = function (_GeometryDescriptorBa) {
     return _this;
   }
 
-  _createClass(TextGeometryDescriptor, [{
+  (0, _createClass3.default)(TextGeometryDescriptor, [{
     key: 'construct',
     value: function construct(props) {
       // props from https://threejs.org/docs/#api/geometries/TextGeometry:
@@ -81373,49 +82494,59 @@ var TextGeometryDescriptor = function (_GeometryDescriptorBa) {
       });
     }
   }]);
-
   return TextGeometryDescriptor;
 }(_GeometryDescriptorBase2.default);
 
 module.exports = TextGeometryDescriptor;
 
 /***/ }),
-/* 374 */
+/* 391 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
-var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+var _getPrototypeOf = __webpack_require__(2);
 
-var _three = __webpack_require__(1);
+var _getPrototypeOf2 = _interopRequireDefault(_getPrototypeOf);
+
+var _classCallCheck2 = __webpack_require__(0);
+
+var _classCallCheck3 = _interopRequireDefault(_classCallCheck2);
+
+var _createClass2 = __webpack_require__(1);
+
+var _createClass3 = _interopRequireDefault(_createClass2);
+
+var _possibleConstructorReturn2 = __webpack_require__(3);
+
+var _possibleConstructorReturn3 = _interopRequireDefault(_possibleConstructorReturn2);
+
+var _inherits2 = __webpack_require__(4);
+
+var _inherits3 = _interopRequireDefault(_inherits2);
+
+var _three = __webpack_require__(6);
 
 var THREE = _interopRequireWildcard(_three);
 
-var _GeometryWithShapesDescriptor = __webpack_require__(179);
+var _GeometryWithShapesDescriptor = __webpack_require__(188);
 
 var _GeometryWithShapesDescriptor2 = _interopRequireDefault(_GeometryWithShapesDescriptor);
 
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
 function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj.default = obj; return newObj; } }
 
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-
-function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 var ShapeGeometryDescriptor = function (_GeometryWithShapesDe) {
-  _inherits(ShapeGeometryDescriptor, _GeometryWithShapesDe);
+  (0, _inherits3.default)(ShapeGeometryDescriptor, _GeometryWithShapesDe);
 
   function ShapeGeometryDescriptor() {
-    _classCallCheck(this, ShapeGeometryDescriptor);
-
-    return _possibleConstructorReturn(this, (ShapeGeometryDescriptor.__proto__ || Object.getPrototypeOf(ShapeGeometryDescriptor)).apply(this, arguments));
+    (0, _classCallCheck3.default)(this, ShapeGeometryDescriptor);
+    return (0, _possibleConstructorReturn3.default)(this, (ShapeGeometryDescriptor.__proto__ || (0, _getPrototypeOf2.default)(ShapeGeometryDescriptor)).apply(this, arguments));
   }
 
-  _createClass(ShapeGeometryDescriptor, [{
+  (0, _createClass3.default)(ShapeGeometryDescriptor, [{
     key: 'refreshGeometry',
 
     // noinspection JSMethodCanBeStatic
@@ -81431,54 +82562,65 @@ var ShapeGeometryDescriptor = function (_GeometryWithShapesDe) {
       }
     }
   }]);
-
   return ShapeGeometryDescriptor;
 }(_GeometryWithShapesDescriptor2.default);
 
 module.exports = ShapeGeometryDescriptor;
 
 /***/ }),
-/* 375 */
+/* 392 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
-var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+var _getPrototypeOf = __webpack_require__(2);
 
-var _three = __webpack_require__(1);
+var _getPrototypeOf2 = _interopRequireDefault(_getPrototypeOf);
+
+var _classCallCheck2 = __webpack_require__(0);
+
+var _classCallCheck3 = _interopRequireDefault(_classCallCheck2);
+
+var _createClass2 = __webpack_require__(1);
+
+var _createClass3 = _interopRequireDefault(_createClass2);
+
+var _possibleConstructorReturn2 = __webpack_require__(3);
+
+var _possibleConstructorReturn3 = _interopRequireDefault(_possibleConstructorReturn2);
+
+var _inherits2 = __webpack_require__(4);
+
+var _inherits3 = _interopRequireDefault(_inherits2);
+
+var _three = __webpack_require__(6);
 
 var THREE = _interopRequireWildcard(_three);
 
-var _propTypes = __webpack_require__(2);
+var _propTypes = __webpack_require__(7);
 
 var _propTypes2 = _interopRequireDefault(_propTypes);
 
-var _BufferGeometryDescriptorBase = __webpack_require__(69);
+var _BufferGeometryDescriptorBase = __webpack_require__(82);
 
 var _BufferGeometryDescriptorBase2 = _interopRequireDefault(_BufferGeometryDescriptorBase);
 
-var _propTypeInstanceOf = __webpack_require__(9);
+var _propTypeInstanceOf = __webpack_require__(15);
 
 var _propTypeInstanceOf2 = _interopRequireDefault(_propTypeInstanceOf);
 
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
 function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj.default = obj; return newObj; } }
 
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-
-function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 var EdgesGeometryDescriptor = function (_BufferGeometryDescri) {
-  _inherits(EdgesGeometryDescriptor, _BufferGeometryDescri);
+  (0, _inherits3.default)(EdgesGeometryDescriptor, _BufferGeometryDescri);
 
   function EdgesGeometryDescriptor(react3RendererInstance) {
-    _classCallCheck(this, EdgesGeometryDescriptor);
+    (0, _classCallCheck3.default)(this, EdgesGeometryDescriptor);
 
-    var _this = _possibleConstructorReturn(this, (EdgesGeometryDescriptor.__proto__ || Object.getPrototypeOf(EdgesGeometryDescriptor)).call(this, react3RendererInstance));
+    var _this = (0, _possibleConstructorReturn3.default)(this, (EdgesGeometryDescriptor.__proto__ || (0, _getPrototypeOf2.default)(EdgesGeometryDescriptor)).call(this, react3RendererInstance));
 
     _this.hasProp('thresholdAngle', {
       type: _propTypes2.default.number,
@@ -81494,7 +82636,7 @@ var EdgesGeometryDescriptor = function (_BufferGeometryDescri) {
     return _this;
   }
 
-  _createClass(EdgesGeometryDescriptor, [{
+  (0, _createClass3.default)(EdgesGeometryDescriptor, [{
     key: 'construct',
     value: function construct(props) {
       var geometry = props.geometry,
@@ -81504,55 +82646,65 @@ var EdgesGeometryDescriptor = function (_BufferGeometryDescri) {
       return new THREE.EdgesGeometry(geometry, thresholdAngle);
     }
   }]);
-
   return EdgesGeometryDescriptor;
 }(_BufferGeometryDescriptorBase2.default);
 
 module.exports = EdgesGeometryDescriptor;
 
 /***/ }),
-/* 376 */
+/* 393 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
-var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+var _getPrototypeOf = __webpack_require__(2);
+
+var _getPrototypeOf2 = _interopRequireDefault(_getPrototypeOf);
+
+var _classCallCheck2 = __webpack_require__(0);
+
+var _classCallCheck3 = _interopRequireDefault(_classCallCheck2);
+
+var _createClass2 = __webpack_require__(1);
+
+var _createClass3 = _interopRequireDefault(_createClass2);
+
+var _possibleConstructorReturn2 = __webpack_require__(3);
+
+var _possibleConstructorReturn3 = _interopRequireDefault(_possibleConstructorReturn2);
+
+var _inherits2 = __webpack_require__(4);
+
+var _inherits3 = _interopRequireDefault(_inherits2);
 
 var _class;
 
-var _three = __webpack_require__(1);
+var _three = __webpack_require__(6);
 
 var THREE = _interopRequireWildcard(_three);
 
-var _PathDescriptorBase2 = __webpack_require__(180);
+var _PathDescriptorBase2 = __webpack_require__(189);
 
 var _PathDescriptorBase3 = _interopRequireDefault(_PathDescriptorBase2);
 
-var _resource = __webpack_require__(68);
+var _resource = __webpack_require__(81);
 
 var _resource2 = _interopRequireDefault(_resource);
 
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
 function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj.default = obj; return newObj; } }
 
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-
-function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 var ShapeDescriptor = (0, _resource2.default)(_class = function (_PathDescriptorBase) {
-  _inherits(ShapeDescriptor, _PathDescriptorBase);
+  (0, _inherits3.default)(ShapeDescriptor, _PathDescriptorBase);
 
   function ShapeDescriptor() {
-    _classCallCheck(this, ShapeDescriptor);
-
-    return _possibleConstructorReturn(this, (ShapeDescriptor.__proto__ || Object.getPrototypeOf(ShapeDescriptor)).apply(this, arguments));
+    (0, _classCallCheck3.default)(this, ShapeDescriptor);
+    return (0, _possibleConstructorReturn3.default)(this, (ShapeDescriptor.__proto__ || (0, _getPrototypeOf2.default)(ShapeDescriptor)).apply(this, arguments));
   }
 
-  _createClass(ShapeDescriptor, [{
+  (0, _createClass3.default)(ShapeDescriptor, [{
     key: 'construct',
     value: function construct(props) {
       if (props.hasOwnProperty('points')) {
@@ -81562,48 +82714,59 @@ var ShapeDescriptor = (0, _resource2.default)(_class = function (_PathDescriptor
       return new THREE.Shape();
     }
   }]);
-
   return ShapeDescriptor;
 }(_PathDescriptorBase3.default)) || _class;
 
 module.exports = ShapeDescriptor;
 
 /***/ }),
-/* 377 */
+/* 394 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
-var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+var _getPrototypeOf = __webpack_require__(2);
 
-var _propTypes = __webpack_require__(2);
+var _getPrototypeOf2 = _interopRequireDefault(_getPrototypeOf);
+
+var _classCallCheck2 = __webpack_require__(0);
+
+var _classCallCheck3 = _interopRequireDefault(_classCallCheck2);
+
+var _createClass2 = __webpack_require__(1);
+
+var _createClass3 = _interopRequireDefault(_createClass2);
+
+var _possibleConstructorReturn2 = __webpack_require__(3);
+
+var _possibleConstructorReturn3 = _interopRequireDefault(_possibleConstructorReturn2);
+
+var _inherits2 = __webpack_require__(4);
+
+var _inherits3 = _interopRequireDefault(_inherits2);
+
+var _propTypes = __webpack_require__(7);
 
 var _propTypes2 = _interopRequireDefault(_propTypes);
 
-var _ShapeActionDescriptorBase = __webpack_require__(34);
+var _ShapeActionDescriptorBase = __webpack_require__(44);
 
 var _ShapeActionDescriptorBase2 = _interopRequireDefault(_ShapeActionDescriptorBase);
 
-var _MoveToAction = __webpack_require__(378);
+var _MoveToAction = __webpack_require__(395);
 
 var _MoveToAction2 = _interopRequireDefault(_MoveToAction);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-
-function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-
 var MoveToDescriptor = function (_ShapeActionDescripto) {
-  _inherits(MoveToDescriptor, _ShapeActionDescripto);
+  (0, _inherits3.default)(MoveToDescriptor, _ShapeActionDescripto);
 
   function MoveToDescriptor(react3RendererInstance) {
-    _classCallCheck(this, MoveToDescriptor);
+    (0, _classCallCheck3.default)(this, MoveToDescriptor);
 
-    var _this = _possibleConstructorReturn(this, (MoveToDescriptor.__proto__ || Object.getPrototypeOf(MoveToDescriptor)).call(this, react3RendererInstance));
+    var _this = (0, _possibleConstructorReturn3.default)(this, (MoveToDescriptor.__proto__ || (0, _getPrototypeOf2.default)(MoveToDescriptor)).call(this, react3RendererInstance));
 
     ['x', 'y'].forEach(function (propName) {
       _this.hasProp(propName, {
@@ -81615,106 +82778,128 @@ var MoveToDescriptor = function (_ShapeActionDescripto) {
     return _this;
   }
 
-  _createClass(MoveToDescriptor, [{
+  (0, _createClass3.default)(MoveToDescriptor, [{
     key: 'construct',
     value: function construct(props) {
       return new _MoveToAction2.default(props.x, props.y);
     }
   }]);
-
   return MoveToDescriptor;
 }(_ShapeActionDescriptorBase2.default);
 
 module.exports = MoveToDescriptor;
 
 /***/ }),
-/* 378 */
+/* 395 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
-var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+var _getPrototypeOf = __webpack_require__(2);
 
-var _three = __webpack_require__(1);
+var _getPrototypeOf2 = _interopRequireDefault(_getPrototypeOf);
+
+var _classCallCheck2 = __webpack_require__(0);
+
+var _classCallCheck3 = _interopRequireDefault(_classCallCheck2);
+
+var _createClass2 = __webpack_require__(1);
+
+var _createClass3 = _interopRequireDefault(_createClass2);
+
+var _possibleConstructorReturn2 = __webpack_require__(3);
+
+var _possibleConstructorReturn3 = _interopRequireDefault(_possibleConstructorReturn2);
+
+var _inherits2 = __webpack_require__(4);
+
+var _inherits3 = _interopRequireDefault(_inherits2);
+
+var _three = __webpack_require__(6);
 
 var THREE = _interopRequireWildcard(_three);
 
-var _ShapeAction2 = __webpack_require__(23);
+var _ShapeAction2 = __webpack_require__(31);
 
 var _ShapeAction3 = _interopRequireDefault(_ShapeAction2);
 
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
 function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj.default = obj; return newObj; } }
 
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-
-function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 var MoveToAction = function (_ShapeAction) {
-  _inherits(MoveToAction, _ShapeAction);
+  (0, _inherits3.default)(MoveToAction, _ShapeAction);
 
   function MoveToAction(x, y) {
-    _classCallCheck(this, MoveToAction);
+    (0, _classCallCheck3.default)(this, MoveToAction);
 
-    var _this = _possibleConstructorReturn(this, (MoveToAction.__proto__ || Object.getPrototypeOf(MoveToAction)).call(this));
+    var _this = (0, _possibleConstructorReturn3.default)(this, (MoveToAction.__proto__ || (0, _getPrototypeOf2.default)(MoveToAction)).call(this));
 
     _this.x = x;
     _this.y = y;
     return _this;
   }
 
-  _createClass(MoveToAction, [{
+  (0, _createClass3.default)(MoveToAction, [{
     key: 'performAction',
     value: function performAction(shape) {
       shape.moveTo(this.x, this.y);
     }
   }]);
-
   return MoveToAction;
 }(_ShapeAction3.default);
 
 module.exports = MoveToAction;
 
 /***/ }),
-/* 379 */
+/* 396 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
-var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+var _getPrototypeOf = __webpack_require__(2);
 
-var _propTypes = __webpack_require__(2);
+var _getPrototypeOf2 = _interopRequireDefault(_getPrototypeOf);
+
+var _classCallCheck2 = __webpack_require__(0);
+
+var _classCallCheck3 = _interopRequireDefault(_classCallCheck2);
+
+var _createClass2 = __webpack_require__(1);
+
+var _createClass3 = _interopRequireDefault(_createClass2);
+
+var _possibleConstructorReturn2 = __webpack_require__(3);
+
+var _possibleConstructorReturn3 = _interopRequireDefault(_possibleConstructorReturn2);
+
+var _inherits2 = __webpack_require__(4);
+
+var _inherits3 = _interopRequireDefault(_inherits2);
+
+var _propTypes = __webpack_require__(7);
 
 var _propTypes2 = _interopRequireDefault(_propTypes);
 
-var _ShapeActionDescriptorBase = __webpack_require__(34);
+var _ShapeActionDescriptorBase = __webpack_require__(44);
 
 var _ShapeActionDescriptorBase2 = _interopRequireDefault(_ShapeActionDescriptorBase);
 
-var _LineToAction = __webpack_require__(380);
+var _LineToAction = __webpack_require__(397);
 
 var _LineToAction2 = _interopRequireDefault(_LineToAction);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-
-function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-
 var LineToDescriptor = function (_ShapeActionDescripto) {
-  _inherits(LineToDescriptor, _ShapeActionDescripto);
+  (0, _inherits3.default)(LineToDescriptor, _ShapeActionDescripto);
 
   function LineToDescriptor(react3RendererInstance) {
-    _classCallCheck(this, LineToDescriptor);
+    (0, _classCallCheck3.default)(this, LineToDescriptor);
 
-    var _this = _possibleConstructorReturn(this, (LineToDescriptor.__proto__ || Object.getPrototypeOf(LineToDescriptor)).call(this, react3RendererInstance));
+    var _this = (0, _possibleConstructorReturn3.default)(this, (LineToDescriptor.__proto__ || (0, _getPrototypeOf2.default)(LineToDescriptor)).call(this, react3RendererInstance));
 
     ['x', 'y'].forEach(function (propName) {
       _this.hasProp(propName, {
@@ -81726,106 +82911,128 @@ var LineToDescriptor = function (_ShapeActionDescripto) {
     return _this;
   }
 
-  _createClass(LineToDescriptor, [{
+  (0, _createClass3.default)(LineToDescriptor, [{
     key: 'construct',
     value: function construct(props) {
       return new _LineToAction2.default(props.x, props.y);
     }
   }]);
-
   return LineToDescriptor;
 }(_ShapeActionDescriptorBase2.default);
 
 module.exports = LineToDescriptor;
 
 /***/ }),
-/* 380 */
+/* 397 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
-var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+var _getPrototypeOf = __webpack_require__(2);
 
-var _three = __webpack_require__(1);
+var _getPrototypeOf2 = _interopRequireDefault(_getPrototypeOf);
+
+var _classCallCheck2 = __webpack_require__(0);
+
+var _classCallCheck3 = _interopRequireDefault(_classCallCheck2);
+
+var _createClass2 = __webpack_require__(1);
+
+var _createClass3 = _interopRequireDefault(_createClass2);
+
+var _possibleConstructorReturn2 = __webpack_require__(3);
+
+var _possibleConstructorReturn3 = _interopRequireDefault(_possibleConstructorReturn2);
+
+var _inherits2 = __webpack_require__(4);
+
+var _inherits3 = _interopRequireDefault(_inherits2);
+
+var _three = __webpack_require__(6);
 
 var THREE = _interopRequireWildcard(_three);
 
-var _ShapeAction2 = __webpack_require__(23);
+var _ShapeAction2 = __webpack_require__(31);
 
 var _ShapeAction3 = _interopRequireDefault(_ShapeAction2);
 
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
 function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj.default = obj; return newObj; } }
 
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-
-function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 var LineToAction = function (_ShapeAction) {
-  _inherits(LineToAction, _ShapeAction);
+  (0, _inherits3.default)(LineToAction, _ShapeAction);
 
   function LineToAction(x, y) {
-    _classCallCheck(this, LineToAction);
+    (0, _classCallCheck3.default)(this, LineToAction);
 
-    var _this = _possibleConstructorReturn(this, (LineToAction.__proto__ || Object.getPrototypeOf(LineToAction)).call(this));
+    var _this = (0, _possibleConstructorReturn3.default)(this, (LineToAction.__proto__ || (0, _getPrototypeOf2.default)(LineToAction)).call(this));
 
     _this.x = x;
     _this.y = y;
     return _this;
   }
 
-  _createClass(LineToAction, [{
+  (0, _createClass3.default)(LineToAction, [{
     key: 'performAction',
     value: function performAction(shape) {
       shape.lineTo(this.x, this.y);
     }
   }]);
-
   return LineToAction;
 }(_ShapeAction3.default);
 
 module.exports = LineToAction;
 
 /***/ }),
-/* 381 */
+/* 398 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
-var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+var _getPrototypeOf = __webpack_require__(2);
 
-var _propTypes = __webpack_require__(2);
+var _getPrototypeOf2 = _interopRequireDefault(_getPrototypeOf);
+
+var _classCallCheck2 = __webpack_require__(0);
+
+var _classCallCheck3 = _interopRequireDefault(_classCallCheck2);
+
+var _createClass2 = __webpack_require__(1);
+
+var _createClass3 = _interopRequireDefault(_createClass2);
+
+var _possibleConstructorReturn2 = __webpack_require__(3);
+
+var _possibleConstructorReturn3 = _interopRequireDefault(_possibleConstructorReturn2);
+
+var _inherits2 = __webpack_require__(4);
+
+var _inherits3 = _interopRequireDefault(_inherits2);
+
+var _propTypes = __webpack_require__(7);
 
 var _propTypes2 = _interopRequireDefault(_propTypes);
 
-var _ShapeActionDescriptorBase = __webpack_require__(34);
+var _ShapeActionDescriptorBase = __webpack_require__(44);
 
 var _ShapeActionDescriptorBase2 = _interopRequireDefault(_ShapeActionDescriptorBase);
 
-var _BezierCurveToAction = __webpack_require__(382);
+var _BezierCurveToAction = __webpack_require__(399);
 
 var _BezierCurveToAction2 = _interopRequireDefault(_BezierCurveToAction);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-
-function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-
 var BezierCurveToDescriptor = function (_ShapeActionDescripto) {
-  _inherits(BezierCurveToDescriptor, _ShapeActionDescripto);
+  (0, _inherits3.default)(BezierCurveToDescriptor, _ShapeActionDescripto);
 
   function BezierCurveToDescriptor(react3RendererInstance) {
-    _classCallCheck(this, BezierCurveToDescriptor);
+    (0, _classCallCheck3.default)(this, BezierCurveToDescriptor);
 
-    var _this = _possibleConstructorReturn(this, (BezierCurveToDescriptor.__proto__ || Object.getPrototypeOf(BezierCurveToDescriptor)).call(this, react3RendererInstance));
+    var _this = (0, _possibleConstructorReturn3.default)(this, (BezierCurveToDescriptor.__proto__ || (0, _getPrototypeOf2.default)(BezierCurveToDescriptor)).call(this, react3RendererInstance));
 
     ['cp1X', 'cp1Y', 'cp2X', 'cp2Y', 'aX', 'aY'].forEach(function (propName) {
       _this.hasProp(propName, {
@@ -81837,7 +83044,7 @@ var BezierCurveToDescriptor = function (_ShapeActionDescripto) {
     return _this;
   }
 
-  _createClass(BezierCurveToDescriptor, [{
+  (0, _createClass3.default)(BezierCurveToDescriptor, [{
     key: 'construct',
     value: function construct(props) {
       var cp1X = props.cp1X,
@@ -81851,46 +83058,57 @@ var BezierCurveToDescriptor = function (_ShapeActionDescripto) {
       return new _BezierCurveToAction2.default(cp1X, cp1Y, cp2X, cp2Y, aX, aY);
     }
   }]);
-
   return BezierCurveToDescriptor;
 }(_ShapeActionDescriptorBase2.default);
 
 module.exports = BezierCurveToDescriptor;
 
 /***/ }),
-/* 382 */
+/* 399 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
-var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+var _getPrototypeOf = __webpack_require__(2);
 
-var _three = __webpack_require__(1);
+var _getPrototypeOf2 = _interopRequireDefault(_getPrototypeOf);
+
+var _classCallCheck2 = __webpack_require__(0);
+
+var _classCallCheck3 = _interopRequireDefault(_classCallCheck2);
+
+var _createClass2 = __webpack_require__(1);
+
+var _createClass3 = _interopRequireDefault(_createClass2);
+
+var _possibleConstructorReturn2 = __webpack_require__(3);
+
+var _possibleConstructorReturn3 = _interopRequireDefault(_possibleConstructorReturn2);
+
+var _inherits2 = __webpack_require__(4);
+
+var _inherits3 = _interopRequireDefault(_inherits2);
+
+var _three = __webpack_require__(6);
 
 var THREE = _interopRequireWildcard(_three);
 
-var _ShapeAction2 = __webpack_require__(23);
+var _ShapeAction2 = __webpack_require__(31);
 
 var _ShapeAction3 = _interopRequireDefault(_ShapeAction2);
 
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
 function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj.default = obj; return newObj; } }
 
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-
-function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 var BezierCurveToAction = function (_ShapeAction) {
-  _inherits(BezierCurveToAction, _ShapeAction);
+  (0, _inherits3.default)(BezierCurveToAction, _ShapeAction);
 
   function BezierCurveToAction(cp1X, cp1Y, cp2X, cp2Y, aX, aY) {
-    _classCallCheck(this, BezierCurveToAction);
+    (0, _classCallCheck3.default)(this, BezierCurveToAction);
 
-    var _this = _possibleConstructorReturn(this, (BezierCurveToAction.__proto__ || Object.getPrototypeOf(BezierCurveToAction)).call(this));
+    var _this = (0, _possibleConstructorReturn3.default)(this, (BezierCurveToAction.__proto__ || (0, _getPrototypeOf2.default)(BezierCurveToAction)).call(this));
 
     _this.cp1X = cp1X;
     _this.cp1Y = cp1Y;
@@ -81901,54 +83119,65 @@ var BezierCurveToAction = function (_ShapeAction) {
     return _this;
   }
 
-  _createClass(BezierCurveToAction, [{
+  (0, _createClass3.default)(BezierCurveToAction, [{
     key: 'performAction',
     value: function performAction(shape) {
       shape.bezierCurveTo(this.cp1X, this.cp1Y, this.cp2X, this.cp2Y, this.aX, this.aY);
     }
   }]);
-
   return BezierCurveToAction;
 }(_ShapeAction3.default);
 
 module.exports = BezierCurveToAction;
 
 /***/ }),
-/* 383 */
+/* 400 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
-var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+var _getPrototypeOf = __webpack_require__(2);
 
-var _propTypes = __webpack_require__(2);
+var _getPrototypeOf2 = _interopRequireDefault(_getPrototypeOf);
+
+var _classCallCheck2 = __webpack_require__(0);
+
+var _classCallCheck3 = _interopRequireDefault(_classCallCheck2);
+
+var _createClass2 = __webpack_require__(1);
+
+var _createClass3 = _interopRequireDefault(_createClass2);
+
+var _possibleConstructorReturn2 = __webpack_require__(3);
+
+var _possibleConstructorReturn3 = _interopRequireDefault(_possibleConstructorReturn2);
+
+var _inherits2 = __webpack_require__(4);
+
+var _inherits3 = _interopRequireDefault(_inherits2);
+
+var _propTypes = __webpack_require__(7);
 
 var _propTypes2 = _interopRequireDefault(_propTypes);
 
-var _ShapeActionDescriptorBase = __webpack_require__(34);
+var _ShapeActionDescriptorBase = __webpack_require__(44);
 
 var _ShapeActionDescriptorBase2 = _interopRequireDefault(_ShapeActionDescriptorBase);
 
-var _QuadraticCurveToAction = __webpack_require__(384);
+var _QuadraticCurveToAction = __webpack_require__(401);
 
 var _QuadraticCurveToAction2 = _interopRequireDefault(_QuadraticCurveToAction);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-
-function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-
 var QuadraticCurveToDescriptor = function (_ShapeActionDescripto) {
-  _inherits(QuadraticCurveToDescriptor, _ShapeActionDescripto);
+  (0, _inherits3.default)(QuadraticCurveToDescriptor, _ShapeActionDescripto);
 
   function QuadraticCurveToDescriptor(react3RendererInstance) {
-    _classCallCheck(this, QuadraticCurveToDescriptor);
+    (0, _classCallCheck3.default)(this, QuadraticCurveToDescriptor);
 
-    var _this = _possibleConstructorReturn(this, (QuadraticCurveToDescriptor.__proto__ || Object.getPrototypeOf(QuadraticCurveToDescriptor)).call(this, react3RendererInstance));
+    var _this = (0, _possibleConstructorReturn3.default)(this, (QuadraticCurveToDescriptor.__proto__ || (0, _getPrototypeOf2.default)(QuadraticCurveToDescriptor)).call(this, react3RendererInstance));
 
     ['cpX', 'cpY', 'x', 'y'].forEach(function (propName) {
       _this.hasProp(propName, {
@@ -81960,7 +83189,7 @@ var QuadraticCurveToDescriptor = function (_ShapeActionDescripto) {
     return _this;
   }
 
-  _createClass(QuadraticCurveToDescriptor, [{
+  (0, _createClass3.default)(QuadraticCurveToDescriptor, [{
     key: 'construct',
     value: function construct(props) {
       var cpX = props.cpX,
@@ -81972,46 +83201,57 @@ var QuadraticCurveToDescriptor = function (_ShapeActionDescripto) {
       return new _QuadraticCurveToAction2.default(cpX, cpY, x, y);
     }
   }]);
-
   return QuadraticCurveToDescriptor;
 }(_ShapeActionDescriptorBase2.default);
 
 module.exports = QuadraticCurveToDescriptor;
 
 /***/ }),
-/* 384 */
+/* 401 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
-var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+var _getPrototypeOf = __webpack_require__(2);
 
-var _three = __webpack_require__(1);
+var _getPrototypeOf2 = _interopRequireDefault(_getPrototypeOf);
+
+var _classCallCheck2 = __webpack_require__(0);
+
+var _classCallCheck3 = _interopRequireDefault(_classCallCheck2);
+
+var _createClass2 = __webpack_require__(1);
+
+var _createClass3 = _interopRequireDefault(_createClass2);
+
+var _possibleConstructorReturn2 = __webpack_require__(3);
+
+var _possibleConstructorReturn3 = _interopRequireDefault(_possibleConstructorReturn2);
+
+var _inherits2 = __webpack_require__(4);
+
+var _inherits3 = _interopRequireDefault(_inherits2);
+
+var _three = __webpack_require__(6);
 
 var THREE = _interopRequireWildcard(_three);
 
-var _ShapeAction2 = __webpack_require__(23);
+var _ShapeAction2 = __webpack_require__(31);
 
 var _ShapeAction3 = _interopRequireDefault(_ShapeAction2);
 
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
 function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj.default = obj; return newObj; } }
 
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-
-function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 var QuadraticCurveToAction = function (_ShapeAction) {
-  _inherits(QuadraticCurveToAction, _ShapeAction);
+  (0, _inherits3.default)(QuadraticCurveToAction, _ShapeAction);
 
   function QuadraticCurveToAction(cpX, cpY, x, y) {
-    _classCallCheck(this, QuadraticCurveToAction);
+    (0, _classCallCheck3.default)(this, QuadraticCurveToAction);
 
-    var _this = _possibleConstructorReturn(this, (QuadraticCurveToAction.__proto__ || Object.getPrototypeOf(QuadraticCurveToAction)).call(this));
+    var _this = (0, _possibleConstructorReturn3.default)(this, (QuadraticCurveToAction.__proto__ || (0, _getPrototypeOf2.default)(QuadraticCurveToAction)).call(this));
 
     _this.cpX = cpX;
     _this.cpY = cpY;
@@ -82020,54 +83260,65 @@ var QuadraticCurveToAction = function (_ShapeAction) {
     return _this;
   }
 
-  _createClass(QuadraticCurveToAction, [{
+  (0, _createClass3.default)(QuadraticCurveToAction, [{
     key: 'performAction',
     value: function performAction(shape) {
       shape.quadraticCurveTo(this.cpX, this.cpY, this.x, this.y);
     }
   }]);
-
   return QuadraticCurveToAction;
 }(_ShapeAction3.default);
 
 module.exports = QuadraticCurveToAction;
 
 /***/ }),
-/* 385 */
+/* 402 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
-var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+var _getPrototypeOf = __webpack_require__(2);
 
-var _propTypes = __webpack_require__(2);
+var _getPrototypeOf2 = _interopRequireDefault(_getPrototypeOf);
+
+var _classCallCheck2 = __webpack_require__(0);
+
+var _classCallCheck3 = _interopRequireDefault(_classCallCheck2);
+
+var _createClass2 = __webpack_require__(1);
+
+var _createClass3 = _interopRequireDefault(_createClass2);
+
+var _possibleConstructorReturn2 = __webpack_require__(3);
+
+var _possibleConstructorReturn3 = _interopRequireDefault(_possibleConstructorReturn2);
+
+var _inherits2 = __webpack_require__(4);
+
+var _inherits3 = _interopRequireDefault(_inherits2);
+
+var _propTypes = __webpack_require__(7);
 
 var _propTypes2 = _interopRequireDefault(_propTypes);
 
-var _ShapeActionDescriptorBase = __webpack_require__(34);
+var _ShapeActionDescriptorBase = __webpack_require__(44);
 
 var _ShapeActionDescriptorBase2 = _interopRequireDefault(_ShapeActionDescriptorBase);
 
-var _AbsArcAction = __webpack_require__(386);
+var _AbsArcAction = __webpack_require__(403);
 
 var _AbsArcAction2 = _interopRequireDefault(_AbsArcAction);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-
-function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-
 var AbsArcDescriptor = function (_ShapeActionDescripto) {
-  _inherits(AbsArcDescriptor, _ShapeActionDescripto);
+  (0, _inherits3.default)(AbsArcDescriptor, _ShapeActionDescripto);
 
   function AbsArcDescriptor(react3RendererInstance) {
-    _classCallCheck(this, AbsArcDescriptor);
+    (0, _classCallCheck3.default)(this, AbsArcDescriptor);
 
-    var _this = _possibleConstructorReturn(this, (AbsArcDescriptor.__proto__ || Object.getPrototypeOf(AbsArcDescriptor)).call(this, react3RendererInstance));
+    var _this = (0, _possibleConstructorReturn3.default)(this, (AbsArcDescriptor.__proto__ || (0, _getPrototypeOf2.default)(AbsArcDescriptor)).call(this, react3RendererInstance));
 
     ['x', 'y', 'radius', 'startAngle', 'endAngle'].forEach(function (propName) {
       _this.hasProp(propName, {
@@ -82085,7 +83336,7 @@ var AbsArcDescriptor = function (_ShapeActionDescripto) {
     return _this;
   }
 
-  _createClass(AbsArcDescriptor, [{
+  (0, _createClass3.default)(AbsArcDescriptor, [{
     key: 'construct',
     value: function construct(props) {
       var x = props.x,
@@ -82099,46 +83350,57 @@ var AbsArcDescriptor = function (_ShapeActionDescripto) {
       return new _AbsArcAction2.default(x, y, radius, startAngle, endAngle, clockwise);
     }
   }]);
-
   return AbsArcDescriptor;
 }(_ShapeActionDescriptorBase2.default);
 
 module.exports = AbsArcDescriptor;
 
 /***/ }),
-/* 386 */
+/* 403 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
-var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+var _getPrototypeOf = __webpack_require__(2);
 
-var _three = __webpack_require__(1);
+var _getPrototypeOf2 = _interopRequireDefault(_getPrototypeOf);
+
+var _classCallCheck2 = __webpack_require__(0);
+
+var _classCallCheck3 = _interopRequireDefault(_classCallCheck2);
+
+var _createClass2 = __webpack_require__(1);
+
+var _createClass3 = _interopRequireDefault(_createClass2);
+
+var _possibleConstructorReturn2 = __webpack_require__(3);
+
+var _possibleConstructorReturn3 = _interopRequireDefault(_possibleConstructorReturn2);
+
+var _inherits2 = __webpack_require__(4);
+
+var _inherits3 = _interopRequireDefault(_inherits2);
+
+var _three = __webpack_require__(6);
 
 var THREE = _interopRequireWildcard(_three);
 
-var _ShapeAction2 = __webpack_require__(23);
+var _ShapeAction2 = __webpack_require__(31);
 
 var _ShapeAction3 = _interopRequireDefault(_ShapeAction2);
 
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
 function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj.default = obj; return newObj; } }
 
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-
-function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 var AbsArcAction = function (_ShapeAction) {
-  _inherits(AbsArcAction, _ShapeAction);
+  (0, _inherits3.default)(AbsArcAction, _ShapeAction);
 
   function AbsArcAction(x, y, radius, startAngle, endAngle, clockwise) {
-    _classCallCheck(this, AbsArcAction);
+    (0, _classCallCheck3.default)(this, AbsArcAction);
 
-    var _this = _possibleConstructorReturn(this, (AbsArcAction.__proto__ || Object.getPrototypeOf(AbsArcAction)).call(this));
+    var _this = (0, _possibleConstructorReturn3.default)(this, (AbsArcAction.__proto__ || (0, _getPrototypeOf2.default)(AbsArcAction)).call(this));
 
     _this.x = x;
     _this.y = y;
@@ -82149,54 +83411,65 @@ var AbsArcAction = function (_ShapeAction) {
     return _this;
   }
 
-  _createClass(AbsArcAction, [{
+  (0, _createClass3.default)(AbsArcAction, [{
     key: 'performAction',
     value: function performAction(shape) {
       shape.absarc(this.x, this.y, this.radius, this.startAngle, this.endAngle, this.clockwise);
     }
   }]);
-
   return AbsArcAction;
 }(_ShapeAction3.default);
 
 module.exports = AbsArcAction;
 
 /***/ }),
-/* 387 */
+/* 404 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
-var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+var _getPrototypeOf = __webpack_require__(2);
 
-var _propTypes = __webpack_require__(2);
+var _getPrototypeOf2 = _interopRequireDefault(_getPrototypeOf);
+
+var _classCallCheck2 = __webpack_require__(0);
+
+var _classCallCheck3 = _interopRequireDefault(_classCallCheck2);
+
+var _createClass2 = __webpack_require__(1);
+
+var _createClass3 = _interopRequireDefault(_createClass2);
+
+var _possibleConstructorReturn2 = __webpack_require__(3);
+
+var _possibleConstructorReturn3 = _interopRequireDefault(_possibleConstructorReturn2);
+
+var _inherits2 = __webpack_require__(4);
+
+var _inherits3 = _interopRequireDefault(_inherits2);
+
+var _propTypes = __webpack_require__(7);
 
 var _propTypes2 = _interopRequireDefault(_propTypes);
 
-var _ShapeActionDescriptorBase = __webpack_require__(34);
+var _ShapeActionDescriptorBase = __webpack_require__(44);
 
 var _ShapeActionDescriptorBase2 = _interopRequireDefault(_ShapeActionDescriptorBase);
 
-var _AbsEllipseAction = __webpack_require__(388);
+var _AbsEllipseAction = __webpack_require__(405);
 
 var _AbsEllipseAction2 = _interopRequireDefault(_AbsEllipseAction);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-
-function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-
 var AbsEllipseDescriptor = function (_ShapeActionDescripto) {
-  _inherits(AbsEllipseDescriptor, _ShapeActionDescripto);
+  (0, _inherits3.default)(AbsEllipseDescriptor, _ShapeActionDescripto);
 
   function AbsEllipseDescriptor(react3RendererInstance) {
-    _classCallCheck(this, AbsEllipseDescriptor);
+    (0, _classCallCheck3.default)(this, AbsEllipseDescriptor);
 
-    var _this = _possibleConstructorReturn(this, (AbsEllipseDescriptor.__proto__ || Object.getPrototypeOf(AbsEllipseDescriptor)).call(this, react3RendererInstance));
+    var _this = (0, _possibleConstructorReturn3.default)(this, (AbsEllipseDescriptor.__proto__ || (0, _getPrototypeOf2.default)(AbsEllipseDescriptor)).call(this, react3RendererInstance));
 
     ['x', 'y', 'xRadius', 'yRadius', 'startAngle', 'endAngle'].forEach(function (propName) {
       _this.hasProp(propName, {
@@ -82220,7 +83493,7 @@ var AbsEllipseDescriptor = function (_ShapeActionDescripto) {
     return _this;
   }
 
-  _createClass(AbsEllipseDescriptor, [{
+  (0, _createClass3.default)(AbsEllipseDescriptor, [{
     key: 'construct',
     value: function construct(props) {
       var x = props.x,
@@ -82236,46 +83509,57 @@ var AbsEllipseDescriptor = function (_ShapeActionDescripto) {
       return new _AbsEllipseAction2.default(x, y, xRadius, yRadius, startAngle, endAngle, clockwise, rotation);
     }
   }]);
-
   return AbsEllipseDescriptor;
 }(_ShapeActionDescriptorBase2.default);
 
 module.exports = AbsEllipseDescriptor;
 
 /***/ }),
-/* 388 */
+/* 405 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
-var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+var _getPrototypeOf = __webpack_require__(2);
 
-var _three = __webpack_require__(1);
+var _getPrototypeOf2 = _interopRequireDefault(_getPrototypeOf);
+
+var _classCallCheck2 = __webpack_require__(0);
+
+var _classCallCheck3 = _interopRequireDefault(_classCallCheck2);
+
+var _createClass2 = __webpack_require__(1);
+
+var _createClass3 = _interopRequireDefault(_createClass2);
+
+var _possibleConstructorReturn2 = __webpack_require__(3);
+
+var _possibleConstructorReturn3 = _interopRequireDefault(_possibleConstructorReturn2);
+
+var _inherits2 = __webpack_require__(4);
+
+var _inherits3 = _interopRequireDefault(_inherits2);
+
+var _three = __webpack_require__(6);
 
 var THREE = _interopRequireWildcard(_three);
 
-var _ShapeAction2 = __webpack_require__(23);
+var _ShapeAction2 = __webpack_require__(31);
 
 var _ShapeAction3 = _interopRequireDefault(_ShapeAction2);
 
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
 function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj.default = obj; return newObj; } }
 
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-
-function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 var AbsEllipseAction = function (_ShapeAction) {
-  _inherits(AbsEllipseAction, _ShapeAction);
+  (0, _inherits3.default)(AbsEllipseAction, _ShapeAction);
 
   function AbsEllipseAction(x, y, xRadius, yRadius, startAngle, endAngle, clockwise, rotation) {
-    _classCallCheck(this, AbsEllipseAction);
+    (0, _classCallCheck3.default)(this, AbsEllipseAction);
 
-    var _this = _possibleConstructorReturn(this, (AbsEllipseAction.__proto__ || Object.getPrototypeOf(AbsEllipseAction)).call(this));
+    var _this = (0, _possibleConstructorReturn3.default)(this, (AbsEllipseAction.__proto__ || (0, _getPrototypeOf2.default)(AbsEllipseAction)).call(this));
 
     _this.x = x;
     _this.y = y;
@@ -82288,65 +83572,77 @@ var AbsEllipseAction = function (_ShapeAction) {
     return _this;
   }
 
-  _createClass(AbsEllipseAction, [{
+  (0, _createClass3.default)(AbsEllipseAction, [{
     key: 'performAction',
     value: function performAction(shape) {
       shape.absellipse(this.x, this.y, this.xRadius, this.yRadius, this.startAngle, this.endAngle, this.clockwise, this.rotation);
     }
   }]);
-
   return AbsEllipseAction;
 }(_ShapeAction3.default);
 
 module.exports = AbsEllipseAction;
 
 /***/ }),
-/* 389 */
+/* 406 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
-var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+var _getPrototypeOf = __webpack_require__(2);
 
-var _get = function get(object, property, receiver) { if (object === null) object = Function.prototype; var desc = Object.getOwnPropertyDescriptor(object, property); if (desc === undefined) { var parent = Object.getPrototypeOf(object); if (parent === null) { return undefined; } else { return get(parent, property, receiver); } } else if ("value" in desc) { return desc.value; } else { var getter = desc.get; if (getter === undefined) { return undefined; } return getter.call(receiver); } };
+var _getPrototypeOf2 = _interopRequireDefault(_getPrototypeOf);
 
-var _three = __webpack_require__(1);
+var _classCallCheck2 = __webpack_require__(0);
+
+var _classCallCheck3 = _interopRequireDefault(_classCallCheck2);
+
+var _createClass2 = __webpack_require__(1);
+
+var _createClass3 = _interopRequireDefault(_createClass2);
+
+var _possibleConstructorReturn2 = __webpack_require__(3);
+
+var _possibleConstructorReturn3 = _interopRequireDefault(_possibleConstructorReturn2);
+
+var _get2 = __webpack_require__(10);
+
+var _get3 = _interopRequireDefault(_get2);
+
+var _inherits2 = __webpack_require__(4);
+
+var _inherits3 = _interopRequireDefault(_inherits2);
+
+var _three = __webpack_require__(6);
 
 var THREE = _interopRequireWildcard(_three);
 
-var _invariant = __webpack_require__(6);
+var _invariant = __webpack_require__(12);
 
 var _invariant2 = _interopRequireDefault(_invariant);
 
-var _PathDescriptorBase2 = __webpack_require__(180);
+var _PathDescriptorBase2 = __webpack_require__(189);
 
 var _PathDescriptorBase3 = _interopRequireDefault(_PathDescriptorBase2);
 
-var _HoleAction = __webpack_require__(181);
+var _HoleAction = __webpack_require__(190);
 
 var _HoleAction2 = _interopRequireDefault(_HoleAction);
 
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
 function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj.default = obj; return newObj; } }
 
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-
-function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 var HoleDescriptor = function (_PathDescriptorBase) {
-  _inherits(HoleDescriptor, _PathDescriptorBase);
+  (0, _inherits3.default)(HoleDescriptor, _PathDescriptorBase);
 
   function HoleDescriptor() {
-    _classCallCheck(this, HoleDescriptor);
-
-    return _possibleConstructorReturn(this, (HoleDescriptor.__proto__ || Object.getPrototypeOf(HoleDescriptor)).apply(this, arguments));
+    (0, _classCallCheck3.default)(this, HoleDescriptor);
+    return (0, _possibleConstructorReturn3.default)(this, (HoleDescriptor.__proto__ || (0, _getPrototypeOf2.default)(HoleDescriptor)).apply(this, arguments));
   }
 
-  _createClass(HoleDescriptor, [{
+  (0, _createClass3.default)(HoleDescriptor, [{
     key: 'construct',
     value: function construct() {
       return new _HoleAction2.default();
@@ -82361,61 +83657,72 @@ var HoleDescriptor = function (_PathDescriptorBase) {
     value: function setParent(threeObject, parentObject3D) {
       (0, _invariant2.default)(parentObject3D instanceof THREE.Shape, 'Holes can only be added to shapes.');
 
-      return _get(HoleDescriptor.prototype.__proto__ || Object.getPrototypeOf(HoleDescriptor.prototype), 'setParent', this).call(this, threeObject, parentObject3D);
+      return (0, _get3.default)(HoleDescriptor.prototype.__proto__ || (0, _getPrototypeOf2.default)(HoleDescriptor.prototype), 'setParent', this).call(this, threeObject, parentObject3D);
     }
   }]);
-
   return HoleDescriptor;
 }(_PathDescriptorBase3.default);
 
 module.exports = HoleDescriptor;
 
 /***/ }),
-/* 390 */
+/* 407 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
-var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+var _getPrototypeOf = __webpack_require__(2);
 
-var _three = __webpack_require__(1);
+var _getPrototypeOf2 = _interopRequireDefault(_getPrototypeOf);
+
+var _classCallCheck2 = __webpack_require__(0);
+
+var _classCallCheck3 = _interopRequireDefault(_classCallCheck2);
+
+var _createClass2 = __webpack_require__(1);
+
+var _createClass3 = _interopRequireDefault(_createClass2);
+
+var _possibleConstructorReturn2 = __webpack_require__(3);
+
+var _possibleConstructorReturn3 = _interopRequireDefault(_possibleConstructorReturn2);
+
+var _inherits2 = __webpack_require__(4);
+
+var _inherits3 = _interopRequireDefault(_inherits2);
+
+var _three = __webpack_require__(6);
 
 var THREE = _interopRequireWildcard(_three);
 
-var _propTypes = __webpack_require__(2);
+var _propTypes = __webpack_require__(7);
 
 var _propTypes2 = _interopRequireDefault(_propTypes);
 
-var _ShapeActionDescriptorBase = __webpack_require__(34);
+var _ShapeActionDescriptorBase = __webpack_require__(44);
 
 var _ShapeActionDescriptorBase2 = _interopRequireDefault(_ShapeActionDescriptorBase);
 
-var _SplineThruAction = __webpack_require__(391);
+var _SplineThruAction = __webpack_require__(408);
 
 var _SplineThruAction2 = _interopRequireDefault(_SplineThruAction);
 
-var _propTypeInstanceOf = __webpack_require__(9);
+var _propTypeInstanceOf = __webpack_require__(15);
 
 var _propTypeInstanceOf2 = _interopRequireDefault(_propTypeInstanceOf);
 
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
 function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj.default = obj; return newObj; } }
 
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-
-function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 var SplineThruDescriptor = function (_ShapeActionDescripto) {
-  _inherits(SplineThruDescriptor, _ShapeActionDescripto);
+  (0, _inherits3.default)(SplineThruDescriptor, _ShapeActionDescripto);
 
   function SplineThruDescriptor(react3RendererInstance) {
-    _classCallCheck(this, SplineThruDescriptor);
+    (0, _classCallCheck3.default)(this, SplineThruDescriptor);
 
-    var _this = _possibleConstructorReturn(this, (SplineThruDescriptor.__proto__ || Object.getPrototypeOf(SplineThruDescriptor)).call(this, react3RendererInstance));
+    var _this = (0, _possibleConstructorReturn3.default)(this, (SplineThruDescriptor.__proto__ || (0, _getPrototypeOf2.default)(SplineThruDescriptor)).call(this, react3RendererInstance));
 
     _this.hasProp('points', {
       type: _propTypes2.default.arrayOf((0, _propTypeInstanceOf2.default)(THREE.Vector2)).isRequired,
@@ -82425,107 +83732,129 @@ var SplineThruDescriptor = function (_ShapeActionDescripto) {
     return _this;
   }
 
-  _createClass(SplineThruDescriptor, [{
+  (0, _createClass3.default)(SplineThruDescriptor, [{
     key: 'construct',
     value: function construct(props) {
       return new _SplineThruAction2.default(props.points);
     }
   }]);
-
   return SplineThruDescriptor;
 }(_ShapeActionDescriptorBase2.default);
 
 module.exports = SplineThruDescriptor;
 
 /***/ }),
-/* 391 */
+/* 408 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
-var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+var _getPrototypeOf = __webpack_require__(2);
 
-var _three = __webpack_require__(1);
+var _getPrototypeOf2 = _interopRequireDefault(_getPrototypeOf);
+
+var _classCallCheck2 = __webpack_require__(0);
+
+var _classCallCheck3 = _interopRequireDefault(_classCallCheck2);
+
+var _createClass2 = __webpack_require__(1);
+
+var _createClass3 = _interopRequireDefault(_createClass2);
+
+var _possibleConstructorReturn2 = __webpack_require__(3);
+
+var _possibleConstructorReturn3 = _interopRequireDefault(_possibleConstructorReturn2);
+
+var _inherits2 = __webpack_require__(4);
+
+var _inherits3 = _interopRequireDefault(_inherits2);
+
+var _three = __webpack_require__(6);
 
 var THREE = _interopRequireWildcard(_three);
 
-var _ShapeAction2 = __webpack_require__(23);
+var _ShapeAction2 = __webpack_require__(31);
 
 var _ShapeAction3 = _interopRequireDefault(_ShapeAction2);
 
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
 function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj.default = obj; return newObj; } }
 
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-
-function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 var SplineThruAction = function (_ShapeAction) {
-  _inherits(SplineThruAction, _ShapeAction);
+  (0, _inherits3.default)(SplineThruAction, _ShapeAction);
 
   function SplineThruAction(points) {
-    _classCallCheck(this, SplineThruAction);
+    (0, _classCallCheck3.default)(this, SplineThruAction);
 
-    var _this = _possibleConstructorReturn(this, (SplineThruAction.__proto__ || Object.getPrototypeOf(SplineThruAction)).call(this));
+    var _this = (0, _possibleConstructorReturn3.default)(this, (SplineThruAction.__proto__ || (0, _getPrototypeOf2.default)(SplineThruAction)).call(this));
 
     _this.points = points;
     return _this;
   }
 
-  _createClass(SplineThruAction, [{
+  (0, _createClass3.default)(SplineThruAction, [{
     key: 'performAction',
     value: function performAction(shape) {
       shape.splineThru(this.points);
     }
   }]);
-
   return SplineThruAction;
 }(_ShapeAction3.default);
 
 module.exports = SplineThruAction;
 
 /***/ }),
-/* 392 */
+/* 409 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
-var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+var _getPrototypeOf = __webpack_require__(2);
 
-var _three = __webpack_require__(1);
+var _getPrototypeOf2 = _interopRequireDefault(_getPrototypeOf);
+
+var _classCallCheck2 = __webpack_require__(0);
+
+var _classCallCheck3 = _interopRequireDefault(_classCallCheck2);
+
+var _createClass2 = __webpack_require__(1);
+
+var _createClass3 = _interopRequireDefault(_createClass2);
+
+var _possibleConstructorReturn2 = __webpack_require__(3);
+
+var _possibleConstructorReturn3 = _interopRequireDefault(_possibleConstructorReturn2);
+
+var _inherits2 = __webpack_require__(4);
+
+var _inherits3 = _interopRequireDefault(_inherits2);
+
+var _three = __webpack_require__(6);
 
 var THREE = _interopRequireWildcard(_three);
 
-var _propTypes = __webpack_require__(2);
+var _propTypes = __webpack_require__(7);
 
 var _propTypes2 = _interopRequireDefault(_propTypes);
 
-var _MaterialDescriptorBase = __webpack_require__(20);
+var _MaterialDescriptorBase = __webpack_require__(28);
 
 var _MaterialDescriptorBase2 = _interopRequireDefault(_MaterialDescriptorBase);
 
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
 function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj.default = obj; return newObj; } }
 
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-
-function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 var PointsMaterialDescriptor = function (_MaterialDescriptorBa) {
-  _inherits(PointsMaterialDescriptor, _MaterialDescriptorBa);
+  (0, _inherits3.default)(PointsMaterialDescriptor, _MaterialDescriptorBa);
 
   function PointsMaterialDescriptor(react3RendererInstance) {
-    _classCallCheck(this, PointsMaterialDescriptor);
+    (0, _classCallCheck3.default)(this, PointsMaterialDescriptor);
 
-    var _this = _possibleConstructorReturn(this, (PointsMaterialDescriptor.__proto__ || Object.getPrototypeOf(PointsMaterialDescriptor)).call(this, react3RendererInstance));
+    var _this = (0, _possibleConstructorReturn3.default)(this, (PointsMaterialDescriptor.__proto__ || (0, _getPrototypeOf2.default)(PointsMaterialDescriptor)).call(this, react3RendererInstance));
 
     _this.hasColor();
 
@@ -82565,7 +83894,7 @@ var PointsMaterialDescriptor = function (_MaterialDescriptorBa) {
     return _this;
   }
 
-  _createClass(PointsMaterialDescriptor, [{
+  (0, _createClass3.default)(PointsMaterialDescriptor, [{
     key: 'construct',
     value: function construct(props) {
       var materialDescription = this.getMaterialDescription(props);
@@ -82573,46 +83902,57 @@ var PointsMaterialDescriptor = function (_MaterialDescriptorBa) {
       return new THREE.PointsMaterial(materialDescription);
     }
   }]);
-
   return PointsMaterialDescriptor;
 }(_MaterialDescriptorBase2.default);
 
 module.exports = PointsMaterialDescriptor;
 
 /***/ }),
-/* 393 */
+/* 410 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
-var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+var _getPrototypeOf = __webpack_require__(2);
 
-var _three = __webpack_require__(1);
+var _getPrototypeOf2 = _interopRequireDefault(_getPrototypeOf);
+
+var _classCallCheck2 = __webpack_require__(0);
+
+var _classCallCheck3 = _interopRequireDefault(_classCallCheck2);
+
+var _createClass2 = __webpack_require__(1);
+
+var _createClass3 = _interopRequireDefault(_createClass2);
+
+var _possibleConstructorReturn2 = __webpack_require__(3);
+
+var _possibleConstructorReturn3 = _interopRequireDefault(_possibleConstructorReturn2);
+
+var _inherits2 = __webpack_require__(4);
+
+var _inherits3 = _interopRequireDefault(_inherits2);
+
+var _three = __webpack_require__(6);
 
 var THREE = _interopRequireWildcard(_three);
 
-var _MaterialDescriptorBase = __webpack_require__(20);
+var _MaterialDescriptorBase = __webpack_require__(28);
 
 var _MaterialDescriptorBase2 = _interopRequireDefault(_MaterialDescriptorBase);
 
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
 function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj.default = obj; return newObj; } }
 
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-
-function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 var MeshBasicMaterialDescriptor = function (_MaterialDescriptorBa) {
-  _inherits(MeshBasicMaterialDescriptor, _MaterialDescriptorBa);
+  (0, _inherits3.default)(MeshBasicMaterialDescriptor, _MaterialDescriptorBa);
 
   function MeshBasicMaterialDescriptor(react3RendererInstance) {
-    _classCallCheck(this, MeshBasicMaterialDescriptor);
+    (0, _classCallCheck3.default)(this, MeshBasicMaterialDescriptor);
 
-    var _this = _possibleConstructorReturn(this, (MeshBasicMaterialDescriptor.__proto__ || Object.getPrototypeOf(MeshBasicMaterialDescriptor)).call(this, react3RendererInstance));
+    var _this = (0, _possibleConstructorReturn3.default)(this, (MeshBasicMaterialDescriptor.__proto__ || (0, _getPrototypeOf2.default)(MeshBasicMaterialDescriptor)).call(this, react3RendererInstance));
 
     _this.hasColor();
     _this.hasWireframe();
@@ -82624,7 +83964,7 @@ var MeshBasicMaterialDescriptor = function (_MaterialDescriptorBa) {
     return _this;
   }
 
-  _createClass(MeshBasicMaterialDescriptor, [{
+  (0, _createClass3.default)(MeshBasicMaterialDescriptor, [{
     key: 'construct',
     value: function construct(props) {
       var materialDescription = this.getMaterialDescription(props);
@@ -82632,56 +83972,69 @@ var MeshBasicMaterialDescriptor = function (_MaterialDescriptorBa) {
       return new THREE.MeshBasicMaterial(materialDescription);
     }
   }]);
-
   return MeshBasicMaterialDescriptor;
 }(_MaterialDescriptorBase2.default);
 
 module.exports = MeshBasicMaterialDescriptor;
 
 /***/ }),
-/* 394 */
+/* 411 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
-var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+var _getPrototypeOf = __webpack_require__(2);
 
-var _get = function get(object, property, receiver) { if (object === null) object = Function.prototype; var desc = Object.getOwnPropertyDescriptor(object, property); if (desc === undefined) { var parent = Object.getPrototypeOf(object); if (parent === null) { return undefined; } else { return get(parent, property, receiver); } } else if ("value" in desc) { return desc.value; } else { var getter = desc.get; if (getter === undefined) { return undefined; } return getter.call(receiver); } };
+var _getPrototypeOf2 = _interopRequireDefault(_getPrototypeOf);
 
-var _three = __webpack_require__(1);
+var _classCallCheck2 = __webpack_require__(0);
+
+var _classCallCheck3 = _interopRequireDefault(_classCallCheck2);
+
+var _createClass2 = __webpack_require__(1);
+
+var _createClass3 = _interopRequireDefault(_createClass2);
+
+var _possibleConstructorReturn2 = __webpack_require__(3);
+
+var _possibleConstructorReturn3 = _interopRequireDefault(_possibleConstructorReturn2);
+
+var _get2 = __webpack_require__(10);
+
+var _get3 = _interopRequireDefault(_get2);
+
+var _inherits2 = __webpack_require__(4);
+
+var _inherits3 = _interopRequireDefault(_inherits2);
+
+var _three = __webpack_require__(6);
 
 var THREE = _interopRequireWildcard(_three);
 
-var _propTypes = __webpack_require__(2);
+var _propTypes = __webpack_require__(7);
 
 var _propTypes2 = _interopRequireDefault(_propTypes);
 
-var _MaterialDescriptorBase = __webpack_require__(20);
+var _MaterialDescriptorBase = __webpack_require__(28);
 
 var _MaterialDescriptorBase2 = _interopRequireDefault(_MaterialDescriptorBase);
 
-var _propTypeInstanceOf = __webpack_require__(9);
+var _propTypeInstanceOf = __webpack_require__(15);
 
 var _propTypeInstanceOf2 = _interopRequireDefault(_propTypeInstanceOf);
 
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
 function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj.default = obj; return newObj; } }
 
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-
-function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 var MeshPhongMaterialDescriptor = function (_MaterialDescriptorBa) {
-  _inherits(MeshPhongMaterialDescriptor, _MaterialDescriptorBa);
+  (0, _inherits3.default)(MeshPhongMaterialDescriptor, _MaterialDescriptorBa);
 
   function MeshPhongMaterialDescriptor(react3RendererInstance) {
-    _classCallCheck(this, MeshPhongMaterialDescriptor);
+    (0, _classCallCheck3.default)(this, MeshPhongMaterialDescriptor);
 
-    var _this = _possibleConstructorReturn(this, (MeshPhongMaterialDescriptor.__proto__ || Object.getPrototypeOf(MeshPhongMaterialDescriptor)).call(this, react3RendererInstance));
+    var _this = (0, _possibleConstructorReturn3.default)(this, (MeshPhongMaterialDescriptor.__proto__ || (0, _getPrototypeOf2.default)(MeshPhongMaterialDescriptor)).call(this, react3RendererInstance));
 
     _this.hasColor();
     _this.hasColor('specular', 0x111111);
@@ -82784,10 +84137,10 @@ var MeshPhongMaterialDescriptor = function (_MaterialDescriptorBa) {
     return _this;
   }
 
-  _createClass(MeshPhongMaterialDescriptor, [{
+  (0, _createClass3.default)(MeshPhongMaterialDescriptor, [{
     key: 'getMaterialDescription',
     value: function getMaterialDescription(props) {
-      var materialDescription = _get(MeshPhongMaterialDescriptor.prototype.__proto__ || Object.getPrototypeOf(MeshPhongMaterialDescriptor.prototype), 'getMaterialDescription', this).call(this, props);
+      var materialDescription = (0, _get3.default)(MeshPhongMaterialDescriptor.prototype.__proto__ || (0, _getPrototypeOf2.default)(MeshPhongMaterialDescriptor.prototype), 'getMaterialDescription', this).call(this, props);
 
       ['shininess', 'lightMapIntensity', 'aoMapIntensity', 'emissiveIntensity', 'bumpScale', 'displacementScale', 'reflectivity', 'displacementBias', 'refractionRatio', 'normalScale', 'shading', 'skinning', 'morphTargets', 'morphNormals'].forEach(function (propName) {
         if (props.hasOwnProperty(propName)) {
@@ -82805,48 +84158,61 @@ var MeshPhongMaterialDescriptor = function (_MaterialDescriptorBa) {
       return new THREE.MeshPhongMaterial(materialDescription);
     }
   }]);
-
   return MeshPhongMaterialDescriptor;
 }(_MaterialDescriptorBase2.default);
 
 module.exports = MeshPhongMaterialDescriptor;
 
 /***/ }),
-/* 395 */
+/* 412 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
-var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+var _getPrototypeOf = __webpack_require__(2);
 
-var _get = function get(object, property, receiver) { if (object === null) object = Function.prototype; var desc = Object.getOwnPropertyDescriptor(object, property); if (desc === undefined) { var parent = Object.getPrototypeOf(object); if (parent === null) { return undefined; } else { return get(parent, property, receiver); } } else if ("value" in desc) { return desc.value; } else { var getter = desc.get; if (getter === undefined) { return undefined; } return getter.call(receiver); } };
+var _getPrototypeOf2 = _interopRequireDefault(_getPrototypeOf);
 
-var _three = __webpack_require__(1);
+var _classCallCheck2 = __webpack_require__(0);
+
+var _classCallCheck3 = _interopRequireDefault(_classCallCheck2);
+
+var _createClass2 = __webpack_require__(1);
+
+var _createClass3 = _interopRequireDefault(_createClass2);
+
+var _possibleConstructorReturn2 = __webpack_require__(3);
+
+var _possibleConstructorReturn3 = _interopRequireDefault(_possibleConstructorReturn2);
+
+var _get2 = __webpack_require__(10);
+
+var _get3 = _interopRequireDefault(_get2);
+
+var _inherits2 = __webpack_require__(4);
+
+var _inherits3 = _interopRequireDefault(_inherits2);
+
+var _three = __webpack_require__(6);
 
 var THREE = _interopRequireWildcard(_three);
 
-var _MaterialDescriptorBase = __webpack_require__(20);
+var _MaterialDescriptorBase = __webpack_require__(28);
 
 var _MaterialDescriptorBase2 = _interopRequireDefault(_MaterialDescriptorBase);
 
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
 function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj.default = obj; return newObj; } }
 
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-
-function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 var MeshLambertMaterialDescriptor = function (_MaterialDescriptorBa) {
-  _inherits(MeshLambertMaterialDescriptor, _MaterialDescriptorBa);
+  (0, _inherits3.default)(MeshLambertMaterialDescriptor, _MaterialDescriptorBa);
 
   function MeshLambertMaterialDescriptor(react3RendererInstance) {
-    _classCallCheck(this, MeshLambertMaterialDescriptor);
+    (0, _classCallCheck3.default)(this, MeshLambertMaterialDescriptor);
 
-    var _this = _possibleConstructorReturn(this, (MeshLambertMaterialDescriptor.__proto__ || Object.getPrototypeOf(MeshLambertMaterialDescriptor)).call(this, react3RendererInstance));
+    var _this = (0, _possibleConstructorReturn3.default)(this, (MeshLambertMaterialDescriptor.__proto__ || (0, _getPrototypeOf2.default)(MeshLambertMaterialDescriptor)).call(this, react3RendererInstance));
 
     _this.hasColor();
     _this.hasColor('emissive', 0);
@@ -82861,7 +84227,7 @@ var MeshLambertMaterialDescriptor = function (_MaterialDescriptorBa) {
     return _this;
   }
 
-  _createClass(MeshLambertMaterialDescriptor, [{
+  (0, _createClass3.default)(MeshLambertMaterialDescriptor, [{
     key: 'construct',
     value: function construct(props) {
       var materialDescription = this.getMaterialDescription(props);
@@ -82871,7 +84237,7 @@ var MeshLambertMaterialDescriptor = function (_MaterialDescriptorBa) {
   }, {
     key: 'getMaterialDescription',
     value: function getMaterialDescription(props) {
-      var materialDescription = _get(MeshLambertMaterialDescriptor.prototype.__proto__ || Object.getPrototypeOf(MeshLambertMaterialDescriptor.prototype), 'getMaterialDescription', this).call(this, props);
+      var materialDescription = (0, _get3.default)(MeshLambertMaterialDescriptor.prototype.__proto__ || (0, _getPrototypeOf2.default)(MeshLambertMaterialDescriptor.prototype), 'getMaterialDescription', this).call(this, props);
 
       if (props.hasOwnProperty('shininess')) {
         materialDescription.shininess = props.shininess;
@@ -82886,63 +84252,76 @@ var MeshLambertMaterialDescriptor = function (_MaterialDescriptorBa) {
   }, {
     key: 'applyInitialProps',
     value: function applyInitialProps(threeObject, props) {
-      _get(MeshLambertMaterialDescriptor.prototype.__proto__ || Object.getPrototypeOf(MeshLambertMaterialDescriptor.prototype), 'applyInitialProps', this).call(this, threeObject, props);
+      (0, _get3.default)(MeshLambertMaterialDescriptor.prototype.__proto__ || (0, _getPrototypeOf2.default)(MeshLambertMaterialDescriptor.prototype), 'applyInitialProps', this).call(this, threeObject, props);
 
       if (!props.hasOwnProperty('map')) {
         threeObject.map = null;
       }
     }
   }]);
-
   return MeshLambertMaterialDescriptor;
 }(_MaterialDescriptorBase2.default);
 
 module.exports = MeshLambertMaterialDescriptor;
 
 /***/ }),
-/* 396 */
+/* 413 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
-var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+var _getPrototypeOf = __webpack_require__(2);
 
-var _get = function get(object, property, receiver) { if (object === null) object = Function.prototype; var desc = Object.getOwnPropertyDescriptor(object, property); if (desc === undefined) { var parent = Object.getPrototypeOf(object); if (parent === null) { return undefined; } else { return get(parent, property, receiver); } } else if ("value" in desc) { return desc.value; } else { var getter = desc.get; if (getter === undefined) { return undefined; } return getter.call(receiver); } };
+var _getPrototypeOf2 = _interopRequireDefault(_getPrototypeOf);
 
-var _three = __webpack_require__(1);
+var _classCallCheck2 = __webpack_require__(0);
+
+var _classCallCheck3 = _interopRequireDefault(_classCallCheck2);
+
+var _createClass2 = __webpack_require__(1);
+
+var _createClass3 = _interopRequireDefault(_createClass2);
+
+var _possibleConstructorReturn2 = __webpack_require__(3);
+
+var _possibleConstructorReturn3 = _interopRequireDefault(_possibleConstructorReturn2);
+
+var _get2 = __webpack_require__(10);
+
+var _get3 = _interopRequireDefault(_get2);
+
+var _inherits2 = __webpack_require__(4);
+
+var _inherits3 = _interopRequireDefault(_inherits2);
+
+var _three = __webpack_require__(6);
 
 var THREE = _interopRequireWildcard(_three);
 
-var _propTypes = __webpack_require__(2);
+var _propTypes = __webpack_require__(7);
 
 var _propTypes2 = _interopRequireDefault(_propTypes);
 
-var _MaterialDescriptorBase = __webpack_require__(20);
+var _MaterialDescriptorBase = __webpack_require__(28);
 
 var _MaterialDescriptorBase2 = _interopRequireDefault(_MaterialDescriptorBase);
 
-var _propTypeInstanceOf = __webpack_require__(9);
+var _propTypeInstanceOf = __webpack_require__(15);
 
 var _propTypeInstanceOf2 = _interopRequireDefault(_propTypeInstanceOf);
 
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
 function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj.default = obj; return newObj; } }
 
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-
-function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 var MeshStandardMaterialDescriptor = function (_MaterialDescriptorBa) {
-  _inherits(MeshStandardMaterialDescriptor, _MaterialDescriptorBa);
+  (0, _inherits3.default)(MeshStandardMaterialDescriptor, _MaterialDescriptorBa);
 
   function MeshStandardMaterialDescriptor(react3RendererInstance) {
-    _classCallCheck(this, MeshStandardMaterialDescriptor);
+    (0, _classCallCheck3.default)(this, MeshStandardMaterialDescriptor);
 
-    var _this = _possibleConstructorReturn(this, (MeshStandardMaterialDescriptor.__proto__ || Object.getPrototypeOf(MeshStandardMaterialDescriptor)).call(this, react3RendererInstance));
+    var _this = (0, _possibleConstructorReturn3.default)(this, (MeshStandardMaterialDescriptor.__proto__ || (0, _getPrototypeOf2.default)(MeshStandardMaterialDescriptor)).call(this, react3RendererInstance));
 
     _this.hasColor();
     _this.hasColor('emissive', 0x000000);
@@ -83038,10 +84417,10 @@ var MeshStandardMaterialDescriptor = function (_MaterialDescriptorBa) {
     return _this;
   }
 
-  _createClass(MeshStandardMaterialDescriptor, [{
+  (0, _createClass3.default)(MeshStandardMaterialDescriptor, [{
     key: 'getMaterialDescription',
     value: function getMaterialDescription(props) {
-      var materialDescription = _get(MeshStandardMaterialDescriptor.prototype.__proto__ || Object.getPrototypeOf(MeshStandardMaterialDescriptor.prototype), 'getMaterialDescription', this).call(this, props);
+      var materialDescription = (0, _get3.default)(MeshStandardMaterialDescriptor.prototype.__proto__ || (0, _getPrototypeOf2.default)(MeshStandardMaterialDescriptor.prototype), 'getMaterialDescription', this).call(this, props);
 
       ['roughness', 'metalness', 'lightMapIntensity', 'aoMapIntensity', 'emissiveIntensity', 'bumpScale', 'displacementScale', 'displacementBias', 'refractionRatio', 'normalScale', 'shading', 'skinning', 'morphTargets', 'morphNormals'].forEach(function (propName) {
         if (props.hasOwnProperty(propName)) {
@@ -83059,46 +84438,57 @@ var MeshStandardMaterialDescriptor = function (_MaterialDescriptorBa) {
       return new THREE.MeshStandardMaterial(materialDescription);
     }
   }]);
-
   return MeshStandardMaterialDescriptor;
 }(_MaterialDescriptorBase2.default);
 
 module.exports = MeshStandardMaterialDescriptor;
 
 /***/ }),
-/* 397 */
+/* 414 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
-var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+var _getPrototypeOf = __webpack_require__(2);
 
-var _three = __webpack_require__(1);
+var _getPrototypeOf2 = _interopRequireDefault(_getPrototypeOf);
+
+var _classCallCheck2 = __webpack_require__(0);
+
+var _classCallCheck3 = _interopRequireDefault(_classCallCheck2);
+
+var _createClass2 = __webpack_require__(1);
+
+var _createClass3 = _interopRequireDefault(_createClass2);
+
+var _possibleConstructorReturn2 = __webpack_require__(3);
+
+var _possibleConstructorReturn3 = _interopRequireDefault(_possibleConstructorReturn2);
+
+var _inherits2 = __webpack_require__(4);
+
+var _inherits3 = _interopRequireDefault(_inherits2);
+
+var _three = __webpack_require__(6);
 
 var THREE = _interopRequireWildcard(_three);
 
-var _ShaderMaterialDescriptor = __webpack_require__(182);
+var _ShaderMaterialDescriptor = __webpack_require__(191);
 
 var _ShaderMaterialDescriptor2 = _interopRequireDefault(_ShaderMaterialDescriptor);
 
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
 function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj.default = obj; return newObj; } }
 
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-
-function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 var RawShaderMaterialDescriptor = function (_ShaderMaterialDescri) {
-  _inherits(RawShaderMaterialDescriptor, _ShaderMaterialDescri);
+  (0, _inherits3.default)(RawShaderMaterialDescriptor, _ShaderMaterialDescri);
 
   function RawShaderMaterialDescriptor(react3RendererInstance) {
-    _classCallCheck(this, RawShaderMaterialDescriptor);
+    (0, _classCallCheck3.default)(this, RawShaderMaterialDescriptor);
 
-    var _this = _possibleConstructorReturn(this, (RawShaderMaterialDescriptor.__proto__ || Object.getPrototypeOf(RawShaderMaterialDescriptor)).call(this, react3RendererInstance));
+    var _this = (0, _possibleConstructorReturn3.default)(this, (RawShaderMaterialDescriptor.__proto__ || (0, _getPrototypeOf2.default)(RawShaderMaterialDescriptor)).call(this, react3RendererInstance));
 
     ['alphaTest'].forEach(function (propName) {
       _this.removeProp(propName);
@@ -83106,7 +84496,7 @@ var RawShaderMaterialDescriptor = function (_ShaderMaterialDescri) {
     return _this;
   }
 
-  _createClass(RawShaderMaterialDescriptor, [{
+  (0, _createClass3.default)(RawShaderMaterialDescriptor, [{
     key: 'construct',
     value: function construct(props) {
       var materialDescription = this.getMaterialDescription(props);
@@ -83114,80 +84504,95 @@ var RawShaderMaterialDescriptor = function (_ShaderMaterialDescri) {
       return new THREE.RawShaderMaterial(materialDescription);
     }
   }]);
-
   return RawShaderMaterialDescriptor;
 }(_ShaderMaterialDescriptor2.default);
 
 module.exports = RawShaderMaterialDescriptor;
 
 /***/ }),
-/* 398 */
+/* 415 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 /* WEBPACK VAR INJECTION */(function(process) {
 
-var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+var _extends2 = __webpack_require__(20);
 
-var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+var _extends3 = _interopRequireDefault(_extends2);
 
-var _get = function get(object, property, receiver) { if (object === null) object = Function.prototype; var desc = Object.getOwnPropertyDescriptor(object, property); if (desc === undefined) { var parent = Object.getPrototypeOf(object); if (parent === null) { return undefined; } else { return get(parent, property, receiver); } } else if ("value" in desc) { return desc.value; } else { var getter = desc.get; if (getter === undefined) { return undefined; } return getter.call(receiver); } };
+var _getPrototypeOf = __webpack_require__(2);
+
+var _getPrototypeOf2 = _interopRequireDefault(_getPrototypeOf);
+
+var _classCallCheck2 = __webpack_require__(0);
+
+var _classCallCheck3 = _interopRequireDefault(_classCallCheck2);
+
+var _createClass2 = __webpack_require__(1);
+
+var _createClass3 = _interopRequireDefault(_createClass2);
+
+var _possibleConstructorReturn2 = __webpack_require__(3);
+
+var _possibleConstructorReturn3 = _interopRequireDefault(_possibleConstructorReturn2);
+
+var _get2 = __webpack_require__(10);
+
+var _get3 = _interopRequireDefault(_get2);
+
+var _inherits2 = __webpack_require__(4);
+
+var _inherits3 = _interopRequireDefault(_inherits2);
 
 var _class;
 
-var _three = __webpack_require__(1);
+var _three = __webpack_require__(6);
 
 var THREE = _interopRequireWildcard(_three);
 
-var _invariant = __webpack_require__(6);
+var _invariant = __webpack_require__(12);
 
 var _invariant2 = _interopRequireDefault(_invariant);
 
-var _warning = __webpack_require__(17);
+var _warning = __webpack_require__(25);
 
 var _warning2 = _interopRequireDefault(_warning);
 
-var _propTypes = __webpack_require__(2);
+var _propTypes = __webpack_require__(7);
 
 var _propTypes2 = _interopRequireDefault(_propTypes);
 
-var _resource = __webpack_require__(68);
+var _resource = __webpack_require__(81);
 
 var _resource2 = _interopRequireDefault(_resource);
 
-var _THREEElementDescriptor = __webpack_require__(14);
+var _THREEElementDescriptor = __webpack_require__(21);
 
 var _THREEElementDescriptor2 = _interopRequireDefault(_THREEElementDescriptor);
 
-var _Uniform = __webpack_require__(67);
+var _Uniform = __webpack_require__(80);
 
 var _Uniform2 = _interopRequireDefault(_Uniform);
 
-var _React3Renderer = __webpack_require__(64);
+var _React3Renderer = __webpack_require__(77);
 
 var _React3Renderer2 = _interopRequireDefault(_React3Renderer);
 
-var _propTypeInstanceOf = __webpack_require__(9);
+var _propTypeInstanceOf = __webpack_require__(15);
 
 var _propTypeInstanceOf2 = _interopRequireDefault(_propTypeInstanceOf);
 
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
 function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj.default = obj; return newObj; } }
 
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-
-function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 var TextureDescriptor = (0, _resource2.default)(_class = function (_THREEElementDescript) {
-  _inherits(TextureDescriptor, _THREEElementDescript);
+  (0, _inherits3.default)(TextureDescriptor, _THREEElementDescript);
 
   function TextureDescriptor(react3RendererInstance) {
-    _classCallCheck(this, TextureDescriptor);
+    (0, _classCallCheck3.default)(this, TextureDescriptor);
 
-    var _this = _possibleConstructorReturn(this, (TextureDescriptor.__proto__ || Object.getPrototypeOf(TextureDescriptor)).call(this, react3RendererInstance));
+    var _this = (0, _possibleConstructorReturn3.default)(this, (TextureDescriptor.__proto__ || (0, _getPrototypeOf2.default)(TextureDescriptor)).call(this, react3RendererInstance));
 
     _this.hasProp('slot', {
       type: _propTypes2.default.oneOf(['map', 'specularMap', 'lightMap', 'aoMap', 'emissiveMap', 'bumpMap', 'normalMap', 'displacementMap', 'roughnessMap', 'metalnessMap', 'alphaMap', 'envMap']),
@@ -83322,7 +84727,7 @@ var TextureDescriptor = (0, _resource2.default)(_class = function (_THREEElement
     return _this;
   }
 
-  _createClass(TextureDescriptor, [{
+  (0, _createClass3.default)(TextureDescriptor, [{
     key: 'construct',
     value: function construct(props) {
       var result = void 0;
@@ -83379,14 +84784,14 @@ var TextureDescriptor = (0, _resource2.default)(_class = function (_THREEElement
         (0, _invariant2.default)(false, 'Parent of a texture is not a material nor a uniform, it needs to be one of them.');
       }
 
-      _get(TextureDescriptor.prototype.__proto__ || Object.getPrototypeOf(TextureDescriptor.prototype), 'setParent', this).call(this, texture, parent);
+      (0, _get3.default)(TextureDescriptor.prototype.__proto__ || (0, _getPrototypeOf2.default)(TextureDescriptor.prototype), 'setParent', this).call(this, texture, parent);
     }
   }, {
     key: 'applyInitialProps',
     value: function applyInitialProps(threeObject, props) {
-      threeObject.userData = _extends({}, threeObject.userData);
+      threeObject.userData = (0, _extends3.default)({}, threeObject.userData);
 
-      _get(TextureDescriptor.prototype.__proto__ || Object.getPrototypeOf(TextureDescriptor.prototype), 'applyInitialProps', this).call(this, threeObject, props);
+      (0, _get3.default)(TextureDescriptor.prototype.__proto__ || (0, _getPrototypeOf2.default)(TextureDescriptor.prototype), 'applyInitialProps', this).call(this, threeObject, props);
     }
   }, {
     key: 'unmount',
@@ -83407,7 +84812,7 @@ var TextureDescriptor = (0, _resource2.default)(_class = function (_THREEElement
 
       texture.dispose();
 
-      _get(TextureDescriptor.prototype.__proto__ || Object.getPrototypeOf(TextureDescriptor.prototype), 'unmount', this).call(this, texture);
+      (0, _get3.default)(TextureDescriptor.prototype.__proto__ || (0, _getPrototypeOf2.default)(TextureDescriptor.prototype), 'unmount', this).call(this, texture);
     }
   }, {
     key: 'removeFromSlotOfMaterial',
@@ -83471,59 +84876,71 @@ var TextureDescriptor = (0, _resource2.default)(_class = function (_THREEElement
       parent.userData._descriptor.hideHighlight(parent);
     }
   }]);
-
   return TextureDescriptor;
 }(_THREEElementDescriptor2.default)) || _class;
 
 module.exports = TextureDescriptor;
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(5)))
 
 /***/ }),
-/* 399 */
+/* 416 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
-var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+var _getPrototypeOf = __webpack_require__(2);
 
-var _get = function get(object, property, receiver) { if (object === null) object = Function.prototype; var desc = Object.getOwnPropertyDescriptor(object, property); if (desc === undefined) { var parent = Object.getPrototypeOf(object); if (parent === null) { return undefined; } else { return get(parent, property, receiver); } } else if ("value" in desc) { return desc.value; } else { var getter = desc.get; if (getter === undefined) { return undefined; } return getter.call(receiver); } };
+var _getPrototypeOf2 = _interopRequireDefault(_getPrototypeOf);
 
-var _three = __webpack_require__(1);
+var _classCallCheck2 = __webpack_require__(0);
+
+var _classCallCheck3 = _interopRequireDefault(_classCallCheck2);
+
+var _createClass2 = __webpack_require__(1);
+
+var _createClass3 = _interopRequireDefault(_createClass2);
+
+var _possibleConstructorReturn2 = __webpack_require__(3);
+
+var _possibleConstructorReturn3 = _interopRequireDefault(_possibleConstructorReturn2);
+
+var _get2 = __webpack_require__(10);
+
+var _get3 = _interopRequireDefault(_get2);
+
+var _inherits2 = __webpack_require__(4);
+
+var _inherits3 = _interopRequireDefault(_inherits2);
+
+var _three = __webpack_require__(6);
 
 var THREE = _interopRequireWildcard(_three);
 
-var _invariant = __webpack_require__(6);
+var _invariant = __webpack_require__(12);
 
 var _invariant2 = _interopRequireDefault(_invariant);
 
-var _ResourceDescriptorBase = __webpack_require__(66);
+var _ResourceDescriptorBase = __webpack_require__(79);
 
 var _ResourceDescriptorBase2 = _interopRequireDefault(_ResourceDescriptorBase);
 
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
 function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj.default = obj; return newObj; } }
 
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-
-function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 var MaterialResourceDescriptor = function (_ResourceDescriptorBa) {
-  _inherits(MaterialResourceDescriptor, _ResourceDescriptorBa);
+  (0, _inherits3.default)(MaterialResourceDescriptor, _ResourceDescriptorBa);
 
   function MaterialResourceDescriptor() {
-    _classCallCheck(this, MaterialResourceDescriptor);
-
-    return _possibleConstructorReturn(this, (MaterialResourceDescriptor.__proto__ || Object.getPrototypeOf(MaterialResourceDescriptor)).apply(this, arguments));
+    (0, _classCallCheck3.default)(this, MaterialResourceDescriptor);
+    return (0, _possibleConstructorReturn3.default)(this, (MaterialResourceDescriptor.__proto__ || (0, _getPrototypeOf2.default)(MaterialResourceDescriptor)).apply(this, arguments));
   }
 
-  _createClass(MaterialResourceDescriptor, [{
+  (0, _createClass3.default)(MaterialResourceDescriptor, [{
     key: 'applyInitialProps',
     value: function applyInitialProps(threeObject, props) {
-      _get(MaterialResourceDescriptor.prototype.__proto__ || Object.getPrototypeOf(MaterialResourceDescriptor.prototype), 'applyInitialProps', this).call(this, threeObject, props);
+      (0, _get3.default)(MaterialResourceDescriptor.prototype.__proto__ || (0, _getPrototypeOf2.default)(MaterialResourceDescriptor.prototype), 'applyInitialProps', this).call(this, threeObject, props);
 
       if (props.hasOwnProperty('slot')) {
         threeObject.userData._propertySlot = props.slot;
@@ -83536,66 +84953,78 @@ var MaterialResourceDescriptor = function (_ResourceDescriptorBa) {
     value: function setParent(threeObject, parentObject3D) {
       (0, _invariant2.default)(parentObject3D instanceof THREE.Mesh || parentObject3D instanceof THREE.Points || parentObject3D instanceof THREE.Line, 'Parent is not a mesh');
 
-      _get(MaterialResourceDescriptor.prototype.__proto__ || Object.getPrototypeOf(MaterialResourceDescriptor.prototype), 'setParent', this).call(this, threeObject, parentObject3D);
+      (0, _get3.default)(MaterialResourceDescriptor.prototype.__proto__ || (0, _getPrototypeOf2.default)(MaterialResourceDescriptor.prototype), 'setParent', this).call(this, threeObject, parentObject3D);
     }
   }]);
-
   return MaterialResourceDescriptor;
 }(_ResourceDescriptorBase2.default);
 
 module.exports = MaterialResourceDescriptor;
 
 /***/ }),
-/* 400 */
+/* 417 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
-var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+var _getPrototypeOf = __webpack_require__(2);
 
-var _get = function get(object, property, receiver) { if (object === null) object = Function.prototype; var desc = Object.getOwnPropertyDescriptor(object, property); if (desc === undefined) { var parent = Object.getPrototypeOf(object); if (parent === null) { return undefined; } else { return get(parent, property, receiver); } } else if ("value" in desc) { return desc.value; } else { var getter = desc.get; if (getter === undefined) { return undefined; } return getter.call(receiver); } };
+var _getPrototypeOf2 = _interopRequireDefault(_getPrototypeOf);
 
-var _three = __webpack_require__(1);
+var _classCallCheck2 = __webpack_require__(0);
+
+var _classCallCheck3 = _interopRequireDefault(_classCallCheck2);
+
+var _createClass2 = __webpack_require__(1);
+
+var _createClass3 = _interopRequireDefault(_createClass2);
+
+var _possibleConstructorReturn2 = __webpack_require__(3);
+
+var _possibleConstructorReturn3 = _interopRequireDefault(_possibleConstructorReturn2);
+
+var _get2 = __webpack_require__(10);
+
+var _get3 = _interopRequireDefault(_get2);
+
+var _inherits2 = __webpack_require__(4);
+
+var _inherits3 = _interopRequireDefault(_inherits2);
+
+var _three = __webpack_require__(6);
 
 var THREE = _interopRequireWildcard(_three);
 
-var _invariant = __webpack_require__(6);
+var _invariant = __webpack_require__(12);
 
 var _invariant2 = _interopRequireDefault(_invariant);
 
-var _THREEElementDescriptor = __webpack_require__(14);
+var _THREEElementDescriptor = __webpack_require__(21);
 
 var _THREEElementDescriptor2 = _interopRequireDefault(_THREEElementDescriptor);
 
-var _UniformContainer = __webpack_require__(112);
+var _UniformContainer = __webpack_require__(123);
 
 var _UniformContainer2 = _interopRequireDefault(_UniformContainer);
 
-var _Uniform = __webpack_require__(67);
+var _Uniform = __webpack_require__(80);
 
 var _Uniform2 = _interopRequireDefault(_Uniform);
 
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
 function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj.default = obj; return newObj; } }
 
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-
-function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 var UniformsDescriptor = function (_THREEElementDescript) {
-  _inherits(UniformsDescriptor, _THREEElementDescript);
+  (0, _inherits3.default)(UniformsDescriptor, _THREEElementDescript);
 
   function UniformsDescriptor() {
-    _classCallCheck(this, UniformsDescriptor);
-
-    return _possibleConstructorReturn(this, (UniformsDescriptor.__proto__ || Object.getPrototypeOf(UniformsDescriptor)).apply(this, arguments));
+    (0, _classCallCheck3.default)(this, UniformsDescriptor);
+    return (0, _possibleConstructorReturn3.default)(this, (UniformsDescriptor.__proto__ || (0, _getPrototypeOf2.default)(UniformsDescriptor)).apply(this, arguments));
   }
 
-  _createClass(UniformsDescriptor, [{
+  (0, _createClass3.default)(UniformsDescriptor, [{
     key: 'construct',
     value: function construct() {
       return new _UniformContainer2.default();
@@ -83605,7 +85034,7 @@ var UniformsDescriptor = function (_THREEElementDescript) {
     value: function setParent(threeObject, parentObject3D) {
       (0, _invariant2.default)(parentObject3D instanceof THREE.ShaderMaterial, 'Parent of <uniforms/> is not a shader material');
 
-      _get(UniformsDescriptor.prototype.__proto__ || Object.getPrototypeOf(UniformsDescriptor.prototype), 'setParent', this).call(this, threeObject, parentObject3D);
+      (0, _get3.default)(UniformsDescriptor.prototype.__proto__ || (0, _getPrototypeOf2.default)(UniformsDescriptor.prototype), 'setParent', this).call(this, threeObject, parentObject3D);
 
       parentObject3D.uniforms = threeObject.uniforms;
     }
@@ -83635,68 +85064,81 @@ var UniformsDescriptor = function (_THREEElementDescript) {
       parent.userData._descriptor.hideHighlight(parent);
     }
   }]);
-
   return UniformsDescriptor;
 }(_THREEElementDescriptor2.default);
 
 module.exports = UniformsDescriptor;
 
 /***/ }),
-/* 401 */
+/* 418 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
-var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+var _getPrototypeOf = __webpack_require__(2);
 
-var _get = function get(object, property, receiver) { if (object === null) object = Function.prototype; var desc = Object.getOwnPropertyDescriptor(object, property); if (desc === undefined) { var parent = Object.getPrototypeOf(object); if (parent === null) { return undefined; } else { return get(parent, property, receiver); } } else if ("value" in desc) { return desc.value; } else { var getter = desc.get; if (getter === undefined) { return undefined; } return getter.call(receiver); } };
+var _getPrototypeOf2 = _interopRequireDefault(_getPrototypeOf);
 
-var _three = __webpack_require__(1);
+var _classCallCheck2 = __webpack_require__(0);
+
+var _classCallCheck3 = _interopRequireDefault(_classCallCheck2);
+
+var _createClass2 = __webpack_require__(1);
+
+var _createClass3 = _interopRequireDefault(_createClass2);
+
+var _possibleConstructorReturn2 = __webpack_require__(3);
+
+var _possibleConstructorReturn3 = _interopRequireDefault(_possibleConstructorReturn2);
+
+var _get2 = __webpack_require__(10);
+
+var _get3 = _interopRequireDefault(_get2);
+
+var _inherits2 = __webpack_require__(4);
+
+var _inherits3 = _interopRequireDefault(_inherits2);
+
+var _three = __webpack_require__(6);
 
 var THREE = _interopRequireWildcard(_three);
 
-var _invariant = __webpack_require__(6);
+var _invariant = __webpack_require__(12);
 
 var _invariant2 = _interopRequireDefault(_invariant);
 
-var _propTypes = __webpack_require__(2);
+var _propTypes = __webpack_require__(7);
 
 var _propTypes2 = _interopRequireDefault(_propTypes);
 
-var _Uniform = __webpack_require__(67);
+var _Uniform = __webpack_require__(80);
 
 var _Uniform2 = _interopRequireDefault(_Uniform);
 
-var _UniformContainer = __webpack_require__(112);
+var _UniformContainer = __webpack_require__(123);
 
 var _UniformContainer2 = _interopRequireDefault(_UniformContainer);
 
-var _ResourceReference = __webpack_require__(42);
+var _ResourceReference = __webpack_require__(53);
 
 var _ResourceReference2 = _interopRequireDefault(_ResourceReference);
 
-var _THREEElementDescriptor = __webpack_require__(14);
+var _THREEElementDescriptor = __webpack_require__(21);
 
 var _THREEElementDescriptor2 = _interopRequireDefault(_THREEElementDescriptor);
 
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
 function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj.default = obj; return newObj; } }
 
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-
-function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 var UniformDescriptor = function (_THREEElementDescript) {
-  _inherits(UniformDescriptor, _THREEElementDescript);
+  (0, _inherits3.default)(UniformDescriptor, _THREEElementDescript);
 
   function UniformDescriptor(react3Instance) {
-    _classCallCheck(this, UniformDescriptor);
+    (0, _classCallCheck3.default)(this, UniformDescriptor);
 
-    var _this = _possibleConstructorReturn(this, (UniformDescriptor.__proto__ || Object.getPrototypeOf(UniformDescriptor)).call(this, react3Instance));
+    var _this = (0, _possibleConstructorReturn3.default)(this, (UniformDescriptor.__proto__ || (0, _getPrototypeOf2.default)(UniformDescriptor)).call(this, react3Instance));
 
     _this._invalidChild = function (child) {
       return _this.invalidChildInternal(child);
@@ -83723,7 +85165,7 @@ var UniformDescriptor = function (_THREEElementDescript) {
     return _this;
   }
 
-  _createClass(UniformDescriptor, [{
+  (0, _createClass3.default)(UniformDescriptor, [{
     key: 'construct',
     value: function construct() {
       return new _Uniform2.default();
@@ -83731,7 +85173,7 @@ var UniformDescriptor = function (_THREEElementDescript) {
   }, {
     key: 'applyInitialProps',
     value: function applyInitialProps(threeObject, props) {
-      _get(UniformDescriptor.prototype.__proto__ || Object.getPrototypeOf(UniformDescriptor.prototype), 'applyInitialProps', this).call(this, threeObject, props);
+      (0, _get3.default)(UniformDescriptor.prototype.__proto__ || (0, _getPrototypeOf2.default)(UniformDescriptor.prototype), 'applyInitialProps', this).call(this, threeObject, props);
 
       (0, _invariant2.default)(props.hasOwnProperty('name'), 'The <uniform/> should have a \'name\' property');
       threeObject.name = props.name;
@@ -83744,7 +85186,7 @@ var UniformDescriptor = function (_THREEElementDescript) {
 
       var name = threeObject.name;
 
-      _get(UniformDescriptor.prototype.__proto__ || Object.getPrototypeOf(UniformDescriptor.prototype), 'setParent', this).call(this, threeObject, parentObject3D);
+      (0, _get3.default)(UniformDescriptor.prototype.__proto__ || (0, _getPrototypeOf2.default)(UniformDescriptor.prototype), 'setParent', this).call(this, threeObject, parentObject3D);
 
       parentObject3D.uniforms[name] = {
         type: threeObject.type,
@@ -83786,7 +85228,7 @@ var UniformDescriptor = function (_THREEElementDescript) {
 
       delete threeObject.userData._onValueChanged;
 
-      _get(UniformDescriptor.prototype.__proto__ || Object.getPrototypeOf(UniformDescriptor.prototype), 'unmount', this).call(this, threeObject);
+      (0, _get3.default)(UniformDescriptor.prototype.__proto__ || (0, _getPrototypeOf2.default)(UniformDescriptor.prototype), 'unmount', this).call(this, threeObject);
     }
   }, {
     key: 'highlight',
@@ -83807,50 +85249,61 @@ var UniformDescriptor = function (_THREEElementDescript) {
       parent.userData._descriptor.hideHighlight(parent);
     }
   }]);
-
   return UniformDescriptor;
 }(_THREEElementDescriptor2.default);
 
 module.exports = UniformDescriptor;
 
 /***/ }),
-/* 402 */
+/* 419 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
-var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+var _getPrototypeOf = __webpack_require__(2);
 
-var _three = __webpack_require__(1);
+var _getPrototypeOf2 = _interopRequireDefault(_getPrototypeOf);
+
+var _classCallCheck2 = __webpack_require__(0);
+
+var _classCallCheck3 = _interopRequireDefault(_classCallCheck2);
+
+var _createClass2 = __webpack_require__(1);
+
+var _createClass3 = _interopRequireDefault(_createClass2);
+
+var _possibleConstructorReturn2 = __webpack_require__(3);
+
+var _possibleConstructorReturn3 = _interopRequireDefault(_possibleConstructorReturn2);
+
+var _inherits2 = __webpack_require__(4);
+
+var _inherits3 = _interopRequireDefault(_inherits2);
+
+var _three = __webpack_require__(6);
 
 var THREE = _interopRequireWildcard(_three);
 
-var _propTypes = __webpack_require__(2);
+var _propTypes = __webpack_require__(7);
 
 var _propTypes2 = _interopRequireDefault(_propTypes);
 
-var _MaterialDescriptorBase = __webpack_require__(20);
+var _MaterialDescriptorBase = __webpack_require__(28);
 
 var _MaterialDescriptorBase2 = _interopRequireDefault(_MaterialDescriptorBase);
 
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
 function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj.default = obj; return newObj; } }
 
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-
-function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 var LineBasicMaterialDescriptor = function (_MaterialDescriptorBa) {
-  _inherits(LineBasicMaterialDescriptor, _MaterialDescriptorBa);
+  (0, _inherits3.default)(LineBasicMaterialDescriptor, _MaterialDescriptorBa);
 
   function LineBasicMaterialDescriptor(react3RendererInstance) {
-    _classCallCheck(this, LineBasicMaterialDescriptor);
+    (0, _classCallCheck3.default)(this, LineBasicMaterialDescriptor);
 
-    var _this = _possibleConstructorReturn(this, (LineBasicMaterialDescriptor.__proto__ || Object.getPrototypeOf(LineBasicMaterialDescriptor)).call(this, react3RendererInstance));
+    var _this = (0, _possibleConstructorReturn3.default)(this, (LineBasicMaterialDescriptor.__proto__ || (0, _getPrototypeOf2.default)(LineBasicMaterialDescriptor)).call(this, react3RendererInstance));
 
     _this.hasColor();
 
@@ -83884,7 +85337,7 @@ var LineBasicMaterialDescriptor = function (_MaterialDescriptorBa) {
     return _this;
   }
 
-  _createClass(LineBasicMaterialDescriptor, [{
+  (0, _createClass3.default)(LineBasicMaterialDescriptor, [{
     key: 'construct',
     value: function construct(props) {
       var materialDescription = this.getMaterialDescription(props);
@@ -83892,50 +85345,61 @@ var LineBasicMaterialDescriptor = function (_MaterialDescriptorBa) {
       return new THREE.LineBasicMaterial(materialDescription);
     }
   }]);
-
   return LineBasicMaterialDescriptor;
 }(_MaterialDescriptorBase2.default);
 
 module.exports = LineBasicMaterialDescriptor;
 
 /***/ }),
-/* 403 */
+/* 420 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
-var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+var _getPrototypeOf = __webpack_require__(2);
 
-var _three = __webpack_require__(1);
+var _getPrototypeOf2 = _interopRequireDefault(_getPrototypeOf);
+
+var _classCallCheck2 = __webpack_require__(0);
+
+var _classCallCheck3 = _interopRequireDefault(_classCallCheck2);
+
+var _createClass2 = __webpack_require__(1);
+
+var _createClass3 = _interopRequireDefault(_createClass2);
+
+var _possibleConstructorReturn2 = __webpack_require__(3);
+
+var _possibleConstructorReturn3 = _interopRequireDefault(_possibleConstructorReturn2);
+
+var _inherits2 = __webpack_require__(4);
+
+var _inherits3 = _interopRequireDefault(_inherits2);
+
+var _three = __webpack_require__(6);
 
 var THREE = _interopRequireWildcard(_three);
 
-var _propTypes = __webpack_require__(2);
+var _propTypes = __webpack_require__(7);
 
 var _propTypes2 = _interopRequireDefault(_propTypes);
 
-var _MaterialDescriptorBase = __webpack_require__(20);
+var _MaterialDescriptorBase = __webpack_require__(28);
 
 var _MaterialDescriptorBase2 = _interopRequireDefault(_MaterialDescriptorBase);
 
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
 function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj.default = obj; return newObj; } }
 
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-
-function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 var LineDashedMaterialDescriptor = function (_MaterialDescriptorBa) {
-  _inherits(LineDashedMaterialDescriptor, _MaterialDescriptorBa);
+  (0, _inherits3.default)(LineDashedMaterialDescriptor, _MaterialDescriptorBa);
 
   function LineDashedMaterialDescriptor(react3RendererInstance) {
-    _classCallCheck(this, LineDashedMaterialDescriptor);
+    (0, _classCallCheck3.default)(this, LineDashedMaterialDescriptor);
 
-    var _this = _possibleConstructorReturn(this, (LineDashedMaterialDescriptor.__proto__ || Object.getPrototypeOf(LineDashedMaterialDescriptor)).call(this, react3RendererInstance));
+    var _this = (0, _possibleConstructorReturn3.default)(this, (LineDashedMaterialDescriptor.__proto__ || (0, _getPrototypeOf2.default)(LineDashedMaterialDescriptor)).call(this, react3RendererInstance));
 
     _this.hasColor();
 
@@ -83977,7 +85441,7 @@ var LineDashedMaterialDescriptor = function (_MaterialDescriptorBa) {
     return _this;
   }
 
-  _createClass(LineDashedMaterialDescriptor, [{
+  (0, _createClass3.default)(LineDashedMaterialDescriptor, [{
     key: 'construct',
     value: function construct(props) {
       var materialDescription = this.getMaterialDescription(props);
@@ -83985,46 +85449,57 @@ var LineDashedMaterialDescriptor = function (_MaterialDescriptorBa) {
       return new THREE.LineDashedMaterial(materialDescription);
     }
   }]);
-
   return LineDashedMaterialDescriptor;
 }(_MaterialDescriptorBase2.default);
 
 module.exports = LineDashedMaterialDescriptor;
 
 /***/ }),
-/* 404 */
+/* 421 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
-var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+var _getPrototypeOf = __webpack_require__(2);
 
-var _three = __webpack_require__(1);
+var _getPrototypeOf2 = _interopRequireDefault(_getPrototypeOf);
+
+var _classCallCheck2 = __webpack_require__(0);
+
+var _classCallCheck3 = _interopRequireDefault(_classCallCheck2);
+
+var _createClass2 = __webpack_require__(1);
+
+var _createClass3 = _interopRequireDefault(_createClass2);
+
+var _possibleConstructorReturn2 = __webpack_require__(3);
+
+var _possibleConstructorReturn3 = _interopRequireDefault(_possibleConstructorReturn2);
+
+var _inherits2 = __webpack_require__(4);
+
+var _inherits3 = _interopRequireDefault(_inherits2);
+
+var _three = __webpack_require__(6);
 
 var THREE = _interopRequireWildcard(_three);
 
-var _MaterialDescriptorBase = __webpack_require__(20);
+var _MaterialDescriptorBase = __webpack_require__(28);
 
 var _MaterialDescriptorBase2 = _interopRequireDefault(_MaterialDescriptorBase);
 
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
 function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj.default = obj; return newObj; } }
 
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-
-function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 var MeshDepthMaterialDescriptor = function (_MaterialDescriptorBa) {
-  _inherits(MeshDepthMaterialDescriptor, _MaterialDescriptorBa);
+  (0, _inherits3.default)(MeshDepthMaterialDescriptor, _MaterialDescriptorBa);
 
   function MeshDepthMaterialDescriptor(react3RendererInstance) {
-    _classCallCheck(this, MeshDepthMaterialDescriptor);
+    (0, _classCallCheck3.default)(this, MeshDepthMaterialDescriptor);
 
-    var _this = _possibleConstructorReturn(this, (MeshDepthMaterialDescriptor.__proto__ || Object.getPrototypeOf(MeshDepthMaterialDescriptor)).call(this, react3RendererInstance));
+    var _this = (0, _possibleConstructorReturn3.default)(this, (MeshDepthMaterialDescriptor.__proto__ || (0, _getPrototypeOf2.default)(MeshDepthMaterialDescriptor)).call(this, react3RendererInstance));
 
     _this.hasWireframe();
     _this.hasMap();
@@ -84033,7 +85508,7 @@ var MeshDepthMaterialDescriptor = function (_MaterialDescriptorBa) {
     return _this;
   }
 
-  _createClass(MeshDepthMaterialDescriptor, [{
+  (0, _createClass3.default)(MeshDepthMaterialDescriptor, [{
     key: 'construct',
     value: function construct(props) {
       var materialDescription = this.getMaterialDescription(props);
@@ -84041,52 +85516,63 @@ var MeshDepthMaterialDescriptor = function (_MaterialDescriptorBa) {
       return new THREE.MeshDepthMaterial(materialDescription);
     }
   }]);
-
   return MeshDepthMaterialDescriptor;
 }(_MaterialDescriptorBase2.default);
 
 module.exports = MeshDepthMaterialDescriptor;
 
 /***/ }),
-/* 405 */
+/* 422 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
-var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+var _getPrototypeOf = __webpack_require__(2);
 
-var _three = __webpack_require__(1);
+var _getPrototypeOf2 = _interopRequireDefault(_getPrototypeOf);
+
+var _classCallCheck2 = __webpack_require__(0);
+
+var _classCallCheck3 = _interopRequireDefault(_classCallCheck2);
+
+var _createClass2 = __webpack_require__(1);
+
+var _createClass3 = _interopRequireDefault(_createClass2);
+
+var _possibleConstructorReturn2 = __webpack_require__(3);
+
+var _possibleConstructorReturn3 = _interopRequireDefault(_possibleConstructorReturn2);
+
+var _inherits2 = __webpack_require__(4);
+
+var _inherits3 = _interopRequireDefault(_inherits2);
+
+var _three = __webpack_require__(6);
 
 var THREE = _interopRequireWildcard(_three);
 
-var _MaterialDescriptorBase = __webpack_require__(20);
+var _MaterialDescriptorBase = __webpack_require__(28);
 
 var _MaterialDescriptorBase2 = _interopRequireDefault(_MaterialDescriptorBase);
 
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
 function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj.default = obj; return newObj; } }
 
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-
-function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 var MeshNormalMaterialDescriptor = function (_MaterialDescriptorBa) {
-  _inherits(MeshNormalMaterialDescriptor, _MaterialDescriptorBa);
+  (0, _inherits3.default)(MeshNormalMaterialDescriptor, _MaterialDescriptorBa);
 
   function MeshNormalMaterialDescriptor(react3RendererInstance) {
-    _classCallCheck(this, MeshNormalMaterialDescriptor);
+    (0, _classCallCheck3.default)(this, MeshNormalMaterialDescriptor);
 
-    var _this = _possibleConstructorReturn(this, (MeshNormalMaterialDescriptor.__proto__ || Object.getPrototypeOf(MeshNormalMaterialDescriptor)).call(this, react3RendererInstance));
+    var _this = (0, _possibleConstructorReturn3.default)(this, (MeshNormalMaterialDescriptor.__proto__ || (0, _getPrototypeOf2.default)(MeshNormalMaterialDescriptor)).call(this, react3RendererInstance));
 
     _this.hasWireframe();
     return _this;
   }
 
-  _createClass(MeshNormalMaterialDescriptor, [{
+  (0, _createClass3.default)(MeshNormalMaterialDescriptor, [{
     key: 'construct',
     value: function construct(props) {
       var materialDescription = this.getMaterialDescription(props);
@@ -84094,50 +85580,61 @@ var MeshNormalMaterialDescriptor = function (_MaterialDescriptorBa) {
       return new THREE.MeshNormalMaterial(materialDescription);
     }
   }]);
-
   return MeshNormalMaterialDescriptor;
 }(_MaterialDescriptorBase2.default);
 
 module.exports = MeshNormalMaterialDescriptor;
 
 /***/ }),
-/* 406 */
+/* 423 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
-var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+var _getPrototypeOf = __webpack_require__(2);
 
-var _three = __webpack_require__(1);
+var _getPrototypeOf2 = _interopRequireDefault(_getPrototypeOf);
+
+var _classCallCheck2 = __webpack_require__(0);
+
+var _classCallCheck3 = _interopRequireDefault(_classCallCheck2);
+
+var _createClass2 = __webpack_require__(1);
+
+var _createClass3 = _interopRequireDefault(_createClass2);
+
+var _possibleConstructorReturn2 = __webpack_require__(3);
+
+var _possibleConstructorReturn3 = _interopRequireDefault(_possibleConstructorReturn2);
+
+var _inherits2 = __webpack_require__(4);
+
+var _inherits3 = _interopRequireDefault(_inherits2);
+
+var _three = __webpack_require__(6);
 
 var THREE = _interopRequireWildcard(_three);
 
-var _propTypes = __webpack_require__(2);
+var _propTypes = __webpack_require__(7);
 
 var _propTypes2 = _interopRequireDefault(_propTypes);
 
-var _MaterialDescriptorBase = __webpack_require__(20);
+var _MaterialDescriptorBase = __webpack_require__(28);
 
 var _MaterialDescriptorBase2 = _interopRequireDefault(_MaterialDescriptorBase);
 
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
 function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj.default = obj; return newObj; } }
 
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-
-function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 var SpriteMaterialDescriptor = function (_MaterialDescriptorBa) {
-  _inherits(SpriteMaterialDescriptor, _MaterialDescriptorBa);
+  (0, _inherits3.default)(SpriteMaterialDescriptor, _MaterialDescriptorBa);
 
   function SpriteMaterialDescriptor(react3RendererInstance) {
-    _classCallCheck(this, SpriteMaterialDescriptor);
+    (0, _classCallCheck3.default)(this, SpriteMaterialDescriptor);
 
-    var _this = _possibleConstructorReturn(this, (SpriteMaterialDescriptor.__proto__ || Object.getPrototypeOf(SpriteMaterialDescriptor)).call(this, react3RendererInstance));
+    var _this = (0, _possibleConstructorReturn3.default)(this, (SpriteMaterialDescriptor.__proto__ || (0, _getPrototypeOf2.default)(SpriteMaterialDescriptor)).call(this, react3RendererInstance));
 
     _this.hasColor();
 
@@ -84164,7 +85661,7 @@ var SpriteMaterialDescriptor = function (_MaterialDescriptorBa) {
     return _this;
   }
 
-  _createClass(SpriteMaterialDescriptor, [{
+  (0, _createClass3.default)(SpriteMaterialDescriptor, [{
     key: 'construct',
     value: function construct(props) {
       var materialDescription = this.getMaterialDescription(props);
@@ -84172,56 +85669,69 @@ var SpriteMaterialDescriptor = function (_MaterialDescriptorBa) {
       return new THREE.SpriteMaterial(materialDescription);
     }
   }]);
-
   return SpriteMaterialDescriptor;
 }(_MaterialDescriptorBase2.default);
 
 module.exports = SpriteMaterialDescriptor;
 
 /***/ }),
-/* 407 */
+/* 424 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
-var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+var _getPrototypeOf = __webpack_require__(2);
 
-var _get = function get(object, property, receiver) { if (object === null) object = Function.prototype; var desc = Object.getOwnPropertyDescriptor(object, property); if (desc === undefined) { var parent = Object.getPrototypeOf(object); if (parent === null) { return undefined; } else { return get(parent, property, receiver); } } else if ("value" in desc) { return desc.value; } else { var getter = desc.get; if (getter === undefined) { return undefined; } return getter.call(receiver); } };
+var _getPrototypeOf2 = _interopRequireDefault(_getPrototypeOf);
 
-var _three = __webpack_require__(1);
+var _classCallCheck2 = __webpack_require__(0);
+
+var _classCallCheck3 = _interopRequireDefault(_classCallCheck2);
+
+var _createClass2 = __webpack_require__(1);
+
+var _createClass3 = _interopRequireDefault(_createClass2);
+
+var _possibleConstructorReturn2 = __webpack_require__(3);
+
+var _possibleConstructorReturn3 = _interopRequireDefault(_possibleConstructorReturn2);
+
+var _get2 = __webpack_require__(10);
+
+var _get3 = _interopRequireDefault(_get2);
+
+var _inherits2 = __webpack_require__(4);
+
+var _inherits3 = _interopRequireDefault(_inherits2);
+
+var _three = __webpack_require__(6);
 
 var THREE = _interopRequireWildcard(_three);
 
-var _propTypes = __webpack_require__(2);
+var _propTypes = __webpack_require__(7);
 
 var _propTypes2 = _interopRequireDefault(_propTypes);
 
-var _Object3DDescriptor2 = __webpack_require__(18);
+var _Object3DDescriptor2 = __webpack_require__(26);
 
 var _Object3DDescriptor3 = _interopRequireDefault(_Object3DDescriptor2);
 
-var _CameraUtils = __webpack_require__(174);
+var _CameraUtils = __webpack_require__(183);
 
 var _CameraUtils2 = _interopRequireDefault(_CameraUtils);
 
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
 function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj.default = obj; return newObj; } }
 
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-
-function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 var CameraHelperDescriptor = function (_Object3DDescriptor) {
-  _inherits(CameraHelperDescriptor, _Object3DDescriptor);
+  (0, _inherits3.default)(CameraHelperDescriptor, _Object3DDescriptor);
 
   function CameraHelperDescriptor(react3Instance) {
-    _classCallCheck(this, CameraHelperDescriptor);
+    (0, _classCallCheck3.default)(this, CameraHelperDescriptor);
 
-    var _this = _possibleConstructorReturn(this, (CameraHelperDescriptor.__proto__ || Object.getPrototypeOf(CameraHelperDescriptor)).call(this, react3Instance));
+    var _this = (0, _possibleConstructorReturn3.default)(this, (CameraHelperDescriptor.__proto__ || (0, _getPrototypeOf2.default)(CameraHelperDescriptor)).call(this, react3Instance));
 
     _this.hasProp('visible', {
       type: _propTypes2.default.bool,
@@ -84250,7 +85760,7 @@ var CameraHelperDescriptor = function (_Object3DDescriptor) {
     return _this;
   }
 
-  _createClass(CameraHelperDescriptor, [{
+  (0, _createClass3.default)(CameraHelperDescriptor, [{
     key: 'construct',
     value: function construct() {
       return new THREE.CameraHelper(new THREE.PerspectiveCamera());
@@ -84260,7 +85770,7 @@ var CameraHelperDescriptor = function (_Object3DDescriptor) {
     value: function applyInitialProps(cameraHelper, props) {
       var _this2 = this;
 
-      _get(CameraHelperDescriptor.prototype.__proto__ || Object.getPrototypeOf(CameraHelperDescriptor.prototype), 'applyInitialProps', this).call(this, cameraHelper, props);
+      (0, _get3.default)(CameraHelperDescriptor.prototype.__proto__ || (0, _getPrototypeOf2.default)(CameraHelperDescriptor.prototype), 'applyInitialProps', this).call(this, cameraHelper, props);
 
       cameraHelper.userData._onCameraProjectionUpdate = function () {
         cameraHelper.update();
@@ -84298,7 +85808,7 @@ var CameraHelperDescriptor = function (_Object3DDescriptor) {
 
       delete threeObject.userData._onCameraProjectionUpdate;
 
-      return _get(CameraHelperDescriptor.prototype.__proto__ || Object.getPrototypeOf(CameraHelperDescriptor.prototype), 'unmount', this).call(this, threeObject);
+      return (0, _get3.default)(CameraHelperDescriptor.prototype.__proto__ || (0, _getPrototypeOf2.default)(CameraHelperDescriptor.prototype), 'unmount', this).call(this, threeObject);
     }
   }, {
     key: '_getCamera',
@@ -84387,52 +85897,65 @@ var CameraHelperDescriptor = function (_Object3DDescriptor) {
       }
     }
   }]);
-
   return CameraHelperDescriptor;
 }(_Object3DDescriptor3.default);
 
 module.exports = CameraHelperDescriptor;
 
 /***/ }),
-/* 408 */
+/* 425 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
-var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+var _getPrototypeOf = __webpack_require__(2);
 
-var _get = function get(object, property, receiver) { if (object === null) object = Function.prototype; var desc = Object.getOwnPropertyDescriptor(object, property); if (desc === undefined) { var parent = Object.getPrototypeOf(object); if (parent === null) { return undefined; } else { return get(parent, property, receiver); } } else if ("value" in desc) { return desc.value; } else { var getter = desc.get; if (getter === undefined) { return undefined; } return getter.call(receiver); } };
+var _getPrototypeOf2 = _interopRequireDefault(_getPrototypeOf);
 
-var _three = __webpack_require__(1);
+var _classCallCheck2 = __webpack_require__(0);
+
+var _classCallCheck3 = _interopRequireDefault(_classCallCheck2);
+
+var _createClass2 = __webpack_require__(1);
+
+var _createClass3 = _interopRequireDefault(_createClass2);
+
+var _possibleConstructorReturn2 = __webpack_require__(3);
+
+var _possibleConstructorReturn3 = _interopRequireDefault(_possibleConstructorReturn2);
+
+var _get2 = __webpack_require__(10);
+
+var _get3 = _interopRequireDefault(_get2);
+
+var _inherits2 = __webpack_require__(4);
+
+var _inherits3 = _interopRequireDefault(_inherits2);
+
+var _three = __webpack_require__(6);
 
 var THREE = _interopRequireWildcard(_three);
 
-var _propTypes = __webpack_require__(2);
+var _propTypes = __webpack_require__(7);
 
 var _propTypes2 = _interopRequireDefault(_propTypes);
 
-var _Object3DDescriptor2 = __webpack_require__(18);
+var _Object3DDescriptor2 = __webpack_require__(26);
 
 var _Object3DDescriptor3 = _interopRequireDefault(_Object3DDescriptor2);
 
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
 function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj.default = obj; return newObj; } }
 
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-
-function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 var AxisHelperDescriptor = function (_Object3DDescriptor) {
-  _inherits(AxisHelperDescriptor, _Object3DDescriptor);
+  (0, _inherits3.default)(AxisHelperDescriptor, _Object3DDescriptor);
 
   function AxisHelperDescriptor(react3Instance) {
-    _classCallCheck(this, AxisHelperDescriptor);
+    (0, _classCallCheck3.default)(this, AxisHelperDescriptor);
 
-    var _this = _possibleConstructorReturn(this, (AxisHelperDescriptor.__proto__ || Object.getPrototypeOf(AxisHelperDescriptor)).call(this, react3Instance));
+    var _this = (0, _possibleConstructorReturn3.default)(this, (AxisHelperDescriptor.__proto__ || (0, _getPrototypeOf2.default)(AxisHelperDescriptor)).call(this, react3Instance));
 
     _this.hasProp('size', {
       type: _propTypes2.default.number,
@@ -84442,10 +85965,10 @@ var AxisHelperDescriptor = function (_Object3DDescriptor) {
     return _this;
   }
 
-  _createClass(AxisHelperDescriptor, [{
+  (0, _createClass3.default)(AxisHelperDescriptor, [{
     key: 'applyInitialProps',
     value: function applyInitialProps(threeObject, props) {
-      _get(AxisHelperDescriptor.prototype.__proto__ || Object.getPrototypeOf(AxisHelperDescriptor.prototype), 'applyInitialProps', this).call(this, threeObject, props);
+      (0, _get3.default)(AxisHelperDescriptor.prototype.__proto__ || (0, _getPrototypeOf2.default)(AxisHelperDescriptor.prototype), 'applyInitialProps', this).call(this, threeObject, props);
     }
   }, {
     key: 'construct',
@@ -84460,59 +85983,72 @@ var AxisHelperDescriptor = function (_Object3DDescriptor) {
       threeObject.geometry.dispose();
       threeObject.material.dispose();
 
-      _get(AxisHelperDescriptor.prototype.__proto__ || Object.getPrototypeOf(AxisHelperDescriptor.prototype), 'unmount', this).call(this, threeObject);
+      (0, _get3.default)(AxisHelperDescriptor.prototype.__proto__ || (0, _getPrototypeOf2.default)(AxisHelperDescriptor.prototype), 'unmount', this).call(this, threeObject);
     }
   }]);
-
   return AxisHelperDescriptor;
 }(_Object3DDescriptor3.default);
 
 module.exports = AxisHelperDescriptor;
 
 /***/ }),
-/* 409 */
+/* 426 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
-var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+var _getPrototypeOf = __webpack_require__(2);
 
-var _get = function get(object, property, receiver) { if (object === null) object = Function.prototype; var desc = Object.getOwnPropertyDescriptor(object, property); if (desc === undefined) { var parent = Object.getPrototypeOf(object); if (parent === null) { return undefined; } else { return get(parent, property, receiver); } } else if ("value" in desc) { return desc.value; } else { var getter = desc.get; if (getter === undefined) { return undefined; } return getter.call(receiver); } };
+var _getPrototypeOf2 = _interopRequireDefault(_getPrototypeOf);
 
-var _three = __webpack_require__(1);
+var _classCallCheck2 = __webpack_require__(0);
+
+var _classCallCheck3 = _interopRequireDefault(_classCallCheck2);
+
+var _createClass2 = __webpack_require__(1);
+
+var _createClass3 = _interopRequireDefault(_createClass2);
+
+var _possibleConstructorReturn2 = __webpack_require__(3);
+
+var _possibleConstructorReturn3 = _interopRequireDefault(_possibleConstructorReturn2);
+
+var _get2 = __webpack_require__(10);
+
+var _get3 = _interopRequireDefault(_get2);
+
+var _inherits2 = __webpack_require__(4);
+
+var _inherits3 = _interopRequireDefault(_inherits2);
+
+var _three = __webpack_require__(6);
 
 var THREE = _interopRequireWildcard(_three);
 
-var _propTypes = __webpack_require__(2);
+var _propTypes = __webpack_require__(7);
 
 var _propTypes2 = _interopRequireDefault(_propTypes);
 
-var _Object3DDescriptor2 = __webpack_require__(18);
+var _Object3DDescriptor2 = __webpack_require__(26);
 
 var _Object3DDescriptor3 = _interopRequireDefault(_Object3DDescriptor2);
 
-var _propTypeInstanceOf = __webpack_require__(9);
+var _propTypeInstanceOf = __webpack_require__(15);
 
 var _propTypeInstanceOf2 = _interopRequireDefault(_propTypeInstanceOf);
 
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
 function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj.default = obj; return newObj; } }
 
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-
-function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 var ArrowHelperDescriptor = function (_Object3DDescriptor) {
-  _inherits(ArrowHelperDescriptor, _Object3DDescriptor);
+  (0, _inherits3.default)(ArrowHelperDescriptor, _Object3DDescriptor);
 
   function ArrowHelperDescriptor(react3Instance) {
-    _classCallCheck(this, ArrowHelperDescriptor);
+    (0, _classCallCheck3.default)(this, ArrowHelperDescriptor);
 
-    var _this = _possibleConstructorReturn(this, (ArrowHelperDescriptor.__proto__ || Object.getPrototypeOf(ArrowHelperDescriptor)).call(this, react3Instance));
+    var _this = (0, _possibleConstructorReturn3.default)(this, (ArrowHelperDescriptor.__proto__ || (0, _getPrototypeOf2.default)(ArrowHelperDescriptor)).call(this, react3Instance));
 
     _this.hasProp('origin', {
       type: (0, _propTypeInstanceOf2.default)(THREE.Vector3).isRequired,
@@ -84574,7 +86110,7 @@ var ArrowHelperDescriptor = function (_Object3DDescriptor) {
     return _this;
   }
 
-  _createClass(ArrowHelperDescriptor, [{
+  (0, _createClass3.default)(ArrowHelperDescriptor, [{
     key: 'beginPropertyUpdates',
     value: function beginPropertyUpdates(threeObject) {
       threeObject.userData.lengthsChanged = false;
@@ -84605,7 +86141,7 @@ var ArrowHelperDescriptor = function (_Object3DDescriptor) {
   }, {
     key: 'applyInitialProps',
     value: function applyInitialProps(threeObject, props) {
-      _get(ArrowHelperDescriptor.prototype.__proto__ || Object.getPrototypeOf(ArrowHelperDescriptor.prototype), 'applyInitialProps', this).call(this, threeObject, props);
+      (0, _get3.default)(ArrowHelperDescriptor.prototype.__proto__ || (0, _getPrototypeOf2.default)(ArrowHelperDescriptor.prototype), 'applyInitialProps', this).call(this, threeObject, props);
 
       var length = props.length,
           headLength = props.headLength,
@@ -84654,59 +86190,72 @@ var ArrowHelperDescriptor = function (_Object3DDescriptor) {
         threeObject.cone.material.dispose();
       }
 
-      _get(ArrowHelperDescriptor.prototype.__proto__ || Object.getPrototypeOf(ArrowHelperDescriptor.prototype), 'unmount', this).call(this, threeObject);
+      (0, _get3.default)(ArrowHelperDescriptor.prototype.__proto__ || (0, _getPrototypeOf2.default)(ArrowHelperDescriptor.prototype), 'unmount', this).call(this, threeObject);
     }
   }]);
-
   return ArrowHelperDescriptor;
 }(_Object3DDescriptor3.default);
 
 module.exports = ArrowHelperDescriptor;
 
 /***/ }),
-/* 410 */
+/* 427 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
-var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+var _getPrototypeOf = __webpack_require__(2);
 
-var _get = function get(object, property, receiver) { if (object === null) object = Function.prototype; var desc = Object.getOwnPropertyDescriptor(object, property); if (desc === undefined) { var parent = Object.getPrototypeOf(object); if (parent === null) { return undefined; } else { return get(parent, property, receiver); } } else if ("value" in desc) { return desc.value; } else { var getter = desc.get; if (getter === undefined) { return undefined; } return getter.call(receiver); } };
+var _getPrototypeOf2 = _interopRequireDefault(_getPrototypeOf);
 
-var _three = __webpack_require__(1);
+var _classCallCheck2 = __webpack_require__(0);
+
+var _classCallCheck3 = _interopRequireDefault(_classCallCheck2);
+
+var _createClass2 = __webpack_require__(1);
+
+var _createClass3 = _interopRequireDefault(_createClass2);
+
+var _possibleConstructorReturn2 = __webpack_require__(3);
+
+var _possibleConstructorReturn3 = _interopRequireDefault(_possibleConstructorReturn2);
+
+var _get2 = __webpack_require__(10);
+
+var _get3 = _interopRequireDefault(_get2);
+
+var _inherits2 = __webpack_require__(4);
+
+var _inherits3 = _interopRequireDefault(_inherits2);
+
+var _three = __webpack_require__(6);
 
 var THREE = _interopRequireWildcard(_three);
 
-var _propTypes = __webpack_require__(2);
+var _propTypes = __webpack_require__(7);
 
 var _propTypes2 = _interopRequireDefault(_propTypes);
 
-var _Object3DDescriptor2 = __webpack_require__(18);
+var _Object3DDescriptor2 = __webpack_require__(26);
 
 var _Object3DDescriptor3 = _interopRequireDefault(_Object3DDescriptor2);
 
-var _propTypeInstanceOf = __webpack_require__(9);
+var _propTypeInstanceOf = __webpack_require__(15);
 
 var _propTypeInstanceOf2 = _interopRequireDefault(_propTypeInstanceOf);
 
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
 function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj.default = obj; return newObj; } }
 
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-
-function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 var GridHelperDescriptor = function (_Object3DDescriptor) {
-  _inherits(GridHelperDescriptor, _Object3DDescriptor);
+  (0, _inherits3.default)(GridHelperDescriptor, _Object3DDescriptor);
 
   function GridHelperDescriptor(react3Instance) {
-    _classCallCheck(this, GridHelperDescriptor);
+    (0, _classCallCheck3.default)(this, GridHelperDescriptor);
 
-    var _this = _possibleConstructorReturn(this, (GridHelperDescriptor.__proto__ || Object.getPrototypeOf(GridHelperDescriptor)).call(this, react3Instance));
+    var _this = (0, _possibleConstructorReturn3.default)(this, (GridHelperDescriptor.__proto__ || (0, _getPrototypeOf2.default)(GridHelperDescriptor)).call(this, react3Instance));
 
     _this.hasProp('size', {
       type: _propTypes2.default.number.isRequired,
@@ -84734,10 +86283,10 @@ var GridHelperDescriptor = function (_Object3DDescriptor) {
     return _this;
   }
 
-  _createClass(GridHelperDescriptor, [{
+  (0, _createClass3.default)(GridHelperDescriptor, [{
     key: 'applyInitialProps',
     value: function applyInitialProps(threeObject, props) {
-      _get(GridHelperDescriptor.prototype.__proto__ || Object.getPrototypeOf(GridHelperDescriptor.prototype), 'applyInitialProps', this).call(this, threeObject, props);
+      (0, _get3.default)(GridHelperDescriptor.prototype.__proto__ || (0, _getPrototypeOf2.default)(GridHelperDescriptor.prototype), 'applyInitialProps', this).call(this, threeObject, props);
     }
   }, {
     key: 'construct',
@@ -84755,17 +86304,16 @@ var GridHelperDescriptor = function (_Object3DDescriptor) {
       threeObject.geometry.dispose();
       threeObject.material.dispose();
 
-      _get(GridHelperDescriptor.prototype.__proto__ || Object.getPrototypeOf(GridHelperDescriptor.prototype), 'unmount', this).call(this, threeObject);
+      (0, _get3.default)(GridHelperDescriptor.prototype.__proto__ || (0, _getPrototypeOf2.default)(GridHelperDescriptor.prototype), 'unmount', this).call(this, threeObject);
     }
   }]);
-
   return GridHelperDescriptor;
 }(_Object3DDescriptor3.default);
 
 module.exports = GridHelperDescriptor;
 
 /***/ }),
-/* 411 */
+/* 428 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -84775,35 +86323,35 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 
-var _getPrototypeOf = __webpack_require__(90);
+var _getPrototypeOf = __webpack_require__(2);
 
 var _getPrototypeOf2 = _interopRequireDefault(_getPrototypeOf);
 
-var _classCallCheck2 = __webpack_require__(95);
+var _classCallCheck2 = __webpack_require__(0);
 
 var _classCallCheck3 = _interopRequireDefault(_classCallCheck2);
 
-var _createClass2 = __webpack_require__(96);
+var _createClass2 = __webpack_require__(1);
 
 var _createClass3 = _interopRequireDefault(_createClass2);
 
-var _possibleConstructorReturn2 = __webpack_require__(97);
+var _possibleConstructorReturn2 = __webpack_require__(3);
 
 var _possibleConstructorReturn3 = _interopRequireDefault(_possibleConstructorReturn2);
 
-var _inherits2 = __webpack_require__(108);
+var _inherits2 = __webpack_require__(4);
 
 var _inherits3 = _interopRequireDefault(_inherits2);
 
-var _react = __webpack_require__(29);
+var _react = __webpack_require__(38);
 
 var _react2 = _interopRequireDefault(_react);
 
-var _reactThreeRenderer = __webpack_require__(165);
+var _reactThreeRenderer = __webpack_require__(117);
 
 var _reactThreeRenderer2 = _interopRequireDefault(_reactThreeRenderer);
 
-var _three = __webpack_require__(1);
+var _three = __webpack_require__(6);
 
 var Three = _interopRequireWildcard(_three);
 
@@ -84860,10 +86408,543 @@ var Node = function (_Component) {
 exports.default = Node;
 
 /***/ }),
-/* 412 */
-/***/ (function(module, exports) {
+/* 429 */
+/***/ (function(module, exports, __webpack_require__) {
 
-throw new Error("Module build failed: SyntaxError: Missing class properties transform.\n\n\u001b[0m \u001b[90m 141 | \u001b[39m  }\n \u001b[90m 142 | \u001b[39m\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 143 | \u001b[39m  _onMouseDown \u001b[33m=\u001b[39m (callbackName\u001b[33m,\u001b[39m mouseEvent) \u001b[33m=>\u001b[39m {\n \u001b[90m     | \u001b[39m  \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 144 | \u001b[39m    \u001b[33mReactUpdates\u001b[39m\u001b[33m.\u001b[39mbatchedUpdates(() \u001b[33m=>\u001b[39m {\n \u001b[90m 145 | \u001b[39m      \u001b[36mconst\u001b[39m {\n \u001b[90m 146 | \u001b[39m        event\u001b[33m,\u001b[39m\u001b[0m\n");
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _extends2 = __webpack_require__(20);
+
+var _extends3 = _interopRequireDefault(_extends2);
+
+var _keys = __webpack_require__(43);
+
+var _keys2 = _interopRequireDefault(_keys);
+
+var _values = __webpack_require__(430);
+
+var _values2 = _interopRequireDefault(_values);
+
+var _getPrototypeOf = __webpack_require__(2);
+
+var _getPrototypeOf2 = _interopRequireDefault(_getPrototypeOf);
+
+var _classCallCheck2 = __webpack_require__(0);
+
+var _classCallCheck3 = _interopRequireDefault(_classCallCheck2);
+
+var _createClass2 = __webpack_require__(1);
+
+var _createClass3 = _interopRequireDefault(_createClass2);
+
+var _possibleConstructorReturn2 = __webpack_require__(3);
+
+var _possibleConstructorReturn3 = _interopRequireDefault(_possibleConstructorReturn2);
+
+var _get2 = __webpack_require__(10);
+
+var _get3 = _interopRequireDefault(_get2);
+
+var _inherits2 = __webpack_require__(4);
+
+var _inherits3 = _interopRequireDefault(_inherits2);
+
+var _reactThreeRenderer = __webpack_require__(117);
+
+var _reactThreeRenderer2 = _interopRequireDefault(_reactThreeRenderer);
+
+var _three = __webpack_require__(6);
+
+var THREE = _interopRequireWildcard(_three);
+
+var _ReactUpdates = __webpack_require__(23);
+
+var _ReactUpdates2 = _interopRequireDefault(_ReactUpdates);
+
+var _SyntheticMouseEvent = __webpack_require__(56);
+
+var _SyntheticMouseEvent2 = _interopRequireDefault(_SyntheticMouseEvent);
+
+var _Module2 = __webpack_require__(121);
+
+var _Module3 = _interopRequireDefault(_Module2);
+
+var _ReactPropTypes = __webpack_require__(130);
+
+var _ReactPropTypes2 = _interopRequireDefault(_ReactPropTypes);
+
+function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj.default = obj; return newObj; } }
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+var tempVector2 = new THREE.Vector2();
+
+var listenerCallbackNames = {
+  mousedown: 'onMouseDown',
+  mouseup: 'onMouseUp'
+};
+
+var mouseEvents = ['onMouseEnter', 'onMouseLeave', 'onMouseDown', 'onMouseUp', 'onClick'];
+
+var boolProps = {
+  ignorePointerEvents: false
+};
+
+var MouseInput = function (_Module) {
+  (0, _inherits3.default)(MouseInput, _Module);
+
+  function MouseInput() {
+    (0, _classCallCheck3.default)(this, MouseInput);
+
+    var _this = (0, _possibleConstructorReturn3.default)(this, (MouseInput.__proto__ || (0, _getPrototypeOf2.default)(MouseInput)).call(this));
+
+    _this._onMouseDown = function (callbackName, mouseEvent) {
+      _ReactUpdates2.default.batchedUpdates(function () {
+        var _this$_intersectAndDi = _this._intersectAndDispatch(callbackName, mouseEvent),
+            event = _this$_intersectAndDi.event,
+            intersections = _this$_intersectAndDi.intersections;
+
+        if (event.isDefaultPrevented() || event.isPropagationStopped()) {
+          _this._intersectionsForClick = null;
+        } else {
+          _this._intersectionsForClick = intersections;
+        }
+      });
+    };
+
+    _this._onMouseUp = function (callbackName, mouseEvent) {
+      _ReactUpdates2.default.batchedUpdates(function () {
+        var _this$_intersectAndDi2 = _this._intersectAndDispatch(callbackName, mouseEvent),
+            event = _this$_intersectAndDi2.event,
+            intersections = _this$_intersectAndDi2.intersections;
+
+        if (!(event.isDefaultPrevented() || event.isPropagationStopped())) {
+          if (_this._intersectionsForClick === null) {
+            return;
+          }
+
+          // intersect current intersections with the intersections for click
+          //   call xzibit ASAP we have a good one son
+          //     it wasn't that good
+
+          var intersectionUUIDMap = _this._intersectionsForClick.reduce(function (map, intersection) {
+            map[intersection.object.uuid] = intersection;
+
+            return map;
+          }, {});
+
+          for (var i = 0; i < intersections.length; ++i) {
+            if (event.isDefaultPrevented() || event.isPropagationStopped()) {
+              return;
+            }
+
+            var intersection = intersections[i];
+
+            var object = intersection.object;
+
+            var uuid = object.uuid;
+
+            if (intersectionUUIDMap[uuid]) {
+              // oh boy oh boy here we go, we got a clicker
+
+              _reactThreeRenderer2.default.eventDispatcher.dispatchEvent(object, 'onClick', _this._createSyntheticMouseEvent('click', event), intersection);
+            }
+          }
+        }
+      });
+
+      _this._intersectionsForClick = null;
+    };
+
+    _this._isReady = false;
+    _this._active = true;
+    _this._restrictIntersections = false;
+    _this._objectsToIntersect = null;
+
+    _this._restrictedIntersectionRecursive = false;
+
+    _this._patchedDescriptors = [];
+    return _this;
+  }
+
+  // noinspection JSUnusedGlobalSymbols
+
+
+  (0, _createClass3.default)(MouseInput, [{
+    key: 'setup',
+    value: function setup(react3RendererInstance) {
+      var _this2 = this;
+
+      (0, _get3.default)(MouseInput.prototype.__proto__ || (0, _getPrototypeOf2.default)(MouseInput.prototype), 'setup', this).call(this, react3RendererInstance);
+
+      var Object3DDescriptor = react3RendererInstance.threeElementDescriptors.object3D.constructor;
+
+      (0, _values2.default)(react3RendererInstance.threeElementDescriptors).forEach(function (elementDescriptor) {
+        if (elementDescriptor instanceof Object3DDescriptor) {
+          mouseEvents.forEach(function (eventName) {
+            elementDescriptor.hasEvent(eventName);
+          });
+
+          (0, _keys2.default)(boolProps).forEach(function (propName) {
+            elementDescriptor.hasProp(propName, {
+              type: _ReactPropTypes2.default.bool,
+              update: function update(threeObject, value, hasProp) {
+                if (hasProp) {
+                  threeObject.userData[propName] = value;
+                } else {
+                  threeObject.userData[propName] = boolProps[propName];
+                }
+              },
+
+              default: boolProps[propName]
+            });
+          });
+
+          _this2._patchedDescriptors.push(elementDescriptor);
+        }
+      });
+    }
+  }, {
+    key: 'isReady',
+    value: function isReady() {
+      return this._isReady;
+    }
+  }, {
+    key: 'setActive',
+    value: function setActive(active) {
+      this._active = active;
+    }
+  }, {
+    key: 'restrictIntersections',
+    value: function restrictIntersections(objects) {
+      var recursive = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : false;
+
+      this._restrictIntersections = true;
+      this._objectsToIntersect = objects;
+
+      this._restrictedIntersectionRecursive = recursive;
+    }
+  }, {
+    key: 'ready',
+    value: function ready(scene, container, camera) {
+      var _this3 = this;
+
+      this._isReady = true;
+
+      this._scene = scene;
+      this._container = container;
+      this._camera = camera;
+
+      this._raycaster = new THREE.Raycaster();
+      this._mouse = new THREE.Vector2();
+
+      this._onMouseMove = function (event) {
+        _this3._mouse.set(event.clientX, event.clientY);
+
+        if (!_this3._active) {
+          _this3._updateEnterLeave();
+        }
+      };
+
+      this._containerRect = this._container.getBoundingClientRect();
+
+      this._hoverObjectMap = {};
+
+      document.addEventListener('mousemove', this._onMouseMove, false);
+
+      this._intersectionsForClick = null;
+
+      this._caughtListenersCleanupFunctions = [];
+
+      (0, _keys2.default)(listenerCallbackNames).forEach(function (eventName) {
+        var boundListener = void 0;
+
+        var listenerCallbackName = listenerCallbackNames[eventName];
+        switch (eventName) {
+          case 'mousedown':
+            boundListener = _this3._onMouseDown.bind(_this3, listenerCallbackName);
+            break;
+          case 'mouseup':
+            boundListener = _this3._onMouseUp.bind(_this3, listenerCallbackName);
+            break;
+          default:
+            break;
+        }
+
+        if (boundListener) {
+          container.addEventListener(eventName, boundListener, true);
+
+          _this3._caughtListenersCleanupFunctions.push(function () {
+            container.removeEventListener(eventName, boundListener, true);
+          });
+        }
+      });
+    }
+  }, {
+    key: '_createSyntheticMouseEvent',
+    value: function _createSyntheticMouseEvent(eventType, prototype) {
+      return _SyntheticMouseEvent2.default.getPooled(null, null, new MouseEvent(eventType, prototype), prototype.target);
+    }
+  }, {
+    key: '_intersectAndDispatch',
+    value: function _intersectAndDispatch(callbackName, mouseEvent) {
+      var event = _SyntheticMouseEvent2.default.getPooled(null, null, mouseEvent, mouseEvent.target);
+
+      var intersections = this._getIntersections(tempVector2.set(event.clientX, event.clientY));
+
+      _ReactUpdates2.default.batchedUpdates(function () {
+        for (var i = 0; i < intersections.length; ++i) {
+          var intersection = intersections[i];
+
+          if (event.isDefaultPrevented() || event.isPropagationStopped()) {
+            return;
+          }
+
+          var object = intersection.object;
+
+          _reactThreeRenderer2.default.eventDispatcher.dispatchEvent(object, callbackName, event, intersection);
+        }
+      });
+
+      return {
+        event: event,
+        intersections: intersections
+      };
+    }
+  }, {
+    key: '_getIntersections',
+    value: function _getIntersections(mouseCoords) {
+      var relativeMouseCoords = this._getRelativeMouseCoords(mouseCoords);
+
+      this._raycaster.setFromCamera(relativeMouseCoords, this._camera);
+
+      if (this._restrictIntersections) {
+        return this._raycaster.intersectObjects(this._objectsToIntersect, this._restrictedIntersectionRecursive);
+      }
+
+      return this._raycaster.intersectObject(this._scene, true);
+    }
+
+    // noinspection JSUnusedGlobalSymbols
+    /**
+     *
+     * @param {THREE.Vector2} mouseCoords usually an event's clientX and clientY
+     * @returns {THREE.Ray}
+     */
+
+  }, {
+    key: 'getCameraRay',
+    value: function getCameraRay(mouseCoords) {
+      var relativeMouseCoords = this._getRelativeMouseCoords(mouseCoords);
+
+      var originalRay = this._raycaster.ray.clone();
+
+      this._raycaster.setFromCamera(relativeMouseCoords, this._camera);
+
+      var resultRay = this._raycaster.ray.clone();
+
+      this._raycaster.ray.copy(originalRay);
+
+      return resultRay;
+    }
+
+    // noinspection JSUnusedGlobalSymbols
+
+  }, {
+    key: 'intersectObject',
+    value: function intersectObject(mouseCoords, object) {
+      var recursive = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : false;
+
+      var relativeMouseCoords = this._getRelativeMouseCoords(mouseCoords);
+
+      var originalRay = this._raycaster.ray.clone();
+
+      this._raycaster.setFromCamera(relativeMouseCoords, this._camera);
+
+      var intersections = this._raycaster.intersectObject(object, recursive);
+
+      this._raycaster.ray.copy(originalRay);
+
+      return intersections;
+    }
+  }, {
+    key: 'containerResized',
+    value: function containerResized() {
+      this._containerRect = this._container.getBoundingClientRect();
+    }
+  }, {
+    key: 'update',
+    value: function update() {
+      if (!this._isReady) {
+        return;
+      }
+
+      if (this._active) {
+        this._updateEnterLeave();
+      }
+    }
+  }, {
+    key: '_updateEnterLeave',
+    value: function _updateEnterLeave() {
+      var intersections = this._getIntersections(this._mouse);
+
+      var hoverMapToUpdate = (0, _extends3.default)({}, this._hoverObjectMap);
+
+      var mouseEnterEvent = this._createSyntheticMouseEvent('mouseEnter', {
+        target: this._container,
+        clientX: this._mouse.x,
+        clientY: this._mouse.y
+      });
+
+      // find first intersection that does not ignore pointer events
+      for (var depth = 0; depth < intersections.length; ++depth) {
+        var intersection = intersections[depth];
+        var object = intersection.object;
+
+        if (object.userData && object.userData.ignorePointerEvents) {
+          continue;
+        }
+
+        var uuid = object.uuid;
+
+        if (this._hoverObjectMap[uuid]) {
+          delete hoverMapToUpdate[uuid];
+
+          // just update that intersection
+          this._hoverObjectMap[uuid].intersection = intersection;
+        } else {
+          this._hoverObjectMap[uuid] = {
+            object: object,
+            intersection: intersection
+          };
+
+          if (!(mouseEnterEvent.isDefaultPrevented() || mouseEnterEvent.isPropagationStopped())) {
+            _reactThreeRenderer2.default.eventDispatcher.dispatchEvent(object, 'onMouseEnter', mouseEnterEvent, intersection, depth);
+          }
+        }
+
+        // we have found the first solid intersection, don't go further
+        break;
+      }
+
+      var mouseLeaveEvent = this._createSyntheticMouseEvent('mouseLeave', {
+        target: this._container,
+        clientX: this._mouse.x,
+        clientY: this._mouse.y
+      });
+
+      // delete all unseen uuids in hover map
+      var unseenUUIDs = (0, _keys2.default)(hoverMapToUpdate);
+
+      for (var i = 0; i < unseenUUIDs.length; ++i) {
+        var _uuid = unseenUUIDs[i];
+
+        if (!(mouseLeaveEvent.isDefaultPrevented() || mouseLeaveEvent.isPropagationStopped())) {
+          _reactThreeRenderer2.default.eventDispatcher.dispatchEvent(this._hoverObjectMap[_uuid].object, 'onMouseLeave', mouseLeaveEvent);
+        }
+
+        delete this._hoverObjectMap[_uuid];
+      }
+    }
+  }, {
+    key: '_getRelativeMouseCoords',
+    value: function _getRelativeMouseCoords(screenMouseCoords) {
+      var containerRect = this._containerRect;
+
+      var relativeMouseCoords = screenMouseCoords.clone().sub(tempVector2.set(containerRect.left, containerRect.top)).divide(tempVector2.set(containerRect.width, containerRect.height));
+
+      // mouse.x = ( event.clientX / window.innerWidth ) * 2 - 1;
+      // mouse.y = - ( event.clientY / window.innerHeight ) * 2 + 1;
+
+      relativeMouseCoords.x = relativeMouseCoords.x * 2 - 1;
+      relativeMouseCoords.y = -relativeMouseCoords.y * 2 + 1;
+
+      return relativeMouseCoords;
+    }
+
+    // noinspection JSUnusedGlobalSymbols
+
+  }, {
+    key: 'dispose',
+    value: function dispose() {
+      document.removeEventListener('mousemove', this._onMouseMove, false);
+
+      this._caughtListenersCleanupFunctions.forEach(function (cleanupFunction) {
+        return cleanupFunction();
+      });
+      delete this._caughtListenersCleanupFunctions;
+
+      delete this._onMouseMove;
+
+      this._patchedDescriptors.forEach(function (elementDescriptor) {
+        var allProps = (0, _keys2.default)(boolProps).concat(mouseEvents);
+
+        allProps.forEach(function (propName) {
+          elementDescriptor.removeProp(propName);
+        });
+      });
+    }
+  }]);
+  return MouseInput;
+}(_Module3.default);
+
+exports.default = MouseInput;
+
+/***/ }),
+/* 430 */
+/***/ (function(module, exports, __webpack_require__) {
+
+module.exports = { "default": __webpack_require__(431), __esModule: true };
+
+/***/ }),
+/* 431 */
+/***/ (function(module, exports, __webpack_require__) {
+
+__webpack_require__(432);
+module.exports = __webpack_require__(24).Object.values;
+
+
+/***/ }),
+/* 432 */
+/***/ (function(module, exports, __webpack_require__) {
+
+// https://github.com/tc39/proposal-object-values-entries
+var $export = __webpack_require__(36);
+var $values = __webpack_require__(433)(false);
+
+$export($export.S, 'Object', {
+  values: function values(it) {
+    return $values(it);
+  }
+});
+
+
+/***/ }),
+/* 433 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var getKeys = __webpack_require__(51);
+var toIObject = __webpack_require__(37);
+var isEnum = __webpack_require__(59).f;
+module.exports = function (isEntries) {
+  return function (it) {
+    var O = toIObject(it);
+    var keys = getKeys(O);
+    var length = keys.length;
+    var i = 0;
+    var result = [];
+    var key;
+    while (length > i) if (isEnum.call(O, key = keys[i++])) {
+      result.push(isEntries ? [key, O[key]] : O[key]);
+    } return result;
+  };
+};
+
 
 /***/ })
 /******/ ]);
