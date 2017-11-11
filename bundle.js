@@ -75144,6 +75144,14 @@ var _mouse_input = __webpack_require__(429);
 
 var _mouse_input2 = _interopRequireDefault(_mouse_input);
 
+var _trackball = __webpack_require__(434);
+
+var _trackball2 = _interopRequireDefault(_trackball);
+
+var _ReactComponentWithPureRenderMixin = __webpack_require__(324);
+
+var _ReactComponentWithPureRenderMixin2 = _interopRequireDefault(_ReactComponentWithPureRenderMixin);
+
 function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj.default = obj; return newObj; } }
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
@@ -75156,15 +75164,23 @@ var Simple = function (_Component) {
 
     var _this = (0, _possibleConstructorReturn3.default)(this, (Simple.__proto__ || (0, _getPrototypeOf2.default)(Simple)).call(this, props, context));
 
+    _this.shouldComponentUpdate = _ReactComponentWithPureRenderMixin2.default.shouldComponentUpdate;
+
+    _this._onTrackballChange = function () {
+      _this.setState({
+        cameraPosition: _this.refs.camera.position.clone(),
+        cameraRotation: _this.refs.camera.rotation.clone()
+      });
+    };
+
     _this.state = {
       cameraRotation: new Three.Euler(0, 0, 0),
-      cameraPosition: new Three.Vector3(0, 0, 300)
+      cameraPosition: new Three.Vector3(0, 0, 300),
+      mouseInput: null
     };
 
     _this._onAnimate = function () {
-      // this.rotateBox();
-      // this.updateCamera();
-      // this.updatePlane();
+      _this.onAnimateInternal();
     };
 
     _this.nodes = _this.generateNodeGrid();
@@ -75177,6 +75193,62 @@ var Simple = function (_Component) {
   }
 
   (0, _createClass3.default)(Simple, [{
+    key: 'componentDidUpdate',
+    value: function componentDidUpdate(newProps) {
+      var mouseInput = this.refs.mouseInput;
+      var _props = this.props,
+          width = _props.width,
+          height = _props.height;
+
+
+      if (width !== newProps.width || height !== newProps.height) {
+        mouseInput.containerResized();
+      }
+    }
+  }, {
+    key: 'componentWillUnmount',
+    value: function componentWillUnmount() {
+      this.controls.removeEventListener('change', this._onTrackballChange);
+
+      this.controls.dispose();
+      delete this.controls;
+
+      delete this.stats;
+    }
+  }, {
+    key: 'onAnimateInternal',
+    value: function onAnimateInternal() {
+      var _refs = this.refs,
+          mouseInput = _refs.mouseInput,
+          camera = _refs.camera;
+
+
+      if (!mouseInput.isReady()) {
+        var _refs2 = this.refs,
+            scene = _refs2.scene,
+            container = _refs2.container;
+
+
+        mouseInput.ready(scene, container, camera);
+        mouseInput.restrictIntersections(this.nodes);
+        mouseInput.setActive(false);
+      }
+
+      if (this.state.mouseInput !== mouseInput) {
+        this.setState({
+          mouseInput: mouseInput
+        });
+      }
+
+      if (this.state.camera !== camera) {
+        this.setState({
+          camera: camera
+        });
+      }
+
+      this.controls.update();
+    }
+  }, {
     key: 'onDocumentMouseMove',
     value: function onDocumentMouseMove(e) {
       this.mouseX = e.clientX - this.windowHalfX;
@@ -75190,8 +75262,22 @@ var Simple = function (_Component) {
   }, {
     key: 'componentDidMount',
     value: function componentDidMount() {
-      document.addEventListener('mousemove', this.onDocumentMouseMove, false);
-      document.addEventListener('click', this.onDocumentClick, false);
+      var camera = this.refs.camera;
+
+
+      var controls = new _trackball2.default(camera);
+
+      controls.rotateSpeed = 1.0;
+      controls.zoomSpeed = 1.2;
+      controls.panSpeed = 0.8;
+      controls.noZoom = false;
+      controls.noPan = false;
+      controls.staticMoving = true;
+      controls.dynamicDampingFactor = 0.3;
+
+      this.controls = controls;
+
+      this.controls.addEventListener('change', this._onTrackballChange);
     }
   }, {
     key: 'updateCamera',
@@ -75203,7 +75289,7 @@ var Simple = function (_Component) {
   }, {
     key: 'generateNode',
     value: function generateNode(posArr) {
-      return _react2.default.createElement(_node2.default, { key: posArr, position: posArr, life: false });
+      return _react2.default.createElement(_node2.default, { key: posArr, position: posArr });
     }
   }, {
     key: 'generateNodeRow',
@@ -75237,48 +75323,55 @@ var Simple = function (_Component) {
       var height = window.innerHeight;
 
       return _react2.default.createElement(
-        _reactThreeRenderer2.default,
-        { mainCamera: 'camera',
-          width: width,
-          height: height,
-          onAnimate: this._onAnimate,
-          clearColor: 16777215
+        'div',
+        {
+          ref: 'container'
         },
-        _react2.default.createElement('module', {
-          ref: 'mouseInput',
-          descriptor: _mouse_input2.default
-        }),
         _react2.default.createElement(
-          'scene',
-          null,
-          _react2.default.createElement('pointLight', { color: 16777215, position: this.state.cameraPosition }),
-          _react2.default.createElement('perspectiveCamera', {
-            name: 'camera',
-            fov: 35,
-            aspect: width / height,
-            near: 0.1,
-            far: 1000,
-            position: this.state.cameraPosition,
-            rotation: this.state.cameraRotation
-          }),
-          _react2.default.createElement('spotLight', {
-            color: 'white', intensity: 1
+          _reactThreeRenderer2.default,
+          { mainCamera: 'camera',
+            width: width,
+            height: height,
+            onAnimate: this._onAnimate,
+            clearColor: 16777215
+          },
+          _react2.default.createElement('module', {
+            ref: 'mouseInput',
+            descriptor: _mouse_input2.default
           }),
           _react2.default.createElement(
-            'mesh',
-            {
-              position: this.planePosition,
-              key: 'floor'
-            },
-            _react2.default.createElement('planeGeometry', { width: 100, height: 100 }),
-            _react2.default.createElement('meshLambertMaterial', {
-              color: 'blue',
-              opacity: 1,
-              side: 2,
-              wireframe: true
-            })
-          ),
-          this.nodes
+            'scene',
+            null,
+            _react2.default.createElement('pointLight', { color: 16777215, position: this.state.cameraPosition }),
+            _react2.default.createElement('perspectiveCamera', {
+              name: 'camera',
+              ref: 'camera',
+              fov: 35,
+              aspect: width / height,
+              near: 0.1,
+              far: 1000,
+              position: this.state.cameraPosition,
+              rotation: this.state.cameraRotation
+            }),
+            _react2.default.createElement('spotLight', {
+              color: 'white', intensity: 1
+            }),
+            _react2.default.createElement(
+              'mesh',
+              {
+                position: this.planePosition,
+                key: 'floor'
+              },
+              _react2.default.createElement('planeGeometry', { width: 100, height: 100 }),
+              _react2.default.createElement('meshLambertMaterial', {
+                color: 'blue',
+                opacity: 1,
+                side: 2,
+                wireframe: true
+              })
+            ),
+            this.nodes
+          )
         )
       );
     }
@@ -86355,6 +86448,14 @@ var _three = __webpack_require__(6);
 
 var Three = _interopRequireWildcard(_three);
 
+var _ReactComponentWithPureRenderMixin = __webpack_require__(324);
+
+var _ReactComponentWithPureRenderMixin2 = _interopRequireDefault(_ReactComponentWithPureRenderMixin);
+
+var _mouse_input = __webpack_require__(429);
+
+var _mouse_input2 = _interopRequireDefault(_mouse_input);
+
 function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj.default = obj; return newObj; } }
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
@@ -86367,37 +86468,72 @@ var Node = function (_Component) {
 
     var _this = (0, _possibleConstructorReturn3.default)(this, (Node.__proto__ || (0, _getPrototypeOf2.default)(Node)).call(this, props, context));
 
+    _this.shouldComponentUpdate = _ReactComponentWithPureRenderMixin2.default.shouldComponentUpdate;
+
+    _this._onDocumentMouseMove = function (event) {
+      event.preventDefault();
+
+      var mouseInput = _this.props.mouseInput;
+
+
+      var ray = mouseInput.getCameraRay(new THREE.Vector2(event.clientX, event.clientY));
+
+      var intersection = dragPlane.intersectLine(new THREE.Line3(ray.origin, ray.origin.clone().add(ray.direction.clone().multiplyScalar(10000))));
+
+      if (intersection) {
+        _this.setState({
+          position: intersection.sub(_this._offset)
+        });
+      }
+    };
+
     var position = props.position;
 
     _this.position = new Three.Vector3(position[0], position[1], position[2]);
     _this.state = {
-      sphereRadius: 2,
-      color: "blue"
+      position: new Three.Vector3(position[0], position[1], position[2]),
+      pressed: false,
+      hovered: false
     };
-    _this.handleClick = _this.handleClick.bind(_this);
+    _this.color = "blue";
+    _this.pressedColor = "red";
+    _this.sphereRadius = 2;
     return _this;
   }
 
   (0, _createClass3.default)(Node, [{
-    key: 'handleClick',
-    value: function handleClick(e) {
+    key: 'onMouseDown',
+    value: function onMouseDown() {
       debugger;
-      this.setState({ color: "red" });
+      console.log(e);
+      this.setState({ pressed: true });
     }
   }, {
     key: 'render',
     value: function render() {
+      var color = void 0;
+      var pressed = this.state.pressed;
+
+      if (pressed) {
+        color = this.pressedColor;
+      } else {
+        color = this.color;
+      }
+
       return _react2.default.createElement(
         'mesh',
-        { key: 'node', position: this.position },
+        {
+          onMouseDown: this.onMouseDown,
+          key: 'node',
+          position: this.position },
         _react2.default.createElement('meshLambertMaterial', {
-          color: this.state.color,
+          color: color,
           opacity: 1,
           side: 2,
-          wireframe: true
+          wireframe: false
         }),
         _react2.default.createElement('sphereGeometry', {
-          radius: this.state.sphereRadius
+          radius: this.sphereRadius
         })
       );
     }
@@ -86551,7 +86687,7 @@ var MouseInput = function (_Module) {
 
             if (intersectionUUIDMap[uuid]) {
               // oh boy oh boy here we go, we got a clicker
-
+              debugger;
               _reactThreeRenderer2.default.eventDispatcher.dispatchEvent(object, 'onClick', _this._createSyntheticMouseEvent('click', event), intersection);
             }
           }
@@ -86724,6 +86860,7 @@ var MouseInput = function (_Module) {
       this._raycaster.setFromCamera(relativeMouseCoords, this._camera);
 
       if (this._restrictIntersections) {
+        debugger;
         return this._raycaster.intersectObjects(this._objectsToIntersect, this._restrictedIntersectionRecursive);
       }
 
@@ -86791,6 +86928,7 @@ var MouseInput = function (_Module) {
   }, {
     key: '_updateEnterLeave',
     value: function _updateEnterLeave() {
+
       var intersections = this._getIntersections(this._mouse);
 
       var hoverMapToUpdate = (0, _extends3.default)({}, this._hoverObjectMap);
@@ -86945,6 +87083,566 @@ module.exports = function (isEntries) {
   };
 };
 
+
+/***/ }),
+/* 434 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _getPrototypeOf = __webpack_require__(2);
+
+var _getPrototypeOf2 = _interopRequireDefault(_getPrototypeOf);
+
+var _classCallCheck2 = __webpack_require__(0);
+
+var _classCallCheck3 = _interopRequireDefault(_classCallCheck2);
+
+var _possibleConstructorReturn2 = __webpack_require__(3);
+
+var _possibleConstructorReturn3 = _interopRequireDefault(_possibleConstructorReturn2);
+
+var _inherits2 = __webpack_require__(4);
+
+var _inherits3 = _interopRequireDefault(_inherits2);
+
+var _three = __webpack_require__(6);
+
+var THREE = _interopRequireWildcard(_three);
+
+function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj.default = obj; return newObj; } }
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+/**
+ * @author Eberhard Graether / http://egraether.com/
+ * @author Mark Lundin  / http://mark-lundin.com
+ * @author Simone Manini / http://daron1337.github.io
+ * @author Luca Antiga  / http://lantiga.github.io
+ */
+
+var TrackballControls = function (_THREE$EventDispatche) {
+  (0, _inherits3.default)(TrackballControls, _THREE$EventDispatche);
+
+  function TrackballControls(object, domElement) {
+    (0, _classCallCheck3.default)(this, TrackballControls);
+
+    var _this2 = (0, _possibleConstructorReturn3.default)(this, (TrackballControls.__proto__ || (0, _getPrototypeOf2.default)(TrackballControls)).call(this));
+
+    var _this = _this2;
+    var STATE = { NONE: -1, ROTATE: 0, ZOOM: 1, PAN: 2, TOUCH_ROTATE: 3, TOUCH_ZOOM_PAN: 4 };
+
+    _this2.object = object;
+    _this2.domElement = domElement !== undefined ? domElement : document;
+
+    // API
+
+    _this2.enabled = true;
+
+    _this2.screen = { left: 0, top: 0, width: 0, height: 0 };
+
+    _this2.rotateSpeed = 1.0;
+    _this2.zoomSpeed = 1.2;
+    _this2.panSpeed = 0.3;
+
+    _this2.noRotate = false;
+    _this2.noZoom = false;
+    _this2.noPan = false;
+
+    _this2.staticMoving = false;
+    _this2.dynamicDampingFactor = 0.2;
+
+    _this2.minDistance = 0;
+    _this2.maxDistance = Infinity;
+
+    _this2.keys = [65 /* A */
+    , 83 /* S */
+    , 68 /* D */
+    ];
+
+    // internals
+
+    _this2.target = new THREE.Vector3();
+
+    var EPS = 0.000001;
+
+    var lastPosition = new THREE.Vector3();
+
+    var _state = STATE.NONE;
+    var _prevState = STATE.NONE;
+
+    var _eye = new THREE.Vector3();
+    var _movePrev = new THREE.Vector2();
+    var _moveCurr = new THREE.Vector2();
+    var _lastAxis = new THREE.Vector3();
+
+    var _lastAngle = 0;
+
+    var _zoomStart = new THREE.Vector2();
+    var _zoomEnd = new THREE.Vector2();
+
+    var _touchZoomDistanceStart = 0;
+    var _touchZoomDistanceEnd = 0;
+    var _panStart = new THREE.Vector2();
+    var _panEnd = new THREE.Vector2();
+
+    // for reset
+
+    _this2.target0 = _this2.target.clone();
+    _this2.position0 = _this2.object.position.clone();
+    _this2.up0 = _this2.object.up.clone();
+
+    // events
+
+    var changeEvent = { type: 'change' };
+    var startEvent = { type: 'start' };
+    var endEvent = { type: 'end' };
+
+    // methods
+
+    _this2.handleResize = function () {
+      if (_this2.domElement === document) {
+        _this2.screen.left = 0;
+        _this2.screen.top = 0;
+        _this2.screen.width = window.innerWidth;
+        _this2.screen.height = window.innerHeight;
+      } else {
+        var box = _this2.domElement.getBoundingClientRect();
+        // adjustments come from similar code in the jquery offset() function
+        var d = _this2.domElement.ownerDocument.documentElement;
+        _this2.screen.left = box.left + window.pageXOffset - d.clientLeft;
+        _this2.screen.top = box.top + window.pageYOffset - d.clientTop;
+        _this2.screen.width = box.width;
+        _this2.screen.height = box.height;
+      }
+    };
+
+    _this2.handleEvent = function (event) {
+      if (typeof _this2[event.type] === 'function') {
+        _this2[event.type](event);
+      }
+    };
+
+    var getMouseOnScreen = function wrapper() {
+      var vector = new THREE.Vector2();
+
+      return function (pageX, pageY) {
+        vector.set((pageX - _this.screen.left) / _this.screen.width, (pageY - _this.screen.top) / _this.screen.height);
+
+        return vector;
+      };
+    }();
+
+    var getMouseOnCircle = function wrapper() {
+      var vector = new THREE.Vector2();
+
+      return function (pageX, pageY) {
+        vector.set((pageX - _this.screen.width * 0.5 - _this.screen.left) / (_this.screen.width * 0.5), (_this.screen.height + 2 * (_this.screen.top - pageY)) / _this.screen.width // screen.width intentional
+        );
+
+        return vector;
+      };
+    }();
+
+    _this2.rotateCamera = function wrapper() {
+      var axis = new THREE.Vector3();
+      var quaternion = new THREE.Quaternion();
+      var eyeDirection = new THREE.Vector3();
+      var objectUpDirection = new THREE.Vector3();
+      var objectSidewaysDirection = new THREE.Vector3();
+      var moveDirection = new THREE.Vector3();
+
+      var angle = void 0;
+
+      return function rotateCamera() {
+        moveDirection.set(_moveCurr.x - _movePrev.x, _moveCurr.y - _movePrev.y, 0);
+        angle = moveDirection.length();
+
+        if (angle) {
+          _eye.copy(_this.object.position).sub(_this.target);
+
+          eyeDirection.copy(_eye).normalize();
+          objectUpDirection.copy(_this.object.up).normalize();
+          objectSidewaysDirection.crossVectors(objectUpDirection, eyeDirection).normalize();
+
+          objectUpDirection.setLength(_moveCurr.y - _movePrev.y);
+          objectSidewaysDirection.setLength(_moveCurr.x - _movePrev.x);
+
+          moveDirection.copy(objectUpDirection.add(objectSidewaysDirection));
+
+          axis.crossVectors(moveDirection, _eye).normalize();
+
+          angle *= _this.rotateSpeed;
+          quaternion.setFromAxisAngle(axis, angle);
+
+          _eye.applyQuaternion(quaternion);
+          _this.object.up.applyQuaternion(quaternion);
+
+          _lastAxis.copy(axis);
+          _lastAngle = angle;
+        } else if (!_this.staticMoving && _lastAngle) {
+          _lastAngle *= Math.sqrt(1.0 - _this.dynamicDampingFactor);
+          _eye.copy(_this.object.position).sub(_this.target);
+          quaternion.setFromAxisAngle(_lastAxis, _lastAngle);
+          _eye.applyQuaternion(quaternion);
+          _this.object.up.applyQuaternion(quaternion);
+        }
+
+        _movePrev.copy(_moveCurr);
+      };
+    }();
+
+    _this2.zoomCamera = function () {
+      var factor = void 0;
+
+      if (_state === STATE.TOUCH_ZOOM_PAN) {
+        factor = _touchZoomDistanceStart / _touchZoomDistanceEnd;
+        _touchZoomDistanceStart = _touchZoomDistanceEnd;
+        _eye.multiplyScalar(factor);
+      } else {
+        factor = 1.0 + (_zoomEnd.y - _zoomStart.y) * _this.zoomSpeed;
+
+        if (factor !== 1.0 && factor > 0.0) {
+          _eye.multiplyScalar(factor);
+
+          if (_this.staticMoving) {
+            _zoomStart.copy(_zoomEnd);
+          } else {
+            _zoomStart.y += (_zoomEnd.y - _zoomStart.y) * _this2.dynamicDampingFactor;
+          }
+        }
+      }
+    };
+
+    _this2.panCamera = function wrapper() {
+      var mouseChange = new THREE.Vector2();
+      var objectUp = new THREE.Vector3();
+      var pan = new THREE.Vector3();
+
+      return function panCamera() {
+        mouseChange.copy(_panEnd).sub(_panStart);
+
+        if (mouseChange.lengthSq()) {
+          mouseChange.multiplyScalar(_eye.length() * _this.panSpeed);
+
+          pan.copy(_eye).cross(_this.object.up).setLength(mouseChange.x);
+          pan.add(objectUp.copy(_this.object.up).setLength(mouseChange.y));
+
+          _this.object.position.add(pan);
+          _this.target.add(pan);
+
+          if (_this.staticMoving) {
+            _panStart.copy(_panEnd);
+          } else {
+            _panStart.add(mouseChange.subVectors(_panEnd, _panStart).multiplyScalar(_this.dynamicDampingFactor));
+          }
+        }
+      };
+    }();
+
+    _this2.checkDistances = function () {
+      if (!_this.noZoom || !_this.noPan) {
+        if (_eye.lengthSq() > _this.maxDistance * _this.maxDistance) {
+          _this.object.position.addVectors(_this.target, _eye.setLength(_this.maxDistance));
+          _zoomStart.copy(_zoomEnd);
+        }
+
+        if (_eye.lengthSq() < _this.minDistance * _this.minDistance) {
+          _this.object.position.addVectors(_this.target, _eye.setLength(_this.minDistance));
+          _zoomStart.copy(_zoomEnd);
+        }
+      }
+    };
+
+    _this2.update = function () {
+      _eye.subVectors(_this.object.position, _this.target);
+
+      if (!_this.noRotate) {
+        _this.rotateCamera();
+      }
+
+      if (!_this.noZoom) {
+        _this.zoomCamera();
+      }
+
+      if (!_this.noPan) {
+        _this.panCamera();
+      }
+
+      _this.object.position.addVectors(_this.target, _eye);
+
+      _this.checkDistances();
+
+      _this.object.lookAt(_this.target);
+
+      if (lastPosition.distanceToSquared(_this.object.position) > EPS) {
+        _this.dispatchEvent(changeEvent);
+
+        lastPosition.copy(_this.object.position);
+      }
+    };
+
+    _this2.reset = function () {
+      _state = STATE.NONE;
+      _prevState = STATE.NONE;
+
+      _this.target.copy(_this.target0);
+      _this.object.position.copy(_this.position0);
+      _this.object.up.copy(_this.up0);
+
+      _eye.subVectors(_this.object.position, _this.target);
+
+      _this.object.lookAt(_this.target);
+
+      _this.dispatchEvent(changeEvent);
+
+      lastPosition.copy(_this.object.position);
+    };
+
+    // listeners
+
+    function keydown(event) {
+      if (_this.enabled === false) return;
+
+      window.removeEventListener('keydown', keydown);
+
+      _prevState = _state;
+
+      if (_state !== STATE.NONE) {
+        return;
+      }
+
+      if (event.keyCode === _this.keys[STATE.ROTATE] && !_this.noRotate) {
+        _state = STATE.ROTATE;
+      } else if (event.keyCode === _this.keys[STATE.ZOOM] && !_this.noZoom) {
+        _state = STATE.ZOOM;
+      } else if (event.keyCode === _this.keys[STATE.PAN] && !_this.noPan) {
+        _state = STATE.PAN;
+      }
+    }
+
+    function keyup() {
+      if (_this.enabled === false) return;
+
+      _state = _prevState;
+
+      window.addEventListener('keydown', keydown, false);
+    }
+
+    function mousemove(event) {
+      if (_this.enabled === false) return;
+
+      event.preventDefault();
+      event.stopPropagation();
+
+      if (_state === STATE.ROTATE && !_this.noRotate) {
+        _movePrev.copy(_moveCurr);
+        _moveCurr.copy(getMouseOnCircle(event.pageX, event.pageY));
+      } else if (_state === STATE.ZOOM && !_this.noZoom) {
+        _zoomEnd.copy(getMouseOnScreen(event.pageX, event.pageY));
+      } else if (_state === STATE.PAN && !_this.noPan) {
+        _panEnd.copy(getMouseOnScreen(event.pageX, event.pageY));
+      }
+    }
+
+    function mouseup(event) {
+      if (_this.enabled === false) return;
+
+      event.preventDefault();
+      event.stopPropagation();
+
+      _state = STATE.NONE;
+
+      document.removeEventListener('mousemove', mousemove);
+      document.removeEventListener('mouseup', mouseup);
+      _this.dispatchEvent(endEvent);
+    }
+
+    function mousedown(event) {
+      if (_this.enabled === false) return;
+
+      event.preventDefault();
+      event.stopPropagation();
+
+      if (_state === STATE.NONE) {
+        _state = event.button;
+      }
+
+      if (_state === STATE.ROTATE && !_this.noRotate) {
+        _moveCurr.copy(getMouseOnCircle(event.pageX, event.pageY));
+        _movePrev.copy(_moveCurr);
+      } else if (_state === STATE.ZOOM && !_this.noZoom) {
+        _zoomStart.copy(getMouseOnScreen(event.pageX, event.pageY));
+        _zoomEnd.copy(_zoomStart);
+      } else if (_state === STATE.PAN && !_this.noPan) {
+        _panStart.copy(getMouseOnScreen(event.pageX, event.pageY));
+        _panEnd.copy(_panStart);
+      }
+
+      document.addEventListener('mousemove', mousemove, false);
+      document.addEventListener('mouseup', mouseup, false);
+
+      _this.dispatchEvent(startEvent);
+    }
+
+    function mousewheel(event) {
+      if (_this.enabled === false) return;
+
+      event.preventDefault();
+      event.stopPropagation();
+
+      var delta = 0;
+
+      if (event.wheelDelta) {
+        // WebKit / Opera / Explorer 9
+
+        delta = event.wheelDelta / 40;
+      } else if (event.detail) {
+        // Firefox
+
+        delta = -event.detail / 3;
+      }
+
+      _zoomStart.y += delta * 0.01;
+      _this.dispatchEvent(startEvent);
+      _this.dispatchEvent(endEvent);
+    }
+
+    function touchstart(event) {
+      if (_this.enabled === false) return;
+
+      switch (event.touches.length) {
+        case 1:
+          _state = STATE.TOUCH_ROTATE;
+          _moveCurr.copy(getMouseOnCircle(event.touches[0].pageX, event.touches[0].pageY));
+          _movePrev.copy(_moveCurr);
+          break;
+
+        case 2:
+          _state = STATE.TOUCH_ZOOM_PAN;
+          var dx = event.touches[0].pageX - event.touches[1].pageX;
+          var dy = event.touches[0].pageY - event.touches[1].pageY;
+          _touchZoomDistanceEnd = _touchZoomDistanceStart = Math.sqrt(dx * dx + dy * dy);
+
+          var x = (event.touches[0].pageX + event.touches[1].pageX) / 2;
+          var y = (event.touches[0].pageY + event.touches[1].pageY) / 2;
+          _panStart.copy(getMouseOnScreen(x, y));
+          _panEnd.copy(_panStart);
+          break;
+
+        default:
+          _state = STATE.NONE;
+
+      }
+      _this.dispatchEvent(startEvent);
+    }
+
+    function touchmove(event) {
+      if (_this.enabled === false) return;
+
+      event.preventDefault();
+      event.stopPropagation();
+
+      switch (event.touches.length) {
+
+        case 1:
+          _movePrev.copy(_moveCurr);
+          _moveCurr.copy(getMouseOnCircle(event.touches[0].pageX, event.touches[0].pageY));
+          break;
+
+        case 2:
+          var dx = event.touches[0].pageX - event.touches[1].pageX;
+          var dy = event.touches[0].pageY - event.touches[1].pageY;
+          _touchZoomDistanceEnd = Math.sqrt(dx * dx + dy * dy);
+
+          var x = (event.touches[0].pageX + event.touches[1].pageX) / 2;
+          var y = (event.touches[0].pageY + event.touches[1].pageY) / 2;
+          _panEnd.copy(getMouseOnScreen(x, y));
+          break;
+
+        default:
+          _state = STATE.NONE;
+      }
+    }
+
+    function touchend(event) {
+      if (_this.enabled === false) return;
+
+      switch (event.touches.length) {
+        default:
+          // no touches
+          break;
+        case 1:
+          _moveCurr.copy(getMouseOnCircle(event.touches[0].pageX, event.touches[0].pageY));
+          _movePrev.copy(_moveCurr);
+          break;
+
+        case 2:
+          _touchZoomDistanceStart = _touchZoomDistanceEnd = 0;
+
+          var x = (event.touches[0].pageX + event.touches[1].pageX) / 2;
+          var y = (event.touches[0].pageY + event.touches[1].pageY) / 2;
+          _panEnd.copy(getMouseOnScreen(x, y));
+          _panStart.copy(_panEnd);
+          break;
+
+      }
+
+      _state = STATE.NONE;
+      _this.dispatchEvent(endEvent);
+    }
+
+    function contextmenu(event) {
+      event.preventDefault();
+    }
+
+    _this2.dispose = function () {
+      _this2.domElement.removeEventListener('contextmenu', contextmenu, false);
+      _this2.domElement.removeEventListener('mousedown', mousedown, false);
+      _this2.domElement.removeEventListener('mousewheel', mousewheel, false);
+      _this2.domElement.removeEventListener('DOMMouseScroll', mousewheel, false); // firefox
+
+      _this2.domElement.removeEventListener('touchstart', touchstart, false);
+      _this2.domElement.removeEventListener('touchend', touchend, false);
+      _this2.domElement.removeEventListener('touchmove', touchmove, false);
+
+      document.removeEventListener('mousemove', mousemove, false);
+      document.removeEventListener('mouseup', mouseup, false);
+
+      window.removeEventListener('keydown', keydown, false);
+      window.removeEventListener('keyup', keyup, false);
+    };
+
+    _this2.domElement.addEventListener('contextmenu', contextmenu, false);
+    _this2.domElement.addEventListener('mousedown', mousedown, false);
+    _this2.domElement.addEventListener('mousewheel', mousewheel, false);
+    _this2.domElement.addEventListener('DOMMouseScroll', mousewheel, false); // firefox
+
+    _this2.domElement.addEventListener('touchstart', touchstart, false);
+    _this2.domElement.addEventListener('touchend', touchend, false);
+    _this2.domElement.addEventListener('touchmove', touchmove, false);
+
+    window.addEventListener('keydown', keydown, false);
+    window.addEventListener('keyup', keyup, false);
+
+    _this2.handleResize();
+
+    // force an update at start
+    _this2.update();
+    return _this2;
+  }
+
+  return TrackballControls;
+}(THREE.EventDispatcher); /* eslint-disable */
+
+exports.default = TrackballControls;
+
+/* eslint-enable */
 
 /***/ })
 /******/ ]);

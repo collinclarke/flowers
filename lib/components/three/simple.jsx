@@ -3,6 +3,8 @@ import React3 from 'react-three-renderer';
 import * as Three from 'three';
 import Node from './node';
 import MouseInput from '../../util/mouse_input';
+import TrackballControls from '../../util/trackball';
+import PureRenderMixin from 'react/lib/ReactComponentWithPureRenderMixin';
 
 
 class Simple extends Component {
@@ -10,13 +12,12 @@ class Simple extends Component {
     super(props, context);
     this.state = {
       cameraRotation: new Three.Euler(0, 0, 0),
-      cameraPosition: new Three.Vector3(0, 0, 300)
+      cameraPosition: new Three.Vector3(0, 0, 300),
+      mouseInput: null
     };
 
     this._onAnimate = () => {
-      // this.rotateBox();
-      // this.updateCamera();
-      // this.updatePlane();
+      this.onAnimateInternal()
     };
 
     this.nodes = this.generateNodeGrid()
@@ -26,6 +27,72 @@ class Simple extends Component {
     this.onDocumentMouseMove = this.onDocumentMouseMove.bind(this);
     this.onDocumentClick = this.onDocumentClick.bind(this);
   }
+
+  shouldComponentUpdate = PureRenderMixin.shouldComponentUpdate;
+
+  componentDidUpdate(newProps) {
+      const {
+        mouseInput,
+      } = this.refs;
+
+      const {
+        width,
+        height,
+      } = this.props;
+
+      if (width !== newProps.width || height !== newProps.height) {
+        mouseInput.containerResized();
+      }
+    }
+
+  _onTrackballChange = () => {
+    this.setState({
+      cameraPosition: this.refs.camera.position.clone(),
+      cameraRotation: this.refs.camera.rotation.clone(),
+    });
+  };
+
+  componentWillUnmount() {
+  this.controls.removeEventListener('change', this._onTrackballChange);
+
+  this.controls.dispose();
+  delete this.controls;
+
+  delete this.stats;
+  }
+
+  onAnimateInternal() {
+    const {
+      mouseInput,
+      camera,
+    } = this.refs;
+
+    if (!mouseInput.isReady()) {
+      const {
+        scene,
+        container,
+      } = this.refs;
+
+      mouseInput.ready(scene, container, camera);
+      mouseInput.restrictIntersections(this.nodes);
+      mouseInput.setActive(false);
+    }
+
+    if (this.state.mouseInput !== mouseInput) {
+      this.setState({
+        mouseInput,
+      });
+    }
+
+    if (this.state.camera !== camera) {
+      this.setState({
+        camera,
+      });
+    }
+
+    this.controls.update();
+  }
+
 
   onDocumentMouseMove(e) {
     this.mouseX = e.clientX - this.windowHalfX;
@@ -37,8 +104,21 @@ class Simple extends Component {
   }
 
   componentDidMount() {
-    document.addEventListener( 'mousemove', this.onDocumentMouseMove, false );
-    document.addEventListener( 'click', this.onDocumentClick, false);
+    const { camera } = this.refs;
+
+    const controls = new TrackballControls(camera);
+
+    controls.rotateSpeed = 1.0;
+    controls.zoomSpeed = 1.2;
+    controls.panSpeed = 0.8;
+    controls.noZoom = false;
+    controls.noPan = false;
+    controls.staticMoving = true;
+    controls.dynamicDampingFactor = 0.3;
+
+    this.controls = controls;
+
+    this.controls.addEventListener('change', this._onTrackballChange);
   }
 
   updateCamera() {
@@ -53,7 +133,7 @@ class Simple extends Component {
 
   generateNode(posArr) {
     return (
-      <Node key={posArr} position={posArr} life={false}/>
+      <Node key={posArr} position={posArr} />
     )
   }
 
@@ -93,6 +173,9 @@ class Simple extends Component {
     const height = window.innerHeight;
 
     return (
+      <div
+      ref="container"
+      >
       <React3 mainCamera="camera"
       width={ width }
       height={ height}
@@ -109,6 +192,7 @@ class Simple extends Component {
           <pointLight color={16777215} position={this.state.cameraPosition}></pointLight>
           <perspectiveCamera
             name="camera"
+            ref="camera"
             fov={35}
             aspect={width / height}
             near={0.1}
@@ -139,6 +223,7 @@ class Simple extends Component {
 
         </scene>
       </React3>
+      </div>
   );
   }
 
