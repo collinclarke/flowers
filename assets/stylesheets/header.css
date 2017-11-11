@@ -4,6 +4,10 @@ header {
   align-items: center;
   padding: 2rem;
   height: 10vh;
+  position: fixed;
+  left: 0;
+  right: 0;
+  margin: 0 auto;
 }
 
 header img {

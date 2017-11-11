@@ -2,48 +2,78 @@ import React, { Component } from 'react';
 import React3 from 'react-three-renderer';
 import * as Three from 'three';
 import Node from './node';
+import MouseInput from '../../util/mouse_input';
 
 
 class Simple extends Component {
   constructor(props, context) {
     super(props, context);
     this.state = {
-      planeRotation: new Three.Euler(0, 0, 0),
-      boxRotation: new Three.Euler(2000, 0, 0),
-      cameraPosition: new Three.Vector3(0, -20, 300)
+      cameraRotation: new Three.Euler(0, 0, 0),
+      cameraPosition: new Three.Vector3(0, 0, 300)
     };
+
     this._onAnimate = () => {
       // this.rotateBox();
       // this.updateCamera();
       // this.updatePlane();
     };
-    this.boxPosition = new Three.Vector3(0, -5, 100);
+
+    this.nodes = this.generateNodeGrid()
+    this.planePosition = new Three.Vector3(0, 0, 0);
     this.windowHalfX = window.innerWidth / 2;
     this.windowHalfY = window.innerHeight / 2;
     this.onDocumentMouseMove = this.onDocumentMouseMove.bind(this);
+    this.onDocumentClick = this.onDocumentClick.bind(this);
+  }
+
+  onDocumentMouseMove(e) {
+    this.mouseX = e.clientX - this.windowHalfX;
+    this.mouseY = e.clientY - this.windowHalfY;
+  }
+
+  onDocumentClick(e) {
+    // console.log(e);
   }
 
   componentDidMount() {
     document.addEventListener( 'mousemove', this.onDocumentMouseMove, false );
+    document.addEventListener( 'click', this.onDocumentClick, false);
   }
 
   updateCamera() {
     this.setState({
       cameraPosition: new Three.Vector3(
-        this.state.cameraPosition.x + ( this.mouseX - this.state.cameraPosition.x ) * .0002,
-        this.state.cameraPosition.y + ( - this.mouseY + 200 - this.state.cameraPosition.y ) * .0002,
+        this.state.cameraPosition.x + ( this.mouseX + this.state.cameraPosition.x ) * .000009,
+        this.state.cameraPosition.y + ( this.mouseY + this.state.cameraPosition.y ) * .00009,
         this.state.cameraPosition.z
       )
     })
   }
 
-  rotateBox() {
-    this.setState({
-      boxRotation: new Three.Euler(
-        this.state.boxRotation.x,
-        this.state.boxRotation.y,
-        this.state.boxRotation.z + 0.005)
-    });
+  generateNode(posArr) {
+    return (
+      <Node key={posArr} position={posArr} life={false} mouseInput={mouseInput}/>
+    )
+  }
+
+  generateNodeRow(x) {
+    let nodes = [this.generateNode([x, 0, 0])]
+    for (let y = 5; y <= 50; y += 5) {
+      nodes = nodes.concat([
+        this.generateNode([x, y, 0]),
+        this.generateNode([x, -y, 0])
+      ])
+    }
+    return nodes;
+  }
+
+  generateNodeGrid() {
+    let grid = this.generateNodeRow(0)
+    for (let x = 5; x <= 50; x+=5) {
+      grid = grid.concat(this.generateNodeRow(x), this.generateNodeRow(-x))
+    }
+    return grid
   }
 
   updatePlane() {
@@ -56,10 +86,7 @@ class Simple extends Component {
     })
   }
 
-  onDocumentMouseMove(e) {
-    this.mouseX = e.clientX - this.windowHalfX;
-    this.mouseY = e.clientY - this.windowHalfY;
-  }
+
 
   render() {
     const width = window.innerWidth;
@@ -72,7 +99,13 @@ class Simple extends Component {
       onAnimate={this._onAnimate}
       clearColor={16777215}
       >
+        <module
+          ref="mouseInput"
+          descriptor={MouseInput}
+        />
         <scene>
+
+
           <pointLight color={16777215} position={this.state.cameraPosition}></pointLight>
           <perspectiveCamera
             name="camera"
@@ -84,11 +117,12 @@ class Simple extends Component {
             rotation={this.state.cameraRotation}
           />
 
+
           <spotLight
             color="white" intensity={1}
           />
           <mesh
-
+            position={ this.planePosition }
             key="floor"
           >
             <planeGeometry width={100} height={100}/>
@@ -100,8 +134,8 @@ class Simple extends Component {
             />
           </mesh>
 
-          <Node position={[0, 0, 0]}/>
-          <Node position={[5, 0, 0]}/>
+          { this.nodes }
+
 
         </scene>
       </React3>

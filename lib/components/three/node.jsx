@@ -9,24 +9,29 @@ class Node extends Component {
     const { position } = props
     this.position = new Three.Vector3( position[0], position[1], position[2]);
     this.state = {
-      sphereVertices: [new Three.Vector3( position[0], position[1], position[2]),
-	       new Three.Vector3( position[0], position[1], position[2]),
-	       new Three.Vector3(  position[0], position[1], position[2])]
+      sphereRadius: 2,
+      color: "blue"
     };
+    this.handleClick = this.handleClick.bind(this);
   }
+
+  handleClick(e) {
+    debugger
+    this.setState({color: "red"});
+  }
+
 
   render() {
     return (
       <mesh key="node" position={this.position}>
         <meshLambertMaterial
-          color="blue"
+          color={this.state.color}
           opacity={1}
           side={2}
           wireframe={true}
         />
         <sphereGeometry
-          radius={1}
-          vertices={this.state.sphereVertices}
+          radius={this.state.sphereRadius}
         />
       </mesh>
     )
