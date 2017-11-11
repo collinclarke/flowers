@@ -8,10 +8,11 @@ import MouseInput from '../../util/mouse_input';
 class Node extends Component {
   constructor(props, context) {
     super(props, context);
+
     const { position } = props
-    this.position = new Three.Vector3( position[0], position[1], position[2]);
+    const vectorPosition = new Three.Vector3( position[0], position[1], position[2]);
     this.state = {
-      position: new Three.Vector3( position[0], position[1], position[2]),
+      position: vectorPosition,
       pressed: false,
       hovered: false
     };
@@ -22,11 +23,33 @@ class Node extends Component {
 
   shouldComponentUpdate = PureRenderMixin.shouldComponentUpdate;
 
-  onMouseDown() {
-    debugger
-    console.log(e);
-    this.setState({ pressed: true })
-  }
+  _onMouseDown = (event, intersection) => {
+    event.preventDefault();
+    event.stopPropagation();
+
+    const {
+      position,
+    } = this.state;
+
+    const {
+      onDragStart,
+      camera,
+    } = this.props;
+
+    dragPlane.setFromNormalAndCoplanarPoint(backVector.clone()
+      .applyQuaternion(camera.quaternion), intersection.point);
+
+    this._offset = intersection.point.clone().sub(position);
+
+    document.addEventListener('mouseup', this._onDocumentMouseUp);
+    document.addEventListener('mousemove', this._onDocumentMouseMove);
+
+    this.setState({
+      pressed: true,
+    });
+
+    onDragStart();
+  };
 
   _onDocumentMouseMove = (event) => {
     event.preventDefault();
@@ -52,19 +75,25 @@ class Node extends Component {
   };
 
   render() {
+    const {  hovered, pressed, position } = this.state;
+
+    const { sphereRadius } = this;
+
     let color;
-    const { pressed } = this.state;
     if (pressed ) {
       color = this.pressedColor
     } else {
       color = this.color;
     }
 
+
     return (
+      <group>
+
       <mesh
       onMouseDown={this.onMouseDown}
       key="node"
-      position={this.position}>
+      position={position}>
         <meshLambertMaterial
           color={color}
           opacity={1}
@@ -75,6 +104,7 @@ class Node extends Component {
           radius={this.sphereRadius}
         />
       </mesh>
+      </group>
     )
   };
 }

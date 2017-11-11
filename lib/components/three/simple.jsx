@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
 import React3 from 'react-three-renderer';
 import * as Three from 'three';
-import Node from './node';
 import MouseInput from '../../util/mouse_input';
 import TrackballControls from '../../util/trackball';
 import PureRenderMixin from 'react/lib/ReactComponentWithPureRenderMixin';
+import NodeGrid from './node_grid';
 
 
 class Simple extends Component {
@@ -13,22 +13,68 @@ class Simple extends Component {
     this.state = {
       cameraRotation: new Three.Euler(0, 0, 0),
       cameraPosition: new Three.Vector3(0, 0, 300),
-      mouseInput: null
+      mouseInput: null,
+      hovering: false,
+      dragging: false
     };
 
-    this._onAnimate = () => {
-      this.onAnimateInternal()
-    };
-
-    this.nodes = this.generateNodeGrid()
+    this._cursor = {
+      hovering: false
+    }
     this.planePosition = new Three.Vector3(0, 0, 0);
-    this.windowHalfX = window.innerWidth / 2;
-    this.windowHalfY = window.innerHeight / 2;
-    this.onDocumentMouseMove = this.onDocumentMouseMove.bind(this);
-    this.onDocumentClick = this.onDocumentClick.bind(this);
   }
 
   shouldComponentUpdate = PureRenderMixin.shouldComponentUpdate;
+
+  _onAnimate = () => {
+    this._onAnimateInternal()
+  };
+
+  componentDidMount() {
+    const { camera } = this.refs;
+
+    const controls = new TrackballControls(camera);
+
+    controls.rotateSpeed = 1.0;
+    controls.zoomSpeed = 1.2;
+    controls.panSpeed = 0.8;
+    controls.noZoom = false;
+    controls.noPan = false;
+    controls.staticMoving = true;
+    controls.dynamicDampingFactor = 0.3;
+
+    this.controls = controls;
+
+    this.controls.addEventListener('change', this._onTrackballChange);
+  }
+
+  _onNodesMounted = (nodes) => {
+    this.nodes = nodes;
+  };
+
+  _onHoverStart = () => {
+    this.setState({
+      hovering: true,
+    });
+  };
+
+  _onHoverEnd = () => {
+    this.setState({
+      hovering: false,
+    });
+  };
+
+  _onDragStart = () => {
+    this.setState({
+      dragging: true,
+    });
+  };
+
+  _onDragEnd = () => {
+    this.setState({
+      dragging: false,
+    });
+  };
 
   componentDidUpdate(newProps) {
       const {
@@ -61,7 +107,7 @@ class Simple extends Component {
   delete this.stats;
   }
 
-  onAnimateInternal() {
+  _onAnimateInternal() {
     const {
       mouseInput,
       camera,
@@ -94,91 +140,22 @@ class Simple extends Component {
   }
 
 
-  onDocumentMouseMove(e) {
-    this.mouseX = e.clientX - this.windowHalfX;
-    this.mouseY = e.clientY - this.windowHalfY;
-  }
-
-  onDocumentClick(e) {
-    // console.log(e);
-  }
-
-  componentDidMount() {
-    const { camera } = this.refs;
-
-    const controls = new TrackballControls(camera);
-
-    controls.rotateSpeed = 1.0;
-    controls.zoomSpeed = 1.2;
-    controls.panSpeed = 0.8;
-    controls.noZoom = false;
-    controls.noPan = false;
-    controls.staticMoving = true;
-    controls.dynamicDampingFactor = 0.3;
-
-    this.controls = controls;
-
-    this.controls.addEventListener('change', this._onTrackballChange);
-  }
-
-  updateCamera() {
-    this.setState({
-      cameraPosition: new Three.Vector3(
-        this.state.cameraPosition.x + ( this.mouseX + this.state.cameraPosition.x ) * .000009,
-        this.state.cameraPosition.y + ( this.mouseY + this.state.cameraPosition.y ) * .00009,
-        this.state.cameraPosition.z
-      )
-    })
-  }
-
-  generateNode(posArr) {
-    return (
-      <Node key={posArr} position={posArr} />
-    )
-  }
-
-  generateNodeRow(x) {
-    let nodes = [this.generateNode([x, 0, 0])]
-    for (let y = 5; y <= 50; y += 5) {
-      nodes = nodes.concat([
-        this.generateNode([x, y, 0]),
-        this.generateNode([x, -y, 0])
-      ])
-    }
-    return nodes;
-  }
-
-  generateNodeGrid() {
-    let grid = this.generateNodeRow(0)
-    for (let x = 5; x <= 50; x+=5) {
-      grid = grid.concat(this.generateNodeRow(x), this.generateNodeRow(-x))
-    }
-    return grid
-  }
-
-  updatePlane() {
-    this.setState({
-      planeRotation: new Three.Euler(
-        this.state.planeRotation.x,
-        this.state.planeRotation.y,
-        this.state.planeRotation.z + ( this.mouseX + this.state.planeRotation.z ) * .000008
-      )
-    })
-  }
-
-
 
   render() {
     const width = window.innerWidth;
     const height = window.innerHeight;
-
+    const { cameraPosition, cameraRotation, mouseInput, camera, hovering } = this.state;
+    this._cursor.hovering = hovering;
     return (
       <div
       ref="container"
       >
       <React3 mainCamera="camera"
       width={ width }
-      height={ height}
+      height={ height }
+      antialias
+      pixelRatio={window.devicePixelRatio}
+      sortObjects={false}
       onAnimate={this._onAnimate}
       clearColor={16777215}
       >
@@ -218,8 +195,17 @@ class Simple extends Component {
             />
           </mesh>
 
-          { this.nodes }
+          <NodeGrid
+            mouseInput={mouseInput}
+            camera={camera}
+            onNodesMounted={this._onNodesMounted}
 
+            onHoverStart={this._onHoverStart}
+            onHoverEnd={this._onHoverEnd}
+            onDragStart={this._onDragStart}
+            onDragEnd={this._onDragEnd}
+            cursor={this._cursor}
+           />
 
         </scene>
       </React3>
