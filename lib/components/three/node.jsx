@@ -15,12 +15,11 @@ class Node extends Component {
     const { position } = props
     this.state = {
       position: position,
-      living: false,
+      living: props.living,
       hovered: false
     };
     this.color = "blue";
     this.hoverColor = "grey";
-    this.sphereRadius = 2;
     this.livingColor = "green";
     this.onMouseEnter = this.onMouseEnter.bind(this);
     this.onMouseLeave = this.onMouseLeave.bind(this);
