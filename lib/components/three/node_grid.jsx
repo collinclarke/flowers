@@ -16,9 +16,14 @@ class NodeGrid extends React.Component {
     this.nodes = [];
     this.nodePositions = [];
     this.generateNodeGrid();
+    this.handleDragging = this.handleDragging.bind(this);
+    this.handleEndDragging = this.handleEndDragging.bind(this);
+    this.state = {
+      dragging: false,
+    }
   }
 
-  _onNodeCreate = (index, node) => {
+  onNodeCreate = (index, node) => {
     this.nodes[index] = node;
   };
 
@@ -48,18 +53,27 @@ class NodeGrid extends React.Component {
   }
 
   generateNode(pos, index) {
-    const onCreate = this._onNodeCreate.bind(this, index);
+    const onCreate = this.onNodeCreate.bind(this, index);
     return (
       <Node key={index}
       camera={this.props.camera}
       onCreate={onCreate}
       mouseInput={this.props.mouseInput}
       position={pos}
-      onMouseEnter={this._onNodeMouseEnter}
-      onMouseLeave={this._onNodeMouseLeave}
+      handleDragging = {this.handleDragging}
+      handleEndDragging = {this.handleEndDragging}
+      dragging = {this.state.dragging}
       cursor={this.props.cursor}
       />
     )
+  }
+
+  handleDragging(e) {
+    this.setState({dragging: true});
+  }
+
+  handleEndDragging(e) {
+    this.setState({dragging: false});
   }
 
   componentDidMount() {
@@ -70,31 +84,6 @@ class NodeGrid extends React.Component {
   }
 
   shouldComponentUpdate = PureRenderMixin.shouldComponentUpdate;
-
-  _onNodeMouseEnter = () => {
-    if (this._hoveredNodes === 0) {
-      const {
-        onHoverStart,
-      } = this.props;
-
-      onHoverStart();
-    }
-
-    this._hoveredNodes++;
-  };
-
-  _onNodeMouseLeave = () => {
-    this._hoveredNodes--;
-
-    if (this._hoveredNodes === 0) {
-      const {
-        onHoverEnd,
-      } = this.props;
-
-      onHoverEnd();
-    }
-  };
-
 
 
   render() {

@@ -15,90 +15,80 @@ class Node extends Component {
     const { position } = props
     this.state = {
       position: position,
-      pressed: false,
+      living: false,
       hovered: false
     };
     this.color = "blue";
-    this.hoverColor = "red";
+    this.hoverColor = "grey";
     this.sphereRadius = 2;
-    this.pressedColor = "green";
+    this.livingColor = "green";
+    this.onMouseEnter = this.onMouseEnter.bind(this);
+    this.onMouseLeave = this.onMouseLeave.bind(this);
+    this.onMouseDown = this.onMouseDown.bind(this);
+    this.onDocumentMouseUp = this.onDocumentMouseUp.bind(this);
+    this.onDocumentDrag = this.onDocumentDrag.bind(this);
   }
 
 
   shouldComponentUpdate = PureRenderMixin.shouldComponentUpdate;
 
-  _onMouseEnter = () => {
+  onMouseEnter = (e) => {
     this.setState({
       hovered: true,
     });
-    console.log("hello!");
-    const { onMouseEnter } = this.props;
+    if (this.props.dragging) {
 
-    onMouseEnter();
+      this.setState({
+        living: true,
+      })
+    }
   };
 
-  _onMouseLeave = () => {
+  onMouseLeave = () => {
     if (this.state.hovered) {
       this.setState({
         hovered: false,
       });
     }
-
-    const {
-      onMouseLeave,
-    } = this.props;
-
-    onMouseLeave();
   };
 
-  _onMouseDown = (event, intersection) => {
+  onMouseDown = (event, intersection) => {
+
     event.preventDefault();
     event.stopPropagation();
-    this.setState({pressed: true});
+    this.setState({living: true});
+    document.addEventListener('mouseup', this.onDocumentMouseUp);
+    document.addEventListener('mousemove', this.onDocumentDrag);
   };
 
-  _onDocumentMouseUp = (event) => {
-    this.setState({
-      pressed: false,
-    });
-  };
+  onDocumentDrag = e => {
+    e.preventDefault();
+    this.props.handleDragging();
+  }
 
-  _onDocumentMouseMove = (event) => {
-    debugger
-    event.preventDefault();
+  onDocumentMouseUp = e => {
+    e.preventDefault();
+    document.removeEventListener('mouseup', this.onDocumentMouseUp);
+    document.removeEventListener('mousemove', this.onDocumentDrag);
+    this.props.handleEndDragging();
+  }
 
-    const { mouseInput } = this.props;
-
-    const ray:THREE.Ray = mouseInput.getCameraRay(new THREE
-      .Vector2(event.clientX, event.clientY));
-
-    const intersection = dragPlane.intersectLine(new THREE.Line3(
-      ray.origin,
-      ray.origin.clone()
-        .add(ray.direction.clone().multiplyScalar(10000))
-    ));
-
-    if (intersection) {
-      this.setState({
-        position: intersection.sub(this._offset),
-      });
-    }
-  };
-
-  _ref = (mesh) => {
+  ref = (mesh) => {
       const {
         onCreate,
       } = this.props;
       onCreate(mesh);
   };
 
+  // _neighbors =
+
   render() {
-    const {  hovered, pressed, position } = this.state;
+    const {  hovered, living, position } = this.state;
 
     let color;
     const hoverHighlight = (hovered && !dragging);
-    if (pressed) {
-      color = this.pressedColor;
+    if (living) {
+      color = this.livingColor;
     } else if (hoverHighlight) {
       color = this.hoverColor;
     } else {
@@ -111,9 +101,6 @@ class Node extends Component {
       },
     } = this.props;
 
-
-
-
     return (<group
       position={position}
     >
@@ -121,15 +108,15 @@ class Node extends Component {
         castShadow
         receiveShadow
 
-        onMouseEnter={this._onMouseEnter}
-        onMouseDown={this._onMouseDown}
-        onMouseLeave={this._onMouseLeave}
+        onMouseEnter={this.onMouseEnter}
+        onMouseDown={this.onMouseDown}
+        onMouseLeave={this.onMouseLeave}
 
-        ref={this._ref}
+        ref={this.ref}
       >
-        <geometryResource
-          resourceId="boxGeometry"
-        />
+      <geometryResource
+        resourceId="boxGeometry"
+      />
         <meshLambertMaterial
           color={color}
         />

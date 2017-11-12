@@ -75781,14 +75781,9 @@ var Simple = function (_Component) {
     key: 'componentDidUpdate',
     value: function componentDidUpdate(newProps) {
       var mouseInput = this.refs.mouseInput;
-      var _props = this.props,
-          width = _props.width,
-          height = _props.height;
 
 
-      if (width !== newProps.width || height !== newProps.height) {
-        mouseInput.containerResized();
-      }
+      mouseInput.containerResized();
     }
   }, {
     key: 'componentWillUnmount',
@@ -75836,8 +75831,10 @@ var Simple = function (_Component) {
   }, {
     key: 'render',
     value: function render() {
+
       var width = window.innerWidth;
       var height = window.innerHeight;
+
       var _state = this.state,
           cameraPosition = _state.cameraPosition,
           cameraRotation = _state.cameraRotation,
@@ -87568,39 +87565,22 @@ var NodeGrid = function (_React$Component) {
 
     var _this = (0, _possibleConstructorReturn3.default)(this, (NodeGrid.__proto__ || (0, _getPrototypeOf2.default)(NodeGrid)).call(this, props, context));
 
-    _this._onNodeCreate = function (index, node) {
+    _this.onNodeCreate = function (index, node) {
       _this.nodes[index] = node;
     };
 
     _this.shouldComponentUpdate = _ReactComponentWithPureRenderMixin2.default.shouldComponentUpdate;
-
-    _this._onNodeMouseEnter = function () {
-      if (_this._hoveredNodes === 0) {
-        var onHoverStart = _this.props.onHoverStart;
-
-
-        onHoverStart();
-      }
-
-      _this._hoveredNodes++;
-    };
-
-    _this._onNodeMouseLeave = function () {
-      _this._hoveredNodes--;
-
-      if (_this._hoveredNodes === 0) {
-        var onHoverEnd = _this.props.onHoverEnd;
-
-
-        onHoverEnd();
-      }
-    };
 
     _this._hoveredNodes = 0;
     _this._draggingNodes = 0;
     _this.nodes = [];
     _this.nodePositions = [];
     _this.generateNodeGrid();
+    _this.handleDragging = _this.handleDragging.bind(_this);
+    _this.handleEndDragging = _this.handleEndDragging.bind(_this);
+    _this.state = {
+      dragging: false
+    };
     return _this;
   }
 
@@ -87632,16 +87612,27 @@ var NodeGrid = function (_React$Component) {
   }, {
     key: 'generateNode',
     value: function generateNode(pos, index) {
-      var onCreate = this._onNodeCreate.bind(this, index);
+      var onCreate = this.onNodeCreate.bind(this, index);
       return _react2.default.createElement(_node2.default, { key: index,
         camera: this.props.camera,
         onCreate: onCreate,
         mouseInput: this.props.mouseInput,
         position: pos,
-        onMouseEnter: this._onNodeMouseEnter,
-        onMouseLeave: this._onNodeMouseLeave,
+        handleDragging: this.handleDragging,
+        handleEndDragging: this.handleEndDragging,
+        dragging: this.state.dragging,
         cursor: this.props.cursor
       });
+    }
+  }, {
+    key: 'handleDragging',
+    value: function handleDragging(e) {
+      this.setState({ dragging: true });
+    }
+  }, {
+    key: 'handleEndDragging',
+    value: function handleEndDragging(e) {
+      this.setState({ dragging: false });
     }
   }, {
     key: 'componentDidMount',
@@ -87748,61 +87739,48 @@ var Node = function (_Component) {
 
     _this.shouldComponentUpdate = _ReactComponentWithPureRenderMixin2.default.shouldComponentUpdate;
 
-    _this._onMouseEnter = function () {
+    _this.onMouseEnter = function (e) {
       _this.setState({
         hovered: true
       });
-      console.log("hello!");
-      var onMouseEnter = _this.props.onMouseEnter;
+      if (_this.props.dragging) {
 
-
-      onMouseEnter();
+        _this.setState({
+          living: true
+        });
+      }
     };
 
-    _this._onMouseLeave = function () {
+    _this.onMouseLeave = function () {
       if (_this.state.hovered) {
         _this.setState({
           hovered: false
         });
       }
-
-      var onMouseLeave = _this.props.onMouseLeave;
-
-
-      onMouseLeave();
     };
 
-    _this._onMouseDown = function (event, intersection) {
+    _this.onMouseDown = function (event, intersection) {
+
       event.preventDefault();
       event.stopPropagation();
-      _this.setState({ pressed: true });
+      _this.setState({ living: true });
+      document.addEventListener('mouseup', _this.onDocumentMouseUp);
+      document.addEventListener('mousemove', _this.onDocumentDrag);
     };
 
-    _this._onDocumentMouseUp = function (event) {
-      _this.setState({
-        pressed: false
-      });
+    _this.onDocumentDrag = function (e) {
+      e.preventDefault();
+      _this.props.handleDragging();
     };
 
-    _this._onDocumentMouseMove = function (event) {
-      debugger;
-      event.preventDefault();
-
-      var mouseInput = _this.props.mouseInput;
-
-
-      var ray = mouseInput.getCameraRay(new THREE.Vector2(event.clientX, event.clientY));
-
-      var intersection = dragPlane.intersectLine(new THREE.Line3(ray.origin, ray.origin.clone().add(ray.direction.clone().multiplyScalar(10000))));
-
-      if (intersection) {
-        _this.setState({
-          position: intersection.sub(_this._offset)
-        });
-      }
+    _this.onDocumentMouseUp = function (e) {
+      e.preventDefault();
+      document.removeEventListener('mouseup', _this.onDocumentMouseUp);
+      document.removeEventListener('mousemove', _this.onDocumentDrag);
+      _this.props.handleEndDragging();
     };
 
-    _this._ref = function (mesh) {
+    _this.ref = function (mesh) {
       var onCreate = _this.props.onCreate;
 
       onCreate(mesh);
@@ -87812,29 +87790,38 @@ var Node = function (_Component) {
 
     _this.state = {
       position: position,
-      pressed: false,
+      living: false,
       hovered: false
     };
     _this.color = "blue";
-    _this.hoverColor = "red";
+    _this.hoverColor = "grey";
     _this.sphereRadius = 2;
-    _this.pressedColor = "green";
+    _this.livingColor = "green";
+    _this.onMouseEnter = _this.onMouseEnter.bind(_this);
+    _this.onMouseLeave = _this.onMouseLeave.bind(_this);
+    _this.onMouseDown = _this.onMouseDown.bind(_this);
+    _this.onDocumentMouseUp = _this.onDocumentMouseUp.bind(_this);
+    _this.onDocumentDrag = _this.onDocumentDrag.bind(_this);
     return _this;
   }
 
   (0, _createClass3.default)(Node, [{
     key: 'render',
+
+
+    // _neighbors =
+
     value: function render() {
       var _state = this.state,
           hovered = _state.hovered,
-          pressed = _state.pressed,
+          living = _state.living,
           position = _state.position;
 
 
       var color = void 0;
       var hoverHighlight = hovered && !dragging;
-      if (pressed) {
-        color = this.pressedColor;
+      if (living) {
+        color = this.livingColor;
       } else if (hoverHighlight) {
         color = this.hoverColor;
       } else {
@@ -87855,11 +87842,11 @@ var Node = function (_Component) {
             castShadow: true,
             receiveShadow: true,
 
-            onMouseEnter: this._onMouseEnter,
-            onMouseDown: this._onMouseDown,
-            onMouseLeave: this._onMouseLeave,
+            onMouseEnter: this.onMouseEnter,
+            onMouseDown: this.onMouseDown,
+            onMouseLeave: this.onMouseLeave,
 
-            ref: this._ref
+            ref: this.ref
           },
           _react2.default.createElement('geometryResource', {
             resourceId: 'boxGeometry'

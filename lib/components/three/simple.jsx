@@ -81,15 +81,8 @@ class Simple extends Component {
         mouseInput,
       } = this.refs;
 
-      const {
-        width,
-        height,
-      } = this.props;
-
-      if (width !== newProps.width || height !== newProps.height) {
-        mouseInput.containerResized();
-      }
-    }
+      mouseInput.containerResized();
+  }
 
   _onTrackballChange = () => {
     this.setState({
@@ -142,8 +135,10 @@ class Simple extends Component {
 
 
   render() {
+
     const width = window.innerWidth;
     const height = window.innerHeight;
+
     const { cameraPosition, cameraRotation, mouseInput, camera, hovering } = this.state;
     this._cursor.hovering = hovering;
     return (
