@@ -6,6 +6,8 @@ import PureRenderMixin from 'react/lib/ReactComponentWithPureRenderMixin';
 
 import MouseInput from '../../util/mouse_input';
 
+import GolBoard from '../../util/gol_board';
+
 
 class NodeGrid extends React.Component {
 
@@ -13,12 +15,14 @@ class NodeGrid extends React.Component {
     super(props, context);
     this._hoveredNodes = 0;
     this._draggingNodes = 0;
-    this.nodes = {};
+    this.nodes = [];
     this.nodePositions = {};
     this.handleDragging = this.handleDragging.bind(this);
     this.handleEndDragging = this.handleEndDragging.bind(this);
+    this.generateNode = this.generateNode.bind(this);
     this.state = {
       dragging: false,
+      board: new GolBoard(21)
     }
     this.idx = 0;
   }
@@ -45,28 +49,34 @@ class NodeGrid extends React.Component {
     for (let y = -50; y <= 50; y += 5) {
       const pos = this.generatePosition([x, y, 0])
       nodes.push(
-        this.generateNode(pos, [x, y, 0])
+        this.generateNode(pos, [((x + 50) / 5), ((y + 50) / 5)])
       )
     }
     return nodes;
   }
 
+  calculateLife() {
+  }
+
   generateNode(pos, posArr) {
     const { idx } = this;
+    const life = this.state.board.grid[posArr[0]][posArr[1]]
     const onCreate = this.onNodeCreate.bind(this, idx);
-    const node = <Node key={posArr}
-    camera={this.props.camera}
-    onCreate={onCreate}
-    mouseInput={this.props.mouseInput}
-    position={pos}
-    handleDragging = {this.handleDragging}
-    handleEndDragging = {this.handleEndDragging}
-    dragging = {this.state.dragging}
-    cursor={this.props.cursor}
-    living={false}
-    />
+    const node = () => {
+      return (<Node key={posArr}
+      camera={this.props.camera}
+      onCreate={onCreate}
+      mouseInput={this.props.mouseInput}
+      position={pos}
+      handleDragging = {this.handleDragging}
+      handleEndDragging = {this.handleEndDragging}
+      dragging = {this.state.dragging}
+      cursor={this.props.cursor}
+      living={life}
+      /> )
+    }
     this.idx ++;
-    return node
+    return node();
   }
 
   handleDragging(e) {
@@ -75,6 +85,7 @@ class NodeGrid extends React.Component {
 
   handleEndDragging(e) {
     this.setState({dragging: false});
+    this.state.board.move()
   }
 
   componentDidMount() {
@@ -88,11 +99,11 @@ class NodeGrid extends React.Component {
 
 
   render() {
-    const grid = this.generateNodeGrid()
+    this.grid = this.generateNodeGrid()
     const nodes = () => {
-      return grid.reduce((a, b) => a.concat(b), []);
+      return this.grid.reduce((a, b) => a.concat(b), []);
     }
-    debugger
+
     return (
       <group>
         { nodes() }

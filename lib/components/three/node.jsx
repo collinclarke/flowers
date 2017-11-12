@@ -28,6 +28,11 @@ class Node extends Component {
     this.onDocumentDrag = this.onDocumentDrag.bind(this);
   }
 
+  //public
+
+  toggleLife = () => {
+    this.setState({living: !this.state.living})
+  }
 
   shouldComponentUpdate = PureRenderMixin.shouldComponentUpdate;
 
@@ -36,7 +41,6 @@ class Node extends Component {
       hovered: true,
     });
     if (this.props.dragging) {
-
       this.setState({
         living: true,
       })
@@ -120,16 +124,6 @@ class Node extends Component {
           color={color}
         />
       </mesh>
-      {hoverHighlight ? <mesh
-        ignorePointerEvents
-      >
-        <geometryResource
-          resourceId="boxGeometry"
-        />
-        <materialResource
-          resourceId="highlightMaterial"
-        />
-      </mesh> : null}
     </group>);
   };
 }
