@@ -64547,15 +64547,13 @@ var MouseInput = function (_Module) {
     key: '_getRelativeMouseCoords',
     value: function _getRelativeMouseCoords(screenMouseCoords) {
       var containerRect = this._containerRect;
-
       var relativeMouseCoords = screenMouseCoords.clone().sub(tempVector2.set(containerRect.left, containerRect.top)).divide(tempVector2.set(containerRect.width, containerRect.height));
 
       // mouse.x = ( event.clientX / window.innerWidth ) * 2 - 1;
       // mouse.y = - ( event.clientY / window.innerHeight ) * 2 + 1;
 
       relativeMouseCoords.x = relativeMouseCoords.x * 2 - 1;
-      relativeMouseCoords.y = -relativeMouseCoords.y * 2 + 1;
-
+      relativeMouseCoords.y = -relativeMouseCoords.y * 1.8 + 1;
       return relativeMouseCoords;
     }
 
@@ -75874,9 +75872,9 @@ var Simple = function (_Component) {
             _react2.default.createElement('boxGeometry', {
               resourceId: 'boxGeometry',
 
-              width: 1,
-              height: 1,
-              depth: 1
+              width: 4,
+              height: 4,
+              depth: .25
             }),
             _react2.default.createElement('meshBasicMaterial', {
               resourceId: 'highlightMaterial',
@@ -87642,8 +87640,6 @@ var NodeGrid = function (_React$Component) {
         position: pos,
         onMouseEnter: this._onNodeMouseEnter,
         onMouseLeave: this._onNodeMouseLeave,
-        onDragStart: this._onDragStart,
-        onDragEnd: this._onDragEnd,
         cursor: this.props.cursor
       });
     }
@@ -87714,8 +87710,6 @@ var _inherits2 = __webpack_require__(4);
 
 var _inherits3 = _interopRequireDefault(_inherits2);
 
-var _class, _temp, _initialiseProps;
-
 var _react = __webpack_require__(32);
 
 var _react2 = _interopRequireDefault(_react);
@@ -87744,7 +87738,7 @@ var dragPlane = new Three.Plane();
 
 var backVector = new Three.Vector3(0, 0, -1);
 
-var Node = (_temp = _class = function (_Component) {
+var Node = function (_Component) {
   (0, _inherits3.default)(Node, _Component);
 
   function Node(props, context) {
@@ -87752,7 +87746,67 @@ var Node = (_temp = _class = function (_Component) {
 
     var _this = (0, _possibleConstructorReturn3.default)(this, (Node.__proto__ || (0, _getPrototypeOf2.default)(Node)).call(this, props, context));
 
-    _initialiseProps.call(_this);
+    _this.shouldComponentUpdate = _ReactComponentWithPureRenderMixin2.default.shouldComponentUpdate;
+
+    _this._onMouseEnter = function () {
+      _this.setState({
+        hovered: true
+      });
+      console.log("hello!");
+      var onMouseEnter = _this.props.onMouseEnter;
+
+
+      onMouseEnter();
+    };
+
+    _this._onMouseLeave = function () {
+      if (_this.state.hovered) {
+        _this.setState({
+          hovered: false
+        });
+      }
+
+      var onMouseLeave = _this.props.onMouseLeave;
+
+
+      onMouseLeave();
+    };
+
+    _this._onMouseDown = function (event, intersection) {
+      event.preventDefault();
+      event.stopPropagation();
+      _this.setState({ pressed: true });
+    };
+
+    _this._onDocumentMouseUp = function (event) {
+      _this.setState({
+        pressed: false
+      });
+    };
+
+    _this._onDocumentMouseMove = function (event) {
+      debugger;
+      event.preventDefault();
+
+      var mouseInput = _this.props.mouseInput;
+
+
+      var ray = mouseInput.getCameraRay(new THREE.Vector2(event.clientX, event.clientY));
+
+      var intersection = dragPlane.intersectLine(new THREE.Line3(ray.origin, ray.origin.clone().add(ray.direction.clone().multiplyScalar(10000))));
+
+      if (intersection) {
+        _this.setState({
+          position: intersection.sub(_this._offset)
+        });
+      }
+    };
+
+    _this._ref = function (mesh) {
+      var onCreate = _this.props.onCreate;
+
+      onCreate(mesh);
+    };
 
     var position = props.position;
 
@@ -87764,6 +87818,7 @@ var Node = (_temp = _class = function (_Component) {
     _this.color = "blue";
     _this.hoverColor = "red";
     _this.sphereRadius = 2;
+    _this.pressedColor = "green";
     return _this;
   }
 
@@ -87829,99 +87884,8 @@ var Node = (_temp = _class = function (_Component) {
     }
   }]);
   return Node;
-}(_react.Component), _initialiseProps = function _initialiseProps() {
-  var _this2 = this;
+}(_react.Component);
 
-  this.shouldComponentUpdate = _ReactComponentWithPureRenderMixin2.default.shouldComponentUpdate;
-
-  this._onMouseEnter = function () {
-    _this2.setState({
-      hovered: true
-    });
-    console.log("hello!");
-    var onMouseEnter = _this2.props.onMouseEnter;
-
-
-    onMouseEnter();
-  };
-
-  this._onMouseLeave = function () {
-    if (_this2.state.hovered) {
-      _this2.setState({
-        hovered: false
-      });
-    }
-
-    var onMouseLeave = _this2.props.onMouseLeave;
-
-
-    onMouseLeave();
-  };
-
-  this._onMouseDown = function (event, intersection) {
-    event.preventDefault();
-    event.stopPropagation();
-
-    var position = _this2.state.position;
-    var _props = _this2.props,
-        onDragStart = _props.onDragStart,
-        camera = _props.camera;
-
-
-    dragPlane.setFromNormalAndCoplanarPoint(backVector.clone().applyQuaternion(camera.quaternion), intersection.point);
-
-    _this2._offset = intersection.point.clone().sub(position);
-
-    document.addEventListener('mouseup', _this2._onDocumentMouseUp);
-    document.addEventListener('mousemove', _this2._onDocumentMouseMove);
-
-    _this2.setState({
-      pressed: true
-    });
-    console.log("hello again!");
-    onDragStart();
-  };
-
-  this._onDocumentMouseUp = function (event) {
-    event.preventDefault();
-
-    document.removeEventListener('mouseup', _this2._onDocumentMouseUp);
-    document.removeEventListener('mousemove', _this2._onDocumentMouseMove);
-
-    var onDragEnd = _this2.props.onDragEnd;
-
-
-    onDragEnd();
-
-    _this2.setState({
-      pressed: false
-    });
-  };
-
-  this._onDocumentMouseMove = function (event) {
-    debugger;
-    event.preventDefault();
-
-    var mouseInput = _this2.props.mouseInput;
-
-
-    var ray = mouseInput.getCameraRay(new THREE.Vector2(event.clientX, event.clientY));
-
-    var intersection = dragPlane.intersectLine(new THREE.Line3(ray.origin, ray.origin.clone().add(ray.direction.clone().multiplyScalar(10000))));
-
-    if (intersection) {
-      _this2.setState({
-        position: intersection.sub(_this2._offset)
-      });
-    }
-  };
-
-  this._ref = function (mesh) {
-    var onCreate = _this2.props.onCreate;
-
-    onCreate(mesh);
-  };
-}, _temp);
 exports.default = Node;
 
 /***/ })

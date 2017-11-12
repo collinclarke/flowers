@@ -167,9 +167,9 @@ class Simple extends Component {
           <boxGeometry
             resourceId="boxGeometry"
 
-            width={1}
-            height={1}
-            depth={1}
+            width={4}
+            height={4}
+            depth={.25}
           />
           <meshBasicMaterial
             resourceId="highlightMaterial"

@@ -57,8 +57,6 @@ class NodeGrid extends React.Component {
       position={pos}
       onMouseEnter={this._onNodeMouseEnter}
       onMouseLeave={this._onNodeMouseLeave}
-      onDragStart={this._onDragStart}
-      onDragEnd={this._onDragEnd}
       cursor={this.props.cursor}
       />
     )

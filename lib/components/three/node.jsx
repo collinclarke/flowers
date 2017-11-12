@@ -21,6 +21,7 @@ class Node extends Component {
     this.color = "blue";
     this.hoverColor = "red";
     this.sphereRadius = 2;
+    this.pressedColor = "green";
   }
 
 
@@ -53,43 +54,10 @@ class Node extends Component {
   _onMouseDown = (event, intersection) => {
     event.preventDefault();
     event.stopPropagation();
-
-    const {
-      position,
-    } = this.state;
-
-    const {
-      onDragStart,
-      camera,
-    } = this.props;
-
-    dragPlane.setFromNormalAndCoplanarPoint(backVector.clone()
-      .applyQuaternion(camera.quaternion), intersection.point);
-
-    this._offset = intersection.point.clone().sub(position);
-
-    document.addEventListener('mouseup', this._onDocumentMouseUp);
-    document.addEventListener('mousemove', this._onDocumentMouseMove);
-
-    this.setState({
-      pressed: true,
-    });
-    console.log("hello again!");
-    onDragStart();
+    this.setState({pressed: true});
   };
 
   _onDocumentMouseUp = (event) => {
-    event.preventDefault();
-
-    document.removeEventListener('mouseup', this._onDocumentMouseUp);
-    document.removeEventListener('mousemove', this._onDocumentMouseMove);
-
-    const {
-      onDragEnd,
-    } = this.props;
-
-    onDragEnd();
-
     this.setState({
       pressed: false,
     });
