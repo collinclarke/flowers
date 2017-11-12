@@ -163,6 +163,21 @@ class Simple extends Component {
           ref="mouseInput"
           descriptor={MouseInput}
         />
+        <resources>
+          <boxGeometry
+            resourceId="boxGeometry"
+
+            width={1}
+            height={1}
+            depth={1}
+          />
+          <meshBasicMaterial
+            resourceId="highlightMaterial"
+
+            color={0xffff00}
+            wireframe
+          />
+        </resources>
         <scene>
 
 
@@ -182,18 +197,7 @@ class Simple extends Component {
           <spotLight
             color="white" intensity={1}
           />
-          <mesh
-            position={ this.planePosition }
-            key="floor"
-          >
-            <planeGeometry width={100} height={100}/>
-            <meshLambertMaterial
-              color="blue"
-              opacity={1}
-              side={2}
-              wireframe={true}
-            />
-          </mesh>
+
 
           <NodeGrid
             mouseInput={mouseInput}

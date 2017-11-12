@@ -75869,6 +75869,23 @@ var Simple = function (_Component) {
             descriptor: _mouse_input2.default
           }),
           _react2.default.createElement(
+            'resources',
+            null,
+            _react2.default.createElement('boxGeometry', {
+              resourceId: 'boxGeometry',
+
+              width: 1,
+              height: 1,
+              depth: 1
+            }),
+            _react2.default.createElement('meshBasicMaterial', {
+              resourceId: 'highlightMaterial',
+
+              color: 0xffff00,
+              wireframe: true
+            })
+          ),
+          _react2.default.createElement(
             'scene',
             null,
             _react2.default.createElement('pointLight', { color: 16777215, position: this.state.cameraPosition }),
@@ -75885,20 +75902,6 @@ var Simple = function (_Component) {
             _react2.default.createElement('spotLight', {
               color: 'white', intensity: 1
             }),
-            _react2.default.createElement(
-              'mesh',
-              {
-                position: this.planePosition,
-                key: 'floor'
-              },
-              _react2.default.createElement('planeGeometry', { width: 100, height: 100 }),
-              _react2.default.createElement('meshLambertMaterial', {
-                color: 'blue',
-                opacity: 1,
-                side: 2,
-                wireframe: true
-              })
-            ),
             _react2.default.createElement(_node_grid2.default, {
               mouseInput: mouseInput,
               camera: camera,
@@ -87567,6 +87570,10 @@ var NodeGrid = function (_React$Component) {
 
     var _this = (0, _possibleConstructorReturn3.default)(this, (NodeGrid.__proto__ || (0, _getPrototypeOf2.default)(NodeGrid)).call(this, props, context));
 
+    _this._onNodeCreate = function (index, node) {
+      _this.nodes[index] = node;
+    };
+
     _this.shouldComponentUpdate = _ReactComponentWithPureRenderMixin2.default.shouldComponentUpdate;
 
     _this._onNodeMouseEnter = function () {
@@ -87593,6 +87600,9 @@ var NodeGrid = function (_React$Component) {
 
     _this._hoveredNodes = 0;
     _this._draggingNodes = 0;
+    _this.nodes = [];
+    _this.nodePositions = [];
+    _this.generateNodeGrid();
     return _this;
   }
 
@@ -87603,24 +87613,33 @@ var NodeGrid = function (_React$Component) {
       for (var x = 5; x <= 50; x += 5) {
         grid = grid.concat(this.generateNodeRow(x), this.generateNodeRow(-x));
       }
+      this.nodePositions = grid;
       return grid;
+    }
+  }, {
+    key: 'generatePosition',
+    value: function generatePosition(posArr) {
+      var position = new Three.Vector3(posArr[0], posArr[1], posArr[2]);
+      return position;
     }
   }, {
     key: 'generateNodeRow',
     value: function generateNodeRow(x) {
-      var nodes = [this.generateNode([x, 0, 0])];
+      var nodes = [this.generatePosition([x, 0, 0])];
       for (var y = 5; y <= 50; y += 5) {
-        nodes = nodes.concat([this.generateNode([x, y, 0]), this.generateNode([x, -y, 0])]);
+        nodes = nodes.concat([this.generatePosition([x, y, 0]), this.generatePosition([x, -y, 0])]);
       }
       return nodes;
     }
   }, {
     key: 'generateNode',
-    value: function generateNode(posArr) {
-      var position = new Three.Vector3(posArr[0], posArr[1], posArr[2]);
-      return _react2.default.createElement(_node2.default, { key: posArr,
+    value: function generateNode(pos, index) {
+      var onCreate = this._onNodeCreate.bind(this, index);
+      return _react2.default.createElement(_node2.default, { key: index,
+        camera: this.props.camera,
+        onCreate: onCreate,
         mouseInput: this.props.mouseInput,
-        position: posArr,
+        position: pos,
         onMouseEnter: this._onNodeMouseEnter,
         onMouseLeave: this._onNodeMouseLeave,
         onDragStart: this._onDragStart,
@@ -87633,22 +87652,29 @@ var NodeGrid = function (_React$Component) {
     value: function componentDidMount() {
       var onNodesMounted = this.props.onNodesMounted;
 
-
       onNodesMounted(this.nodes);
     }
   }, {
     key: 'render',
     value: function render() {
+      var _this2 = this;
+
       var _props = this.props,
           mouseInput = _props.mouseInput,
           camera = _props.camera,
           cursor = _props.cursor;
 
 
+      var grid = this.nodePositions;
+
+      var nodes = grid.map(function (pos, index) {
+        return _this2.generateNode(pos, index);
+      });
+
       return _react2.default.createElement(
         'group',
         null,
-        this.generateNodeGrid()
+        nodes
       );
     }
   }]);
@@ -87714,6 +87740,10 @@ function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj;
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
+var dragPlane = new Three.Plane();
+
+var backVector = new Three.Vector3(0, 0, -1);
+
 var Node = (_temp = _class = function (_Component) {
   (0, _inherits3.default)(Node, _Component);
 
@@ -87726,14 +87756,13 @@ var Node = (_temp = _class = function (_Component) {
 
     var position = props.position;
 
-    var vectorPosition = new Three.Vector3(position[0], position[1], position[2]);
     _this.state = {
-      position: vectorPosition,
+      position: position,
       pressed: false,
       hovered: false
     };
     _this.color = "blue";
-    _this.pressedColor = "red";
+    _this.hoverColor = "red";
     _this.sphereRadius = 2;
     return _this;
   }
@@ -87745,35 +87774,57 @@ var Node = (_temp = _class = function (_Component) {
           hovered = _state.hovered,
           pressed = _state.pressed,
           position = _state.position;
-      var sphereRadius = this.sphereRadius;
 
 
       var color = void 0;
+      var hoverHighlight = hovered && !dragging;
       if (pressed) {
         color = this.pressedColor;
+      } else if (hoverHighlight) {
+        color = this.hoverColor;
       } else {
         color = this.color;
       }
 
+      var dragging = this.props.cursor.dragging;
+
+
       return _react2.default.createElement(
         'group',
-        null,
+        {
+          position: position
+        },
         _react2.default.createElement(
           'mesh',
           {
-            onMouseDown: this.onMouseDown,
-            key: 'node',
-            position: position },
-          _react2.default.createElement('meshLambertMaterial', {
-            color: color,
-            opacity: 1,
-            side: 2,
-            wireframe: false
+            castShadow: true,
+            receiveShadow: true,
+
+            onMouseEnter: this._onMouseEnter,
+            onMouseDown: this._onMouseDown,
+            onMouseLeave: this._onMouseLeave,
+
+            ref: this._ref
+          },
+          _react2.default.createElement('geometryResource', {
+            resourceId: 'boxGeometry'
           }),
-          _react2.default.createElement('sphereGeometry', {
-            radius: this.sphereRadius
+          _react2.default.createElement('meshLambertMaterial', {
+            color: color
           })
-        )
+        ),
+        hoverHighlight ? _react2.default.createElement(
+          'mesh',
+          {
+            ignorePointerEvents: true
+          },
+          _react2.default.createElement('geometryResource', {
+            resourceId: 'boxGeometry'
+          }),
+          _react2.default.createElement('materialResource', {
+            resourceId: 'highlightMaterial'
+          })
+        ) : null
       );
     }
   }]);
@@ -87782,6 +87833,30 @@ var Node = (_temp = _class = function (_Component) {
   var _this2 = this;
 
   this.shouldComponentUpdate = _ReactComponentWithPureRenderMixin2.default.shouldComponentUpdate;
+
+  this._onMouseEnter = function () {
+    _this2.setState({
+      hovered: true
+    });
+    console.log("hello!");
+    var onMouseEnter = _this2.props.onMouseEnter;
+
+
+    onMouseEnter();
+  };
+
+  this._onMouseLeave = function () {
+    if (_this2.state.hovered) {
+      _this2.setState({
+        hovered: false
+      });
+    }
+
+    var onMouseLeave = _this2.props.onMouseLeave;
+
+
+    onMouseLeave();
+  };
 
   this._onMouseDown = function (event, intersection) {
     event.preventDefault();
@@ -87803,11 +87878,28 @@ var Node = (_temp = _class = function (_Component) {
     _this2.setState({
       pressed: true
     });
-
+    console.log("hello again!");
     onDragStart();
   };
 
+  this._onDocumentMouseUp = function (event) {
+    event.preventDefault();
+
+    document.removeEventListener('mouseup', _this2._onDocumentMouseUp);
+    document.removeEventListener('mousemove', _this2._onDocumentMouseMove);
+
+    var onDragEnd = _this2.props.onDragEnd;
+
+
+    onDragEnd();
+
+    _this2.setState({
+      pressed: false
+    });
+  };
+
   this._onDocumentMouseMove = function (event) {
+    debugger;
     event.preventDefault();
 
     var mouseInput = _this2.props.mouseInput;
@@ -87822,6 +87914,12 @@ var Node = (_temp = _class = function (_Component) {
         position: intersection.sub(_this2._offset)
       });
     }
+  };
+
+  this._ref = function (mesh) {
+    var onCreate = _this2.props.onCreate;
+
+    onCreate(mesh);
   };
 }, _temp);
 exports.default = Node;

@@ -13,33 +13,48 @@ class NodeGrid extends React.Component {
     super(props, context);
     this._hoveredNodes = 0;
     this._draggingNodes = 0;
+    this.nodes = [];
+    this.nodePositions = [];
+    this.generateNodeGrid();
   }
+
+  _onNodeCreate = (index, node) => {
+    this.nodes[index] = node;
+  };
 
   generateNodeGrid() {
     let grid = this.generateNodeRow(0)
     for (let x = 5; x <= 50; x+=5) {
       grid = grid.concat(this.generateNodeRow(x), this.generateNodeRow(-x))
     }
+    this.nodePositions = grid;
     return grid
   }
 
+  generatePosition(posArr) {
+    const position = new Three.Vector3(posArr[0], posArr[1], posArr[2]);
+    return position
+  }
+
   generateNodeRow(x) {
-    let nodes = [this.generateNode([x, 0, 0])]
+    let nodes = [this.generatePosition([x, 0, 0])]
     for (let y = 5; y <= 50; y += 5) {
       nodes = nodes.concat([
-        this.generateNode([x, y, 0]),
-        this.generateNode([x, -y, 0])
+        this.generatePosition([x, y, 0]),
+        this.generatePosition([x, -y, 0])
       ])
     }
     return nodes;
   }
 
-  generateNode(posArr) {
-    const position = new Three.Vector3(posArr[0], posArr[1], posArr[2]);
+  generateNode(pos, index) {
+    const onCreate = this._onNodeCreate.bind(this, index);
     return (
-      <Node key={posArr}
+      <Node key={index}
+      camera={this.props.camera}
+      onCreate={onCreate}
       mouseInput={this.props.mouseInput}
-      position={posArr}
+      position={pos}
       onMouseEnter={this._onNodeMouseEnter}
       onMouseLeave={this._onNodeMouseLeave}
       onDragStart={this._onDragStart}
@@ -53,7 +68,6 @@ class NodeGrid extends React.Component {
     const {
       onNodesMounted,
     } = this.props;
-
     onNodesMounted(this.nodes);
   }
 
@@ -83,6 +97,8 @@ class NodeGrid extends React.Component {
     }
   };
 
+
+
   render() {
     const {
       mouseInput,
@@ -91,8 +107,14 @@ class NodeGrid extends React.Component {
       cursor,
     } = this.props;
 
+    const grid = this.nodePositions;
+
+    const nodes = grid.map((pos, index) => {
+      return this.generateNode(pos, index);
+    })
+
     return (<group>
-      {this.generateNodeGrid()}
+      { nodes }
     </group>);
   }
 }
