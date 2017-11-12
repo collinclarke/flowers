@@ -75742,14 +75742,15 @@ var Simple = function (_Component) {
       });
     };
 
+    var cameraRotation = new Three.Euler(0, 0, 0);
+    var cameraPosition = new Three.Vector3(0, 0, 250).applyEuler(cameraRotation);
     _this.state = {
-      cameraRotation: new Three.Euler(0, 0, 0),
-      cameraPosition: new Three.Vector3(0, 0, 300),
+      cameraRotation: cameraRotation,
+      cameraPosition: cameraPosition,
       mouseInput: null,
       hovering: false,
       dragging: false
     };
-
     _this._cursor = {
       hovering: false
     };
@@ -75785,6 +75786,16 @@ var Simple = function (_Component) {
 
       mouseInput.containerResized();
     }
+
+    // _onTrackballChange = () => {
+    //   this.setState({
+    //     cameraPosition: this.refs.camera.position.clone(),
+    //   }, console.log("position", this.state.cameraPosition));
+    //   this.setState({
+    //     cameraRotation: this.refs.camera.rotation.clone(),
+    //   }, console.log("rotation", this.state.cameraRotation));
+    // };
+
   }, {
     key: 'componentWillUnmount',
     value: function componentWillUnmount() {
@@ -87513,6 +87524,14 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 
+var _toConsumableArray2 = __webpack_require__(437);
+
+var _toConsumableArray3 = _interopRequireDefault(_toConsumableArray2);
+
+var _assign = __webpack_require__(119);
+
+var _assign2 = _interopRequireDefault(_assign);
+
 var _getPrototypeOf = __webpack_require__(2);
 
 var _getPrototypeOf2 = _interopRequireDefault(_getPrototypeOf);
@@ -87569,24 +87588,32 @@ var NodeGrid = function (_React$Component) {
 
     var _this = (0, _possibleConstructorReturn3.default)(this, (NodeGrid.__proto__ || (0, _getPrototypeOf2.default)(NodeGrid)).call(this, props, context));
 
+    _this.toggleLiving = function (posArr) {
+      var newBoard = (0, _assign2.default)({}, _this.state.board);
+      newBoard.toggleLife.apply(newBoard, (0, _toConsumableArray3.default)(posArr));
+      _this.setState({
+        board: newBoard
+      });
+    };
+
     _this.onNodeCreate = function (index, node) {
       _this.nodes[index] = node;
     };
 
-    _this.shouldComponentUpdate = _ReactComponentWithPureRenderMixin2.default.shouldComponentUpdate;
-
     _this._hoveredNodes = 0;
     _this._draggingNodes = 0;
     _this.nodes = [];
-    _this.nodePositions = {};
     _this.handleDragging = _this.handleDragging.bind(_this);
     _this.handleEndDragging = _this.handleEndDragging.bind(_this);
     _this.generateNode = _this.generateNode.bind(_this);
+    _this.toggleLiving = _this.toggleLiving.bind(_this);
+    _this.makeMove = _this.makeMove.bind(_this);
+    _this.nodePositions = _this.generateNodeGrid();
     _this.state = {
       dragging: false,
       board: new _gol_board2.default(21)
     };
-    _this.idx = 0;
+    window.board = _this.state.board;
     return _this;
   }
 
@@ -87595,7 +87622,7 @@ var NodeGrid = function (_React$Component) {
     value: function generateNodeGrid() {
       var grid = [];
       for (var x = -50; x <= 50; x += 5) {
-        grid.push(this.generateNodeRow(x));
+        grid = grid.concat(this.generateNodeRow(x));
       }
       return grid;
     }
@@ -87610,38 +87637,35 @@ var NodeGrid = function (_React$Component) {
     value: function generateNodeRow(x) {
       var nodes = [];
       for (var y = -50; y <= 50; y += 5) {
-        var pos = this.generatePosition([x, y, 0]);
-        nodes.push(this.generateNode(pos, [(x + 50) / 5, (y + 50) / 5]));
+        var pos = nodes.push(this.generatePosition([x, y, 0]));
       }
       return nodes;
     }
   }, {
-    key: 'calculateLife',
-    value: function calculateLife() {}
-  }, {
     key: 'generateNode',
-    value: function generateNode(pos, posArr) {
-      var _this2 = this;
-
-      var idx = this.idx;
-
-      var life = this.state.board.grid[posArr[0]][posArr[1]];
+    value: function generateNode(bool, idx) {
       var onCreate = this.onNodeCreate.bind(this, idx);
-      var node = function node() {
-        return _react2.default.createElement(_node2.default, { key: posArr,
-          camera: _this2.props.camera,
-          onCreate: onCreate,
-          mouseInput: _this2.props.mouseInput,
-          position: pos,
-          handleDragging: _this2.handleDragging,
-          handleEndDragging: _this2.handleEndDragging,
-          dragging: _this2.state.dragging,
-          cursor: _this2.props.cursor,
-          living: life
-        });
-      };
-      this.idx++;
-      return node();
+      var pos = this.nodePositions[idx];
+      return _react2.default.createElement(_node2.default, { key: idx,
+        gridPos: [(pos.x + 50) / 5, (pos.y + 50) / 5],
+        camera: this.props.camera,
+        onCreate: onCreate,
+        mouseInput: this.props.mouseInput,
+        position: pos,
+        handleDragging: this.handleDragging,
+        handleEndDragging: this.handleEndDragging,
+        dragging: this.state.dragging,
+        cursor: this.props.cursor,
+        toggleLiving: this.toggleLiving,
+        living: bool
+      });
+    }
+  }, {
+    key: 'makeMove',
+    value: function makeMove() {
+      var nextBoard = (0, _assign2.default)({}, this.state.board);
+      nextBoard.move();
+      this.setState({ board: nextBoard });
     }
   }, {
     key: 'handleDragging',
@@ -87652,7 +87676,7 @@ var NodeGrid = function (_React$Component) {
     key: 'handleEndDragging',
     value: function handleEndDragging(e) {
       this.setState({ dragging: false });
-      this.state.board.move();
+      this.makeMove();
     }
   }, {
     key: 'componentDidMount',
@@ -87660,23 +87684,32 @@ var NodeGrid = function (_React$Component) {
       var onNodesMounted = this.props.onNodesMounted;
 
       onNodesMounted(this.nodes);
+      this.makeMove();
+      setTimeout(this.makeMove, 50);
     }
+  }, {
+    key: 'componentWillReceiveProps',
+    value: function componentWillReceiveProps() {}
+
+    // shouldComponentUpdate = PureRenderMixin.shouldComponentUpdate;
+
+
   }, {
     key: 'render',
     value: function render() {
-      var _this3 = this;
+      var _this2 = this;
 
-      this.grid = this.generateNodeGrid();
-      var nodes = function nodes() {
-        return _this3.grid.reduce(function (a, b) {
-          return a.concat(b);
-        }, []);
-      };
-
+      var gameState = this.state.board.booleanArray();
       return _react2.default.createElement(
         'group',
         null,
-        nodes()
+        gameState.map(function (bool, idx) {
+          if (idx > 440) {
+            debugger;
+          } else {
+            return _this2.generateNode(bool, idx);
+          }
+        })
       );
     }
   }]);
@@ -87753,7 +87786,8 @@ var Node = function (_Component) {
     var _this = (0, _possibleConstructorReturn3.default)(this, (Node.__proto__ || (0, _getPrototypeOf2.default)(Node)).call(this, props, context));
 
     _this.toggleLife = function () {
-      _this.setState({ living: !_this.state.living });
+      // this.setState({living: !this.state.living});
+      _this.props.toggleLiving(_this.props.gridPos);
     };
 
     _this.shouldComponentUpdate = _ReactComponentWithPureRenderMixin2.default.shouldComponentUpdate;
@@ -87763,9 +87797,7 @@ var Node = function (_Component) {
         hovered: true
       });
       if (_this.props.dragging) {
-        _this.setState({
-          living: true
-        });
+        _this.toggleLife();
       }
     };
 
@@ -87781,7 +87813,7 @@ var Node = function (_Component) {
 
       event.preventDefault();
       event.stopPropagation();
-      _this.setState({ living: true });
+      _this.toggleLife();
       document.addEventListener('mouseup', _this.onDocumentMouseUp);
       document.addEventListener('mousemove', _this.onDocumentDrag);
     };
@@ -87819,6 +87851,7 @@ var Node = function (_Component) {
     _this.onMouseDown = _this.onMouseDown.bind(_this);
     _this.onDocumentMouseUp = _this.onDocumentMouseUp.bind(_this);
     _this.onDocumentDrag = _this.onDocumentDrag.bind(_this);
+    _this.toggleLife = _this.toggleLife.bind(_this);
     return _this;
   }
 
@@ -87833,9 +87866,8 @@ var Node = function (_Component) {
     value: function render() {
       var _state = this.state,
           hovered = _state.hovered,
-          living = _state.living,
           position = _state.position;
-
+      var living = this.props.living;
 
       var color = void 0;
       var hoverHighlight = hovered && !dragging;
@@ -87917,13 +87949,27 @@ var GolBoard = function () {
           metric += 1;
         }
       });
-      if (metric < 2) {
+      if (metric > 3) {
         _this.nextGrid[x][y] = false;
-      } else if (metric < 4) {
+      } else if (metric > 1 && metric < 3) {
         _this.nextGrid[x][y] = true;
       } else {
         _this.nextGrid[x][y] = false;
       }
+    };
+
+    this.toggleLife = function (x, y) {
+      _this.grid[x][y] = !_this.grid[x][y];
+    };
+
+    this.isLiving = function (x, y) {
+      return !!_this.grid[x][y];
+    };
+
+    this.booleanArray = function () {
+      return _this.grid.reduce(function (a, b) {
+        return a.concat(b);
+      }, []);
     };
 
     this.move = function () {
@@ -87936,10 +87982,10 @@ var GolBoard = function () {
     };
 
     this.generateRow = function (width, val) {
-      var array = [];
-      array.length = width;
-      array.fill(val);
-      return array;
+      var row = [];
+      row.length = width;
+      row.fill(val);
+      return row;
     };
 
     this.generateGrid = function (height, val) {
@@ -87957,19 +88003,23 @@ var GolBoard = function () {
       deltas.forEach(function (delta) {
         var a = void 0,
             b = void 0;
+
+        // console.log("origin", x, y);
+        // console.log("delta", delta);
         a = x + delta[0];
         b = y + delta[1];
-
         if (a > 0 && a < 21) {
           if (b > 0 && b < 21) {
             neighbors.push([a, b]);
           }
         }
       });
+      // console.log("neighbors", neighbors);
       return neighbors;
     };
 
     this.grid = this.generateGrid(size, false);
+    this.grid[0][0] = true;
     this.nextGrid = this.generateGrid(size, false);
   }
 
@@ -87985,6 +88035,210 @@ var GolBoard = function () {
 }();
 
 exports.default = GolBoard;
+
+/***/ }),
+/* 437 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+exports.__esModule = true;
+
+var _from = __webpack_require__(438);
+
+var _from2 = _interopRequireDefault(_from);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+exports.default = function (arr) {
+  if (Array.isArray(arr)) {
+    for (var i = 0, arr2 = Array(arr.length); i < arr.length; i++) {
+      arr2[i] = arr[i];
+    }
+
+    return arr2;
+  } else {
+    return (0, _from2.default)(arr);
+  }
+};
+
+/***/ }),
+/* 438 */
+/***/ (function(module, exports, __webpack_require__) {
+
+module.exports = { "default": __webpack_require__(439), __esModule: true };
+
+/***/ }),
+/* 439 */
+/***/ (function(module, exports, __webpack_require__) {
+
+__webpack_require__(293);
+__webpack_require__(440);
+module.exports = __webpack_require__(24).Array.from;
+
+
+/***/ }),
+/* 440 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+var ctx = __webpack_require__(167);
+var $export = __webpack_require__(37);
+var toObject = __webpack_require__(71);
+var call = __webpack_require__(441);
+var isArrayIter = __webpack_require__(442);
+var toLength = __webpack_require__(298);
+var createProperty = __webpack_require__(443);
+var getIterFn = __webpack_require__(444);
+
+$export($export.S + $export.F * !__webpack_require__(446)(function (iter) { Array.from(iter); }), 'Array', {
+  // 22.1.2.1 Array.from(arrayLike, mapfn = undefined, thisArg = undefined)
+  from: function from(arrayLike /* , mapfn = undefined, thisArg = undefined */) {
+    var O = toObject(arrayLike);
+    var C = typeof this == 'function' ? this : Array;
+    var aLen = arguments.length;
+    var mapfn = aLen > 1 ? arguments[1] : undefined;
+    var mapping = mapfn !== undefined;
+    var index = 0;
+    var iterFn = getIterFn(O);
+    var length, result, step, iterator;
+    if (mapping) mapfn = ctx(mapfn, aLen > 2 ? arguments[2] : undefined, 2);
+    // if object isn't iterable or it's array with default iterator - use simple case
+    if (iterFn != undefined && !(C == Array && isArrayIter(iterFn))) {
+      for (iterator = iterFn.call(O), result = new C(); !(step = iterator.next()).done; index++) {
+        createProperty(result, index, mapping ? call(iterator, mapfn, [step.value, index], true) : step.value);
+      }
+    } else {
+      length = toLength(O.length);
+      for (result = new C(length); length > index; index++) {
+        createProperty(result, index, mapping ? mapfn(O[index], index) : O[index]);
+      }
+    }
+    result.length = index;
+    return result;
+  }
+});
+
+
+/***/ }),
+/* 441 */
+/***/ (function(module, exports, __webpack_require__) {
+
+// call something on iterator step with safe closing on error
+var anObject = __webpack_require__(58);
+module.exports = function (iterator, fn, value, entries) {
+  try {
+    return entries ? fn(anObject(value)[0], value[1]) : fn(value);
+  // 7.4.6 IteratorClose(iterator, completion)
+  } catch (e) {
+    var ret = iterator['return'];
+    if (ret !== undefined) anObject(ret.call(iterator));
+    throw e;
+  }
+};
+
+
+/***/ }),
+/* 442 */
+/***/ (function(module, exports, __webpack_require__) {
+
+// check on default Array iterator
+var Iterators = __webpack_require__(110);
+var ITERATOR = __webpack_require__(52)('iterator');
+var ArrayProto = Array.prototype;
+
+module.exports = function (it) {
+  return it !== undefined && (Iterators.Array === it || ArrayProto[ITERATOR] === it);
+};
+
+
+/***/ }),
+/* 443 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+var $defineProperty = __webpack_require__(41);
+var createDesc = __webpack_require__(74);
+
+module.exports = function (object, index, value) {
+  if (index in object) $defineProperty.f(object, index, createDesc(0, value));
+  else object[index] = value;
+};
+
+
+/***/ }),
+/* 444 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var classof = __webpack_require__(445);
+var ITERATOR = __webpack_require__(52)('iterator');
+var Iterators = __webpack_require__(110);
+module.exports = __webpack_require__(24).getIteratorMethod = function (it) {
+  if (it != undefined) return it[ITERATOR]
+    || it['@@iterator']
+    || Iterators[classof(it)];
+};
+
+
+/***/ }),
+/* 445 */
+/***/ (function(module, exports, __webpack_require__) {
+
+// getting tag from 19.1.3.6 Object.prototype.toString()
+var cof = __webpack_require__(175);
+var TAG = __webpack_require__(52)('toStringTag');
+// ES3 wrong here
+var ARG = cof(function () { return arguments; }()) == 'Arguments';
+
+// fallback for IE11 Script Access Denied error
+var tryGet = function (it, key) {
+  try {
+    return it[key];
+  } catch (e) { /* empty */ }
+};
+
+module.exports = function (it) {
+  var O, T, B;
+  return it === undefined ? 'Undefined' : it === null ? 'Null'
+    // @@toStringTag case
+    : typeof (T = tryGet(O = Object(it), TAG)) == 'string' ? T
+    // builtinTag case
+    : ARG ? cof(O)
+    // ES3 arguments fallback
+    : (B = cof(O)) == 'Object' && typeof O.callee == 'function' ? 'Arguments' : B;
+};
+
+
+/***/ }),
+/* 446 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var ITERATOR = __webpack_require__(52)('iterator');
+var SAFE_CLOSING = false;
+
+try {
+  var riter = [7][ITERATOR]();
+  riter['return'] = function () { SAFE_CLOSING = true; };
+  // eslint-disable-next-line no-throw-literal
+  Array.from(riter, function () { throw 2; });
+} catch (e) { /* empty */ }
+
+module.exports = function (exec, skipClosing) {
+  if (!skipClosing && !SAFE_CLOSING) return false;
+  var safe = false;
+  try {
+    var arr = [7];
+    var iter = arr[ITERATOR]();
+    iter.next = function () { return { done: safe = true }; };
+    arr[ITERATOR] = function () { return iter; };
+    exec(arr);
+  } catch (e) { /* empty */ }
+  return safe;
+};
+
 
 /***/ })
 /******/ ]);

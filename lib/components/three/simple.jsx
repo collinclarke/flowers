@@ -10,14 +10,18 @@ import NodeGrid from './node_grid';
 class Simple extends Component {
   constructor(props, context) {
     super(props, context);
+
+    const cameraRotation = new Three.Euler(0,
+      0, 0);
+    const cameraPosition = new Three.Vector3(0, 0,
+      250).applyEuler(cameraRotation);
     this.state = {
-      cameraRotation: new Three.Euler(0, 0, 0),
-      cameraPosition: new Three.Vector3(0, 0, 300),
+      cameraRotation: cameraRotation,
+      cameraPosition: cameraPosition,
       mouseInput: null,
       hovering: false,
       dragging: false
     };
-
     this._cursor = {
       hovering: false
     }
@@ -84,6 +88,14 @@ class Simple extends Component {
       mouseInput.containerResized();
   }
 
+  // _onTrackballChange = () => {
+  //   this.setState({
+  //     cameraPosition: this.refs.camera.position.clone(),
+  //   }, console.log("position", this.state.cameraPosition));
+  //   this.setState({
+  //     cameraRotation: this.refs.camera.rotation.clone(),
+  //   }, console.log("rotation", this.state.cameraRotation));
+  // };
   _onTrackballChange = () => {
     this.setState({
       cameraPosition: this.refs.camera.position.clone(),

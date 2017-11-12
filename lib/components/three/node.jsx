@@ -11,7 +11,6 @@ const backVector = new Three.Vector3(0, 0, -1);
 class Node extends Component {
   constructor(props, context) {
     super(props, context);
-
     const { position } = props
     this.state = {
       position: position,
@@ -26,12 +25,14 @@ class Node extends Component {
     this.onMouseDown = this.onMouseDown.bind(this);
     this.onDocumentMouseUp = this.onDocumentMouseUp.bind(this);
     this.onDocumentDrag = this.onDocumentDrag.bind(this);
+    this.toggleLife = this.toggleLife.bind(this);
   }
 
   //public
 
   toggleLife = () => {
-    this.setState({living: !this.state.living})
+    // this.setState({living: !this.state.living});
+    this.props.toggleLiving(this.props.gridPos);
   }
 
   shouldComponentUpdate = PureRenderMixin.shouldComponentUpdate;
@@ -41,9 +42,7 @@ class Node extends Component {
       hovered: true,
     });
     if (this.props.dragging) {
-      this.setState({
-        living: true,
-      })
+      this.toggleLife();
     }
   };
 
@@ -59,7 +58,7 @@ class Node extends Component {
 
     event.preventDefault();
     event.stopPropagation();
-    this.setState({living: true});
+    this.toggleLife();
     document.addEventListener('mouseup', this.onDocumentMouseUp);
     document.addEventListener('mousemove', this.onDocumentDrag);
   };
@@ -86,8 +85,8 @@ class Node extends Component {
   // _neighbors =
 
   render() {
-    const {  hovered, living, position } = this.state;
-
+    const {  hovered, position } = this.state;
+    const { living } = this.props;
     let color;
     const hoverHighlight = (hovered && !dragging);
     if (living) {

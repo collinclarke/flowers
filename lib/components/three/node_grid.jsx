@@ -16,15 +16,25 @@ class NodeGrid extends React.Component {
     this._hoveredNodes = 0;
     this._draggingNodes = 0;
     this.nodes = [];
-    this.nodePositions = {};
     this.handleDragging = this.handleDragging.bind(this);
     this.handleEndDragging = this.handleEndDragging.bind(this);
     this.generateNode = this.generateNode.bind(this);
+    this.toggleLiving = this.toggleLiving.bind(this);
+    this.makeMove = this.makeMove.bind(this);
+    this.nodePositions = this.generateNodeGrid();
     this.state = {
       dragging: false,
       board: new GolBoard(21)
     }
-    this.idx = 0;
+    window.board = this.state.board;
+  }
+
+  toggleLiving = (posArr) => {
+    const newBoard = Object.assign({}, this.state.board)
+    newBoard.toggleLife(...posArr);
+    this.setState({
+      board: newBoard,
+    })
   }
 
   onNodeCreate = (index, node) => {
@@ -34,7 +44,7 @@ class NodeGrid extends React.Component {
   generateNodeGrid() {
     let grid = []
     for (let x = -50; x <= 50; x+=5) {
-      grid.push(this.generateNodeRow(x))
+      grid = grid.concat(this.generateNodeRow(x))
     }
     return grid
   }
@@ -47,23 +57,19 @@ class NodeGrid extends React.Component {
   generateNodeRow(x) {
     let nodes = []
     for (let y = -50; y <= 50; y += 5) {
-      const pos = this.generatePosition([x, y, 0])
+      const pos =
       nodes.push(
-        this.generateNode(pos, [((x + 50) / 5), ((y + 50) / 5)])
+        this.generatePosition([x, y, 0])
       )
     }
     return nodes;
   }
 
-  calculateLife() {
-  }
-
-  generateNode(pos, posArr) {
-    const { idx } = this;
-    const life = this.state.board.grid[posArr[0]][posArr[1]]
+  generateNode(bool, idx) {
     const onCreate = this.onNodeCreate.bind(this, idx);
-    const node = () => {
-      return (<Node key={posArr}
+    const pos = this.nodePositions[idx];
+    return ( <Node key={idx}
+      gridPos={[(pos.x + 50) / 5, (pos.y + 50) / 5]}
       camera={this.props.camera}
       onCreate={onCreate}
       mouseInput={this.props.mouseInput}
@@ -72,11 +78,15 @@ class NodeGrid extends React.Component {
       handleEndDragging = {this.handleEndDragging}
       dragging = {this.state.dragging}
       cursor={this.props.cursor}
-      living={life}
+      toggleLiving={this.toggleLiving}
+      living={bool}
       /> )
-    }
-    this.idx ++;
-    return node();
+  }
+
+  makeMove() {
+    const nextBoard = Object.assign({}, this.state.board)
+    nextBoard.move();
+    this.setState({ board: nextBoard });
   }
 
   handleDragging(e) {
@@ -85,7 +95,7 @@ class NodeGrid extends React.Component {
 
   handleEndDragging(e) {
     this.setState({dragging: false});
-    this.state.board.move()
+    this.makeMove();
   }
 
   componentDidMount() {
@@ -93,20 +103,28 @@ class NodeGrid extends React.Component {
       onNodesMounted,
     } = this.props;
     onNodesMounted(this.nodes);
+    this.makeMove();
+    setTimeout(this.makeMove, 50);
   }
 
-  shouldComponentUpdate = PureRenderMixin.shouldComponentUpdate;
+  componentWillReceiveProps() {
+
+  }
+
+  // shouldComponentUpdate = PureRenderMixin.shouldComponentUpdate;
 
 
   render() {
-    this.grid = this.generateNodeGrid()
-    const nodes = () => {
-      return this.grid.reduce((a, b) => a.concat(b), []);
-    }
-
+    const gameState = this.state.board.booleanArray();
     return (
       <group>
-        { nodes() }
+        { gameState.map((bool, idx) => {
+          if (idx > 440) {
+            debugger
+          } else {
+            return this.generateNode(bool, idx);
+          }
+        }) }
       </group>
     );
   }
