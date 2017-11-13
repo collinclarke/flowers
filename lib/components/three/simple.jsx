@@ -15,7 +15,7 @@ class Simple extends Component {
     const cameraRotation = new Three.Euler(0,
       0, 0);
     const cameraPosition = new Three.Vector3(0, 0,
-      250).applyEuler(cameraRotation);
+      500)
     this.state = {
       cameraRotation: cameraRotation,
       cameraPosition: cameraPosition,
@@ -26,7 +26,6 @@ class Simple extends Component {
     }
 
     this.planePosition = new Three.Vector3(0, 0, 0);
-
   }
 
   shouldComponentUpdate = PureRenderMixin.shouldComponentUpdate;
@@ -86,12 +85,12 @@ class Simple extends Component {
   };
 
   componentWillUnmount() {
-  this.controls.removeEventListener('change', this._onTrackballChange);
+    this.controls.removeEventListener('change', this._onTrackballChange);
 
-  this.controls.dispose();
-  delete this.controls;
+    this.controls.dispose();
+    delete this.controls;
 
-  delete this.stats;
+    delete this.stats;
   }
 
   onAnimateInternal() {
@@ -158,7 +157,7 @@ class Simple extends Component {
 
             width={4}
             height={4}
-            depth={.25}
+            depth={.5}
           />
           <meshBasicMaterial
             resourceId="highlightMaterial"
@@ -187,6 +186,7 @@ class Simple extends Component {
             color="white" intensity={1}
           />
 
+          <gridHelper size={500}/>
 
           <NodeGrid
             mouseInput={mouseInput}

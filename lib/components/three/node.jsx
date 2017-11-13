@@ -34,7 +34,7 @@ class Node extends Component {
     this.props.toggleLiving(this.props.gridPos);
   }
 
-  // shouldComponentUpdate = PureRenderMixin.shouldComponentUpdate;
+  shouldComponentUpdate = PureRenderMixin.shouldComponentUpdate;
 
   onMouseEnter = (e) => {
     this.setState({
@@ -83,7 +83,7 @@ class Node extends Component {
   };
 
   calculateColor() {
-    const { turn, flower } = this.props;
+    const { flower } = this.props;
     const colorConversion = (idx) => {
       switch(idx) {
         case 0:
