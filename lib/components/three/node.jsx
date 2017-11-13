@@ -11,15 +11,13 @@ const backVector = new Three.Vector3(0, 0, -1);
 class Node extends Component {
   constructor(props, context) {
     super(props, context);
-    const { position } = props
     this.state = {
-      position: position,
       living: props.living,
       hovered: false
     };
-    this.color = "blue";
-    this.hoverColor = "grey";
-    this.livingColor = "green";
+    this.color = `blue`
+    this.hoverColor = "rgb(0, 255, 10)";
+    this.livingColor= [14, 128, 93]
     this.onMouseEnter = this.onMouseEnter.bind(this);
     this.onMouseLeave = this.onMouseLeave.bind(this);
     this.onMouseDown = this.onMouseDown.bind(this);
@@ -28,14 +26,15 @@ class Node extends Component {
     this.toggleLife = this.toggleLife.bind(this);
   }
 
-  //public
+  componentWillReceiveProps(nextProps) {
 
-  toggleLife = () => {
-    // this.setState({living: !this.state.living});
+  }
+
+  toggleLife () {
     this.props.toggleLiving(this.props.gridPos);
   }
 
-  shouldComponentUpdate = PureRenderMixin.shouldComponentUpdate;
+  // shouldComponentUpdate = PureRenderMixin.shouldComponentUpdate;
 
   onMouseEnter = (e) => {
     this.setState({
@@ -61,6 +60,7 @@ class Node extends Component {
     this.toggleLife();
     document.addEventListener('mouseup', this.onDocumentMouseUp);
     document.addEventListener('mousemove', this.onDocumentDrag);
+
   };
 
   onDocumentDrag = e => {
@@ -82,33 +82,50 @@ class Node extends Component {
       onCreate(mesh);
   };
 
-  // _neighbors =
+  calculateColor() {
+    const { turn, flower } = this.props;
+    const colorConversion = (idx) => {
+      switch(idx) {
+        case 0:
+         return 14;
+        case 1:
+         return (135 + Math.floor(Math.random() * 50));
+        case 2:
+         return (93 + Math.floor(Math.random() * 25));
+      }
+    }
+
+    let r = colorConversion(0);
+    let g = colorConversion(1);
+    let b = colorConversion(2);
+
+    this.livingColor = [r, g, b]
+
+    if (flower % 13 === 0) {
+      r += Math.floor(Math.random() * 1000);
+      g -= Math.floor(Math.random() * 50);
+      b += Math.floor(Math.random() * 5);
+    }
+    return `rgb( ${r}, ${g}, ${b} )`
+  }
+
 
   render() {
-    const {  hovered, position } = this.state;
-    const { living } = this.props;
     let color;
-    const hoverHighlight = (hovered && !dragging);
-    if (living) {
-      color = this.livingColor;
-    } else if (hoverHighlight) {
+    if (this.props.living) {
+
+      color = this.calculateColor();
+    } else if (this.state.hovered) {
       color = this.hoverColor;
     } else {
       color = this.color;
     }
 
-    const {
-      cursor: {
-        dragging,
-      },
-    } = this.props;
-
     return (<group
-      position={position}
+      position={this.props.position}
     >
       <mesh
-        castShadow
-        receiveShadow
+
 
         onMouseEnter={this.onMouseEnter}
         onMouseDown={this.onMouseDown}

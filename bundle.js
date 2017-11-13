@@ -75703,36 +75703,15 @@ var Simple = function (_Component) {
 
     _this.shouldComponentUpdate = _ReactComponentWithPureRenderMixin2.default.shouldComponentUpdate;
 
-    _this._onAnimate = function () {
-      _this._onAnimateInternal();
+    _this.onAnimate = function () {
+      _this.onAnimateInternal();
+      if (_this.state.play) {
+        _this.makeMove();
+      }
     };
 
     _this._onNodesMounted = function (nodes) {
       _this.nodes = nodes;
-    };
-
-    _this._onHoverStart = function () {
-      _this.setState({
-        hovering: true
-      });
-    };
-
-    _this._onHoverEnd = function () {
-      _this.setState({
-        hovering: false
-      });
-    };
-
-    _this._onDragStart = function () {
-      _this.setState({
-        dragging: true
-      });
-    };
-
-    _this._onDragEnd = function () {
-      _this.setState({
-        dragging: false
-      });
     };
 
     _this._onTrackballChange = function () {
@@ -75747,14 +75726,14 @@ var Simple = function (_Component) {
     _this.state = {
       cameraRotation: cameraRotation,
       cameraPosition: cameraPosition,
-      mouseInput: null,
-      hovering: false,
-      dragging: false
+      mouseInput: null
     };
     _this._cursor = {
       hovering: false
     };
+
     _this.planePosition = new Three.Vector3(0, 0, 0);
+
     return _this;
   }
 
@@ -75807,8 +75786,8 @@ var Simple = function (_Component) {
       delete this.stats;
     }
   }, {
-    key: '_onAnimateInternal',
-    value: function _onAnimateInternal() {
+    key: 'onAnimateInternal',
+    value: function onAnimateInternal() {
       var _refs = this.refs,
           mouseInput = _refs.mouseInput,
           camera = _refs.camera;
@@ -75867,7 +75846,7 @@ var Simple = function (_Component) {
             antialias: true,
             pixelRatio: window.devicePixelRatio,
             sortObjects: false,
-            onAnimate: this._onAnimate,
+            onAnimate: this.onAnimate,
             clearColor: 16777215
           },
           _react2.default.createElement('module', {
@@ -75912,11 +75891,8 @@ var Simple = function (_Component) {
               mouseInput: mouseInput,
               camera: camera,
               onNodesMounted: this._onNodesMounted,
-
-              onHoverStart: this._onHoverStart,
-              onHoverEnd: this._onHoverEnd,
-              onDragStart: this._onDragStart,
-              onDragEnd: this._onDragEnd,
+              toggleLiving: this.toggleLiving,
+              endMouseDown: this.endMouseDown,
               cursor: this._cursor
             })
           )
@@ -87588,20 +87564,8 @@ var NodeGrid = function (_React$Component) {
 
     var _this = (0, _possibleConstructorReturn3.default)(this, (NodeGrid.__proto__ || (0, _getPrototypeOf2.default)(NodeGrid)).call(this, props, context));
 
-    _this.toggleLiving = function (posArr) {
-      var newBoard = (0, _assign2.default)({}, _this.state.board);
-      newBoard.toggleLife.apply(newBoard, (0, _toConsumableArray3.default)(posArr));
-      _this.setState({
-        board: newBoard
-      });
-    };
+    _this.shouldComponentUpdate = _ReactComponentWithPureRenderMixin2.default.shouldComponentUpdate;
 
-    _this.onNodeCreate = function (index, node) {
-      _this.nodes[index] = node;
-    };
-
-    _this._hoveredNodes = 0;
-    _this._draggingNodes = 0;
     _this.nodes = [];
     _this.handleDragging = _this.handleDragging.bind(_this);
     _this.handleEndDragging = _this.handleEndDragging.bind(_this);
@@ -87611,13 +87575,19 @@ var NodeGrid = function (_React$Component) {
     _this.nodePositions = _this.generateNodeGrid();
     _this.state = {
       dragging: false,
-      board: new _gol_board2.default(21)
+      board: new _gol_board2.default(21),
+      turn: 1
     };
-    window.board = _this.state.board;
+    _this.flower = 1;
     return _this;
   }
 
   (0, _createClass3.default)(NodeGrid, [{
+    key: 'onNodeCreate',
+    value: function onNodeCreate(index, node) {
+      this.nodes[index] = node;
+    }
+  }, {
     key: 'generateNodeGrid',
     value: function generateNodeGrid() {
       var grid = [];
@@ -87646,23 +87616,45 @@ var NodeGrid = function (_React$Component) {
     value: function generateNode(bool, idx) {
       var onCreate = this.onNodeCreate.bind(this, idx);
       var pos = this.nodePositions[idx];
+      var _props = this.props,
+          cursor = _props.cursor,
+          mouseInput = _props.mouseInput,
+          camera = _props.camera;
+      var _state = this.state,
+          turn = _state.turn,
+          dragging = _state.dragging;
+
       return _react2.default.createElement(_node2.default, { key: idx,
         gridPos: [(pos.x + 50) / 5, (pos.y + 50) / 5],
-        camera: this.props.camera,
+        camera: camera,
         onCreate: onCreate,
-        mouseInput: this.props.mouseInput,
+        mouseInput: mouseInput,
         position: pos,
         handleDragging: this.handleDragging,
         handleEndDragging: this.handleEndDragging,
-        dragging: this.state.dragging,
-        cursor: this.props.cursor,
+        dragging: dragging,
+        cursor: cursor,
         toggleLiving: this.toggleLiving,
-        living: bool
+        living: bool,
+        turn: turn,
+        flower: this.flower
+      });
+    }
+  }, {
+    key: 'toggleLiving',
+    value: function toggleLiving(posArr) {
+      var newBoard = (0, _assign2.default)({}, this.state.board);
+      newBoard.toggleLife.apply(newBoard, (0, _toConsumableArray3.default)(posArr));
+      this.setState({
+        board: newBoard
       });
     }
   }, {
     key: 'makeMove',
     value: function makeMove() {
+      // console.log("current turn", this.state.turn);
+      this.setState({ turn: this.state.turn + 1 });
+
       var nextBoard = (0, _assign2.default)({}, this.state.board);
       nextBoard.move();
       this.setState({ board: nextBoard });
@@ -87671,12 +87663,16 @@ var NodeGrid = function (_React$Component) {
     key: 'handleDragging',
     value: function handleDragging(e) {
       this.setState({ dragging: true });
+      clearInterval(this.play);
     }
   }, {
     key: 'handleEndDragging',
     value: function handleEndDragging(e) {
       this.setState({ dragging: false });
-      this.makeMove();
+      this.play = setInterval(this.makeMove, 250);
+      // setTimeout(()=>{
+      //   clearInterval(this.play);
+      // }, 10000)
     }
   }, {
     key: 'componentDidMount',
@@ -87684,16 +87680,10 @@ var NodeGrid = function (_React$Component) {
       var onNodesMounted = this.props.onNodesMounted;
 
       onNodesMounted(this.nodes);
-      this.makeMove();
-      setTimeout(this.makeMove, 50);
     }
   }, {
     key: 'componentWillReceiveProps',
     value: function componentWillReceiveProps() {}
-
-    // shouldComponentUpdate = PureRenderMixin.shouldComponentUpdate;
-
-
   }, {
     key: 'render',
     value: function render() {
@@ -87704,11 +87694,8 @@ var NodeGrid = function (_React$Component) {
         'group',
         null,
         gameState.map(function (bool, idx) {
-          if (idx > 440) {
-            debugger;
-          } else {
-            return _this2.generateNode(bool, idx);
-          }
+          _this2.flower++;
+          return _this2.generateNode(bool, idx);
         })
       );
     }
@@ -87785,13 +87772,6 @@ var Node = function (_Component) {
 
     var _this = (0, _possibleConstructorReturn3.default)(this, (Node.__proto__ || (0, _getPrototypeOf2.default)(Node)).call(this, props, context));
 
-    _this.toggleLife = function () {
-      // this.setState({living: !this.state.living});
-      _this.props.toggleLiving(_this.props.gridPos);
-    };
-
-    _this.shouldComponentUpdate = _ReactComponentWithPureRenderMixin2.default.shouldComponentUpdate;
-
     _this.onMouseEnter = function (e) {
       _this.setState({
         hovered: true
@@ -87836,16 +87816,13 @@ var Node = function (_Component) {
       onCreate(mesh);
     };
 
-    var position = props.position;
-
     _this.state = {
-      position: position,
       living: props.living,
       hovered: false
     };
-    _this.color = "blue";
-    _this.hoverColor = "grey";
-    _this.livingColor = "green";
+    _this.color = 'blue';
+    _this.hoverColor = "rgb(0, 255, 10)";
+    _this.livingColor = [14, 128, 93];
     _this.onMouseEnter = _this.onMouseEnter.bind(_this);
     _this.onMouseLeave = _this.onMouseLeave.bind(_this);
     _this.onMouseDown = _this.onMouseDown.bind(_this);
@@ -87855,43 +87832,69 @@ var Node = function (_Component) {
     return _this;
   }
 
-  //public
-
   (0, _createClass3.default)(Node, [{
+    key: 'componentWillReceiveProps',
+    value: function componentWillReceiveProps(nextProps) {}
+  }, {
+    key: 'toggleLife',
+    value: function toggleLife() {
+      this.props.toggleLiving(this.props.gridPos);
+    }
+
+    // shouldComponentUpdate = PureRenderMixin.shouldComponentUpdate;
+
+  }, {
+    key: 'calculateColor',
+    value: function calculateColor() {
+      var _props = this.props,
+          turn = _props.turn,
+          flower = _props.flower;
+
+      var colorConversion = function colorConversion(idx) {
+        switch (idx) {
+          case 0:
+            return 14;
+          case 1:
+            return 135 + Math.floor(Math.random() * 50);
+          case 2:
+            return 93 + Math.floor(Math.random() * 25);
+        }
+      };
+
+      var r = colorConversion(0);
+      var g = colorConversion(1);
+      var b = colorConversion(2);
+
+      this.livingColor = [r, g, b];
+
+      if (flower % 13 === 0) {
+        r += Math.floor(Math.random() * 1000);
+        g -= Math.floor(Math.random() * 50);
+        b += Math.floor(Math.random() * 5);
+      }
+      return 'rgb( ' + r + ', ' + g + ', ' + b + ' )';
+    }
+  }, {
     key: 'render',
-
-
-    // _neighbors =
-
     value: function render() {
-      var _state = this.state,
-          hovered = _state.hovered,
-          position = _state.position;
-      var living = this.props.living;
-
       var color = void 0;
-      var hoverHighlight = hovered && !dragging;
-      if (living) {
-        color = this.livingColor;
-      } else if (hoverHighlight) {
+      if (this.props.living) {
+
+        color = this.calculateColor();
+      } else if (this.state.hovered) {
         color = this.hoverColor;
       } else {
         color = this.color;
       }
 
-      var dragging = this.props.cursor.dragging;
-
-
       return _react2.default.createElement(
         'group',
         {
-          position: position
+          position: this.props.position
         },
         _react2.default.createElement(
           'mesh',
           {
-            castShadow: true,
-            receiveShadow: true,
 
             onMouseEnter: this.onMouseEnter,
             onMouseDown: this.onMouseDown,
@@ -87942,17 +87945,14 @@ var GolBoard = function () {
     (0, _classCallCheck3.default)(this, GolBoard);
 
     this.calculateLife = function (x, y) {
-      var metric = 0;
       var neighbors = _this.findNeighbors(x, y);
-      neighbors.forEach(function (pos) {
-        if (_this.grid[pos[0]][pos[1]]) {
-          metric += 1;
-        }
-      });
+      var metric = neighbors.length;
       if (metric > 3) {
         _this.nextGrid[x][y] = false;
-      } else if (metric > 1 && metric < 3) {
+      } else if (metric > 1 && metric < 4) {
         _this.nextGrid[x][y] = true;
+      } else if (metric < 2) {
+        _this.nextGrid[x][y] = false;
       } else {
         _this.nextGrid[x][y] = false;
       }
@@ -88001,25 +88001,18 @@ var GolBoard = function () {
       var deltas = [[-1, -1], [-1, 0], [-1, 1], [0, -1], [0, 1], [1, -1], [1, 0], [1, 1]];
       var neighbors = [];
       deltas.forEach(function (delta) {
-        var a = void 0,
-            b = void 0;
-
-        // console.log("origin", x, y);
-        // console.log("delta", delta);
-        a = x + delta[0];
-        b = y + delta[1];
+        var a = x + delta[0];
+        var b = y + delta[1];
         if (a > 0 && a < 21) {
           if (b > 0 && b < 21) {
-            neighbors.push([a, b]);
+            if (_this.isLiving(a, b)) neighbors.push([a, b]);
           }
         }
       });
-      // console.log("neighbors", neighbors);
       return neighbors;
     };
 
     this.grid = this.generateGrid(size, false);
-    this.grid[0][0] = true;
     this.nextGrid = this.generateGrid(size, false);
   }
 

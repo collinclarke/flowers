@@ -7,6 +7,7 @@ import PureRenderMixin from 'react/lib/ReactComponentWithPureRenderMixin';
 import NodeGrid from './node_grid';
 
 
+
 class Simple extends Component {
   constructor(props, context) {
     super(props, context);
@@ -19,19 +20,23 @@ class Simple extends Component {
       cameraRotation: cameraRotation,
       cameraPosition: cameraPosition,
       mouseInput: null,
-      hovering: false,
-      dragging: false
     };
     this._cursor = {
       hovering: false
     }
+
     this.planePosition = new Three.Vector3(0, 0, 0);
+
   }
 
   shouldComponentUpdate = PureRenderMixin.shouldComponentUpdate;
 
-  _onAnimate = () => {
-    this._onAnimateInternal()
+
+  onAnimate = () => {
+    this.onAnimateInternal()
+    if (this.state.play) {
+      this.makeMove();
+    }
   };
 
   componentDidMount() {
@@ -56,29 +61,6 @@ class Simple extends Component {
     this.nodes = nodes;
   };
 
-  _onHoverStart = () => {
-    this.setState({
-      hovering: true,
-    });
-  };
-
-  _onHoverEnd = () => {
-    this.setState({
-      hovering: false,
-    });
-  };
-
-  _onDragStart = () => {
-    this.setState({
-      dragging: true,
-    });
-  };
-
-  _onDragEnd = () => {
-    this.setState({
-      dragging: false,
-    });
-  };
 
   componentDidUpdate(newProps) {
       const {
@@ -112,7 +94,7 @@ class Simple extends Component {
   delete this.stats;
   }
 
-  _onAnimateInternal() {
+  onAnimateInternal() {
     const {
       mouseInput,
       camera,
@@ -163,7 +145,7 @@ class Simple extends Component {
       antialias
       pixelRatio={window.devicePixelRatio}
       sortObjects={false}
-      onAnimate={this._onAnimate}
+      onAnimate={this.onAnimate}
       clearColor={16777215}
       >
         <module
@@ -210,11 +192,8 @@ class Simple extends Component {
             mouseInput={mouseInput}
             camera={camera}
             onNodesMounted={this._onNodesMounted}
-
-            onHoverStart={this._onHoverStart}
-            onHoverEnd={this._onHoverEnd}
-            onDragStart={this._onDragStart}
-            onDragEnd={this._onDragEnd}
+            toggleLiving={this.toggleLiving}
+            endMouseDown={this.endMouseDown}
             cursor={this._cursor}
            />
 
