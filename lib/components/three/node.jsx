@@ -17,7 +17,7 @@ class Node extends Component {
       dragging: false
     };
     this.color = `blue`
-    this.hoverColor = "rgb(0, 255, 10)";
+    this.hoverColor = "#f5adff";
     this.livingColor= [14, 128, 93]
     this.onMouseEnter = this.onMouseEnter.bind(this);
     this.onMouseLeave = this.onMouseLeave.bind(this);
@@ -128,6 +128,7 @@ class Node extends Component {
         <meshLambertMaterial
           color={color}
         />
+
       </mesh>
     </group>);
   };

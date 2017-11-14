@@ -2,7 +2,7 @@ header {
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 2rem;
+  padding: 2vh;
   height: 10vh;
   position: fixed;
   left: 0;
@@ -12,5 +12,13 @@ header {
 
 header img {
   width: 25rem;
-  padding-right: 2rem;
+  padding-right: 0;
+  filter: blur(3px) invert(100%) sepia(30%) saturate(100000%) hue-rotate(245deg);
+  /*filter: blur(3px) invert(100%);*/
+
+}
+
+header img:hover {
+  transition: filter 225ms ease-in;
+  filter: blur(5px) invert(100%) sepia(30%) saturate(100000%) hue-rotate(245deg);
 }

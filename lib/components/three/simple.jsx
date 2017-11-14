@@ -14,7 +14,7 @@ class Simple extends Component {
 
     const cameraRotation = new Three.Euler();
     const cameraPosition = new Three.Vector3(0, 0,
-      250)
+      300)
     this.state = {
       cameraRotation: cameraRotation,
       cameraPosition: cameraPosition,
@@ -154,9 +154,9 @@ class Simple extends Component {
           <boxGeometry
             resourceId="boxGeometry"
 
-            width={4}
-            height={4}
-            depth={.5}
+            width={3.5}
+            height={3.5}
+            depth={3.5}
           />
           <meshBasicMaterial
             resourceId="highlightMaterial"
@@ -168,7 +168,7 @@ class Simple extends Component {
         <scene>
 
 
-          <pointLight color={16777215} position={this.state.cameraPosition}></pointLight>
+          <pointLight color={16777215} position={this.state.cameraPosition} intensity={.25}></pointLight>
           <perspectiveCamera
             name="camera"
             ref="camera"
@@ -181,9 +181,8 @@ class Simple extends Component {
           />
 
 
-          <spotLight
-            color="white" intensity={1}
-          />
+          <pointLight color={16777215} position={new Three.Vector3(0, 0, 200)} intensity={.75}/>
+
 
 
           <NodeGrid
@@ -195,6 +194,8 @@ class Simple extends Component {
             endMouseDown={this.endMouseDown}
             cursor={this._cursor}
            />
+
+
 
         </scene>
       </React3>

@@ -8,6 +8,7 @@ class Scene extends Component {
     this.toggleLiving = this.toggleLiving.bind(this);
     this.makeMove = this.makeMove.bind(this);
     this.toggleOn = this.toggleOn.bind(this);
+    this.clearBoard = this.clearBoard.bind(this);
     this.state = {
       board: new GolBoard(25),
       play: false,
@@ -20,18 +21,27 @@ class Scene extends Component {
       <Simple
       board={this.state.board}
       toggleLiving= {this.toggleLiving}/>
-      <button type="button" onClick={this.toggleOn}>Move</button>
+      <button id="toggle-live" type="button" onClick={this.toggleOn}>
+      { this.state.play ? "stop" : "live"}
+      </button>
+      <button id="clear" type="button" onClick={this.clearBoard}>
+        die
+      </button>
       </section>
     );
   }
 
   toggleOn() {
-    if (this.GOL) {
+    if (this.state.play) {
       this.endGOL();
     } else {
       this.startGOL();
     }
     this.setState({play: !this.state.play});
+  }
+
+  clearBoard() {
+    this.setState({ board: new GolBoard(25) });
   }
 
   makeMove(e) {

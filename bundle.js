@@ -74883,7 +74883,11 @@ var Header = function Header() {
   return _react2.default.createElement(
     "header",
     null,
-    _react2.default.createElement("img", { src: "assets/logo.png" })
+    _react2.default.createElement(
+      "a",
+      { href: "https://collinclarke.github.io/flowers/" },
+      _react2.default.createElement("img", { src: "assets/logo.png" })
+    )
   );
 };
 
@@ -74953,6 +74957,7 @@ var Scene = function (_Component) {
     _this.toggleLiving = _this.toggleLiving.bind(_this);
     _this.makeMove = _this.makeMove.bind(_this);
     _this.toggleOn = _this.toggleOn.bind(_this);
+    _this.clearBoard = _this.clearBoard.bind(_this);
     _this.state = {
       board: new _gol_board2.default(25),
       play: false
@@ -74971,20 +74976,30 @@ var Scene = function (_Component) {
           toggleLiving: this.toggleLiving }),
         _react2.default.createElement(
           'button',
-          { type: 'button', onClick: this.toggleOn },
-          'Move'
+          { id: 'toggle-live', type: 'button', onClick: this.toggleOn },
+          this.state.play ? "stop" : "live"
+        ),
+        _react2.default.createElement(
+          'button',
+          { id: 'clear', type: 'button', onClick: this.clearBoard },
+          'die'
         )
       );
     }
   }, {
     key: 'toggleOn',
     value: function toggleOn() {
-      if (this.GOL) {
+      if (this.state.play) {
         this.endGOL();
       } else {
         this.startGOL();
       }
       this.setState({ play: !this.state.play });
+    }
+  }, {
+    key: 'clearBoard',
+    value: function clearBoard() {
+      this.setState({ board: new _gol_board2.default(25) });
     }
   }, {
     key: 'makeMove',
@@ -75793,7 +75808,7 @@ var Simple = function (_Component) {
     };
 
     var cameraRotation = new Three.Euler();
-    var cameraPosition = new Three.Vector3(0, 0, 250);
+    var cameraPosition = new Three.Vector3(0, 0, 300);
     _this.state = {
       cameraRotation: cameraRotation,
       cameraPosition: cameraPosition,
@@ -75929,9 +75944,9 @@ var Simple = function (_Component) {
             _react2.default.createElement('boxGeometry', {
               resourceId: 'boxGeometry',
 
-              width: 4,
-              height: 4,
-              depth: .5
+              width: 3.5,
+              height: 3.5,
+              depth: 3.5
             }),
             _react2.default.createElement('meshBasicMaterial', {
               resourceId: 'highlightMaterial',
@@ -75943,7 +75958,7 @@ var Simple = function (_Component) {
           _react2.default.createElement(
             'scene',
             null,
-            _react2.default.createElement('pointLight', { color: 16777215, position: this.state.cameraPosition }),
+            _react2.default.createElement('pointLight', { color: 16777215, position: this.state.cameraPosition, intensity: .25 }),
             _react2.default.createElement('perspectiveCamera', {
               name: 'camera',
               ref: 'camera',
@@ -75954,9 +75969,7 @@ var Simple = function (_Component) {
               position: this.state.cameraPosition,
               rotation: this.state.cameraRotation
             }),
-            _react2.default.createElement('spotLight', {
-              color: 'white', intensity: 1
-            }),
+            _react2.default.createElement('pointLight', { color: 16777215, position: new Three.Vector3(0, 0, 200), intensity: .75 }),
             _react2.default.createElement(_node_grid2.default, {
               toggleLiving: this.props.toggleLiving,
               board: this.props.board,
@@ -88025,7 +88038,7 @@ var Node = function (_Component) {
       dragging: false
     };
     _this.color = 'blue';
-    _this.hoverColor = "rgb(0, 255, 10)";
+    _this.hoverColor = "#f5adff";
     _this.livingColor = [14, 128, 93];
     _this.onMouseEnter = _this.onMouseEnter.bind(_this);
     _this.onMouseLeave = _this.onMouseLeave.bind(_this);
