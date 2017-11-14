@@ -74962,6 +74962,13 @@ var Scene = function (_Component) {
       board: new _gol_board2.default(25),
       play: false
     };
+    _this.state.board.toggleLife(10, 10);
+    _this.state.board.toggleLife(11, 10);
+    _this.state.board.toggleLife(11, 12);
+    _this.state.board.toggleLife(13, 11);
+    _this.state.board.toggleLife(14, 10);
+    _this.state.board.toggleLife(15, 10);
+    _this.state.board.toggleLife(16, 10);
     return _this;
   }
 
@@ -74983,6 +74990,11 @@ var Scene = function (_Component) {
           'button',
           { id: 'clear', type: 'button', onClick: this.clearBoard },
           'die'
+        ),
+        _react2.default.createElement(
+          'button',
+          { id: 'step', type: 'button', onClick: this.makeMove },
+          'step'
         )
       );
     }
@@ -75000,6 +75012,8 @@ var Scene = function (_Component) {
     key: 'clearBoard',
     value: function clearBoard() {
       this.setState({ board: new _gol_board2.default(25) });
+      this.endGOL();
+      this.setState({ play: false });
     }
   }, {
     key: 'makeMove',
@@ -75808,7 +75822,7 @@ var Simple = function (_Component) {
     };
 
     var cameraRotation = new Three.Euler();
-    var cameraPosition = new Three.Vector3(0, 0, 300);
+    var cameraPosition = new Three.Vector3(0, 0, 160);
     _this.state = {
       cameraRotation: cameraRotation,
       cameraPosition: cameraPosition,
@@ -75962,14 +75976,15 @@ var Simple = function (_Component) {
             _react2.default.createElement('perspectiveCamera', {
               name: 'camera',
               ref: 'camera',
-              fov: 35,
+              fov: 65,
               aspect: width / height,
               near: 0.1,
               far: 1000,
               position: this.state.cameraPosition,
               rotation: this.state.cameraRotation
             }),
-            _react2.default.createElement('pointLight', { color: 16777215, position: new Three.Vector3(0, 0, 200), intensity: .75 }),
+            _react2.default.createElement('pointLight', { color: 16777215, position: new Three.Vector3(0, 0, 200), intensity: .5 }),
+            _react2.default.createElement('ambientLight', { color: 16777215, position: new Three.Vector3(0, 0, 200), intensity: .25 }),
             _react2.default.createElement(_node_grid2.default, {
               toggleLiving: this.props.toggleLiving,
               board: this.props.board,
@@ -88172,7 +88187,7 @@ var GolBoard = function () {
   }
 
   (0, _createClass3.default)(GolBoard, [{
-    key: 'generateNodeGrid',
+    key: "generateNodeGrid",
     value: function generateNodeGrid() {
       var grid = [];
       for (var x = 0; x < this.count; x++) {
@@ -88181,7 +88196,7 @@ var GolBoard = function () {
       return grid;
     }
   }, {
-    key: 'generateNodeRow',
+    key: "generateNodeRow",
     value: function generateNodeRow(x) {
       var nodes = [];
       for (var y = 0; y < this.count; y++) {
@@ -88190,13 +88205,13 @@ var GolBoard = function () {
       return nodes;
     }
   }, {
-    key: 'generatePosition',
+    key: "generatePosition",
     value: function generatePosition(posArr) {
       var position = new Three.Vector3(posArr[0], posArr[1], posArr[2]);
       return position;
     }
   }, {
-    key: 'generateGrid',
+    key: "generateGrid",
     value: function generateGrid() {
       var grid = [];
       grid.length = this.count;
@@ -88206,7 +88221,7 @@ var GolBoard = function () {
       return grid;
     }
   }, {
-    key: 'generateRow',
+    key: "generateRow",
     value: function generateRow() {
       var row = [];
       row.length = this.count;
@@ -88214,10 +88229,11 @@ var GolBoard = function () {
       return row;
     }
   }, {
-    key: 'findNeighbors',
+    key: "findNeighbors",
     value: function findNeighbors(x, y) {
       var _this = this;
 
+      console.log("origin", [x, y]);
       var deltas = [[-1, -1], [-1, 0], [-1, 1], [1, 1], [1, 0], [1, -1], [0, -1], [0, 1]];
       var neighbors = 0;
       deltas.forEach(function (delta) {
@@ -88231,36 +88247,59 @@ var GolBoard = function () {
           }
         }
       });
+      console.log(neighbors);
       return neighbors;
     }
+
+    // calculateLife (x, y) {
+    //   const neighbors = this.findNeighbors(x, y);
+    //   const living = this.grid[x][y];
+    //
+    //   return living ? (
+    //     ![2, 3].includes(neighbors) && (this.nextGrid[x][y] = false)
+    //   ) : (
+    //     (neighbors === 3) && (this.nextGrid[x][y] = true)
+    //   );
+    // }
+
   }, {
-    key: 'calculateLife',
+    key: "calculateLife",
     value: function calculateLife(x, y) {
       var neighbors = this.findNeighbors(x, y);
       var living = this.grid[x][y];
-
-      return living ? ![2, 3].includes(neighbors) && (this.nextGrid[x][y] = false) : neighbors === 3 && (this.nextGrid[x][y] = true);
+      if (living) {
+        if (![2, 3].includes(neighbors)) {
+          this.nextGrid[x][y] = false;
+        } else {
+          this.nextGrid[x][y] = true;
+        }
+      } else {
+        if (neighbors === 3) {
+          this.nextGrid[x][y] = true;
+        } else {
+          this.nextGrid[x][y] = false;
+        }
+      }
     }
   }, {
-    key: 'toggleLife',
+    key: "toggleLife",
     value: function toggleLife(x, y) {
       this.grid[x][y] = !this.grid[x][y];
     }
   }, {
-    key: 'isLiving',
+    key: "isLiving",
     value: function isLiving(x, y) {
-
       return this.grid[x][y];
     }
   }, {
-    key: 'booleanArray',
+    key: "booleanArray",
     value: function booleanArray() {
       return this.grid.reduce(function (a, b) {
         return a.concat(b);
       }, []);
     }
   }, {
-    key: 'move',
+    key: "move",
     value: function move() {
       var _this2 = this;
 

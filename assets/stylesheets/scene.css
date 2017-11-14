@@ -25,7 +25,7 @@ button {
   padding: .5rem 2rem .75rem 2rem;
   margin: 0;
 
-  background: rgba(255, 255, 255, 0.25);
+  background: rgba(255, 255, 255, 0);
 
   border-radius: 3px;
   cursor: pointer;
@@ -45,6 +45,11 @@ button:hover {
 }
 
 #toggle-live {
+  bottom: 2vh;
+  right: 45vw;
+}
+
+#step {
   bottom: 2vh;
   right: 2vw;
 }

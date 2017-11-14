@@ -14,7 +14,7 @@ class Simple extends Component {
 
     const cameraRotation = new Three.Euler();
     const cameraPosition = new Three.Vector3(0, 0,
-      300)
+      160)
     this.state = {
       cameraRotation: cameraRotation,
       cameraPosition: cameraPosition,
@@ -172,7 +172,7 @@ class Simple extends Component {
           <perspectiveCamera
             name="camera"
             ref="camera"
-            fov={35}
+            fov={65}
             aspect={width / height}
             near={0.1}
             far={1000}
@@ -181,9 +181,8 @@ class Simple extends Component {
           />
 
 
-          <pointLight color={16777215} position={new Three.Vector3(0, 0, 200)} intensity={.75}/>
-
-
+          <pointLight color={16777215} position={new Three.Vector3(0, 0, 200)} intensity={.5}/>
+          <ambientLight color={16777215} position={new Three.Vector3(0, 0, 200)} intensity={.25}/>
 
           <NodeGrid
             toggleLiving={this.props.toggleLiving}

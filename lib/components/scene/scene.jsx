@@ -13,6 +13,13 @@ class Scene extends Component {
       board: new GolBoard(25),
       play: false,
     };
+    this.state.board.toggleLife(10, 10);
+    this.state.board.toggleLife(11, 10);
+    this.state.board.toggleLife(11, 12);
+    this.state.board.toggleLife(13, 11);
+    this.state.board.toggleLife(14, 10);
+    this.state.board.toggleLife(15, 10);
+    this.state.board.toggleLife(16, 10);
   }
 
   render() {
@@ -26,6 +33,9 @@ class Scene extends Component {
       </button>
       <button id="clear" type="button" onClick={this.clearBoard}>
         die
+      </button>
+      <button id="step" type="button" onClick={this.makeMove}>
+        step
       </button>
       </section>
     );
@@ -42,6 +52,8 @@ class Scene extends Component {
 
   clearBoard() {
     this.setState({ board: new GolBoard(25) });
+    this.endGOL();
+    this.setState({play: false});
   }
 
   makeMove(e) {
