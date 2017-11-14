@@ -37,7 +37,6 @@ class Node extends Component {
   shouldComponentUpdate = PureRenderMixin.shouldComponentUpdate;
 
   onMouseEnter = (e) => {
-    console.log(this.dragging);
     this.setState({
       hovered: true,
     });
@@ -58,7 +57,6 @@ class Node extends Component {
     this.toggleLife();
     this.dragging = true;
     document.addEventListener('mouseup', this.onDocumentMouseUp);
-    console.log(this.dragging);
   };
 
   onDocumentMouseUp = e => {

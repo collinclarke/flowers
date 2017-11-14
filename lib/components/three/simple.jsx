@@ -12,10 +12,9 @@ class Simple extends Component {
   constructor(props, context) {
     super(props, context);
 
-    const cameraRotation = new Three.Euler(0,
-      0, 0);
+    const cameraRotation = new Three.Euler();
     const cameraPosition = new Three.Vector3(0, 0,
-      500)
+      250)
     this.state = {
       cameraRotation: cameraRotation,
       cameraPosition: cameraPosition,
@@ -177,7 +176,6 @@ class Simple extends Component {
             aspect={width / height}
             near={0.1}
             far={1000}
-            lookAt={new Three.Vector3(0, 0, 0)}
             position={this.state.cameraPosition}
             rotation={this.state.cameraRotation}
           />

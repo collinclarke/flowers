@@ -70,7 +70,8 @@ class NodeGrid extends React.Component {
 
   render() {
     return (
-      <group>
+      <group
+      position={new Three.Vector3(-60, -60, 0)}>
         { this.nodeComponents }
       </group>
     );

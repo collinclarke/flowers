@@ -74952,8 +74952,10 @@ var Scene = function (_Component) {
 
     _this.toggleLiving = _this.toggleLiving.bind(_this);
     _this.makeMove = _this.makeMove.bind(_this);
+    _this.toggleOn = _this.toggleOn.bind(_this);
     _this.state = {
-      board: new _gol_board2.default(25)
+      board: new _gol_board2.default(25),
+      play: false
     };
     return _this;
   }
@@ -74969,10 +74971,20 @@ var Scene = function (_Component) {
           toggleLiving: this.toggleLiving }),
         _react2.default.createElement(
           'button',
-          { type: 'button', onClick: this.makeMove },
-          'Play/Pause'
+          { type: 'button', onClick: this.toggleOn },
+          'Move'
         )
       );
+    }
+  }, {
+    key: 'toggleOn',
+    value: function toggleOn() {
+      if (this.GOL) {
+        this.endGOL();
+      } else {
+        this.startGOL();
+      }
+      this.setState({ play: !this.state.play });
     }
   }, {
     key: 'makeMove',
@@ -74988,6 +75000,24 @@ var Scene = function (_Component) {
       nextBoard.toggleLife.apply(nextBoard, (0, _toConsumableArray3.default)(posArr));
       this.setState({ board: nextBoard });
     }
+  }, {
+    key: 'startGOL',
+    value: function startGOL() {
+      var _this2 = this;
+
+      console.log('GOL started');
+      this.GOL = setInterval(function () {
+        _this2.makeMove();
+      }, 20);
+    }
+  }, {
+    key: 'endGOL',
+    value: function endGOL() {
+      clearInterval(this.GOL);
+    }
+  }, {
+    key: 'componentWillReceiveProps',
+    value: function componentWillReceiveProps() {}
   }]);
   return Scene;
 }(_react.Component);
@@ -75762,8 +75792,8 @@ var Simple = function (_Component) {
       });
     };
 
-    var cameraRotation = new Three.Euler(0, 0, 0);
-    var cameraPosition = new Three.Vector3(0, 0, 500);
+    var cameraRotation = new Three.Euler();
+    var cameraPosition = new Three.Vector3(0, 0, 250);
     _this.state = {
       cameraRotation: cameraRotation,
       cameraPosition: cameraPosition,
@@ -75921,7 +75951,6 @@ var Simple = function (_Component) {
               aspect: width / height,
               near: 0.1,
               far: 1000,
-              lookAt: new Three.Vector3(0, 0, 0),
               position: this.state.cameraPosition,
               rotation: this.state.cameraRotation
             }),
@@ -87671,7 +87700,8 @@ var NodeGrid = function (_React$Component) {
     value: function render() {
       return _react2.default.createElement(
         'group',
-        null,
+        {
+          position: new Three.Vector3(-60, -60, 0) },
         this.nodeComponents
       );
     }
@@ -87955,7 +87985,6 @@ var Node = function (_Component) {
     _this.shouldComponentUpdate = _ReactComponentWithPureRenderMixin2.default.shouldComponentUpdate;
 
     _this.onMouseEnter = function (e) {
-      console.log(_this.dragging);
       _this.setState({
         hovered: true
       });
@@ -87976,7 +88005,6 @@ var Node = function (_Component) {
       _this.toggleLife();
       _this.dragging = true;
       document.addEventListener('mouseup', _this.onDocumentMouseUp);
-      console.log(_this.dragging);
     };
 
     _this.onDocumentMouseUp = function (e) {
