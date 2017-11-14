@@ -54,13 +54,12 @@ class Node extends Component {
   };
 
   onMouseDown = (event, intersection) => {
-
+    console.log(this.props.gridPos);
     event.preventDefault();
     event.stopPropagation();
     this.toggleLife();
     document.addEventListener('mouseup', this.onDocumentMouseUp);
     document.addEventListener('mousemove', this.onDocumentDrag);
-
   };
 
   onDocumentDrag = e => {

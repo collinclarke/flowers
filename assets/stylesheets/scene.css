@@ -10,3 +10,9 @@
 #portal {
   align-self: center;
 }
+
+button {
+  position: fixed;
+  top: 50vh;
+  left: 10vw;
+}

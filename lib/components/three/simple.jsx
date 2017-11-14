@@ -14,7 +14,7 @@ class Simple extends Component {
 
     const cameraRotation = new Three.Euler(0,
       0, 0);
-    const cameraPosition = new Three.Vector3(0, 0,
+    const cameraPosition = new Three.Vector3(100, 50,
       500)
     this.state = {
       cameraRotation: cameraRotation,
@@ -189,10 +189,11 @@ class Simple extends Component {
           <gridHelper size={500}/>
 
           <NodeGrid
+            toggleLiving={this.props.toggleLiving}
+            board={this.props.board}
             mouseInput={mouseInput}
             camera={camera}
             onNodesMounted={this._onNodesMounted}
-            toggleLiving={this.toggleLiving}
             endMouseDown={this.endMouseDown}
             cursor={this._cursor}
            />

@@ -74900,6 +74900,14 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 
+var _toConsumableArray2 = __webpack_require__(435);
+
+var _toConsumableArray3 = _interopRequireDefault(_toConsumableArray2);
+
+var _assign = __webpack_require__(77);
+
+var _assign2 = _interopRequireDefault(_assign);
+
 var _getPrototypeOf = __webpack_require__(2);
 
 var _getPrototypeOf2 = _interopRequireDefault(_getPrototypeOf);
@@ -74928,6 +74936,10 @@ var _simple = __webpack_require__(321);
 
 var _simple2 = _interopRequireDefault(_simple);
 
+var _gol_board = __webpack_require__(446);
+
+var _gol_board2 = _interopRequireDefault(_gol_board);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 var Scene = function (_Component) {
@@ -74935,7 +74947,15 @@ var Scene = function (_Component) {
 
   function Scene() {
     (0, _classCallCheck3.default)(this, Scene);
-    return (0, _possibleConstructorReturn3.default)(this, (Scene.__proto__ || (0, _getPrototypeOf2.default)(Scene)).apply(this, arguments));
+
+    var _this = (0, _possibleConstructorReturn3.default)(this, (Scene.__proto__ || (0, _getPrototypeOf2.default)(Scene)).call(this));
+
+    _this.toggleLiving = _this.toggleLiving.bind(_this);
+    _this.makeMove = _this.makeMove.bind(_this);
+    _this.state = {
+      board: new _gol_board2.default(10)
+    };
+    return _this;
   }
 
   (0, _createClass3.default)(Scene, [{
@@ -74944,8 +74964,29 @@ var Scene = function (_Component) {
       return _react2.default.createElement(
         'section',
         { className: 'scene' },
-        _react2.default.createElement(_simple2.default, null)
+        _react2.default.createElement(_simple2.default, {
+          board: this.state.board,
+          toggleLiving: this.toggleLiving }),
+        _react2.default.createElement(
+          'button',
+          { type: 'button', onClick: this.makeMove },
+          'Play/Pause'
+        )
       );
+    }
+  }, {
+    key: 'makeMove',
+    value: function makeMove(e) {
+      var nextBoard = (0, _assign2.default)({}, this.state.board);
+      nextBoard.move();
+      this.setState({ board: nextBoard });
+    }
+  }, {
+    key: 'toggleLiving',
+    value: function toggleLiving(posArr) {
+      var nextBoard = (0, _assign2.default)({}, this.state.board);
+      nextBoard.toggleLife.apply(nextBoard, (0, _toConsumableArray3.default)(posArr));
+      this.setState({ board: nextBoard });
     }
   }]);
   return Scene;
@@ -75722,7 +75763,7 @@ var Simple = function (_Component) {
     };
 
     var cameraRotation = new Three.Euler(0, 0, 0);
-    var cameraPosition = new Three.Vector3(0, 0, 500);
+    var cameraPosition = new Three.Vector3(100, 50, 500);
     _this.state = {
       cameraRotation: cameraRotation,
       cameraPosition: cameraPosition,
@@ -75888,10 +75929,11 @@ var Simple = function (_Component) {
             }),
             _react2.default.createElement('gridHelper', { size: 500 }),
             _react2.default.createElement(_node_grid2.default, {
+              toggleLiving: this.props.toggleLiving,
+              board: this.props.board,
               mouseInput: mouseInput,
               camera: camera,
               onNodesMounted: this._onNodesMounted,
-              toggleLiving: this.toggleLiving,
               endMouseDown: this.endMouseDown,
               cursor: this._cursor
             })
@@ -87500,14 +87542,6 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 
-var _toConsumableArray2 = __webpack_require__(435);
-
-var _toConsumableArray3 = _interopRequireDefault(_toConsumableArray2);
-
-var _assign = __webpack_require__(77);
-
-var _assign2 = _interopRequireDefault(_assign);
-
 var _getPrototypeOf = __webpack_require__(2);
 
 var _getPrototypeOf2 = _interopRequireDefault(_getPrototypeOf);
@@ -87548,10 +87582,6 @@ var _mouse_input = __webpack_require__(127);
 
 var _mouse_input2 = _interopRequireDefault(_mouse_input);
 
-var _gol_board = __webpack_require__(446);
-
-var _gol_board2 = _interopRequireDefault(_gol_board);
-
 function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj.default = obj; return newObj; } }
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
@@ -87570,13 +87600,12 @@ var NodeGrid = function (_React$Component) {
     _this.handleDragging = _this.handleDragging.bind(_this);
     _this.handleEndDragging = _this.handleEndDragging.bind(_this);
     _this.generateNode = _this.generateNode.bind(_this);
-    _this.toggleLiving = _this.toggleLiving.bind(_this);
-    _this.makeMove = _this.makeMove.bind(_this);
     _this.onNodeCreate = _this.onNodeCreate.bind(_this);
     _this.state = {
-      dragging: false,
-      board: new _gol_board2.default(10)
+      dragging: false
     };
+    _this.nodeComponents = [];
+    _this.generateNodeGrid(props.board);
     _this.flower = 1;
     return _this;
   }
@@ -87590,7 +87619,7 @@ var NodeGrid = function (_React$Component) {
     key: 'generateNode',
     value: function generateNode(bool, idx) {
       var onCreate = this.onNodeCreate.bind(this, idx);
-      var pos = this.state.board.positionGrid[idx];
+      var pos = this.props.board.positionGrid[idx];
       var _props = this.props,
           cursor = _props.cursor,
           mouseInput = _props.mouseInput,
@@ -87610,41 +87639,20 @@ var NodeGrid = function (_React$Component) {
         handleEndDragging: this.handleEndDragging,
         dragging: dragging,
         cursor: cursor,
-        toggleLiving: this.toggleLiving,
+        toggleLiving: this.props.toggleLiving,
         living: bool,
         flower: this.flower
       });
     }
   }, {
-    key: 'toggleLiving',
-    value: function toggleLiving(posArr) {
-      var newBoard = (0, _assign2.default)({}, this.state.board);
-      newBoard.toggleLife.apply(newBoard, (0, _toConsumableArray3.default)(posArr));
-      this.setState({
-        board: newBoard
-      });
-    }
-  }, {
-    key: 'makeMove',
-    value: function makeMove() {
-      var nextBoard = (0, _assign2.default)({}, this.state.board);
-      nextBoard.move();
-      this.setState({ board: nextBoard });
-    }
-  }, {
     key: 'handleDragging',
     value: function handleDragging(e) {
       this.setState({ dragging: true });
-      // clearInterval(this.play);
     }
   }, {
     key: 'handleEndDragging',
     value: function handleEndDragging(e) {
       this.setState({ dragging: false });
-      // this.play = setInterval(this.makeMove, 250);
-      // setTimeout(()=>{
-      //   clearInterval(this.play);
-      // }, 10000)
     }
   }, {
     key: 'componentDidMount',
@@ -87654,20 +87662,31 @@ var NodeGrid = function (_React$Component) {
       onNodesMounted(this.nodes);
     }
   }, {
-    key: 'render',
-    value: function render() {
+    key: 'generateNodeGrid',
+    value: function generateNodeGrid(board) {
       var _this2 = this;
 
-      var gameState = this.state.board.booleanArray();
-      var nodes = gameState.map(function (bool, idx) {
+      var gameState = board.booleanArray();
+      gameState.map(function (bool, idx) {
         _this2.flower++;
-        return _this2.generateNode(bool, idx);
+        _this2.nodeComponents[idx] = _this2.generateNode(bool, idx);
       });
-
+    }
+  }, {
+    key: 'componentWillReceiveProps',
+    value: function componentWillReceiveProps(nextProps) {
+      var board = nextProps.board;
+      if (board) {
+        this.generateNodeGrid(board);
+      }
+    }
+  }, {
+    key: 'render',
+    value: function render() {
       return _react2.default.createElement(
         'group',
         null,
-        nodes
+        this.nodeComponents
       );
     }
   }]);
@@ -87967,7 +87986,7 @@ var Node = function (_Component) {
     };
 
     _this.onMouseDown = function (event, intersection) {
-
+      console.log(_this.props.gridPos);
       event.preventDefault();
       event.stopPropagation();
       _this.toggleLife();
@@ -88100,6 +88119,10 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 
+var _assign = __webpack_require__(77);
+
+var _assign2 = _interopRequireDefault(_assign);
+
 var _classCallCheck2 = __webpack_require__(0);
 
 var _classCallCheck3 = _interopRequireDefault(_classCallCheck2);
@@ -88117,29 +88140,23 @@ function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj;
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 var GolBoard = function () {
-  function GolBoard(size) {
+  function GolBoard(count) {
     (0, _classCallCheck3.default)(this, GolBoard);
 
-    this.size = size;
+    this.count = count;
     this.grid = this.generateGrid();
     this.nextGrid = this.generateGrid();
     this.positionGrid = this.generateNodeGrid();
     this.toggleLife = this.toggleLife.bind(this);
     this.booleanArray = this.booleanArray.bind(this);
     this.move = this.move.bind(this);
-    for (var i = 0; i < size; i++) {
-      var x = 1;
-      this.grid[i][i] = true;
-      this.grid[size - x][size - x] = true;
-      x += 1;
-    }
   }
 
   (0, _createClass3.default)(GolBoard, [{
     key: "generateNodeGrid",
     value: function generateNodeGrid() {
       var grid = [];
-      for (var x = 0; x < this.size; x++) {
+      for (var x = 0; x < this.count; x++) {
         grid = grid.concat(this.generateNodeRow(x));
       }
       return grid;
@@ -88148,7 +88165,7 @@ var GolBoard = function () {
     key: "generateNodeRow",
     value: function generateNodeRow(x) {
       var nodes = [];
-      for (var y = 0; y < this.size; y++) {
+      for (var y = 0; y < this.count; y++) {
         nodes.push(this.generatePosition([x * 5, y * 5, 0]));
       }
       return nodes;
@@ -88163,8 +88180,8 @@ var GolBoard = function () {
     key: "generateGrid",
     value: function generateGrid() {
       var grid = [];
-      grid.length = this.size;
-      for (var i = 0; i < this.size; i++) {
+      grid.length = this.count;
+      for (var i = 0; i < this.count; i++) {
         grid[i] = this.generateRow();
       }
       return grid;
@@ -88173,20 +88190,40 @@ var GolBoard = function () {
     key: "generateRow",
     value: function generateRow() {
       var row = [];
-      row.length = this.size;
+      row.length = this.count;
       row.fill(false);
       return row;
+    }
+  }, {
+    key: "findNeighbors",
+    value: function findNeighbors(x, y) {
+      var _this = this;
+
+      var deltas = [[-1, -1], [-1, 0], [-1, 1], [1, 1], [1, 0], [1, -1], [0, -1], [0, 1]];
+      var neighbors = 0;
+      deltas.forEach(function (delta) {
+        var a = x + delta[0];
+        var b = y + delta[1];
+        if (a >= 0 && a < _this.count) {
+          if (b >= 0 && b < _this.count) {
+            if (_this.isLiving(a, b)) {
+              neighbors += 1;
+            }
+          }
+        }
+      });
+      return neighbors;
     }
   }, {
     key: "calculateLife",
     value: function calculateLife(x, y) {
       var neighbors = this.findNeighbors(x, y);
-      var metric = neighbors.length;
-      if (metric === 2 || metric === 3) {
+      if (neighbors === 2 || neighbors === 3) {
         this.nextGrid[x][y] = true;
-        console.log("living", x, y);
+        console.log("set living:", [x, y]);
       } else {
         this.nextGrid[x][y] = false;
+        console.log("set dead:", [x, y]);
       }
     }
   }, {
@@ -88197,6 +88234,7 @@ var GolBoard = function () {
   }, {
     key: "isLiving",
     value: function isLiving(x, y) {
+
       return this.grid[x][y];
     }
   }, {
@@ -88209,38 +88247,14 @@ var GolBoard = function () {
   }, {
     key: "move",
     value: function move() {
-      var _this = this;
+      var _this2 = this;
 
       this.grid.forEach(function (row, x) {
         row.forEach(function (node, y) {
-          _this.calculateLife(x, y);
+          _this2.calculateLife(x, y);
         });
       });
-    }
-  }, {
-    key: "findNeighbors",
-    value: function findNeighbors(x, y) {
-      var _this2 = this;
-
-      var deltas = [[-1, -1], [-1, 0], [-1, 1], [1, 1], [1, 0], [1, -1], [0, -1], [0, 1]];
-      var neighbors = [];
-      deltas.forEach(function (delta) {
-        var a = x + delta[0];
-        var b = y + delta[1];
-        if (a > 0 && a < _this2.size) {
-          if (b > 0 && b < _this2.size) {
-            if (_this2.isLiving(a, b)) neighbors.push([a, b]);
-          }
-        }
-      });
-      return neighbors;
-    }
-  }, {
-    key: "render",
-    value: function render() {
-      this.grid.forEach(function (row) {
-        console.log(row);
-      });
+      this.grid = (0, _assign2.default)([], this.nextGrid);
     }
   }]);
   return GolBoard;
