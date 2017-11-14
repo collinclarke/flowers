@@ -46,7 +46,9 @@ button:hover {
 
 #toggle-live {
   bottom: 2vh;
-  right: 45vw;
+  left: 0;
+  right: 0;
+  margin: 0 auto;
 }
 
 #step {

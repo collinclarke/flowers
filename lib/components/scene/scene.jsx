@@ -5,21 +5,15 @@ import GolBoard from '../../util/gol_board';
 class Scene extends Component {
   constructor() {
     super();
+    this.size = 25;
     this.toggleLiving = this.toggleLiving.bind(this);
     this.makeMove = this.makeMove.bind(this);
     this.toggleOn = this.toggleOn.bind(this);
     this.clearBoard = this.clearBoard.bind(this);
     this.state = {
-      board: new GolBoard(25),
+      board: new GolBoard(this.size),
       play: false,
     };
-    this.state.board.toggleLife(10, 10);
-    this.state.board.toggleLife(11, 10);
-    this.state.board.toggleLife(11, 12);
-    this.state.board.toggleLife(13, 11);
-    this.state.board.toggleLife(14, 10);
-    this.state.board.toggleLife(15, 10);
-    this.state.board.toggleLife(16, 10);
   }
 
   render() {
@@ -51,7 +45,7 @@ class Scene extends Component {
   }
 
   clearBoard() {
-    this.setState({ board: new GolBoard(25) });
+    this.setState({ board: new GolBoard(this.size) });
     this.endGOL();
     this.setState({play: false});
   }

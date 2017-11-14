@@ -151,13 +151,6 @@ class Simple extends Component {
           descriptor={MouseInput}
         />
         <resources>
-          <boxGeometry
-            resourceId="boxGeometry"
-
-            width={3.5}
-            height={3.5}
-            depth={3.5}
-          />
           <meshBasicMaterial
             resourceId="highlightMaterial"
 
@@ -168,7 +161,7 @@ class Simple extends Component {
         <scene>
 
 
-          <pointLight color={16777215} position={this.state.cameraPosition} intensity={.25}></pointLight>
+
           <perspectiveCamera
             name="camera"
             ref="camera"
@@ -181,8 +174,9 @@ class Simple extends Component {
           />
 
 
-          <pointLight color={16777215} position={new Three.Vector3(0, 0, 200)} intensity={.5}/>
-          <ambientLight color={16777215} position={new Three.Vector3(0, 0, 200)} intensity={.25}/>
+          <pointLight color={16777215} position={new Three.Vector3(0, 0, 200)} intensity={1}/>
+          <spotLight color="rgb(226, 255, 189)" position={new Three.Vector3(0, 100, 0)} intensity={.25}/>
+          <spotLight color="rgb(226, 255, 189)" position={new Three.Vector3(100, 0, 0)} intensity={.25}/>
 
           <NodeGrid
             toggleLiving={this.props.toggleLiving}

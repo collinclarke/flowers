@@ -14,7 +14,8 @@ class Node extends Component {
     this.state = {
       living: props.living,
       hovered: false,
-      dragging: false
+      dragging: false,
+      life: 0.15
     };
     this.color = `blue`
     this.hoverColor = "#f5adff";
@@ -24,6 +25,7 @@ class Node extends Component {
     this.onMouseDown = this.onMouseDown.bind(this);
     this.onDocumentMouseUp = this.onDocumentMouseUp.bind(this);
     this.toggleLife = this.toggleLife.bind(this);
+    this.life = .05;
   }
 
   componentWillReceiveProps(nextProps) {
@@ -74,6 +76,7 @@ class Node extends Component {
 
   calculateColor() {
     const { flower } = this.props;
+    this.life += 0.1;
     const colorConversion = (idx) => {
       switch(idx) {
         case 0:
@@ -91,10 +94,10 @@ class Node extends Component {
 
     this.livingColor = [r, g, b]
 
-    if (flower % 13 === 0) {
+    if ((this.life > 5) && (flower % 7 === 0)) {
       r += Math.floor(Math.random() * 1000);
-      g -= Math.floor(Math.random() * 50);
-      b += Math.floor(Math.random() * 5);
+      g -= Math.floor(Math.random() * 100);
+      b -= Math.floor(Math.random() * 5);
     }
     return `rgb( ${r}, ${g}, ${b} )`
   }
@@ -122,8 +125,11 @@ class Node extends Component {
 
         ref={this.ref}
       >
-      <geometryResource
-        resourceId="boxGeometry"
+      <boxGeometry
+        dynamic={true}
+        width={3}
+        height={3}
+        depth={this.life}
       />
         <meshLambertMaterial
           color={color}

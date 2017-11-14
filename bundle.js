@@ -74954,21 +74954,15 @@ var Scene = function (_Component) {
 
     var _this = (0, _possibleConstructorReturn3.default)(this, (Scene.__proto__ || (0, _getPrototypeOf2.default)(Scene)).call(this));
 
+    _this.size = 25;
     _this.toggleLiving = _this.toggleLiving.bind(_this);
     _this.makeMove = _this.makeMove.bind(_this);
     _this.toggleOn = _this.toggleOn.bind(_this);
     _this.clearBoard = _this.clearBoard.bind(_this);
     _this.state = {
-      board: new _gol_board2.default(25),
+      board: new _gol_board2.default(_this.size),
       play: false
     };
-    _this.state.board.toggleLife(10, 10);
-    _this.state.board.toggleLife(11, 10);
-    _this.state.board.toggleLife(11, 12);
-    _this.state.board.toggleLife(13, 11);
-    _this.state.board.toggleLife(14, 10);
-    _this.state.board.toggleLife(15, 10);
-    _this.state.board.toggleLife(16, 10);
     return _this;
   }
 
@@ -75011,7 +75005,7 @@ var Scene = function (_Component) {
   }, {
     key: 'clearBoard',
     value: function clearBoard() {
-      this.setState({ board: new _gol_board2.default(25) });
+      this.setState({ board: new _gol_board2.default(this.size) });
       this.endGOL();
       this.setState({ play: false });
     }
@@ -75955,13 +75949,6 @@ var Simple = function (_Component) {
           _react2.default.createElement(
             'resources',
             null,
-            _react2.default.createElement('boxGeometry', {
-              resourceId: 'boxGeometry',
-
-              width: 3.5,
-              height: 3.5,
-              depth: 3.5
-            }),
             _react2.default.createElement('meshBasicMaterial', {
               resourceId: 'highlightMaterial',
 
@@ -75972,7 +75959,6 @@ var Simple = function (_Component) {
           _react2.default.createElement(
             'scene',
             null,
-            _react2.default.createElement('pointLight', { color: 16777215, position: this.state.cameraPosition, intensity: .25 }),
             _react2.default.createElement('perspectiveCamera', {
               name: 'camera',
               ref: 'camera',
@@ -75983,8 +75969,9 @@ var Simple = function (_Component) {
               position: this.state.cameraPosition,
               rotation: this.state.cameraRotation
             }),
-            _react2.default.createElement('pointLight', { color: 16777215, position: new Three.Vector3(0, 0, 200), intensity: .5 }),
-            _react2.default.createElement('ambientLight', { color: 16777215, position: new Three.Vector3(0, 0, 200), intensity: .25 }),
+            _react2.default.createElement('pointLight', { color: 16777215, position: new Three.Vector3(0, 0, 200), intensity: 1 }),
+            _react2.default.createElement('spotLight', { color: 'rgb(226, 255, 189)', position: new Three.Vector3(0, 100, 0), intensity: .25 }),
+            _react2.default.createElement('spotLight', { color: 'rgb(226, 255, 189)', position: new Three.Vector3(100, 0, 0), intensity: .25 }),
             _react2.default.createElement(_node_grid2.default, {
               toggleLiving: this.props.toggleLiving,
               board: this.props.board,
@@ -88050,7 +88037,8 @@ var Node = function (_Component) {
     _this.state = {
       living: props.living,
       hovered: false,
-      dragging: false
+      dragging: false,
+      life: 0.15
     };
     _this.color = 'blue';
     _this.hoverColor = "#f5adff";
@@ -88060,6 +88048,7 @@ var Node = function (_Component) {
     _this.onMouseDown = _this.onMouseDown.bind(_this);
     _this.onDocumentMouseUp = _this.onDocumentMouseUp.bind(_this);
     _this.toggleLife = _this.toggleLife.bind(_this);
+    _this.life = .05;
     return _this;
   }
 
@@ -88076,6 +88065,7 @@ var Node = function (_Component) {
     value: function calculateColor() {
       var flower = this.props.flower;
 
+      this.life += 0.1;
       var colorConversion = function colorConversion(idx) {
         switch (idx) {
           case 0:
@@ -88093,10 +88083,10 @@ var Node = function (_Component) {
 
       this.livingColor = [r, g, b];
 
-      if (flower % 13 === 0) {
+      if (this.life > 5 && flower % 7 === 0) {
         r += Math.floor(Math.random() * 1000);
-        g -= Math.floor(Math.random() * 50);
-        b += Math.floor(Math.random() * 5);
+        g -= Math.floor(Math.random() * 100);
+        b -= Math.floor(Math.random() * 5);
       }
       return 'rgb( ' + r + ', ' + g + ', ' + b + ' )';
     }
@@ -88127,8 +88117,11 @@ var Node = function (_Component) {
 
             ref: this.ref
           },
-          _react2.default.createElement('geometryResource', {
-            resourceId: 'boxGeometry'
+          _react2.default.createElement('boxGeometry', {
+            dynamic: true,
+            width: 3,
+            height: 3,
+            depth: this.life
           }),
           _react2.default.createElement('meshLambertMaterial', {
             color: color
@@ -88187,7 +88180,7 @@ var GolBoard = function () {
   }
 
   (0, _createClass3.default)(GolBoard, [{
-    key: "generateNodeGrid",
+    key: 'generateNodeGrid',
     value: function generateNodeGrid() {
       var grid = [];
       for (var x = 0; x < this.count; x++) {
@@ -88196,7 +88189,7 @@ var GolBoard = function () {
       return grid;
     }
   }, {
-    key: "generateNodeRow",
+    key: 'generateNodeRow',
     value: function generateNodeRow(x) {
       var nodes = [];
       for (var y = 0; y < this.count; y++) {
@@ -88205,13 +88198,13 @@ var GolBoard = function () {
       return nodes;
     }
   }, {
-    key: "generatePosition",
+    key: 'generatePosition',
     value: function generatePosition(posArr) {
       var position = new Three.Vector3(posArr[0], posArr[1], posArr[2]);
       return position;
     }
   }, {
-    key: "generateGrid",
+    key: 'generateGrid',
     value: function generateGrid() {
       var grid = [];
       grid.length = this.count;
@@ -88221,7 +88214,7 @@ var GolBoard = function () {
       return grid;
     }
   }, {
-    key: "generateRow",
+    key: 'generateRow',
     value: function generateRow() {
       var row = [];
       row.length = this.count;
@@ -88229,11 +88222,10 @@ var GolBoard = function () {
       return row;
     }
   }, {
-    key: "findNeighbors",
+    key: 'findNeighbors',
     value: function findNeighbors(x, y) {
       var _this = this;
 
-      console.log("origin", [x, y]);
       var deltas = [[-1, -1], [-1, 0], [-1, 1], [1, 1], [1, 0], [1, -1], [0, -1], [0, 1]];
       var neighbors = 0;
       deltas.forEach(function (delta) {
@@ -88247,7 +88239,10 @@ var GolBoard = function () {
           }
         }
       });
-      console.log(neighbors);
+      // if (this.isLiving(x, y)) {
+      //   console.log("origin", [x, y]);
+      //   console.log("neighbors", neighbors);
+      // }
       return neighbors;
     }
 
@@ -88263,7 +88258,7 @@ var GolBoard = function () {
     // }
 
   }, {
-    key: "calculateLife",
+    key: 'calculateLife',
     value: function calculateLife(x, y) {
       var neighbors = this.findNeighbors(x, y);
       var living = this.grid[x][y];
@@ -88282,24 +88277,24 @@ var GolBoard = function () {
       }
     }
   }, {
-    key: "toggleLife",
+    key: 'toggleLife',
     value: function toggleLife(x, y) {
       this.grid[x][y] = !this.grid[x][y];
     }
   }, {
-    key: "isLiving",
+    key: 'isLiving',
     value: function isLiving(x, y) {
       return this.grid[x][y];
     }
   }, {
-    key: "booleanArray",
+    key: 'booleanArray',
     value: function booleanArray() {
       return this.grid.reduce(function (a, b) {
         return a.concat(b);
       }, []);
     }
   }, {
-    key: "move",
+    key: 'move',
     value: function move() {
       var _this2 = this;
 
