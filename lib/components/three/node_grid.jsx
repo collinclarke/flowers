@@ -10,8 +10,6 @@ class NodeGrid extends React.Component {
   constructor(props, context) {
     super(props, context);
     this.nodes = [];
-    this.handleDragging = this.handleDragging.bind(this);
-    this.handleEndDragging = this.handleEndDragging.bind(this);
     this.generateNode = this.generateNode.bind(this);
     this.onNodeCreate = this.onNodeCreate.bind(this);
     this.state = {
@@ -38,22 +36,12 @@ class NodeGrid extends React.Component {
       onCreate={onCreate}
       mouseInput={mouseInput}
       position={pos}
-      handleDragging = {this.handleDragging}
-      handleEndDragging = {this.handleEndDragging}
       dragging = {dragging}
       cursor={cursor}
       toggleLiving={this.props.toggleLiving}
       living={bool}
       flower={this.flower}
       /> )
-  }
-
-  handleDragging(e) {
-    this.setState({dragging: true});
-  }
-
-  handleEndDragging(e) {
-    this.setState({dragging: false});
   }
 
   componentDidMount() {

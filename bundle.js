@@ -74953,7 +74953,7 @@ var Scene = function (_Component) {
     _this.toggleLiving = _this.toggleLiving.bind(_this);
     _this.makeMove = _this.makeMove.bind(_this);
     _this.state = {
-      board: new _gol_board2.default(10)
+      board: new _gol_board2.default(25)
     };
     return _this;
   }
@@ -75763,7 +75763,7 @@ var Simple = function (_Component) {
     };
 
     var cameraRotation = new Three.Euler(0, 0, 0);
-    var cameraPosition = new Three.Vector3(100, 50, 500);
+    var cameraPosition = new Three.Vector3(0, 0, 500);
     _this.state = {
       cameraRotation: cameraRotation,
       cameraPosition: cameraPosition,
@@ -75921,13 +75921,13 @@ var Simple = function (_Component) {
               aspect: width / height,
               near: 0.1,
               far: 1000,
+              lookAt: new Three.Vector3(0, 0, 0),
               position: this.state.cameraPosition,
               rotation: this.state.cameraRotation
             }),
             _react2.default.createElement('spotLight', {
               color: 'white', intensity: 1
             }),
-            _react2.default.createElement('gridHelper', { size: 500 }),
             _react2.default.createElement(_node_grid2.default, {
               toggleLiving: this.props.toggleLiving,
               board: this.props.board,
@@ -87597,8 +87597,6 @@ var NodeGrid = function (_React$Component) {
     _this.shouldComponentUpdate = _ReactComponentWithPureRenderMixin2.default.shouldComponentUpdate;
 
     _this.nodes = [];
-    _this.handleDragging = _this.handleDragging.bind(_this);
-    _this.handleEndDragging = _this.handleEndDragging.bind(_this);
     _this.generateNode = _this.generateNode.bind(_this);
     _this.onNodeCreate = _this.onNodeCreate.bind(_this);
     _this.state = {
@@ -87635,24 +87633,12 @@ var NodeGrid = function (_React$Component) {
         onCreate: onCreate,
         mouseInput: mouseInput,
         position: pos,
-        handleDragging: this.handleDragging,
-        handleEndDragging: this.handleEndDragging,
         dragging: dragging,
         cursor: cursor,
         toggleLiving: this.props.toggleLiving,
         living: bool,
         flower: this.flower
       });
-    }
-  }, {
-    key: 'handleDragging',
-    value: function handleDragging(e) {
-      this.setState({ dragging: true });
-    }
-  }, {
-    key: 'handleEndDragging',
-    value: function handleEndDragging(e) {
-      this.setState({ dragging: false });
     }
   }, {
     key: 'componentDidMount',
@@ -87969,12 +87955,11 @@ var Node = function (_Component) {
     _this.shouldComponentUpdate = _ReactComponentWithPureRenderMixin2.default.shouldComponentUpdate;
 
     _this.onMouseEnter = function (e) {
+      console.log(_this.dragging);
       _this.setState({
         hovered: true
       });
-      if (_this.props.dragging) {
-        _this.toggleLife();
-      }
+      _this.toggleLife();
     };
 
     _this.onMouseLeave = function () {
@@ -87986,24 +87971,18 @@ var Node = function (_Component) {
     };
 
     _this.onMouseDown = function (event, intersection) {
-      console.log(_this.props.gridPos);
       event.preventDefault();
       event.stopPropagation();
       _this.toggleLife();
+      _this.dragging = true;
       document.addEventListener('mouseup', _this.onDocumentMouseUp);
-      document.addEventListener('mousemove', _this.onDocumentDrag);
-    };
-
-    _this.onDocumentDrag = function (e) {
-      e.preventDefault();
-      _this.props.handleDragging();
+      console.log(_this.dragging);
     };
 
     _this.onDocumentMouseUp = function (e) {
       e.preventDefault();
       document.removeEventListener('mouseup', _this.onDocumentMouseUp);
-      document.removeEventListener('mousemove', _this.onDocumentDrag);
-      _this.props.handleEndDragging();
+      _this.dragging = false;
     };
 
     _this.ref = function (mesh) {
@@ -88014,7 +87993,8 @@ var Node = function (_Component) {
 
     _this.state = {
       living: props.living,
-      hovered: false
+      hovered: false,
+      dragging: false
     };
     _this.color = 'blue';
     _this.hoverColor = "rgb(0, 255, 10)";
@@ -88023,7 +88003,6 @@ var Node = function (_Component) {
     _this.onMouseLeave = _this.onMouseLeave.bind(_this);
     _this.onMouseDown = _this.onMouseDown.bind(_this);
     _this.onDocumentMouseUp = _this.onDocumentMouseUp.bind(_this);
-    _this.onDocumentDrag = _this.onDocumentDrag.bind(_this);
     _this.toggleLife = _this.toggleLife.bind(_this);
     return _this;
   }
@@ -88070,7 +88049,6 @@ var Node = function (_Component) {
     value: function render() {
       var color = void 0;
       if (this.props.living) {
-
         color = this.calculateColor();
       } else if (this.state.hovered) {
         color = this.hoverColor;
@@ -88153,7 +88131,7 @@ var GolBoard = function () {
   }
 
   (0, _createClass3.default)(GolBoard, [{
-    key: "generateNodeGrid",
+    key: 'generateNodeGrid',
     value: function generateNodeGrid() {
       var grid = [];
       for (var x = 0; x < this.count; x++) {
@@ -88162,7 +88140,7 @@ var GolBoard = function () {
       return grid;
     }
   }, {
-    key: "generateNodeRow",
+    key: 'generateNodeRow',
     value: function generateNodeRow(x) {
       var nodes = [];
       for (var y = 0; y < this.count; y++) {
@@ -88171,13 +88149,13 @@ var GolBoard = function () {
       return nodes;
     }
   }, {
-    key: "generatePosition",
+    key: 'generatePosition',
     value: function generatePosition(posArr) {
       var position = new Three.Vector3(posArr[0], posArr[1], posArr[2]);
       return position;
     }
   }, {
-    key: "generateGrid",
+    key: 'generateGrid',
     value: function generateGrid() {
       var grid = [];
       grid.length = this.count;
@@ -88187,7 +88165,7 @@ var GolBoard = function () {
       return grid;
     }
   }, {
-    key: "generateRow",
+    key: 'generateRow',
     value: function generateRow() {
       var row = [];
       row.length = this.count;
@@ -88195,7 +88173,7 @@ var GolBoard = function () {
       return row;
     }
   }, {
-    key: "findNeighbors",
+    key: 'findNeighbors',
     value: function findNeighbors(x, y) {
       var _this = this;
 
@@ -88215,37 +88193,33 @@ var GolBoard = function () {
       return neighbors;
     }
   }, {
-    key: "calculateLife",
+    key: 'calculateLife',
     value: function calculateLife(x, y) {
       var neighbors = this.findNeighbors(x, y);
-      if (neighbors === 2 || neighbors === 3) {
-        this.nextGrid[x][y] = true;
-        console.log("set living:", [x, y]);
-      } else {
-        this.nextGrid[x][y] = false;
-        console.log("set dead:", [x, y]);
-      }
+      var living = this.grid[x][y];
+
+      return living ? ![2, 3].includes(neighbors) && (this.nextGrid[x][y] = false) : neighbors === 3 && (this.nextGrid[x][y] = true);
     }
   }, {
-    key: "toggleLife",
+    key: 'toggleLife',
     value: function toggleLife(x, y) {
       this.grid[x][y] = !this.grid[x][y];
     }
   }, {
-    key: "isLiving",
+    key: 'isLiving',
     value: function isLiving(x, y) {
 
       return this.grid[x][y];
     }
   }, {
-    key: "booleanArray",
+    key: 'booleanArray',
     value: function booleanArray() {
       return this.grid.reduce(function (a, b) {
         return a.concat(b);
       }, []);
     }
   }, {
-    key: "move",
+    key: 'move',
     value: function move() {
       var _this2 = this;
 

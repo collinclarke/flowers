@@ -14,7 +14,7 @@ class Simple extends Component {
 
     const cameraRotation = new Three.Euler(0,
       0, 0);
-    const cameraPosition = new Three.Vector3(100, 50,
+    const cameraPosition = new Three.Vector3(0, 0,
       500)
     this.state = {
       cameraRotation: cameraRotation,
@@ -177,6 +177,7 @@ class Simple extends Component {
             aspect={width / height}
             near={0.1}
             far={1000}
+            lookAt={new Three.Vector3(0, 0, 0)}
             position={this.state.cameraPosition}
             rotation={this.state.cameraRotation}
           />
@@ -186,7 +187,6 @@ class Simple extends Component {
             color="white" intensity={1}
           />
 
-          <gridHelper size={500}/>
 
           <NodeGrid
             toggleLiving={this.props.toggleLiving}

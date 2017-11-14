@@ -8,8 +8,8 @@ class Scene extends Component {
     this.toggleLiving = this.toggleLiving.bind(this);
     this.makeMove = this.makeMove.bind(this);
     this.state = {
-      board: new GolBoard(10),
-    }
+      board: new GolBoard(25),
+    };
   }
 
   render() {

@@ -13,7 +13,8 @@ class Node extends Component {
     super(props, context);
     this.state = {
       living: props.living,
-      hovered: false
+      hovered: false,
+      dragging: false
     };
     this.color = `blue`
     this.hoverColor = "rgb(0, 255, 10)";
@@ -22,7 +23,6 @@ class Node extends Component {
     this.onMouseLeave = this.onMouseLeave.bind(this);
     this.onMouseDown = this.onMouseDown.bind(this);
     this.onDocumentMouseUp = this.onDocumentMouseUp.bind(this);
-    this.onDocumentDrag = this.onDocumentDrag.bind(this);
     this.toggleLife = this.toggleLife.bind(this);
   }
 
@@ -37,12 +37,11 @@ class Node extends Component {
   shouldComponentUpdate = PureRenderMixin.shouldComponentUpdate;
 
   onMouseEnter = (e) => {
+    console.log(this.dragging);
     this.setState({
       hovered: true,
     });
-    if (this.props.dragging) {
-      this.toggleLife();
-    }
+    this.toggleLife();
   };
 
   onMouseLeave = () => {
@@ -54,24 +53,18 @@ class Node extends Component {
   };
 
   onMouseDown = (event, intersection) => {
-    console.log(this.props.gridPos);
     event.preventDefault();
     event.stopPropagation();
     this.toggleLife();
+    this.dragging = true;
     document.addEventListener('mouseup', this.onDocumentMouseUp);
-    document.addEventListener('mousemove', this.onDocumentDrag);
+    console.log(this.dragging);
   };
-
-  onDocumentDrag = e => {
-    e.preventDefault();
-    this.props.handleDragging();
-  }
 
   onDocumentMouseUp = e => {
     e.preventDefault();
     document.removeEventListener('mouseup', this.onDocumentMouseUp);
-    document.removeEventListener('mousemove', this.onDocumentDrag);
-    this.props.handleEndDragging();
+    this.dragging = false;
   }
 
   ref = (mesh) => {
@@ -112,7 +105,6 @@ class Node extends Component {
   render() {
     let color;
     if (this.props.living) {
-
       color = this.calculateColor();
     } else if (this.state.hovered) {
       color = this.hoverColor;
