@@ -26,6 +26,7 @@ class Node extends Component {
     this.onDocumentMouseUp = this.onDocumentMouseUp.bind(this);
     this.toggleLife = this.toggleLife.bind(this);
     this.life = .05;
+    this.deathCounter = 0;
   }
 
   componentWillReceiveProps(nextProps) {
@@ -75,7 +76,6 @@ class Node extends Component {
 
   calculateColor() {
     const { flower } = this.props;
-    this.life += 0.1;
     const colorConversion = (idx) => {
       switch(idx) {
         case 0:
@@ -101,15 +101,32 @@ class Node extends Component {
     return `rgb( ${r}, ${g}, ${b} )`
   }
 
+  componentWillReceiveProps(nextProps) {
+    const { flower, living } = nextProps;
+    if (this.state.living && !living) {
+      debugger
+    } else if (!this.state.living && living) {
+      this.deathCounter = 0;
+    }
+    if (this.life > 1 && this.deathCounter > 1) {
+      debugger
+      this.life -= .25;
+    }
+  }
+
 
   render() {
     let color;
     if (this.props.living) {
       color = this.calculateColor();
+      this.life += .15;
     } else if (this.state.hovered) {
       color = this.hoverColor;
     } else {
       color = this.color;
+      if (this.life > 8 && this.props.flower > 250) {
+        this.life -= 1
+      }
     }
 
     return (<group

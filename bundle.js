@@ -88066,6 +88066,7 @@ var Node = function (_Component) {
     _this.onDocumentMouseUp = _this.onDocumentMouseUp.bind(_this);
     _this.toggleLife = _this.toggleLife.bind(_this);
     _this.life = .05;
+    _this.deathCounter = 0;
     return _this;
   }
 
@@ -88082,7 +88083,6 @@ var Node = function (_Component) {
     value: function calculateColor() {
       var flower = this.props.flower;
 
-      this.life += 0.1;
       var colorConversion = function colorConversion(idx) {
         switch (idx) {
           case 0:
@@ -88108,15 +88108,35 @@ var Node = function (_Component) {
       return 'rgb( ' + r + ', ' + g + ', ' + b + ' )';
     }
   }, {
+    key: 'componentWillReceiveProps',
+    value: function componentWillReceiveProps(nextProps) {
+      var flower = nextProps.flower,
+          living = nextProps.living;
+
+      if (this.state.living && !living) {
+        debugger;
+      } else if (!this.state.living && living) {
+        this.deathCounter = 0;
+      }
+      if (this.life > 1 && this.deathCounter > 1) {
+        debugger;
+        this.life -= .25;
+      }
+    }
+  }, {
     key: 'render',
     value: function render() {
       var color = void 0;
       if (this.props.living) {
         color = this.calculateColor();
+        this.life += .15;
       } else if (this.state.hovered) {
         color = this.hoverColor;
       } else {
         color = this.color;
+        if (this.life > 8 && this.props.flower > 250) {
+          this.life -= 1;
+        }
       }
 
       return _react2.default.createElement(
@@ -88242,7 +88262,8 @@ var GolBoard = function () {
   }, {
     key: 'drawAcorn',
     value: function drawAcorn() {
-      var half = Math.floor(this.count / 2);
+      var half = this.count / 2;
+      half = Math.floor(half * Math.random() + 4);
       this.grid[half][half] = true;
       this.grid[half + 2][half] = true;
       this.grid[half + 1][half] = true;
