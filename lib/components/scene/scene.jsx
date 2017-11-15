@@ -10,20 +10,21 @@ class Scene extends Component {
     this.makeMove = this.makeMove.bind(this);
     this.makeAcorn = this.makeAcorn.bind(this);
     this.toggleOn = this.toggleOn.bind(this);
+    this.toggleBrush = this.toggleBrush.bind(this);
     this.clearBoard = this.clearBoard.bind(this);
 
     this.state = {
       board: new GolBoard(this.size),
       play: false,
+      brush: false
     };
   }
-
-
 
   render() {
     return (
       <section className="scene">
       <Simple
+      brush={this.state.brush}
       board={this.state.board}
       toggleLiving= {this.toggleLiving}/>
       <nav className="buttons">
@@ -37,7 +38,10 @@ class Scene extends Component {
         { this.state.play ? "stop" : "live"}
         </button>
         <button id="acorn" type="button" onClick={this.makeAcorn}>
-          acorn
+          seed
+        </button>
+        <button id="brush" type="button" onClick={this.toggleBrush}>
+          { this.state.brush ? "point" : "brush"}
         </button>
       </nav>
       </section>
@@ -49,6 +53,11 @@ class Scene extends Component {
     nextBoard.drawAcorn();
     this.setState({board: nextBoard});
   }
+
+  toggleBrush() {
+    this.setState({brush: !this.state.brush});
+  }
+
 
   toggleOn() {
     if (this.state.play) {

@@ -179,6 +179,7 @@ class Simple extends Component {
           <spotLight color="rgb(226, 255, 189)" position={new Three.Vector3(100, 0, 0)} intensity={.25}/>
 
           <NodeGrid
+            brush={this.props.brush}
             toggleLiving={this.props.toggleLiving}
             board={this.props.board}
             mouseInput={mouseInput}

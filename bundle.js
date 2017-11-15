@@ -74959,11 +74959,13 @@ var Scene = function (_Component) {
     _this.makeMove = _this.makeMove.bind(_this);
     _this.makeAcorn = _this.makeAcorn.bind(_this);
     _this.toggleOn = _this.toggleOn.bind(_this);
+    _this.toggleBrush = _this.toggleBrush.bind(_this);
     _this.clearBoard = _this.clearBoard.bind(_this);
 
     _this.state = {
       board: new _gol_board2.default(_this.size),
-      play: false
+      play: false,
+      brush: false
     };
     return _this;
   }
@@ -74975,6 +74977,7 @@ var Scene = function (_Component) {
         'section',
         { className: 'scene' },
         _react2.default.createElement(_simple2.default, {
+          brush: this.state.brush,
           board: this.state.board,
           toggleLiving: this.toggleLiving }),
         _react2.default.createElement(
@@ -74998,7 +75001,12 @@ var Scene = function (_Component) {
           _react2.default.createElement(
             'button',
             { id: 'acorn', type: 'button', onClick: this.makeAcorn },
-            'acorn'
+            'seed'
+          ),
+          _react2.default.createElement(
+            'button',
+            { id: 'brush', type: 'button', onClick: this.toggleBrush },
+            this.state.brush ? "point" : "brush"
           )
         )
       );
@@ -75009,6 +75017,11 @@ var Scene = function (_Component) {
       var nextBoard = (0, _assign2.default)({}, this.state.board);
       nextBoard.drawAcorn();
       this.setState({ board: nextBoard });
+    }
+  }, {
+    key: 'toggleBrush',
+    value: function toggleBrush() {
+      this.setState({ brush: !this.state.brush });
     }
   }, {
     key: 'toggleOn',
@@ -75991,6 +76004,7 @@ var Simple = function (_Component) {
             _react2.default.createElement('spotLight', { color: 'rgb(226, 255, 189)', position: new Three.Vector3(0, 100, 0), intensity: .25 }),
             _react2.default.createElement('spotLight', { color: 'rgb(226, 255, 189)', position: new Three.Vector3(100, 0, 0), intensity: .25 }),
             _react2.default.createElement(_node_grid2.default, {
+              brush: this.props.brush,
               toggleLiving: this.props.toggleLiving,
               board: this.props.board,
               mouseInput: mouseInput,
@@ -87683,12 +87697,14 @@ var NodeGrid = function (_React$Component) {
       var _props = this.props,
           cursor = _props.cursor,
           mouseInput = _props.mouseInput,
-          camera = _props.camera;
+          camera = _props.camera,
+          brush = _props.brush;
       var _state = this.state,
           turn = _state.turn,
           dragging = _state.dragging;
 
       return _react2.default.createElement(_node2.default, { key: idx,
+        brush: brush,
         ref: idx,
         gridPos: [pos.x / 5, pos.y / 5],
         camera: camera,
@@ -88021,7 +88037,9 @@ var Node = function (_Component) {
       _this.setState({
         hovered: true
       });
-      // this.toggleLife();
+      if (_this.props.brush) {
+        _this.toggleLife();
+      }
     };
 
     _this.onMouseLeave = function () {
@@ -88032,17 +88050,18 @@ var Node = function (_Component) {
       }
     };
 
-    _this.onMouseDown = function (event, intersection) {
+    _this.onMouseDown = function (event) {
+      // event.stopPropagation();
       event.preventDefault();
       _this.toggleLife();
-      _this.dragging = true;
+      // this.setState({dragging: true});
       document.addEventListener('mouseup', _this.onDocumentMouseUp);
     };
 
     _this.onDocumentMouseUp = function (e) {
       e.preventDefault();
+      // this.setState({dragging: false});
       document.removeEventListener('mouseup', _this.onDocumentMouseUp);
-      _this.dragging = false;
     };
 
     _this.ref = function (mesh) {
@@ -88083,6 +88102,7 @@ var Node = function (_Component) {
     value: function calculateColor() {
       var flower = this.props.flower;
 
+
       var colorConversion = function colorConversion(idx) {
         switch (idx) {
           case 0:
@@ -88100,41 +88120,28 @@ var Node = function (_Component) {
 
       this.livingColor = [r, g, b];
 
-      if (this.life > 5 && flower % 7 === 0) {
-        r += Math.floor(Math.random() * 1000);
-        g -= Math.floor(Math.random() * 100);
-        b -= Math.floor(Math.random() * 5);
+      if (this.life > 5) {
+        r = Math.floor(Math.random() * 100 + 155);
+        g = Math.floor(Math.random() * 100);
+        b = Math.floor(Math.random() * 100 + 85);
       }
       return 'rgb( ' + r + ', ' + g + ', ' + b + ' )';
     }
   }, {
     key: 'componentWillReceiveProps',
-    value: function componentWillReceiveProps(nextProps) {
-      var flower = nextProps.flower,
-          living = nextProps.living;
-
-      if (this.state.living && !living) {
-        debugger;
-      } else if (!this.state.living && living) {
-        this.deathCounter = 0;
-      }
-      if (this.life > 1 && this.deathCounter > 1) {
-        debugger;
-        this.life -= .25;
-      }
-    }
+    value: function componentWillReceiveProps(nextProps) {}
   }, {
     key: 'render',
     value: function render() {
       var color = void 0;
       if (this.props.living) {
         color = this.calculateColor();
-        this.life += .15;
+        if (this.life < 10 && !this.props.brush) this.life += .15;
       } else if (this.state.hovered) {
         color = this.hoverColor;
       } else {
         color = this.color;
-        if (this.life > 8 && this.props.flower > 250) {
+        if (this.life > 1 && this.props.flower > 250) {
           this.life -= 1;
         }
       }

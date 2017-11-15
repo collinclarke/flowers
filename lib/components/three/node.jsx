@@ -43,7 +43,9 @@ class Node extends Component {
     this.setState({
       hovered: true,
     });
-    // this.toggleLife();
+    if (this.props.brush) {
+      this.toggleLife();
+    }
   };
 
   onMouseLeave = () => {
@@ -54,17 +56,18 @@ class Node extends Component {
     }
   };
 
-  onMouseDown = (event, intersection) => {
+  onMouseDown = (event) => {
+    // event.stopPropagation();
     event.preventDefault();
     this.toggleLife();
-    this.dragging = true;
+    // this.setState({dragging: true});
     document.addEventListener('mouseup', this.onDocumentMouseUp);
   };
 
   onDocumentMouseUp = e => {
     e.preventDefault();
+    // this.setState({dragging: false});
     document.removeEventListener('mouseup', this.onDocumentMouseUp);
-    this.dragging = false;
   }
 
   ref = (mesh) => {
@@ -76,6 +79,7 @@ class Node extends Component {
 
   calculateColor() {
     const { flower } = this.props;
+
     const colorConversion = (idx) => {
       switch(idx) {
         case 0:
@@ -93,25 +97,16 @@ class Node extends Component {
 
     this.livingColor = [r, g, b]
 
-    if ((this.life > 5) && (flower % 7 === 0)) {
-      r += Math.floor(Math.random() * 1000);
-      g -= Math.floor(Math.random() * 100);
-      b -= Math.floor(Math.random() * 5);
+    if (this.life > 5) {
+      r = Math.floor(Math.random() * 100 + 155);
+      g = Math.floor(Math.random() * 100);
+      b = Math.floor(Math.random() * 100 + 85);
     }
     return `rgb( ${r}, ${g}, ${b} )`
   }
 
   componentWillReceiveProps(nextProps) {
-    const { flower, living } = nextProps;
-    if (this.state.living && !living) {
-      debugger
-    } else if (!this.state.living && living) {
-      this.deathCounter = 0;
-    }
-    if (this.life > 1 && this.deathCounter > 1) {
-      debugger
-      this.life -= .25;
-    }
+
   }
 
 
@@ -119,12 +114,13 @@ class Node extends Component {
     let color;
     if (this.props.living) {
       color = this.calculateColor();
+      if (this.life < 10 && !this.props.brush)
       this.life += .15;
     } else if (this.state.hovered) {
       color = this.hoverColor;
     } else {
       color = this.color;
-      if (this.life > 8 && this.props.flower > 250) {
+      if (this.life > 1 && this.props.flower > 250) {
         this.life -= 1
       }
     }
