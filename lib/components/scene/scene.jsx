@@ -8,13 +8,17 @@ class Scene extends Component {
     this.size = 25;
     this.toggleLiving = this.toggleLiving.bind(this);
     this.makeMove = this.makeMove.bind(this);
+    this.makeAcorn = this.makeAcorn.bind(this);
     this.toggleOn = this.toggleOn.bind(this);
     this.clearBoard = this.clearBoard.bind(this);
+
     this.state = {
       board: new GolBoard(this.size),
       play: false,
     };
   }
+
+
 
   render() {
     return (
@@ -22,17 +26,28 @@ class Scene extends Component {
       <Simple
       board={this.state.board}
       toggleLiving= {this.toggleLiving}/>
-      <button id="toggle-live" type="button" onClick={this.toggleOn}>
-      { this.state.play ? "stop" : "live"}
-      </button>
-      <button id="clear" type="button" onClick={this.clearBoard}>
-        die
-      </button>
-      <button id="step" type="button" onClick={this.makeMove}>
-        step
-      </button>
+      <nav className="buttons">
+        <button id="step" type="button" onClick={this.makeMove}>
+          step
+        </button>
+        <button id="clear" type="button" onClick={this.clearBoard}>
+          die
+        </button>
+        <button id="toggle-live" type="button" onClick={this.toggleOn}>
+        { this.state.play ? "stop" : "live"}
+        </button>
+        <button id="acorn" type="button" onClick={this.makeAcorn}>
+          acorn
+        </button>
+      </nav>
       </section>
     );
+  }
+
+  makeAcorn() {
+    const nextBoard = Object.assign({}, this.state.board);
+    nextBoard.drawAcorn();
+    this.setState({board: nextBoard});
   }
 
   toggleOn() {

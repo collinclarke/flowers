@@ -11,11 +11,21 @@
   align-self: center;
 }
 
+nav {
+  position: fixed;
+  width: 100vw;
+  bottom: 3vh;
+  margin: 0 auto;
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-around;
+  align-items: space;
+}
+
 button {
   display: flex;
   justify-content: center;
   align-items: center;
-  position: fixed;
 
   font-size: 2rem;
   letter-spacing: .04rem;
@@ -39,7 +49,7 @@ button:hover {
   filter: blur(0px);
 }
 
-#clear {
+/*#clear {
   bottom: 2vh;
   left: 2vw;
 }
@@ -55,3 +65,9 @@ button:hover {
   bottom: 2vh;
   right: 2vw;
 }
+
+#acorn {
+  top: 20vh;
+  left: 2vh;
+  width: 7rem;
+}*/

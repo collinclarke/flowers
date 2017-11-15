@@ -74957,8 +74957,10 @@ var Scene = function (_Component) {
     _this.size = 25;
     _this.toggleLiving = _this.toggleLiving.bind(_this);
     _this.makeMove = _this.makeMove.bind(_this);
+    _this.makeAcorn = _this.makeAcorn.bind(_this);
     _this.toggleOn = _this.toggleOn.bind(_this);
     _this.clearBoard = _this.clearBoard.bind(_this);
+
     _this.state = {
       board: new _gol_board2.default(_this.size),
       play: false
@@ -74976,21 +74978,37 @@ var Scene = function (_Component) {
           board: this.state.board,
           toggleLiving: this.toggleLiving }),
         _react2.default.createElement(
-          'button',
-          { id: 'toggle-live', type: 'button', onClick: this.toggleOn },
-          this.state.play ? "stop" : "live"
-        ),
-        _react2.default.createElement(
-          'button',
-          { id: 'clear', type: 'button', onClick: this.clearBoard },
-          'die'
-        ),
-        _react2.default.createElement(
-          'button',
-          { id: 'step', type: 'button', onClick: this.makeMove },
-          'step'
+          'nav',
+          { className: 'buttons' },
+          _react2.default.createElement(
+            'button',
+            { id: 'step', type: 'button', onClick: this.makeMove },
+            'step'
+          ),
+          _react2.default.createElement(
+            'button',
+            { id: 'clear', type: 'button', onClick: this.clearBoard },
+            'die'
+          ),
+          _react2.default.createElement(
+            'button',
+            { id: 'toggle-live', type: 'button', onClick: this.toggleOn },
+            this.state.play ? "stop" : "live"
+          ),
+          _react2.default.createElement(
+            'button',
+            { id: 'acorn', type: 'button', onClick: this.makeAcorn },
+            'acorn'
+          )
         )
       );
+    }
+  }, {
+    key: 'makeAcorn',
+    value: function makeAcorn() {
+      var nextBoard = (0, _assign2.default)({}, this.state.board);
+      nextBoard.drawAcorn();
+      this.setState({ board: nextBoard });
     }
   }, {
     key: 'toggleOn',
@@ -88003,7 +88021,7 @@ var Node = function (_Component) {
       _this.setState({
         hovered: true
       });
-      _this.toggleLife();
+      // this.toggleLife();
     };
 
     _this.onMouseLeave = function () {
@@ -88016,7 +88034,6 @@ var Node = function (_Component) {
 
     _this.onMouseDown = function (event, intersection) {
       event.preventDefault();
-      event.stopPropagation();
       _this.toggleLife();
       _this.dragging = true;
       document.addEventListener('mouseup', _this.onDocumentMouseUp);
@@ -88176,6 +88193,7 @@ var GolBoard = function () {
     this.positionGrid = this.generateNodeGrid();
     this.toggleLife = this.toggleLife.bind(this);
     this.booleanArray = this.booleanArray.bind(this);
+    this.drawAcorn = this.drawAcorn.bind(this);
     this.move = this.move.bind(this);
   }
 
@@ -88220,6 +88238,19 @@ var GolBoard = function () {
       row.length = this.count;
       row.fill(false);
       return row;
+    }
+  }, {
+    key: 'drawAcorn',
+    value: function drawAcorn() {
+      var half = Math.floor(this.count / 2);
+      this.grid[half][half] = true;
+      this.grid[half + 2][half] = true;
+      this.grid[half + 1][half] = true;
+      this.grid[half - 1][half + 1] = true;
+
+      this.grid[half - 4][half] = true;
+      this.grid[half - 3][half] = true;
+      this.grid[half - 3][half + 2] = true;
     }
   }, {
     key: 'findNeighbors',
@@ -88298,6 +88329,7 @@ var GolBoard = function () {
     value: function move() {
       var _this2 = this;
 
+      this.nextGrid = this.generateGrid();
       this.grid.forEach(function (row, x) {
         row.forEach(function (node, y) {
           _this2.calculateLife(x, y);

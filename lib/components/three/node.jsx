@@ -42,7 +42,7 @@ class Node extends Component {
     this.setState({
       hovered: true,
     });
-    this.toggleLife();
+    // this.toggleLife();
   };
 
   onMouseLeave = () => {
@@ -55,7 +55,6 @@ class Node extends Component {
 
   onMouseDown = (event, intersection) => {
     event.preventDefault();
-    event.stopPropagation();
     this.toggleLife();
     this.dragging = true;
     document.addEventListener('mouseup', this.onDocumentMouseUp);
