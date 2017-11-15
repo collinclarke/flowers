@@ -76000,9 +76000,7 @@ var Simple = function (_Component) {
               position: this.state.cameraPosition,
               rotation: this.state.cameraRotation
             }),
-            _react2.default.createElement('pointLight', { color: 16777215, position: new Three.Vector3(0, 0, 200), intensity: 1 }),
-            _react2.default.createElement('spotLight', { color: 'rgb(226, 255, 189)', position: new Three.Vector3(0, 100, 0), intensity: .25 }),
-            _react2.default.createElement('spotLight', { color: 'rgb(226, 255, 189)', position: new Three.Vector3(100, 0, 0), intensity: .25 }),
+            _react2.default.createElement('ambientLight', { color: 'rgb(226, 255, 189)', position: new Three.Vector3(0, 100, 0), intensity: 1 }),
             _react2.default.createElement(_node_grid2.default, {
               brush: this.props.brush,
               toggleLiving: this.props.toggleLiving,

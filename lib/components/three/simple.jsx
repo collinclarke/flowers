@@ -174,9 +174,7 @@ class Simple extends Component {
           />
 
 
-          <pointLight color={16777215} position={new Three.Vector3(0, 0, 200)} intensity={1}/>
-          <spotLight color="rgb(226, 255, 189)" position={new Three.Vector3(0, 100, 0)} intensity={.25}/>
-          <spotLight color="rgb(226, 255, 189)" position={new Three.Vector3(100, 0, 0)} intensity={.25}/>
+          <ambientLight color="rgb(226, 255, 189)" position={new Three.Vector3(0, 100, 0)} intensity={1}/>
 
           <NodeGrid
             brush={this.props.brush}
