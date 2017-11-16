@@ -28,7 +28,7 @@ class NodeGrid extends React.Component {
     const onCreate = this.onNodeCreate.bind(this, idx);
     const pos = this.props.board.positionGrid[idx];
 
-    const { cursor, mouseInput, camera,
+    const { mouseInput, camera,
       brush, pause, play, running } = this.props;
 
     if (!pause || !play) {
@@ -47,7 +47,6 @@ class NodeGrid extends React.Component {
       mouseInput={mouseInput}
       position={pos}
       dragging = {dragging}
-      cursor={cursor}
       toggleLiving={this.props.toggleLiving}
       living={bool}
       flower={this.flower}
@@ -81,7 +80,7 @@ class NodeGrid extends React.Component {
   render() {
     return (
       <group
-      position={new Three.Vector3(-60, -60, 0)}>
+      position={new Three.Vector3(-60, -50, 0)}>
         { this.nodeComponents }
       </group>
     );

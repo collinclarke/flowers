@@ -76132,6 +76132,7 @@ var Simple = function (_Component) {
     };
 
     _this._onTrackballChange = function () {
+      console.log(_this.refs.camera.position);
       _this.setState({
         cameraPosition: _this.refs.camera.position.clone(),
         cameraRotation: _this.refs.camera.rotation.clone()
@@ -76139,14 +76140,11 @@ var Simple = function (_Component) {
     };
 
     var cameraRotation = new Three.Euler();
-    var cameraPosition = new Three.Vector3(0.3563, -136.606, 100);
+    var cameraPosition = new Three.Vector3(0, -50, 125);
     _this.state = {
       cameraRotation: cameraRotation,
       cameraPosition: cameraPosition,
       mouseInput: null
-    };
-    _this._cursor = {
-      hovering: false
     };
 
     _this.planePosition = new Three.Vector3(0, 0, 0);
@@ -76162,7 +76160,7 @@ var Simple = function (_Component) {
       var controls = new _trackball2.default(camera);
 
       controls.rotateSpeed = 1.0;
-      controls.zoomSpeed = 1.2;
+      controls.zoomSpeed = 0.8;
       controls.panSpeed = 0.0;
       controls.noZoom = false;
       controls.noPan = true;
@@ -76180,12 +76178,20 @@ var Simple = function (_Component) {
           x = _state$cameraPosition.x,
           y = _state$cameraPosition.y,
           z = _state$cameraPosition.z;
+      var cameraRotation = this.state.cameraRotation;
 
-      console.log(x, y, z);
-      if (z < 0.01) {
-        this.setState({ cameraPosition: new Three.Vector3(0, 0, 6000) });
+
+      var tilted = Math.abs(x) > 5 || Math.abs(y) > 5;
+      // console.log("position", this.state.cameraPosition);
+      // console.log("rotation", this.state.cameraRotation);
+      if (z < 0.009 && !tilted) {
+        this.setState({
+          cameraPosition: new Three.Vector3(0, y, 6000).applyEuler(cameraRotation)
+        });
       } else if (z > 7000) {
-        this.setState({ cameraPosition: new Three.Vector3(0, 0, .01) });
+        this.setState({
+          cameraPosition: new Three.Vector3(0, y, .01).applyEuler(cameraRotation)
+        });
       }
       var mouseInput = this.refs.mouseInput;
 
@@ -76266,7 +76272,7 @@ var Simple = function (_Component) {
           camera = _state.camera,
           hovering = _state.hovering;
 
-      this._cursor.hovering = hovering;
+
       return _react2.default.createElement(
         'div',
         {
@@ -76323,8 +76329,7 @@ var Simple = function (_Component) {
               mouseInput: mouseInput,
               camera: camera,
               onNodesMounted: this._onNodesMounted,
-              endMouseDown: this.endMouseDown,
-              cursor: this._cursor
+              endMouseDown: this.endMouseDown
             })
           )
         )
@@ -87371,7 +87376,7 @@ var TrackballControls = function (_THREE$EventDispatche) {
     _this2.noZoom = false;
     _this2.noPan = false;
 
-    _this2.staticMoving = false;
+    _this2.staticMoving = true;
     _this2.dynamicDampingFactor = 0.2;
 
     _this2.minDistance = 0;
@@ -87459,9 +87464,9 @@ var TrackballControls = function (_THREE$EventDispatche) {
       var vector = new THREE.Vector2();
 
       return function (pageX, pageY) {
-        vector.set((pageX - _this.screen.width * 0.5 - _this.screen.left) / (_this.screen.width * 0.5), (_this.screen.height + 2 * (_this.screen.top - pageY)) / _this.screen.width // screen.width intentional
+        vector.set((pageX - _this.screen.width * 0.5 - _this.screen.left) / (_this.screen.width * 0.5) * .015, (_this.screen.height + 2 * (_this.screen.top - pageY)) / _this.screen.width * .15 // screen.width intentional
         );
-
+        // console.log(vector);
         return vector;
       };
     }();
@@ -87478,6 +87483,7 @@ var TrackballControls = function (_THREE$EventDispatche) {
 
       return function rotateCamera() {
         moveDirection.set(_moveCurr.x - _movePrev.x, _moveCurr.y - _movePrev.y, 0);
+
         angle = moveDirection.length();
         if (angle) {
           _eye.copy(_this.object.position).sub(_this.target);
@@ -87508,7 +87514,7 @@ var TrackballControls = function (_THREE$EventDispatche) {
           _eye.applyQuaternion(quaternion);
           _this.object.up.applyQuaternion(quaternion);
         }
-
+        // console.log("prev", _movePrev, "curr", _moveCurr);
         _movePrev.copy(_moveCurr);
       };
     }();
@@ -87529,6 +87535,7 @@ var TrackballControls = function (_THREE$EventDispatche) {
           if (_this.staticMoving) {
             _zoomStart.copy(_zoomEnd);
           } else {
+            debugger;
             _zoomStart.y += (_zoomEnd.y - _zoomStart.y) * _this2.dynamicDampingFactor;
           }
         }
@@ -87658,6 +87665,7 @@ var TrackballControls = function (_THREE$EventDispatche) {
 
       if (_state === STATE.ROTATE && !_this.noRotate) {
         _movePrev.copy(_moveCurr);
+        // console.log("x", event.pageX, "y", event.pageY);
         _moveCurr.copy(getMouseOnCircle(event.pageX, event.pageY));
       } else if (_state === STATE.ZOOM && !_this.noZoom) {
         _zoomEnd.copy(getMouseOnScreen(event.pageX, event.pageY));
@@ -87707,7 +87715,7 @@ var TrackballControls = function (_THREE$EventDispatche) {
     }
 
     function mousewheel(event) {
-      if (_this.enabled === false) return;
+      // if (_this.enabled === false) return;
 
       event.preventDefault();
       event.stopPropagation();
@@ -87716,7 +87724,6 @@ var TrackballControls = function (_THREE$EventDispatche) {
 
       if (event.wheelDelta) {
         // WebKit / Opera / Explorer 9
-
         delta = event.wheelDelta / 40;
       } else if (event.detail) {
         // Firefox
@@ -87949,7 +87956,6 @@ var NodeGrid = function (_React$Component) {
       var pos = this.props.board.positionGrid[idx];
 
       var _props = this.props,
-          cursor = _props.cursor,
           mouseInput = _props.mouseInput,
           camera = _props.camera,
           brush = _props.brush,
@@ -87977,7 +87983,6 @@ var NodeGrid = function (_React$Component) {
         mouseInput: mouseInput,
         position: pos,
         dragging: dragging,
-        cursor: cursor,
         toggleLiving: this.props.toggleLiving,
         living: bool,
         flower: this.flower
@@ -88015,7 +88020,7 @@ var NodeGrid = function (_React$Component) {
       return _react2.default.createElement(
         'group',
         {
-          position: new Three.Vector3(-60, -60, 0) },
+          position: new Three.Vector3(-60, -50, 0) },
         this.nodeComponents
       );
     }

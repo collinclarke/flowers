@@ -11,20 +11,18 @@ class Simple extends Component {
   constructor(props, context) {
     super(props, context);
     const cameraRotation = new Three.Euler();
-    const cameraPosition = new Three.Vector3(0.3563, -136.606, 100);
+    const cameraPosition = new Three.Vector3(0, -50, 125);
     this.state = {
       cameraRotation: cameraRotation,
       cameraPosition: cameraPosition,
       mouseInput: null,
     };
-    this._cursor = {
-      hovering: false
-    }
 
     this.planePosition = new Three.Vector3(0, 0, 0);
   }
 
   shouldComponentUpdate = PureRenderMixin.shouldComponentUpdate;
+
 
 
   onAnimate = () => {
@@ -40,7 +38,7 @@ class Simple extends Component {
     const controls = new TrackballControls(camera);
 
     controls.rotateSpeed = 1.0;
-    controls.zoomSpeed = 1.2;
+    controls.zoomSpeed = 0.8;
     controls.panSpeed = 0.0;
     controls.noZoom = false;
     controls.noPan = true;
@@ -59,11 +57,19 @@ class Simple extends Component {
 
   componentDidUpdate(newProps) {
     const { x, y, z } = this.state.cameraPosition
-    console.log(x, y, z);
-    if (z < 0.01) {
-      this.setState({cameraPosition: new Three.Vector3(0, 0, 6000)})
+    const { cameraRotation } = this.state;
+
+    const tilted = (Math.abs(x) > 5 || Math.abs(y) > 5)
+    // console.log("position", this.state.cameraPosition);
+    // console.log("rotation", this.state.cameraRotation);
+    if (z < 0.009 && !tilted) {
+      this.setState({
+        cameraPosition: new Three.Vector3(0, y, 6000).applyEuler(cameraRotation),
+      })
     } else if (z > 7000) {
-      this.setState({cameraPosition: new Three.Vector3(0, 0, .01)})
+      this.setState({
+        cameraPosition: new Three.Vector3(0, y, .01).applyEuler(cameraRotation),
+      })
     }
       const {
         mouseInput,
@@ -81,6 +87,7 @@ class Simple extends Component {
   //   }, console.log("rotation", this.state.cameraRotation));
   // };
   _onTrackballChange = () => {
+    console.log(this.refs.camera.position);
     this.setState({
       cameraPosition: this.refs.camera.position.clone(),
       cameraRotation: this.refs.camera.rotation.clone(),
@@ -139,7 +146,7 @@ class Simple extends Component {
     const height = window.innerHeight;
 
     const { cameraPosition, cameraRotation, mouseInput, camera, hovering } = this.state;
-    this._cursor.hovering = hovering;
+
     return (
       <div
       ref="container"
@@ -195,7 +202,6 @@ class Simple extends Component {
             camera={camera}
             onNodesMounted={this._onNodesMounted}
             endMouseDown={this.endMouseDown}
-            cursor={this._cursor}
            />
 
 
