@@ -14,7 +14,7 @@ class Node extends Component {
     this.state = {
       living: props.living,
       hovered: false,
-      dragging: false,
+      paused: false
     };
     this.color = `blue`
     this.hoverColor = "#f5adff";
@@ -42,7 +42,7 @@ class Node extends Component {
     this.setState({
       hovered: true,
     });
-    if (this.props.brush || this.state.dragging) {
+    if (this.props.brush) {
       this.toggleLife();
     }
   };
@@ -58,20 +58,21 @@ class Node extends Component {
   onMouseDown = (event) => {
     if (this.props.brush) {
       event.stopPropagation();
+      if (this.props.running) {
+        this.setState({paused: true})
+      }
     }
     this.props.pause();
     event.preventDefault();
     this.toggleLife();
-    this.setState({dragging: true});
     document.addEventListener('mouseup', this.onDocumentMouseUp);
   };
 
   onDocumentMouseUp = e => {
-    if (this.props.brush) {
+    if (this.props.brush && this.state.paused) {
       this.props.play();
     }
     e.preventDefault();
-    this.setState({dragging: false});
     document.removeEventListener('mouseup', this.onDocumentMouseUp);
   }
 

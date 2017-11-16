@@ -75056,7 +75056,13 @@ var Scene = function (_Component) {
             _react2.default.createElement(
               'div',
               { id: 'info-details', onClick: this.toggleInfo },
-              'Flowers is a simulator of Conway\'s Game of Life. Build stable formations to create flowers. Designed and built by ',
+              'Flowers is a simulator of ',
+              _react2.default.createElement(
+                'a',
+                { target: '_blank', href: 'https://en.wikipedia.org/wiki/Conway%27s_Game_of_Life' },
+                'Conway\'s Game of Life'
+              ),
+              '. Build stable formations to create flowers. Designed and built by ',
               _react2.default.createElement(
                 'a',
                 { target: '_blank', href: 'https://www.github.com/collinclarke' },
@@ -88210,7 +88216,7 @@ var Node = function (_Component) {
       _this.setState({
         hovered: true
       });
-      if (_this.props.brush || _this.state.dragging) {
+      if (_this.props.brush) {
         _this.toggleLife();
       }
     };
@@ -88226,20 +88232,21 @@ var Node = function (_Component) {
     _this.onMouseDown = function (event) {
       if (_this.props.brush) {
         event.stopPropagation();
+        if (_this.props.running) {
+          _this.setState({ paused: true });
+        }
       }
       _this.props.pause();
       event.preventDefault();
       _this.toggleLife();
-      _this.setState({ dragging: true });
       document.addEventListener('mouseup', _this.onDocumentMouseUp);
     };
 
     _this.onDocumentMouseUp = function (e) {
-      if (_this.props.brush) {
+      if (_this.props.brush && _this.state.paused) {
         _this.props.play();
       }
       e.preventDefault();
-      _this.setState({ dragging: false });
       document.removeEventListener('mouseup', _this.onDocumentMouseUp);
     };
 
@@ -88252,7 +88259,7 @@ var Node = function (_Component) {
     _this.state = {
       living: props.living,
       hovered: false,
-      dragging: false
+      paused: false
     };
     _this.color = 'blue';
     _this.hoverColor = "#f5adff";
