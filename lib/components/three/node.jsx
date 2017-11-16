@@ -15,7 +15,6 @@ class Node extends Component {
       living: props.living,
       hovered: false,
       dragging: false,
-      life: 0.15
     };
     this.color = `blue`
     this.hoverColor = "#f5adff";
@@ -26,7 +25,7 @@ class Node extends Component {
     this.onDocumentMouseUp = this.onDocumentMouseUp.bind(this);
     this.toggleLife = this.toggleLife.bind(this);
     this.life = .05;
-    this.deathCounter = 0;
+    this.maxLife = 3;
   }
 
   componentWillReceiveProps(nextProps) {
@@ -43,7 +42,7 @@ class Node extends Component {
     this.setState({
       hovered: true,
     });
-    if (this.props.brush) {
+    if (this.props.brush || this.state.dragging) {
       this.toggleLife();
     }
   };
@@ -57,16 +56,22 @@ class Node extends Component {
   };
 
   onMouseDown = (event) => {
-    // event.stopPropagation();
+    if (this.props.brush) {
+      event.stopPropagation();
+      this.props.pause();
+    }
     event.preventDefault();
     this.toggleLife();
-    // this.setState({dragging: true});
+    this.setState({dragging: true});
     document.addEventListener('mouseup', this.onDocumentMouseUp);
   };
 
   onDocumentMouseUp = e => {
+    if (this.props.brush) {
+      this.props.play();
+    }
     e.preventDefault();
-    // this.setState({dragging: false});
+    this.setState({dragging: false});
     document.removeEventListener('mouseup', this.onDocumentMouseUp);
   }
 
@@ -98,9 +103,9 @@ class Node extends Component {
     this.livingColor = [r, g, b]
 
     if (this.life > 5) {
-      r = Math.floor(Math.random() * 100 + 155);
+      r = Math.floor(Math.random() * 155 + 150);
       g = Math.floor(Math.random() * 100);
-      b = Math.floor(Math.random() * 100 + 85);
+      b = Math.floor(Math.random() * 100 + 50);
     }
     return `rgb( ${r}, ${g}, ${b} )`
   }
@@ -112,16 +117,24 @@ class Node extends Component {
 
   render() {
     let color;
+    const max = Math.floor(this.maxLife / 2)
     if (this.props.living) {
       color = this.calculateColor();
-      if (this.life < 10 && !this.props.brush)
-      this.life += .15;
+      if (this.life < 10 && !(this.state.dragging))
+        this.life += .075;
+      if (this.props.flower > Math.pow(10, 10)) {
+        this.life += .075;
+      }
+
     } else if (this.state.hovered) {
       color = this.hoverColor;
     } else {
       color = this.color;
-      if (this.life > 1 && this.props.flower > 250) {
-        this.life -= 1
+      if (this.life > this.maxLife) {
+        this.maxLife = this.life;
+      }
+      if (this.life > max) {
+        this.life -= .05;
       }
     }
 

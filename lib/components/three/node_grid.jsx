@@ -27,9 +27,18 @@ class NodeGrid extends React.Component {
   generateNode(bool, idx) {
     const onCreate = this.onNodeCreate.bind(this, idx);
     const pos = this.props.board.positionGrid[idx];
-    const { cursor, mouseInput, camera, brush } = this.props;
+
+    const { cursor, mouseInput, camera,
+      brush, pause, play, running } = this.props;
+
+    if (!pause || !play) {
+      debugger
+    }
     const { turn, dragging } = this.state;
     return ( <Node key={idx}
+      running={running}
+      pause={pause}
+      play={play}
       brush={brush}
       ref={idx}
       gridPos={[(pos.x / 5), (pos.y / 5)]}

@@ -7,14 +7,11 @@ import PureRenderMixin from 'react/lib/ReactComponentWithPureRenderMixin';
 import NodeGrid from './node_grid';
 
 
-
 class Simple extends Component {
   constructor(props, context) {
     super(props, context);
-
     const cameraRotation = new Three.Euler();
-    const cameraPosition = new Three.Vector3(0, 0,
-      160)
+    const cameraPosition = new Three.Vector3(0.3563, -136.606, 100);
     this.state = {
       cameraRotation: cameraRotation,
       cameraPosition: cameraPosition,
@@ -44,9 +41,9 @@ class Simple extends Component {
 
     controls.rotateSpeed = 1.0;
     controls.zoomSpeed = 1.2;
-    controls.panSpeed = 0.8;
+    controls.panSpeed = 0.0;
     controls.noZoom = false;
-    controls.noPan = false;
+    controls.noPan = true;
     controls.staticMoving = true;
     controls.dynamicDampingFactor = 0.3;
 
@@ -61,6 +58,13 @@ class Simple extends Component {
 
 
   componentDidUpdate(newProps) {
+    const { x, y, z } = this.state.cameraPosition
+    console.log(x, y, z);
+    if (z < 0.01) {
+      this.setState({cameraPosition: new Three.Vector3(0, 0, 6000)})
+    } else if (z > 7000) {
+      this.setState({cameraPosition: new Three.Vector3(0, 0, .01)})
+    }
       const {
         mouseInput,
       } = this.refs;
@@ -127,7 +131,10 @@ class Simple extends Component {
 
 
   render() {
-
+    const { pause, play, running } = this.props;
+    if (!pause || !play) {
+      debugger
+    }
     const width = window.innerWidth;
     const height = window.innerHeight;
 
@@ -161,22 +168,26 @@ class Simple extends Component {
         <scene>
 
 
-
+        <pointLight color="white" position= {this.state.cameraPosition} intensity={.75}/>
           <perspectiveCamera
             name="camera"
             ref="camera"
             fov={65}
             aspect={width / height}
             near={0.1}
-            far={1000}
+            far={77374.92732468797}
             position={this.state.cameraPosition}
             rotation={this.state.cameraRotation}
           />
 
+          <pointLight color="white" position={new Three.Vector3(0, 100, 0)}  intensity={.75}/>
 
-          <ambientLight color="rgb(226, 255, 189)" position={new Three.Vector3(0, 100, 0)} intensity={1}/>
+          <ambientLight color="rgb(226, 255, 189)" intensity={.5}/>
 
           <NodeGrid
+            running={running}
+            pause={pause}
+            play={play}
             brush={this.props.brush}
             toggleLiving={this.props.toggleLiving}
             board={this.props.board}

@@ -12,12 +12,18 @@ class Scene extends Component {
     this.toggleOn = this.toggleOn.bind(this);
     this.toggleBrush = this.toggleBrush.bind(this);
     this.clearBoard = this.clearBoard.bind(this);
+    this.play = this.play.bind(this);
+    this.pause = this.pause.bind(this);
+    // this.onDocumentMouseDown = this.onDocumentMouseDown.bind(this);
+    // this.onDocumentMouseUp = this.onDocumentMouseUp.bind(this);
 
     this.state = {
       board: new GolBoard(this.size),
       play: false,
+      paused: false,
       brush: false
     };
+    document.addEventListener("mousedown", this.onDocumentMouseDown);
   }
 
   render() {
@@ -25,6 +31,9 @@ class Scene extends Component {
       <section className="scene">
       <Simple
       brush={this.state.brush}
+      pause={this.pause}
+      play={this.play}
+      running={this.state.play}
       board={this.state.board}
       toggleLiving= {this.toggleLiving}/>
       <nav className="buttons">
@@ -58,14 +67,30 @@ class Scene extends Component {
     this.setState({brush: !this.state.brush});
   }
 
+  // onDocumentMouseDown() {
+  //
+  //   if (this.state.brush && this.GOL) {
+  //     debugger
+  //     this.pause();
+  //     this.setState({paused: true});
+  //   }
+  //   document.addEventListener('mouseup', this.onDocumentMouseUp);
+  // }
+  //
+  // onDocumentMouseUp() {
+  //   const {brush, paused} = this.state;
+  //   if (brush && paused) {
+  //     this.play();
+  //     this.setState({paused: false});
+  //   }
+  // }
 
   toggleOn() {
     if (this.state.play) {
-      this.endGOL();
+      this.pause();
     } else {
-      this.startGOL();
+      this.play();
     }
-    this.setState({play: !this.state.play});
   }
 
   clearBoard() {
@@ -86,15 +111,17 @@ class Scene extends Component {
     this.setState({board: nextBoard});
   }
 
-  startGOL() {
+  play() {
     console.log('GOL started');
     this.GOL = setInterval(() => {
       this.makeMove();
     }, 20);
+    this.setState({play: true});
   }
 
-  endGOL() {
+  pause() {
     clearInterval(this.GOL);
+    this.setState({play: false});
   }
 
   componentWillReceiveProps() {
