@@ -76186,11 +76186,11 @@ var Simple = function (_Component) {
       // console.log("rotation", this.state.cameraRotation);
       if (z < 0.009 && !tilted) {
         this.setState({
-          cameraPosition: new Three.Vector3(0, y, 6000).applyEuler(cameraRotation)
+          cameraPosition: new Three.Vector3(x, y, 6000).applyEuler(cameraRotation)
         });
-      } else if (z > 7000) {
+      } else if (Math.abs(z) > 7000) {
         this.setState({
-          cameraPosition: new Three.Vector3(0, y, .01).applyEuler(cameraRotation)
+          cameraPosition: new Three.Vector3(0, 0, .02)
         });
       }
       var mouseInput = this.refs.mouseInput;
