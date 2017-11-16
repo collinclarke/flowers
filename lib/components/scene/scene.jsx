@@ -67,7 +67,8 @@ class Scene extends Component {
         info
         <div className="info-box hidden">
           <div id="info-details" onClick={this.toggleInfo}>
-            Flowers is a simulator of <a target="_blank" href="https://en.wikipedia.org/wiki/Conway%27s_Game_of_Life">Conway's Game of Life</a>. 
+            Flowers is a simulator of <a target="_blank" href="https://en.wikipedia.org/wiki/Conway%27s_Game_of_Life">Conway's Game of Life</a>. Click to add life,
+            press "live" to start the game.
             Build stable formations to create flowers.
             Designed and built by <a target="_blank" href="https://www.github.com/collinclarke">Collin Clarke</a>
             <div className="credit">

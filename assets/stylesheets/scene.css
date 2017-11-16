@@ -101,7 +101,7 @@ button:hover, .button:hover {
 
 .credit {
   margin-top: 2rem;
-  color: pink;
+  color: rgb(255, 125, 255);
   font-size: 1rem;
   line-height: 1.5rem;
 }
