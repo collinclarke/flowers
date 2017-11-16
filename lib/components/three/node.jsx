@@ -58,8 +58,8 @@ class Node extends Component {
   onMouseDown = (event) => {
     if (this.props.brush) {
       event.stopPropagation();
-      this.props.pause();
     }
+    this.props.pause();
     event.preventDefault();
     this.toggleLife();
     this.setState({dragging: true});

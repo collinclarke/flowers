@@ -5,3 +5,7 @@ body {
   font-family: sans-serif;
   background: white;
 }
+
+.hidden {
+  display: none;
+}

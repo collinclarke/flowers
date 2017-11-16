@@ -23,8 +23,6 @@ class Simple extends Component {
 
   shouldComponentUpdate = PureRenderMixin.shouldComponentUpdate;
 
-
-
   onAnimate = () => {
     this.onAnimateInternal()
     if (this.state.play) {

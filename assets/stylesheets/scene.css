@@ -13,16 +13,16 @@
 
 nav {
   position: fixed;
-  width: 100vw;
-  bottom: 3vh;
-  margin: 0 auto;
+  bottom: 2rem;
+  left: 4vw;
+  right: 4vw;
   display: flex;
   flex-flow: row nowrap;
-  justify-content: space-around;
+  justify-content: space-between;
   align-items: space;
 }
 
-button {
+button, .button {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -44,9 +44,43 @@ button {
   filter: blur(2px);
 }
 
-button:hover {
+button:hover, .button:hover {
   transition: filter 225ms ease-in;
   filter: blur(0px);
+}
+
+#seed {
+  letter-spacing: .06rem;
+  font-weight: 300;
+  position: absolute;
+  left: 3vw;
+  top: 4vh;
+  width: 4rem;
+  flex-flow: row;
+  justify-content: flex-start;
+  border: 0;
+  padding: 0;;
+}
+
+#seed-selector {
+  position: absolute;
+  top: 0;
+  left: 0;
+  padding-top: 4rem;
+
+}
+
+#seed-selector button {
+  margin-bottom: 1rem;
+}
+
+.on {
+  background: rgb(255, 75, 232);
+  color: white;
+}
+
+#brush {
+  width: 7rem;
 }
 
 /*#clear {

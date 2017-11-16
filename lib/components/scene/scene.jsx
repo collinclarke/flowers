@@ -9,11 +9,13 @@ class Scene extends Component {
     this.toggleLiving = this.toggleLiving.bind(this);
     this.makeMove = this.makeMove.bind(this);
     this.makeAcorn = this.makeAcorn.bind(this);
+    this.makeLine = this.makeLine.bind(this);
     this.toggleOn = this.toggleOn.bind(this);
     this.toggleBrush = this.toggleBrush.bind(this);
     this.clearBoard = this.clearBoard.bind(this);
     this.play = this.play.bind(this);
     this.pause = this.pause.bind(this);
+    this.makeStep = this.makeStep.bind(this);
     // this.onDocumentMouseDown = this.onDocumentMouseDown.bind(this);
     // this.onDocumentMouseUp = this.onDocumentMouseUp.bind(this);
 
@@ -27,63 +29,78 @@ class Scene extends Component {
   }
 
   render() {
+    const { brush, play, board } = this.state;
     return (
       <section className="scene">
       <Simple
-      brush={this.state.brush}
+      brush={brush}
       pause={this.pause}
       play={this.play}
-      running={this.state.play}
-      board={this.state.board}
+      running={play}
+      board={board}
       toggleLiving= {this.toggleLiving}/>
       <nav className="buttons">
-        <button id="step" type="button" onClick={this.makeMove}>
-          step
-        </button>
         <button id="clear" type="button" onClick={this.clearBoard}>
           die
         </button>
-        <button id="toggle-live" type="button" onClick={this.toggleOn}>
-        { this.state.play ? "stop" : "live"}
+        <button id="step" type="button" onClick={this.makeStep}>
+          step
         </button>
-        <button id="acorn" type="button" onClick={this.makeAcorn}>
-          seed
+        <button id="toggle-live" type="button" className={ play ? "on" : "off"}
+        onClick={this.toggleOn}>
+        { play ? "stop" : "live"}
         </button>
-        <button id="brush" type="button" onClick={this.toggleBrush}>
-          { this.state.brush ? "point" : "brush"}
+        <button id="brush" type="button" className={ brush ? "on" : "off"}
+        onClick={this.toggleBrush} >
+          brush
         </button>
       </nav>
+      <div id="seed" className="button" onMouseEnter={this.openSeeds} onClick={this.toggleSeeds}>
+        seed
+        <div id="seed-selector" className="hidden" onMouseLeave={this.closeSeeds}>
+          <button id="acorn" type="button" onClick={this.makeAcorn}>acorn</button>
+          <button id="line" type="button" onClick={this.makeLine}>line</button>
+        </div>
+      </div>
       </section>
     );
   }
 
-  makeAcorn() {
+  openSeeds(e) {
+    const menu = document.getElementById('seed-selector');
+    menu.classList.remove("hidden");
+  }
+
+  closeSeeds(e) {
+    const menu = document.getElementById('seed-selector');
+    menu.classList.add("hidden");
+  }
+
+  toggleSeeds(e) {
+    if (menu.classList.includes("hidden")) {
+      this.openSeeds();
+    } else {
+      this.closeSeeds();
+    }
+  }
+
+  makeAcorn(e) {
+    e.stopPropagation();
     const nextBoard = Object.assign({}, this.state.board);
     nextBoard.drawAcorn();
+    this.setState({board: nextBoard});
+  }
+
+  makeLine(e) {
+    e.stopPropagation();
+    const nextBoard = Object.assign({}, this.state.board);
+    nextBoard.drawLine();
     this.setState({board: nextBoard});
   }
 
   toggleBrush() {
     this.setState({brush: !this.state.brush});
   }
-
-  // onDocumentMouseDown() {
-  //
-  //   if (this.state.brush && this.GOL) {
-  //     debugger
-  //     this.pause();
-  //     this.setState({paused: true});
-  //   }
-  //   document.addEventListener('mouseup', this.onDocumentMouseUp);
-  // }
-  //
-  // onDocumentMouseUp() {
-  //   const {brush, paused} = this.state;
-  //   if (brush && paused) {
-  //     this.play();
-  //     this.setState({paused: false});
-  //   }
-  // }
 
   toggleOn() {
     if (this.state.play) {
@@ -95,14 +112,18 @@ class Scene extends Component {
 
   clearBoard() {
     this.setState({ board: new GolBoard(this.size) });
-    this.endGOL();
-    this.setState({play: false});
+    this.pause();
   }
 
   makeMove(e) {
     const nextBoard = Object.assign({}, this.state.board);
     nextBoard.move();
     this.setState({board: nextBoard});
+  }
+
+  makeStep(e) {
+    this.pause();
+    this.makeMove();
   }
 
   toggleLiving(posArr) {

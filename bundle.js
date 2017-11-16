@@ -74886,7 +74886,7 @@ var Header = function Header() {
     _react2.default.createElement(
       "a",
       { href: "https://collinclarke.github.io/flowers/" },
-      _react2.default.createElement("img", { src: "assets/logo.png" })
+      _react2.default.createElement("img", { src: "assets/logo.svg" })
     )
   );
 };
@@ -74958,11 +74958,13 @@ var Scene = function (_Component) {
     _this.toggleLiving = _this.toggleLiving.bind(_this);
     _this.makeMove = _this.makeMove.bind(_this);
     _this.makeAcorn = _this.makeAcorn.bind(_this);
+    _this.makeLine = _this.makeLine.bind(_this);
     _this.toggleOn = _this.toggleOn.bind(_this);
     _this.toggleBrush = _this.toggleBrush.bind(_this);
     _this.clearBoard = _this.clearBoard.bind(_this);
     _this.play = _this.play.bind(_this);
     _this.pause = _this.pause.bind(_this);
+    _this.makeStep = _this.makeStep.bind(_this);
     // this.onDocumentMouseDown = this.onDocumentMouseDown.bind(this);
     // this.onDocumentMouseUp = this.onDocumentMouseUp.bind(this);
 
@@ -74979,24 +74981,24 @@ var Scene = function (_Component) {
   (0, _createClass3.default)(Scene, [{
     key: 'render',
     value: function render() {
+      var _state = this.state,
+          brush = _state.brush,
+          play = _state.play,
+          board = _state.board;
+
       return _react2.default.createElement(
         'section',
         { className: 'scene' },
         _react2.default.createElement(_simple2.default, {
-          brush: this.state.brush,
+          brush: brush,
           pause: this.pause,
           play: this.play,
-          running: this.state.play,
-          board: this.state.board,
+          running: play,
+          board: board,
           toggleLiving: this.toggleLiving }),
         _react2.default.createElement(
           'nav',
           { className: 'buttons' },
-          _react2.default.createElement(
-            'button',
-            { id: 'step', type: 'button', onClick: this.makeMove },
-            'step'
-          ),
           _react2.default.createElement(
             'button',
             { id: 'clear', type: 'button', onClick: this.clearBoard },
@@ -75004,27 +75006,78 @@ var Scene = function (_Component) {
           ),
           _react2.default.createElement(
             'button',
-            { id: 'toggle-live', type: 'button', onClick: this.toggleOn },
-            this.state.play ? "stop" : "live"
+            { id: 'step', type: 'button', onClick: this.makeStep },
+            'step'
           ),
           _react2.default.createElement(
             'button',
-            { id: 'acorn', type: 'button', onClick: this.makeAcorn },
-            'seed'
+            { id: 'toggle-live', type: 'button', className: play ? "on" : "off",
+              onClick: this.toggleOn },
+            play ? "stop" : "live"
           ),
           _react2.default.createElement(
             'button',
-            { id: 'brush', type: 'button', onClick: this.toggleBrush },
-            this.state.brush ? "point" : "brush"
+            { id: 'brush', type: 'button', className: brush ? "on" : "off",
+              onClick: this.toggleBrush },
+            'brush'
+          )
+        ),
+        _react2.default.createElement(
+          'div',
+          { id: 'seed', className: 'button', onMouseEnter: this.openSeeds, onClick: this.toggleSeeds },
+          'seed',
+          _react2.default.createElement(
+            'div',
+            { id: 'seed-selector', className: 'hidden', onMouseLeave: this.closeSeeds },
+            _react2.default.createElement(
+              'button',
+              { id: 'acorn', type: 'button', onClick: this.makeAcorn },
+              'acorn'
+            ),
+            _react2.default.createElement(
+              'button',
+              { id: 'line', type: 'button', onClick: this.makeLine },
+              'line'
+            )
           )
         )
       );
     }
   }, {
+    key: 'openSeeds',
+    value: function openSeeds(e) {
+      var menu = document.getElementById('seed-selector');
+      menu.classList.remove("hidden");
+    }
+  }, {
+    key: 'closeSeeds',
+    value: function closeSeeds(e) {
+      var menu = document.getElementById('seed-selector');
+      menu.classList.add("hidden");
+    }
+  }, {
+    key: 'toggleSeeds',
+    value: function toggleSeeds(e) {
+      if (menu.classList.includes("hidden")) {
+        this.openSeeds();
+      } else {
+        this.closeSeeds();
+      }
+    }
+  }, {
     key: 'makeAcorn',
-    value: function makeAcorn() {
+    value: function makeAcorn(e) {
+      e.stopPropagation();
       var nextBoard = (0, _assign2.default)({}, this.state.board);
       nextBoard.drawAcorn();
+      this.setState({ board: nextBoard });
+    }
+  }, {
+    key: 'makeLine',
+    value: function makeLine(e) {
+      e.stopPropagation();
+      var nextBoard = (0, _assign2.default)({}, this.state.board);
+      nextBoard.drawLine();
       this.setState({ board: nextBoard });
     }
   }, {
@@ -75032,25 +75085,6 @@ var Scene = function (_Component) {
     value: function toggleBrush() {
       this.setState({ brush: !this.state.brush });
     }
-
-    // onDocumentMouseDown() {
-    //
-    //   if (this.state.brush && this.GOL) {
-    //     debugger
-    //     this.pause();
-    //     this.setState({paused: true});
-    //   }
-    //   document.addEventListener('mouseup', this.onDocumentMouseUp);
-    // }
-    //
-    // onDocumentMouseUp() {
-    //   const {brush, paused} = this.state;
-    //   if (brush && paused) {
-    //     this.play();
-    //     this.setState({paused: false});
-    //   }
-    // }
-
   }, {
     key: 'toggleOn',
     value: function toggleOn() {
@@ -75064,8 +75098,7 @@ var Scene = function (_Component) {
     key: 'clearBoard',
     value: function clearBoard() {
       this.setState({ board: new _gol_board2.default(this.size) });
-      this.endGOL();
-      this.setState({ play: false });
+      this.pause();
     }
   }, {
     key: 'makeMove',
@@ -75073,6 +75106,12 @@ var Scene = function (_Component) {
       var nextBoard = (0, _assign2.default)({}, this.state.board);
       nextBoard.move();
       this.setState({ board: nextBoard });
+    }
+  }, {
+    key: 'makeStep',
+    value: function makeStep(e) {
+      this.pause();
+      this.makeMove();
     }
   }, {
     key: 'toggleLiving',
@@ -87464,7 +87503,7 @@ var TrackballControls = function (_THREE$EventDispatche) {
       var vector = new THREE.Vector2();
 
       return function (pageX, pageY) {
-        vector.set((pageX - _this.screen.width * 0.5 - _this.screen.left) / (_this.screen.width * 0.5) * .015, (_this.screen.height + 2 * (_this.screen.top - pageY)) / _this.screen.width * .15 // screen.width intentional
+        vector.set((pageX - _this.screen.width * 0.5 - _this.screen.left) / (_this.screen.width * 0.5) * 0, (_this.screen.height + 2 * (_this.screen.top - pageY)) / _this.screen.width * .15 // screen.width intentional
         );
         // console.log(vector);
         return vector;
@@ -87535,7 +87574,6 @@ var TrackballControls = function (_THREE$EventDispatche) {
           if (_this.staticMoving) {
             _zoomStart.copy(_zoomEnd);
           } else {
-            debugger;
             _zoomStart.y += (_zoomEnd.y - _zoomStart.y) * _this2.dynamicDampingFactor;
           }
         }
@@ -88119,8 +88157,8 @@ var Node = function (_Component) {
     _this.onMouseDown = function (event) {
       if (_this.props.brush) {
         event.stopPropagation();
-        _this.props.pause();
       }
+      _this.props.pause();
       event.preventDefault();
       _this.toggleLife();
       _this.setState({ dragging: true });
@@ -88299,6 +88337,7 @@ var GolBoard = function () {
     this.toggleLife = this.toggleLife.bind(this);
     this.booleanArray = this.booleanArray.bind(this);
     this.drawAcorn = this.drawAcorn.bind(this);
+    this.drawLine = this.drawLine.bind(this);
     this.move = this.move.bind(this);
   }
 
@@ -88347,16 +88386,32 @@ var GolBoard = function () {
   }, {
     key: 'drawAcorn',
     value: function drawAcorn() {
-      var half = this.count / 2;
-      half = Math.floor(half * Math.random() + 4);
-      this.grid[half][half] = true;
-      this.grid[half + 2][half] = true;
-      this.grid[half + 1][half] = true;
-      this.grid[half - 1][half + 1] = true;
+      var origin = Math.floor(Math.random() * this.count);
+      var originY = Math.floor(Math.random() * this.count);
+      if (origin < 4) {
+        origin += 4;
+      } else if (origin > this.count - 4) {
+        origin -= 4;
+      }
+      // let half = this.count / 2;
+      // half = Math.floor((Math.random()) * half + 4);
+      // const halfY = Math.floor((Math.random() * half + 4));
+      this.grid[origin][originY] = true;
+      this.grid[origin + 2][originY] = true;
+      this.grid[origin + 1][originY] = true;
+      this.grid[origin - 1][originY + 1] = true;
 
-      this.grid[half - 4][half] = true;
-      this.grid[half - 3][half] = true;
-      this.grid[half - 3][half + 2] = true;
+      this.grid[origin - 4][originY] = true;
+      this.grid[origin - 3][originY] = true;
+      this.grid[origin - 3][originY + 2] = true;
+    }
+  }, {
+    key: 'drawLine',
+    value: function drawLine() {
+      var half = Math.floor(this.count / 2);
+      for (var i = 0; i < this.count; i++) {
+        this.grid[i][half] = true;
+      }
     }
   }, {
     key: 'findNeighbors',
