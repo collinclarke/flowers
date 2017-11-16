@@ -16,6 +16,7 @@ class Scene extends Component {
     this.play = this.play.bind(this);
     this.pause = this.pause.bind(this);
     this.makeStep = this.makeStep.bind(this);
+    this.toggleInfo = this.toggleInfo.bind(this);
     // this.onDocumentMouseDown = this.onDocumentMouseDown.bind(this);
     // this.onDocumentMouseUp = this.onDocumentMouseUp.bind(this);
 
@@ -55,11 +56,24 @@ class Scene extends Component {
           brush
         </button>
       </nav>
-      <div id="seed" className="button" onMouseEnter={this.openSeeds} onClick={this.toggleSeeds}>
+      <div id="seed" className="button modal" onMouseEnter={this.openSeeds} onClick={this.toggleSeeds}>
         seed
         <div id="seed-selector" className="hidden" onMouseLeave={this.closeSeeds}>
           <button id="acorn" type="button" onClick={this.makeAcorn}>acorn</button>
           <button id="line" type="button" onClick={this.makeLine}>line</button>
+        </div>
+      </div>
+      <div id="info" className="button modal" onClick={this.toggleInfo}>
+        info
+        <div className="info-box hidden">
+          <div id="info-details" onClick={this.toggleInfo}>
+            Flowers is a simulator of Conway's Game of Life.
+            Build stable formations to create flowers.
+            Designed and built by <a target="_blank" href="https://www.github.com/collinclarke">Collin Clarke</a>
+            <div className="credit">
+              special thanks to <a target="_blank" href="http://markfingerhut.com">mark fingerhut</a> and the devs behind <a target="_blank" href="https://github.com/Izzimach/react-three">react 3</a> and <a target="_blank" href="https://github.com/toxicFork/react-three-renderer">react three renderer</a>
+            </div>
+          </div>
         </div>
       </div>
       </section>
@@ -77,10 +91,30 @@ class Scene extends Component {
   }
 
   toggleSeeds(e) {
-    if (menu.classList.includes("hidden")) {
+    const menu = document.getElementById('seed-selector');
+    if (Array.from(menu.classList).includes("hidden")) {
       this.openSeeds();
     } else {
       this.closeSeeds();
+    }
+  }
+
+  openInfo(e) {
+    const menu = document.querySelector('.info-box');
+    menu.classList.remove("hidden");
+  }
+
+  closeInfo(e) {
+    const menu = document.querySelector('.info-box');
+    menu.classList.add("hidden");
+  }
+
+  toggleInfo(e) {
+    const menu = document.querySelector('.info-box');
+    if (Array.from(menu.classList).includes("hidden")) {
+      this.openInfo();
+    } else {
+      this.closeInfo();
     }
   }
 

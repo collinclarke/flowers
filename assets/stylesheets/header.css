@@ -13,12 +13,12 @@ header {
 header img {
   width: 25rem;
   padding-right: 0;
-  filter: blur(3px);
+  filter: blur(4px);
   /*filter: blur(3px) invert(100%);*/
 
 }
 
 header img:hover {
   transition: filter 225ms ease-in;
-  filter: blur(5px);
+  filter: blur(10px);
 }

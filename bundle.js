@@ -74912,6 +74912,10 @@ var _assign = __webpack_require__(62);
 
 var _assign2 = _interopRequireDefault(_assign);
 
+var _from = __webpack_require__(289);
+
+var _from2 = _interopRequireDefault(_from);
+
 var _getPrototypeOf = __webpack_require__(2);
 
 var _getPrototypeOf2 = _interopRequireDefault(_getPrototypeOf);
@@ -74965,6 +74969,7 @@ var Scene = function (_Component) {
     _this.play = _this.play.bind(_this);
     _this.pause = _this.pause.bind(_this);
     _this.makeStep = _this.makeStep.bind(_this);
+    _this.toggleInfo = _this.toggleInfo.bind(_this);
     // this.onDocumentMouseDown = this.onDocumentMouseDown.bind(this);
     // this.onDocumentMouseUp = this.onDocumentMouseUp.bind(this);
 
@@ -75024,7 +75029,7 @@ var Scene = function (_Component) {
         ),
         _react2.default.createElement(
           'div',
-          { id: 'seed', className: 'button', onMouseEnter: this.openSeeds, onClick: this.toggleSeeds },
+          { id: 'seed', className: 'button modal', onMouseEnter: this.openSeeds, onClick: this.toggleSeeds },
           'seed',
           _react2.default.createElement(
             'div',
@@ -75038,6 +75043,47 @@ var Scene = function (_Component) {
               'button',
               { id: 'line', type: 'button', onClick: this.makeLine },
               'line'
+            )
+          )
+        ),
+        _react2.default.createElement(
+          'div',
+          { id: 'info', className: 'button modal', onClick: this.toggleInfo },
+          'info',
+          _react2.default.createElement(
+            'div',
+            { className: 'info-box hidden' },
+            _react2.default.createElement(
+              'div',
+              { id: 'info-details', onClick: this.toggleInfo },
+              'Flowers is a simulator of Conway\'s Game of Life. Build stable formations to create flowers. Designed and built by ',
+              _react2.default.createElement(
+                'a',
+                { target: '_blank', href: 'https://www.github.com/collinclarke' },
+                'Collin Clarke'
+              ),
+              _react2.default.createElement(
+                'div',
+                { className: 'credit' },
+                'special thanks to ',
+                _react2.default.createElement(
+                  'a',
+                  { target: '_blank', href: 'http://markfingerhut.com' },
+                  'mark fingerhut'
+                ),
+                ' and the devs behind ',
+                _react2.default.createElement(
+                  'a',
+                  { target: '_blank', href: 'https://github.com/Izzimach/react-three' },
+                  'react 3'
+                ),
+                ' and ',
+                _react2.default.createElement(
+                  'a',
+                  { target: '_blank', href: 'https://github.com/toxicFork/react-three-renderer' },
+                  'react three renderer'
+                )
+              )
             )
           )
         )
@@ -75058,10 +75104,33 @@ var Scene = function (_Component) {
   }, {
     key: 'toggleSeeds',
     value: function toggleSeeds(e) {
-      if (menu.classList.includes("hidden")) {
+      var menu = document.getElementById('seed-selector');
+      if ((0, _from2.default)(menu.classList).includes("hidden")) {
         this.openSeeds();
       } else {
         this.closeSeeds();
+      }
+    }
+  }, {
+    key: 'openInfo',
+    value: function openInfo(e) {
+      var menu = document.querySelector('.info-box');
+      menu.classList.remove("hidden");
+    }
+  }, {
+    key: 'closeInfo',
+    value: function closeInfo(e) {
+      var menu = document.querySelector('.info-box');
+      menu.classList.add("hidden");
+    }
+  }, {
+    key: 'toggleInfo',
+    value: function toggleInfo(e) {
+      var menu = document.querySelector('.info-box');
+      if ((0, _from2.default)(menu.classList).includes("hidden")) {
+        this.openInfo();
+      } else {
+        this.closeInfo();
       }
     }
   }, {
