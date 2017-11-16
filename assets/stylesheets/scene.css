@@ -94,8 +94,9 @@ button:hover, .button:hover {
   background: rgb(235, 235, 235);
   color: blue;
   padding: 2rem;
-  cursor: normal;
+  cursor: default;
   line-height: 3rem;
+  z-index: 1000;
 }
 
 .credit {
