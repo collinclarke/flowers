@@ -1,44 +1,27 @@
 # Flowers
-Based off of Conway's Game of Life
+A simulator of
+[Conway's Game of Life](https://en.wikipedia.org/wiki/Conway%27s_Game_of_Life)
 
-[live site](https://collinclarke.github.io/flowers/)
+[live](https://collinclarke.github.io/flowers/)
 
 #### Place seeds and observe the outcome
 
 *You can click on squares in a gridded flower patch to place a seed.
 On pressing play, the logic of Conway's GOL dictates the growth and death of your flower patch.*
 
+![demo](./assets/flowers_gif_01.gif)
 
-## MVP
+#### Use the brush tool to draw Life
 
-* Game of life logic accurately implemented with basic visualization
-  * Flower lifecycle in 3js
+*After clicking the brush toggle, click and drag to draw. Zoom with the scroll wheel*
 
-* User can place starting seeds
-
+![brushDemo](./assets/flowers_gif_02.gif)
 ## Technologies / Libraries / APIs
 
-* 3JS (react-three-renderer)
-  * render the grid and the living / dead cells *(combination of mesh and modules)*
-    * render flower lifecycle *(ask a friend to model an animation then use that module as the cell)*
-* Vanilla JS
-  * Provide interactivity
-* React
-  * Manage state of grid
-  * Make app extensible
+[react three](https://github.com/Izzimach/react-three)
 
-## Backend
+[react three renderer](https://github.com/toxicFork/react-three-renderer)
 
-* Store 3js modules
+[three.js](https://threejs.org/)
 
-## Implementation timeline
-
-1. Create basic mesh grid
-  * Game of life accurately occurs based off of starting seed
-  * grid nodes change color based on whether they are alive or dead
-2. User interaction
-  * User can pick where the seeds start
-  * User can play and pause the game of life
-3. 3js enhancement
-  * grid nodes have lifecycle animation
-  * users interact with the 3js with their mouse movements
+[react](https://github.com/facebook/react)
