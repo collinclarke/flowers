@@ -12,6 +12,7 @@ class Scene extends Component {
     this.makeLine = this.makeLine.bind(this);
     this.toggleOn = this.toggleOn.bind(this);
     this.toggleBrush = this.toggleBrush.bind(this);
+    this.toggleSeeds = this.toggleSeeds.bind(this);
     this.clearBoard = this.clearBoard.bind(this);
     this.play = this.play.bind(this);
     this.pause = this.pause.bind(this);

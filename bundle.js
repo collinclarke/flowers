@@ -74971,6 +74971,7 @@ var Scene = function (_Component) {
     _this.makeLine = _this.makeLine.bind(_this);
     _this.toggleOn = _this.toggleOn.bind(_this);
     _this.toggleBrush = _this.toggleBrush.bind(_this);
+    _this.toggleSeeds = _this.toggleSeeds.bind(_this);
     _this.clearBoard = _this.clearBoard.bind(_this);
     _this.play = _this.play.bind(_this);
     _this.pause = _this.pause.bind(_this);
