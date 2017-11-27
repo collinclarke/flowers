@@ -74977,8 +74977,6 @@ var Scene = function (_Component) {
     _this.pause = _this.pause.bind(_this);
     _this.makeStep = _this.makeStep.bind(_this);
     _this.toggleInfo = _this.toggleInfo.bind(_this);
-    // this.onDocumentMouseDown = this.onDocumentMouseDown.bind(this);
-    // this.onDocumentMouseUp = this.onDocumentMouseUp.bind(this);
 
     _this.state = {
       board: new _gol_board2.default(_this.size),
@@ -75219,9 +75217,6 @@ var Scene = function (_Component) {
       clearInterval(this.GOL);
       this.setState({ play: false });
     }
-  }, {
-    key: 'componentWillReceiveProps',
-    value: function componentWillReceiveProps() {}
   }]);
   return Scene;
 }(_react.Component);
@@ -76297,8 +76292,6 @@ var Simple = function (_Component) {
 
 
       var tilted = Math.abs(x) > 5 || Math.abs(y) > 5;
-      // console.log("position", this.state.cameraPosition);
-      // console.log("rotation", this.state.cameraRotation);
       if (z < 0.009 && !tilted) {
         this.setState({
           cameraPosition: new Three.Vector3(x, y, 6000).applyEuler(cameraRotation)
@@ -76313,16 +76306,6 @@ var Simple = function (_Component) {
 
       mouseInput.containerResized();
     }
-
-    // _onTrackballChange = () => {
-    //   this.setState({
-    //     cameraPosition: this.refs.camera.position.clone(),
-    //   }, console.log("position", this.state.cameraPosition));
-    //   this.setState({
-    //     cameraRotation: this.refs.camera.rotation.clone(),
-    //   }, console.log("rotation", this.state.cameraRotation));
-    // };
-
   }, {
     key: 'componentWillUnmount',
     value: function componentWillUnmount() {
@@ -88068,7 +88051,6 @@ var NodeGrid = function (_React$Component) {
     value: function generateNode(bool, idx) {
       var onCreate = this.onNodeCreate.bind(this, idx);
       var pos = this.props.board.positionGrid[idx];
-
       var _props = this.props,
           mouseInput = _props.mouseInput,
           camera = _props.camera,
@@ -88076,14 +88058,10 @@ var NodeGrid = function (_React$Component) {
           pause = _props.pause,
           play = _props.play,
           running = _props.running;
-
-
-      if (!pause || !play) {
-        debugger;
-      }
       var _state = this.state,
           turn = _state.turn,
           dragging = _state.dragging;
+
 
       return _react2.default.createElement(_node2.default, { key: idx,
         running: running,
@@ -88276,9 +88254,6 @@ var Node = function (_Component) {
   }
 
   (0, _createClass3.default)(Node, [{
-    key: 'componentWillReceiveProps',
-    value: function componentWillReceiveProps(nextProps) {}
-  }, {
     key: 'toggleLife',
     value: function toggleLife() {
       this.props.toggleLiving(this.props.gridPos);
@@ -88314,13 +88289,12 @@ var Node = function (_Component) {
       return 'rgb( ' + r + ', ' + g + ', ' + b + ' )';
     }
   }, {
-    key: 'componentWillReceiveProps',
-    value: function componentWillReceiveProps(nextProps) {}
-  }, {
     key: 'render',
     value: function render() {
       var color = void 0;
+
       var max = Math.floor(this.maxLife / 2);
+
       if (this.props.living) {
         color = this.calculateColor();
         if (this.life < 10 && !this.state.dragging) this.life += .075;
@@ -88347,7 +88321,6 @@ var Node = function (_Component) {
         _react2.default.createElement(
           'mesh',
           {
-
             onMouseEnter: this.onMouseEnter,
             onMouseDown: this.onMouseDown,
             onMouseLeave: this.onMouseLeave,
@@ -88465,14 +88438,17 @@ var GolBoard = function () {
     value: function drawAcorn() {
       var origin = Math.floor(Math.random() * this.count);
       var originY = Math.floor(Math.random() * this.count);
+
       if (origin < 4) {
         origin += 4;
       } else if (origin > this.count - 4) {
         origin -= 4;
       }
-      // let half = this.count / 2;
-      // half = Math.floor((Math.random()) * half + 4);
-      // const halfY = Math.floor((Math.random() * half + 4));
+
+      if (originY > 24 || originY < 0) {
+        originY = 12;
+      }
+
       this.grid[origin][originY] = true;
       this.grid[origin + 2][originY] = true;
       this.grid[origin + 1][originY] = true;
@@ -88508,24 +88484,9 @@ var GolBoard = function () {
           }
         }
       });
-      // if (this.isLiving(x, y)) {
-      //   console.log("origin", [x, y]);
-      //   console.log("neighbors", neighbors);
-      // }
+
       return neighbors;
     }
-
-    // calculateLife (x, y) {
-    //   const neighbors = this.findNeighbors(x, y);
-    //   const living = this.grid[x][y];
-    //
-    //   return living ? (
-    //     ![2, 3].includes(neighbors) && (this.nextGrid[x][y] = false)
-    //   ) : (
-    //     (neighbors === 3) && (this.nextGrid[x][y] = true)
-    //   );
-    // }
-
   }, {
     key: 'calculateLife',
     value: function calculateLife(x, y) {
