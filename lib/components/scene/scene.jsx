@@ -18,8 +18,6 @@ class Scene extends Component {
     this.pause = this.pause.bind(this);
     this.makeStep = this.makeStep.bind(this);
     this.toggleInfo = this.toggleInfo.bind(this);
-    // this.onDocumentMouseDown = this.onDocumentMouseDown.bind(this);
-    // this.onDocumentMouseUp = this.onDocumentMouseUp.bind(this);
 
     this.state = {
       board: new GolBoard(this.size),
@@ -179,10 +177,6 @@ class Scene extends Component {
   pause() {
     clearInterval(this.GOL);
     this.setState({play: false});
-  }
-
-  componentWillReceiveProps() {
-
   }
 
 }

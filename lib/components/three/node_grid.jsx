@@ -20,6 +20,8 @@ class NodeGrid extends React.Component {
     this.flower = 1;
   }
 
+  shouldComponentUpdate = PureRenderMixin.shouldComponentUpdate;
+
   onNodeCreate(index, node) {
     this.nodes[index] = node;
   };
@@ -27,14 +29,10 @@ class NodeGrid extends React.Component {
   generateNode(bool, idx) {
     const onCreate = this.onNodeCreate.bind(this, idx);
     const pos = this.props.board.positionGrid[idx];
-
     const { mouseInput, camera,
       brush, pause, play, running } = this.props;
-
-    if (!pause || !play) {
-      debugger
-    }
     const { turn, dragging } = this.state;
+
     return ( <Node key={idx}
       running={running}
       pause={pause}
@@ -74,8 +72,6 @@ class NodeGrid extends React.Component {
       this.generateNodeGrid(board);
     }
   }
-
-  shouldComponentUpdate = PureRenderMixin.shouldComponentUpdate;
 
   render() {
     return (

@@ -58,8 +58,6 @@ class Simple extends Component {
     const { cameraRotation } = this.state;
 
     const tilted = (Math.abs(x) > 5 || Math.abs(y) > 5)
-    // console.log("position", this.state.cameraPosition);
-    // console.log("rotation", this.state.cameraRotation);
     if (z < 0.009 && !tilted) {
       this.setState({
         cameraPosition: new Three.Vector3(x, y, 6000).applyEuler(cameraRotation),
@@ -76,14 +74,6 @@ class Simple extends Component {
       mouseInput.containerResized();
   }
 
-  // _onTrackballChange = () => {
-  //   this.setState({
-  //     cameraPosition: this.refs.camera.position.clone(),
-  //   }, console.log("position", this.state.cameraPosition));
-  //   this.setState({
-  //     cameraRotation: this.refs.camera.rotation.clone(),
-  //   }, console.log("rotation", this.state.cameraRotation));
-  // };
   _onTrackballChange = () => {
     console.log(this.refs.camera.position);
     this.setState({

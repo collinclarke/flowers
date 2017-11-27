@@ -9,6 +9,7 @@ const dragPlane = new Three.Plane();
 const backVector = new Three.Vector3(0, 0, -1);
 
 class Node extends Component {
+
   constructor(props, context) {
     super(props, context);
     this.state = {
@@ -28,15 +29,11 @@ class Node extends Component {
     this.maxLife = 3;
   }
 
-  componentWillReceiveProps(nextProps) {
-
-  }
+  shouldComponentUpdate = PureRenderMixin.shouldComponentUpdate;
 
   toggleLife () {
     this.props.toggleLiving(this.props.gridPos);
   }
-
-  shouldComponentUpdate = PureRenderMixin.shouldComponentUpdate;
 
   onMouseEnter = (e) => {
     this.setState({
@@ -111,14 +108,11 @@ class Node extends Component {
     return `rgb( ${r}, ${g}, ${b} )`
   }
 
-  componentWillReceiveProps(nextProps) {
-
-  }
-
-
   render() {
     let color;
+
     const max = Math.floor(this.maxLife / 2)
+
     if (this.props.living) {
       color = this.calculateColor();
       if (this.life < 10 && !(this.state.dragging))
@@ -126,7 +120,6 @@ class Node extends Component {
       if (this.props.flower > Math.pow(10, 10)) {
         this.life += .075;
       }
-
     } else if (this.state.hovered) {
       color = this.hoverColor;
     } else {
@@ -143,24 +136,21 @@ class Node extends Component {
       position={this.props.position}
     >
       <mesh
-
-
         onMouseEnter={this.onMouseEnter}
         onMouseDown={this.onMouseDown}
         onMouseLeave={this.onMouseLeave}
 
         ref={this.ref}
       >
-      <boxGeometry
-        dynamic={true}
-        width={3}
-        height={3}
-        depth={this.life}
-      />
+        <boxGeometry
+          dynamic={true}
+          width={3}
+          height={3}
+          depth={this.life}
+        />
         <meshLambertMaterial
           color={color}
         />
-
       </mesh>
     </group>);
   };
