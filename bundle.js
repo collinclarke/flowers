@@ -74977,6 +74977,9 @@ var Scene = function (_Component) {
     _this.pause = _this.pause.bind(_this);
     _this.makeStep = _this.makeStep.bind(_this);
     _this.toggleInfo = _this.toggleInfo.bind(_this);
+    _this.onMouseDown = _this.onMouseDown.bind(_this);
+    _this.onMouseUp = _this.onMouseUp.bind(_this);
+    _this.onMouseMove = _this.onMouseMove.bind(_this);
 
     _this.state = {
       board: new _gol_board2.default(_this.size),
@@ -74984,7 +74987,6 @@ var Scene = function (_Component) {
       paused: false,
       brush: false
     };
-    document.addEventListener("mousedown", _this.onDocumentMouseDown);
     return _this;
   }
 
@@ -75024,12 +75026,6 @@ var Scene = function (_Component) {
             { id: 'toggle-live', type: 'button', className: play ? "on" : "off",
               onClick: this.toggleOn },
             play ? "stop" : "live"
-          ),
-          _react2.default.createElement(
-            'button',
-            { id: 'brush', type: 'button', className: brush ? "on" : "off",
-              onClick: this.toggleBrush },
-            'brush'
           )
         ),
         _react2.default.createElement(
@@ -75099,6 +75095,36 @@ var Scene = function (_Component) {
           )
         )
       );
+    }
+  }, {
+    key: 'componentDidMount',
+    value: function componentDidMount() {
+      document.addEventListener("mousedown", this.onMouseDown);
+    }
+  }, {
+    key: 'onMouseDown',
+    value: function onMouseDown(e) {
+      if (!this.state.brush) {
+        document.addEventListener("mousemove", this.onMouseMove);
+      }
+    }
+  }, {
+    key: 'onMouseMove',
+    value: function onMouseMove(e) {
+      this.setState({ brush: true });
+      document.addEventListener("mouseup", this.onMouseUp);
+    }
+  }, {
+    key: 'onMouseUp',
+    value: function onMouseUp(e) {
+      document.removeEventListener("mouseup", this.onMouseUp);
+      document.removeEventListener("mousemove", this.onMouseMove);
+      this.setState({ brush: false });
+    }
+  }, {
+    key: 'componentWillUnmount',
+    value: function componentWillUnmount() {
+      document.removeEventListener("mousedown", this.onMouseDown);
     }
   }, {
     key: 'openSeeds',
@@ -76242,7 +76268,6 @@ var Simple = function (_Component) {
     };
 
     _this._onTrackballChange = function () {
-      console.log(_this.refs.camera.position);
       _this.setState({
         cameraPosition: _this.refs.camera.position.clone(),
         cameraRotation: _this.refs.camera.rotation.clone()
@@ -87562,7 +87587,7 @@ var TrackballControls = function (_THREE$EventDispatche) {
       var vector = new THREE.Vector2();
 
       return function (pageX, pageY) {
-        vector.set((pageX - _this.screen.width * 0.5 - _this.screen.left) / (_this.screen.width * 0.5) * 0, (_this.screen.height + 2 * (_this.screen.top - pageY)) / _this.screen.width * .15 // screen.width intentional
+        vector.set((pageX - _this.screen.width * 0.5 - _this.screen.left) / (_this.screen.width * 0.5) * 0.15, (_this.screen.height + 2 * (_this.screen.top - pageY)) / _this.screen.width * .15 // screen.width intentional
         );
         // console.log(vector);
         return vector;
@@ -87975,6 +88000,10 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 
+var _defineProperty2 = __webpack_require__(348);
+
+var _defineProperty3 = _interopRequireDefault(_defineProperty2);
+
 var _getPrototypeOf = __webpack_require__(2);
 
 var _getPrototypeOf2 = _interopRequireDefault(_getPrototypeOf);
@@ -88027,8 +88056,6 @@ var NodeGrid = function (_React$Component) {
 
     var _this = (0, _possibleConstructorReturn3.default)(this, (NodeGrid.__proto__ || (0, _getPrototypeOf2.default)(NodeGrid)).call(this, props, context));
 
-    _this.shouldComponentUpdate = _ReactComponentWithPureRenderMixin2.default.shouldComponentUpdate;
-
     _this.nodes = [];
     _this.generateNode = _this.generateNode.bind(_this);
     _this.onNodeCreate = _this.onNodeCreate.bind(_this);
@@ -88038,8 +88065,12 @@ var NodeGrid = function (_React$Component) {
     _this.nodeComponents = [];
     _this.generateNodeGrid(props.board);
     _this.flower = 1;
+    _this.onMouseUp = _this.onMouseUp.bind(_this);
+    _this.onMouseDown = _this.onMouseDown.bind(_this);
     return _this;
   }
+
+  // shouldComponentUpdate = PureRenderMixin.shouldComponentUpdate;
 
   (0, _createClass3.default)(NodeGrid, [{
     key: 'onNodeCreate',
@@ -88049,6 +88080,8 @@ var NodeGrid = function (_React$Component) {
   }, {
     key: 'generateNode',
     value: function generateNode(bool, idx) {
+      var _React$createElement;
+
       var onCreate = this.onNodeCreate.bind(this, idx);
       var pos = this.props.board.positionGrid[idx];
       var _props = this.props,
@@ -88058,27 +88091,22 @@ var NodeGrid = function (_React$Component) {
           pause = _props.pause,
           play = _props.play,
           running = _props.running;
-      var _state = this.state,
-          turn = _state.turn,
-          dragging = _state.dragging;
+      var dragging = this.state.dragging;
 
 
-      return _react2.default.createElement(_node2.default, { key: idx,
+      return _react2.default.createElement(_node2.default, (_React$createElement = { key: idx,
         running: running,
         pause: pause,
         play: play,
         brush: brush,
+        dragging: dragging,
         ref: idx,
         gridPos: [pos.x / 5, pos.y / 5],
         camera: camera,
         onCreate: onCreate,
         mouseInput: mouseInput,
-        position: pos,
-        dragging: dragging,
-        toggleLiving: this.props.toggleLiving,
-        living: bool,
-        flower: this.flower
-      });
+        position: pos
+      }, (0, _defineProperty3.default)(_React$createElement, 'dragging', dragging), (0, _defineProperty3.default)(_React$createElement, 'toggleLiving', this.props.toggleLiving), (0, _defineProperty3.default)(_React$createElement, 'giveLife', this.props.giveLife), (0, _defineProperty3.default)(_React$createElement, 'living', bool), (0, _defineProperty3.default)(_React$createElement, 'flower', this.flower), _React$createElement));
     }
   }, {
     key: 'componentDidMount',
@@ -88086,6 +88114,19 @@ var NodeGrid = function (_React$Component) {
       var onNodesMounted = this.props.onNodesMounted;
 
       onNodesMounted(this.nodes);
+      document.addEventListener("mousedown", this.onMouseDown);
+    }
+  }, {
+    key: 'onMouseDown',
+    value: function onMouseDown(e) {
+      this.setState({ dragging: true });
+      document.addEventListener("mouseup", this.onMouseUp);
+    }
+  }, {
+    key: 'onMouseUp',
+    value: function onMouseUp(e) {
+      this.setState({ dragging: false });
+      document.removeEventListener("mouseup", this.onMouseUp);
     }
   }, {
     key: 'generateNodeGrid',
@@ -88329,8 +88370,8 @@ var Node = function (_Component) {
           },
           _react2.default.createElement('boxGeometry', {
             dynamic: true,
-            width: 3,
-            height: 3,
+            width: 3.8,
+            height: 3.8,
             depth: this.life
           }),
           _react2.default.createElement('meshLambertMaterial', {

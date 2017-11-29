@@ -75,7 +75,6 @@ class Simple extends Component {
   }
 
   _onTrackballChange = () => {
-    console.log(this.refs.camera.position);
     this.setState({
       cameraPosition: this.refs.camera.position.clone(),
       cameraRotation: this.refs.camera.rotation.clone(),

@@ -18,6 +18,9 @@ class Scene extends Component {
     this.pause = this.pause.bind(this);
     this.makeStep = this.makeStep.bind(this);
     this.toggleInfo = this.toggleInfo.bind(this);
+    this.onMouseDown = this.onMouseDown.bind(this);
+    this.onMouseUp = this.onMouseUp.bind(this);
+    this.onMouseMove = this.onMouseMove.bind(this);
 
     this.state = {
       board: new GolBoard(this.size),
@@ -25,7 +28,6 @@ class Scene extends Component {
       paused: false,
       brush: false
     };
-    document.addEventListener("mousedown", this.onDocumentMouseDown);
   }
 
   render() {
@@ -50,10 +52,7 @@ class Scene extends Component {
         onClick={this.toggleOn}>
         { play ? "stop" : "live"}
         </button>
-        <button id="brush" type="button" className={ brush ? "on" : "off"}
-        onClick={this.toggleBrush} >
-          brush
-        </button>
+
       </nav>
       <div id="seed" className="button modal" onMouseEnter={this.openSeeds} onClick={this.toggleSeeds}>
         seed
@@ -79,6 +78,32 @@ class Scene extends Component {
       </section>
     );
   }
+
+  componentDidMount() {
+    document.addEventListener("mousedown", this.onMouseDown);
+  }
+
+  onMouseDown(e) {
+    if (!this.state.brush) {
+      document.addEventListener("mousemove", this.onMouseMove);
+    }
+  }
+
+  onMouseMove(e) {
+    this.setState({brush: true});
+    document.addEventListener("mouseup", this.onMouseUp);
+  }
+
+  onMouseUp(e) {
+    document.removeEventListener("mouseup", this.onMouseUp);
+    document.removeEventListener("mousemove", this.onMouseMove);
+    this.setState({brush: false});
+  }
+
+  componentWillUnmount() {
+    document.removeEventListener("mousedown", this.onMouseDown);
+  }
+
 
   openSeeds(e) {
     const menu = document.getElementById('seed-selector');
