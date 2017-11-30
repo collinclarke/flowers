@@ -43,11 +43,11 @@ class Scene extends Component {
       />
       <nav className="buttons">
         <button id="clear" type="button" onClick={this.clearBoard}>
-          clear
+          stop
         </button>
         <button id="toggle-live" type="button" className={ play ? "on" : "off"}
         onClick={this.toggleOn}>
-        { play ? "stop" : "play"}
+        { play ? "pause" : "play"}
         </button>
         <button id="step" type="button" onClick={this.makeStep}>
           step
@@ -180,6 +180,7 @@ class Scene extends Component {
   }
 
   pause() {
+    console.log('GOL paused');
     clearInterval(this.GOL);
     this.setState({play: false});
   }

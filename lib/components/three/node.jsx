@@ -100,10 +100,17 @@ class Node extends Component {
       r = Math.floor(Math.random() * 155 + 150);
       g = Math.floor(Math.random() * 100);
       b = Math.floor(Math.random() * 100 + 50);
-    } else if (nonLiving && this.life > 0) {
-      r = Math.abs(r + 80);
-      g = Math.abs(g - 50);
-      b = Math.abs(g - 30);
+      return `rgb( ${r}, ${g}, ${b} )`
+    } else if (nonLiving) {
+      if (this.life > 5) {
+        r = Math.abs(r - 2);
+        g = Math.abs(g - 2);
+        b = Math.abs(g - 2);
+      } else {
+        r = Math.abs(r + 80);
+        g = Math.abs(g - 50);
+        b = Math.abs(g - 30);
+      }
       return `rgb( ${r}, ${g}, ${b} )`
     } else {
       r = colorConversion(0);
@@ -120,7 +127,7 @@ class Node extends Component {
 
 
   render() {
-    const { living, flower, dragging } = this.props;
+    const { living, flower, dragging, running } = this.props;
     const max = Math.floor(this.maxLife / 3)
 
     if (living) {
@@ -128,14 +135,14 @@ class Node extends Component {
         this.maxLife = this.life;
       }
       this.color = this.calculateColor();
-      if ((this.life < 10) && !dragging)
-        this.life += .5;
-      if ((this.props.flower > Math.pow(10, 10)) && !dragging)
+      if ((this.life < 10 && running) && !dragging)
+        this.life += 0.65;
+      if ((this.props.flower > Math.pow(10, 10) && running) && !dragging)
         this.life += .025;
     } else if (this.state.hovered) {
       this.color = this.hoverColor;
     } else {
-      if (this.life < max + 0.4) {
+      if (this.life < 1) {
         this.color = "blue";
       } else {
         this.color = this.calculateColor(true)
@@ -157,8 +164,8 @@ class Node extends Component {
       >
         <boxGeometry
           dynamic={true}
-          width={4.6}
-          height={4.6}
+          width={5}
+          height={5}
           depth={this.life}
         />
         <meshLambertMaterial

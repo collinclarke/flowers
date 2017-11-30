@@ -75014,13 +75014,13 @@ var Scene = function (_Component) {
           _react2.default.createElement(
             'button',
             { id: 'clear', type: 'button', onClick: this.clearBoard },
-            'clear'
+            'stop'
           ),
           _react2.default.createElement(
             'button',
             { id: 'toggle-live', type: 'button', className: play ? "on" : "off",
               onClick: this.toggleOn },
-            play ? "stop" : "play"
+            play ? "pause" : "play"
           ),
           _react2.default.createElement(
             'button',
@@ -75217,6 +75217,7 @@ var Scene = function (_Component) {
   }, {
     key: 'pause',
     value: function pause() {
+      console.log('GOL paused');
       clearInterval(this.GOL);
       this.setState({ play: false });
     }
@@ -88316,10 +88317,17 @@ var Node = function (_Component) {
         r = Math.floor(Math.random() * 155 + 150);
         g = Math.floor(Math.random() * 100);
         b = Math.floor(Math.random() * 100 + 50);
-      } else if (nonLiving && this.life > 0) {
-        r = Math.abs(r + 80);
-        g = Math.abs(g - 50);
-        b = Math.abs(g - 30);
+        return 'rgb( ' + r + ', ' + g + ', ' + b + ' )';
+      } else if (nonLiving) {
+        if (this.life > 5) {
+          r = Math.abs(r - 2);
+          g = Math.abs(g - 2);
+          b = Math.abs(g - 2);
+        } else {
+          r = Math.abs(r + 80);
+          g = Math.abs(g - 50);
+          b = Math.abs(g - 30);
+        }
         return 'rgb( ' + r + ', ' + g + ', ' + b + ' )';
       } else {
         r = colorConversion(0);
@@ -88339,7 +88347,8 @@ var Node = function (_Component) {
       var _props = this.props,
           living = _props.living,
           flower = _props.flower,
-          dragging = _props.dragging;
+          dragging = _props.dragging,
+          running = _props.running;
 
       var max = Math.floor(this.maxLife / 3);
 
@@ -88348,12 +88357,12 @@ var Node = function (_Component) {
           this.maxLife = this.life;
         }
         this.color = this.calculateColor();
-        if (this.life < 10 && !dragging) this.life += .5;
-        if (this.props.flower > Math.pow(10, 10) && !dragging) this.life += .025;
+        if (this.life < 10 && running && !dragging) this.life += 0.65;
+        if (this.props.flower > Math.pow(10, 10) && running && !dragging) this.life += .025;
       } else if (this.state.hovered) {
         this.color = this.hoverColor;
       } else {
-        if (this.life < max + 0.4) {
+        if (this.life < 1) {
           this.color = "blue";
         } else {
           this.color = this.calculateColor(true);
@@ -88379,8 +88388,8 @@ var Node = function (_Component) {
           },
           _react2.default.createElement('boxGeometry', {
             dynamic: true,
-            width: 4.6,
-            height: 4.6,
+            width: 5,
+            height: 5,
             depth: this.life
           }),
           _react2.default.createElement('meshLambertMaterial', {
