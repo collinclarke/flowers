@@ -7,6 +7,7 @@ class Scene extends Component {
     super();
     this.size = 25;
     this.toggleLiving = this.toggleLiving.bind(this);
+    this.giveLife = this.giveLife.bind(this);
     this.makeMove = this.makeMove.bind(this);
     this.makeAcorn = this.makeAcorn.bind(this);
     this.makeLine = this.makeLine.bind(this);
@@ -18,9 +19,6 @@ class Scene extends Component {
     this.pause = this.pause.bind(this);
     this.makeStep = this.makeStep.bind(this);
     this.toggleInfo = this.toggleInfo.bind(this);
-    this.onMouseDown = this.onMouseDown.bind(this);
-    this.onMouseUp = this.onMouseUp.bind(this);
-    this.onMouseMove = this.onMouseMove.bind(this);
 
     this.state = {
       board: new GolBoard(this.size),
@@ -35,22 +33,24 @@ class Scene extends Component {
     return (
       <section className="scene">
       <Simple
-      brush={brush}
-      pause={this.pause}
-      play={this.play}
-      running={play}
-      board={board}
-      toggleLiving= {this.toggleLiving}/>
+        brush={brush}
+        pause={this.pause}
+        play={this.play}
+        running={play}
+        board={board}
+        giveLife={this.giveLife}
+        toggleLiving= {this.toggleLiving}
+      />
       <nav className="buttons">
         <button id="clear" type="button" onClick={this.clearBoard}>
-          die
-        </button>
-        <button id="step" type="button" onClick={this.makeStep}>
-          step
+          clear
         </button>
         <button id="toggle-live" type="button" className={ play ? "on" : "off"}
         onClick={this.toggleOn}>
-        { play ? "stop" : "live"}
+        { play ? "stop" : "play"}
+        </button>
+        <button id="step" type="button" onClick={this.makeStep}>
+          step
         </button>
 
       </nav>
@@ -63,47 +63,21 @@ class Scene extends Component {
       </div>
       <div id="info" className="button modal" onClick={this.toggleInfo}>
         info
-        <div className="info-box hidden">
-          <div id="info-details" onClick={this.toggleInfo}>
-            Flowers is a simulator of <a target="_blank" href="https://en.wikipedia.org/wiki/Conway%27s_Game_of_Life">Conway's Game of Life</a>. Click to add life,
-            press "live" to start the game.
-            Build stable formations to create flowers.
-            Designed and built by <a target="_blank" href="https://www.github.com/collinclarke">Collin Clarke</a>
-            <div className="credit">
-              special thanks to <a target="_blank" href="http://markfingerhut.com">mark fingerhut</a> and the devs behind <a target="_blank" href="https://github.com/Izzimach/react-three">react 3</a> and <a target="_blank" href="https://github.com/toxicFork/react-three-renderer">react three renderer</a>
-            </div>
+      </div>
+      <div className="info-box" onClick={this.toggleInfo}>
+        <div id="info-details">
+          Flowers is a simulator of <a target="_blank" href="https://en.wikipedia.org/wiki/Conway%27s_Game_of_Life">Conway's Game of Life</a>. Click to add life,
+          press "live" to start the game.
+          Build stable formations to create flowers.
+          Designed and built by <a target="_blank" href="https://www.github.com/collinclarke">Collin Clarke</a>
+          <div className="credit">
+            special thanks to <a target="_blank" href="http://markfingerhut.com">mark fingerhut</a> and the devs behind <a target="_blank" href="https://github.com/Izzimach/react-three">react 3</a> and <a target="_blank" href="https://github.com/toxicFork/react-three-renderer">react three renderer</a>
           </div>
         </div>
       </div>
       </section>
     );
   }
-
-  componentDidMount() {
-    document.addEventListener("mousedown", this.onMouseDown);
-  }
-
-  onMouseDown(e) {
-    if (!this.state.brush) {
-      document.addEventListener("mousemove", this.onMouseMove);
-    }
-  }
-
-  onMouseMove(e) {
-    this.setState({brush: true});
-    document.addEventListener("mouseup", this.onMouseUp);
-  }
-
-  onMouseUp(e) {
-    document.removeEventListener("mouseup", this.onMouseUp);
-    document.removeEventListener("mousemove", this.onMouseMove);
-    this.setState({brush: false});
-  }
-
-  componentWillUnmount() {
-    document.removeEventListener("mousedown", this.onMouseDown);
-  }
-
 
   openSeeds(e) {
     const menu = document.getElementById('seed-selector');
@@ -188,6 +162,12 @@ class Scene extends Component {
   toggleLiving(posArr) {
     const nextBoard = Object.assign({}, this.state.board);
     nextBoard.toggleLife(...posArr);
+    this.setState({board: nextBoard});
+  }
+
+  giveLife(posArr) {
+    const nextBoard = Object.assign({}, this.state.board);
+    nextBoard.live(...posArr);
     this.setState({board: nextBoard});
   }
 
