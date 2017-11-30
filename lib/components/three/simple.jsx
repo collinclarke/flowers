@@ -184,11 +184,11 @@ class Simple extends Component {
             play={play}
             brush={this.props.brush}
             toggleLiving={this.props.toggleLiving}
+            giveLife={this.props.giveLife}
             board={this.props.board}
             mouseInput={mouseInput}
             camera={camera}
             onNodesMounted={this._onNodesMounted}
-            endMouseDown={this.endMouseDown}
            />
 
 

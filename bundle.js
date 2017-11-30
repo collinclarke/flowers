@@ -74966,6 +74966,7 @@ var Scene = function (_Component) {
 
     _this.size = 25;
     _this.toggleLiving = _this.toggleLiving.bind(_this);
+    _this.giveLife = _this.giveLife.bind(_this);
     _this.makeMove = _this.makeMove.bind(_this);
     _this.makeAcorn = _this.makeAcorn.bind(_this);
     _this.makeLine = _this.makeLine.bind(_this);
@@ -74977,9 +74978,6 @@ var Scene = function (_Component) {
     _this.pause = _this.pause.bind(_this);
     _this.makeStep = _this.makeStep.bind(_this);
     _this.toggleInfo = _this.toggleInfo.bind(_this);
-    _this.onMouseDown = _this.onMouseDown.bind(_this);
-    _this.onMouseUp = _this.onMouseUp.bind(_this);
-    _this.onMouseMove = _this.onMouseMove.bind(_this);
 
     _this.state = {
       board: new _gol_board2.default(_this.size),
@@ -75007,25 +75005,27 @@ var Scene = function (_Component) {
           play: this.play,
           running: play,
           board: board,
-          toggleLiving: this.toggleLiving }),
+          giveLife: this.giveLife,
+          toggleLiving: this.toggleLiving
+        }),
         _react2.default.createElement(
           'nav',
           { className: 'buttons' },
           _react2.default.createElement(
             'button',
             { id: 'clear', type: 'button', onClick: this.clearBoard },
-            'die'
-          ),
-          _react2.default.createElement(
-            'button',
-            { id: 'step', type: 'button', onClick: this.makeStep },
-            'step'
+            'clear'
           ),
           _react2.default.createElement(
             'button',
             { id: 'toggle-live', type: 'button', className: play ? "on" : "off",
               onClick: this.toggleOn },
-            play ? "stop" : "live"
+            play ? "stop" : "play"
+          ),
+          _react2.default.createElement(
+            'button',
+            { id: 'step', type: 'button', onClick: this.makeStep },
+            'step'
           )
         ),
         _react2.default.createElement(
@@ -75050,81 +75050,51 @@ var Scene = function (_Component) {
         _react2.default.createElement(
           'div',
           { id: 'info', className: 'button modal', onClick: this.toggleInfo },
-          'info',
+          'info'
+        ),
+        _react2.default.createElement(
+          'div',
+          { className: 'info-box', onClick: this.toggleInfo },
           _react2.default.createElement(
             'div',
-            { className: 'info-box hidden' },
+            { id: 'info-details' },
+            'Flowers is a simulator of ',
+            _react2.default.createElement(
+              'a',
+              { target: '_blank', href: 'https://en.wikipedia.org/wiki/Conway%27s_Game_of_Life' },
+              'Conway\'s Game of Life'
+            ),
+            '. Click to add life, press "live" to start the game. Build stable formations to create flowers. Designed and built by ',
+            _react2.default.createElement(
+              'a',
+              { target: '_blank', href: 'https://www.github.com/collinclarke' },
+              'Collin Clarke'
+            ),
             _react2.default.createElement(
               'div',
-              { id: 'info-details', onClick: this.toggleInfo },
-              'Flowers is a simulator of ',
+              { className: 'credit' },
+              'special thanks to ',
               _react2.default.createElement(
                 'a',
-                { target: '_blank', href: 'https://en.wikipedia.org/wiki/Conway%27s_Game_of_Life' },
-                'Conway\'s Game of Life'
+                { target: '_blank', href: 'http://markfingerhut.com' },
+                'mark fingerhut'
               ),
-              '. Click to add life, press "live" to start the game. Build stable formations to create flowers. Designed and built by ',
+              ' and the devs behind ',
               _react2.default.createElement(
                 'a',
-                { target: '_blank', href: 'https://www.github.com/collinclarke' },
-                'Collin Clarke'
+                { target: '_blank', href: 'https://github.com/Izzimach/react-three' },
+                'react 3'
               ),
+              ' and ',
               _react2.default.createElement(
-                'div',
-                { className: 'credit' },
-                'special thanks to ',
-                _react2.default.createElement(
-                  'a',
-                  { target: '_blank', href: 'http://markfingerhut.com' },
-                  'mark fingerhut'
-                ),
-                ' and the devs behind ',
-                _react2.default.createElement(
-                  'a',
-                  { target: '_blank', href: 'https://github.com/Izzimach/react-three' },
-                  'react 3'
-                ),
-                ' and ',
-                _react2.default.createElement(
-                  'a',
-                  { target: '_blank', href: 'https://github.com/toxicFork/react-three-renderer' },
-                  'react three renderer'
-                )
+                'a',
+                { target: '_blank', href: 'https://github.com/toxicFork/react-three-renderer' },
+                'react three renderer'
               )
             )
           )
         )
       );
-    }
-  }, {
-    key: 'componentDidMount',
-    value: function componentDidMount() {
-      document.addEventListener("mousedown", this.onMouseDown);
-    }
-  }, {
-    key: 'onMouseDown',
-    value: function onMouseDown(e) {
-      if (!this.state.brush) {
-        document.addEventListener("mousemove", this.onMouseMove);
-      }
-    }
-  }, {
-    key: 'onMouseMove',
-    value: function onMouseMove(e) {
-      this.setState({ brush: true });
-      document.addEventListener("mouseup", this.onMouseUp);
-    }
-  }, {
-    key: 'onMouseUp',
-    value: function onMouseUp(e) {
-      document.removeEventListener("mouseup", this.onMouseUp);
-      document.removeEventListener("mousemove", this.onMouseMove);
-      this.setState({ brush: false });
-    }
-  }, {
-    key: 'componentWillUnmount',
-    value: function componentWillUnmount() {
-      document.removeEventListener("mousedown", this.onMouseDown);
     }
   }, {
     key: 'openSeeds',
@@ -75224,6 +75194,13 @@ var Scene = function (_Component) {
     value: function toggleLiving(posArr) {
       var nextBoard = (0, _assign2.default)({}, this.state.board);
       nextBoard.toggleLife.apply(nextBoard, (0, _toConsumableArray3.default)(posArr));
+      this.setState({ board: nextBoard });
+    }
+  }, {
+    key: 'giveLife',
+    value: function giveLife(posArr) {
+      var nextBoard = (0, _assign2.default)({}, this.state.board);
+      nextBoard.live.apply(nextBoard, (0, _toConsumableArray3.default)(posArr));
       this.setState({ board: nextBoard });
     }
   }, {
@@ -76448,11 +76425,11 @@ var Simple = function (_Component) {
               play: play,
               brush: this.props.brush,
               toggleLiving: this.props.toggleLiving,
+              giveLife: this.props.giveLife,
               board: this.props.board,
               mouseInput: mouseInput,
               camera: camera,
-              onNodesMounted: this._onNodesMounted,
-              endMouseDown: this.endMouseDown
+              onNodesMounted: this._onNodesMounted
             })
           )
         )
@@ -87587,7 +87564,7 @@ var TrackballControls = function (_THREE$EventDispatche) {
       var vector = new THREE.Vector2();
 
       return function (pageX, pageY) {
-        vector.set((pageX - _this.screen.width * 0.5 - _this.screen.left) / (_this.screen.width * 0.5) * 0.15, (_this.screen.height + 2 * (_this.screen.top - pageY)) / _this.screen.width * .15 // screen.width intentional
+        vector.set((pageX - _this.screen.width * 0.5 - _this.screen.left) / (_this.screen.width * 0.5) * 0, (_this.screen.height + 2 * (_this.screen.top - pageY) * 0.4) / _this.screen.width // screen.width intentional
         );
         // console.log(vector);
         return vector;
@@ -88000,10 +87977,6 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 
-var _defineProperty2 = __webpack_require__(348);
-
-var _defineProperty3 = _interopRequireDefault(_defineProperty2);
-
 var _getPrototypeOf = __webpack_require__(2);
 
 var _getPrototypeOf2 = _interopRequireDefault(_getPrototypeOf);
@@ -88067,6 +88040,7 @@ var NodeGrid = function (_React$Component) {
     _this.flower = 1;
     _this.onMouseUp = _this.onMouseUp.bind(_this);
     _this.onMouseDown = _this.onMouseDown.bind(_this);
+    _this.onBrush = _this.onBrush.bind(_this);
     return _this;
   }
 
@@ -88080,8 +88054,6 @@ var NodeGrid = function (_React$Component) {
   }, {
     key: 'generateNode',
     value: function generateNode(bool, idx) {
-      var _React$createElement;
-
       var onCreate = this.onNodeCreate.bind(this, idx);
       var pos = this.props.board.positionGrid[idx];
       var _props = this.props,
@@ -88090,23 +88062,28 @@ var NodeGrid = function (_React$Component) {
           brush = _props.brush,
           pause = _props.pause,
           play = _props.play,
-          running = _props.running;
+          giveLife = _props.giveLife;
       var dragging = this.state.dragging;
 
 
-      return _react2.default.createElement(_node2.default, (_React$createElement = { key: idx,
-        running: running,
+      return _react2.default.createElement(_node2.default, { key: idx,
+        running: this.props.running,
         pause: pause,
         play: play,
         brush: brush,
         dragging: dragging,
+        onMouseDown: this.onMouseDown,
         ref: idx,
         gridPos: [pos.x / 5, pos.y / 5],
         camera: camera,
         onCreate: onCreate,
         mouseInput: mouseInput,
-        position: pos
-      }, (0, _defineProperty3.default)(_React$createElement, 'dragging', dragging), (0, _defineProperty3.default)(_React$createElement, 'toggleLiving', this.props.toggleLiving), (0, _defineProperty3.default)(_React$createElement, 'giveLife', this.props.giveLife), (0, _defineProperty3.default)(_React$createElement, 'living', bool), (0, _defineProperty3.default)(_React$createElement, 'flower', this.flower), _React$createElement));
+        position: pos,
+        toggleLiving: this.props.toggleLiving,
+        giveLife: giveLife,
+        living: bool,
+        flower: this.flower
+      });
     }
   }, {
     key: 'componentDidMount',
@@ -88114,18 +88091,23 @@ var NodeGrid = function (_React$Component) {
       var onNodesMounted = this.props.onNodesMounted;
 
       onNodesMounted(this.nodes);
-      document.addEventListener("mousedown", this.onMouseDown);
     }
   }, {
     key: 'onMouseDown',
     value: function onMouseDown(e) {
-      this.setState({ dragging: true });
+      document.addEventListener("mousemove", this.onBrush);
       document.addEventListener("mouseup", this.onMouseUp);
+    }
+  }, {
+    key: 'onBrush',
+    value: function onBrush(e) {
+      this.setState({ dragging: true });
     }
   }, {
     key: 'onMouseUp',
     value: function onMouseUp(e) {
       this.setState({ dragging: false });
+      document.removeEventListener("mousemove", this.onBrush);
       document.removeEventListener("mouseup", this.onMouseUp);
     }
   }, {
@@ -88134,7 +88116,9 @@ var NodeGrid = function (_React$Component) {
       var _this2 = this;
 
       var gameState = board.booleanArray();
+      if (gameState.length > 625) debugger;
       gameState.map(function (bool, idx) {
+        if (idx === 625) debugger;
         _this2.flower++;
         _this2.nodeComponents[idx] = _this2.generateNode(bool, idx);
       });
@@ -88233,12 +88217,22 @@ var Node = function (_Component) {
     _this.shouldComponentUpdate = _ReactComponentWithPureRenderMixin2.default.shouldComponentUpdate;
 
     _this.onMouseEnter = function (e) {
+      var _this$props = _this.props,
+          dragging = _this$props.dragging,
+          running = _this$props.running,
+          gridPos = _this$props.gridPos;
+
       _this.setState({
         hovered: true
       });
-      if (_this.props.brush) {
-        _this.toggleLife();
+      if (dragging && running) {
+        _this.props.pause();
+        _this.setState({ paused: true });
+        _this.props.giveLife(gridPos);
+      } else if (dragging) {
+        _this.props.giveLife(gridPos);
       }
+      document.addEventListener('mouseup', _this.onDocumentMouseUp);
     };
 
     _this.onMouseLeave = function () {
@@ -88249,24 +88243,19 @@ var Node = function (_Component) {
       }
     };
 
-    _this.onMouseDown = function (event) {
-      if (_this.props.brush) {
-        event.stopPropagation();
-        if (_this.props.running) {
-          _this.setState({ paused: true });
-        }
-      }
-      _this.props.pause();
-      event.preventDefault();
+    _this.onMouseDown = function (e) {
+      _this.props.onMouseDown();
       _this.toggleLife();
-      document.addEventListener('mouseup', _this.onDocumentMouseUp);
     };
 
     _this.onDocumentMouseUp = function (e) {
-      if (_this.props.brush && _this.state.paused) {
-        _this.props.play();
+      var _this$props2 = _this.props,
+          dragging = _this$props2.dragging,
+          play = _this$props2.play;
+
+      if (dragging && _this.state.paused) {
+        play();
       }
-      e.preventDefault();
       document.removeEventListener('mouseup', _this.onDocumentMouseUp);
     };
 
@@ -88281,16 +88270,19 @@ var Node = function (_Component) {
       hovered: false,
       paused: false
     };
-    _this.color = 'blue';
+    _this.colorHash = {
+      r: 25,
+      g: 80,
+      b: 50
+    };
     _this.hoverColor = "#f5adff";
-    _this.livingColor = [14, 128, 93];
     _this.onMouseEnter = _this.onMouseEnter.bind(_this);
     _this.onMouseLeave = _this.onMouseLeave.bind(_this);
     _this.onMouseDown = _this.onMouseDown.bind(_this);
     _this.onDocumentMouseUp = _this.onDocumentMouseUp.bind(_this);
     _this.toggleLife = _this.toggleLife.bind(_this);
     _this.life = .05;
-    _this.maxLife = 3;
+    _this.maxLife = 0;
     return _this;
   }
 
@@ -88301,7 +88293,11 @@ var Node = function (_Component) {
     }
   }, {
     key: 'calculateColor',
-    value: function calculateColor() {
+    value: function calculateColor(nonLiving) {
+      var _colorHash = this.colorHash,
+          r = _colorHash.r,
+          g = _colorHash.g,
+          b = _colorHash.b;
       var flower = this.props.flower;
 
 
@@ -88316,41 +88312,54 @@ var Node = function (_Component) {
         }
       };
 
-      var r = colorConversion(0);
-      var g = colorConversion(1);
-      var b = colorConversion(2);
-
-      this.livingColor = [r, g, b];
-
       if (this.life > 5) {
         r = Math.floor(Math.random() * 155 + 150);
         g = Math.floor(Math.random() * 100);
         b = Math.floor(Math.random() * 100 + 50);
+      } else if (nonLiving) {
+        r = Math.floor(r + this.maxLife * 50);
+        g = Math.floor(g - this.maxLife * 50);
+        b = Math.floor(b - this.maxLife * 50);
+        return 'rgb( ' + r + ', ' + g + ', ' + b + ' )';
+      } else {
+        r = colorConversion(0);
+        g = colorConversion(1);
+        b = colorConversion(2);
       }
+
+      this.colorHash = {
+        r: r, g: g, b: b
+      };
+
       return 'rgb( ' + r + ', ' + g + ', ' + b + ' )';
     }
   }, {
     key: 'render',
     value: function render() {
-      var color = void 0;
+      var _props = this.props,
+          living = _props.living,
+          flower = _props.flower,
+          dragging = _props.dragging;
 
       var max = Math.floor(this.maxLife / 2);
 
-      if (this.props.living) {
-        color = this.calculateColor();
-        if (this.life < 10 && !this.state.dragging) this.life += .075;
-        if (this.props.flower > Math.pow(10, 10)) {
-          this.life += .075;
-        }
-      } else if (this.state.hovered) {
-        color = this.hoverColor;
-      } else {
-        color = this.color;
+      if (living) {
         if (this.life > this.maxLife) {
           this.maxLife = this.life;
         }
-        if (this.life > max) {
-          this.life -= .05;
+        this.color = this.calculateColor();
+        if (this.life < 10 && !dragging) this.life += .075;
+        if (this.props.flower > Math.pow(10, 10) && !dragging) this.life += .025;
+      } else if (this.state.hovered) {
+        this.color = this.hoverColor;
+      } else {
+        if (this.life < 0.5) {
+          this.color = "blue";
+        } else {
+          this.color = this.calculateColor(true);
+          if (this.life > max && !dragging) {
+            this.life -= 0.01;
+          }
         }
       }
 
@@ -88370,12 +88379,12 @@ var Node = function (_Component) {
           },
           _react2.default.createElement('boxGeometry', {
             dynamic: true,
-            width: 3.8,
-            height: 3.8,
+            width: 5,
+            height: 5,
             depth: this.life
           }),
           _react2.default.createElement('meshLambertMaterial', {
-            color: color
+            color: this.color
           })
         )
       );
@@ -88430,6 +88439,7 @@ var GolBoard = function () {
     this.drawAcorn = this.drawAcorn.bind(this);
     this.drawLine = this.drawLine.bind(this);
     this.move = this.move.bind(this);
+    this.live = this.live.bind(this);
   }
 
   (0, _createClass3.default)(GolBoard, [{
@@ -88486,7 +88496,7 @@ var GolBoard = function () {
         origin -= 4;
       }
 
-      if (originY > 24 || originY < 0) {
+      if (originY > 22 || originY < 0) {
         originY = 12;
       }
 
@@ -88551,6 +88561,11 @@ var GolBoard = function () {
     key: 'toggleLife',
     value: function toggleLife(x, y) {
       this.grid[x][y] = !this.grid[x][y];
+    }
+  }, {
+    key: 'live',
+    value: function live(x, y) {
+      this.grid[x][y] = true;
     }
   }, {
     key: 'isLiving',

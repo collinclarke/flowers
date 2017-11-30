@@ -20,6 +20,7 @@ class NodeGrid extends React.Component {
     this.flower = 1;
     this.onMouseUp = this.onMouseUp.bind(this);
     this.onMouseDown = this.onMouseDown.bind(this);
+    this.onBrush = this.onBrush.bind(this);
   }
 
   // shouldComponentUpdate = PureRenderMixin.shouldComponentUpdate;
@@ -32,24 +33,24 @@ class NodeGrid extends React.Component {
     const onCreate = this.onNodeCreate.bind(this, idx);
     const pos = this.props.board.positionGrid[idx];
     const { mouseInput, camera,
-      brush, pause, play, running } = this.props;
+      brush, pause, play, giveLife } = this.props;
     const { dragging } = this.state;
 
     return ( <Node key={idx}
-      running={running}
+      running={this.props.running}
       pause={pause}
       play={play}
       brush={brush}
       dragging={dragging}
+      onMouseDown={this.onMouseDown}
       ref={idx}
       gridPos={[(pos.x / 5), (pos.y / 5)]}
       camera={camera}
       onCreate={onCreate}
       mouseInput={mouseInput}
       position={pos}
-      dragging = {dragging}
       toggleLiving={this.props.toggleLiving}
-      giveLife={this.props.giveLife}
+      giveLife={giveLife}
       living={bool}
       flower={this.flower}
       /> )
@@ -60,22 +61,28 @@ class NodeGrid extends React.Component {
       onNodesMounted,
     } = this.props;
     onNodesMounted(this.nodes);
-    document.addEventListener("mousedown", this.onMouseDown);
   }
 
   onMouseDown(e) {
-    this.setState({dragging: true});
+    document.addEventListener("mousemove", this.onBrush);
     document.addEventListener("mouseup", this.onMouseUp);
+  }
+
+  onBrush(e) {
+    this.setState({dragging: true});
   }
 
   onMouseUp(e) {
     this.setState({dragging: false});
+    document.removeEventListener("mousemove", this.onBrush);
     document.removeEventListener("mouseup", this.onMouseUp);
   }
 
   generateNodeGrid(board) {
     const gameState = board.booleanArray();
+    if (gameState.length > 625) debugger
     gameState.map((bool, idx) => {
+      if (idx === 625) debugger
         this.flower ++;
         this.nodeComponents[idx] = this.generateNode(bool, idx);
     });

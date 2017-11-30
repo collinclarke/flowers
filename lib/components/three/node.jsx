@@ -17,16 +17,19 @@ class Node extends Component {
       hovered: false,
       paused: false
     };
-    this.color = `blue`
+    this.colorHash = {
+      r: 25,
+      g: 80,
+      b: 50
+    }
     this.hoverColor = "#f5adff";
-    this.livingColor= [14, 128, 93]
     this.onMouseEnter = this.onMouseEnter.bind(this);
     this.onMouseLeave = this.onMouseLeave.bind(this);
     this.onMouseDown = this.onMouseDown.bind(this);
     this.onDocumentMouseUp = this.onDocumentMouseUp.bind(this);
     this.toggleLife = this.toggleLife.bind(this);
     this.life = .05;
-    this.maxLife = 3;
+    this.maxLife = 0;
   }
 
   shouldComponentUpdate = PureRenderMixin.shouldComponentUpdate;
@@ -36,12 +39,18 @@ class Node extends Component {
   }
 
   onMouseEnter = (e) => {
+    const {dragging, running, gridPos} = this.props;
     this.setState({
       hovered: true,
     });
-    if (this.props.brush) {
-      this.toggleLife();
+    if (dragging && running) {
+      this.props.pause();
+      this.setState({ paused: true });
+      this.props.giveLife(gridPos);
+    } else if (dragging) {
+      this.props.giveLife(gridPos);
     }
+    document.addEventListener('mouseup', this.onDocumentMouseUp);
   };
 
   onMouseLeave = () => {
@@ -52,24 +61,16 @@ class Node extends Component {
     }
   };
 
-  onMouseDown = (event) => {
-    if (this.props.brush) {
-      event.stopPropagation();
-      if (this.props.running) {
-        this.setState({paused: true})
-      }
-    }
-    this.props.pause();
-    event.preventDefault();
+  onMouseDown = e => {
+    this.props.onMouseDown();
     this.toggleLife();
-    document.addEventListener('mouseup', this.onDocumentMouseUp);
   };
 
   onDocumentMouseUp = e => {
-    if (this.props.brush && this.state.paused) {
-      this.props.play();
+    const { dragging, play } = this.props;
+    if (dragging && this.state.paused) {
+      play();
     }
-    e.preventDefault();
     document.removeEventListener('mouseup', this.onDocumentMouseUp);
   }
 
@@ -80,7 +81,8 @@ class Node extends Component {
       onCreate(mesh);
   };
 
-  calculateColor() {
+  calculateColor(nonLiving) {
+    let { r, g, b } = this.colorHash;
     const { flower } = this.props;
 
     const colorConversion = (idx) => {
@@ -94,41 +96,52 @@ class Node extends Component {
       }
     }
 
-    let r = colorConversion(0);
-    let g = colorConversion(1);
-    let b = colorConversion(2);
-
-    this.livingColor = [r, g, b]
-
     if (this.life > 5) {
       r = Math.floor(Math.random() * 155 + 150);
       g = Math.floor(Math.random() * 100);
       b = Math.floor(Math.random() * 100 + 50);
+    } else if (nonLiving) {
+      r = Math.floor(r + this.maxLife * 50);
+      g = Math.floor(g - this.maxLife * 50);
+      b = Math.floor(b - this.maxLife * 50);
+      return `rgb( ${r}, ${g}, ${b} )`;
+    } else {
+      r = colorConversion(0);
+      g = colorConversion(1);
+      b = colorConversion(2);
     }
+
+    this.colorHash = {
+      r, g, b
+    }
+
     return `rgb( ${r}, ${g}, ${b} )`
   }
 
-  render() {
-    let color;
 
+  render() {
+    const { living, flower, dragging } = this.props;
     const max = Math.floor(this.maxLife / 2)
 
-    if (this.props.living) {
-      color = this.calculateColor();
-      if (this.life < 10 && !(this.state.dragging))
-        this.life += .075;
-      if (this.props.flower > Math.pow(10, 10)) {
-        this.life += .075;
-      }
-    } else if (this.state.hovered) {
-      color = this.hoverColor;
-    } else {
-      color = this.color;
+    if (living) {
       if (this.life > this.maxLife) {
         this.maxLife = this.life;
       }
-      if (this.life > max) {
-        this.life -= .05;
+      this.color = this.calculateColor();
+      if ((this.life < 10) && !dragging)
+        this.life += .075;
+      if ((this.props.flower > Math.pow(10, 10)) && !dragging)
+        this.life += .025;
+    } else if (this.state.hovered) {
+      this.color = this.hoverColor;
+    } else {
+      if (this.life < 0.5) {
+        this.color = "blue";
+      } else {
+        this.color = this.calculateColor(true)
+        if (this.life > max && !dragging) {
+          this.life -= 0.01;
+        }
       }
     }
 
@@ -144,12 +157,12 @@ class Node extends Component {
       >
         <boxGeometry
           dynamic={true}
-          width={3.8}
-          height={3.8}
+          width={5}
+          height={5}
           depth={this.life}
         />
         <meshLambertMaterial
-          color={color}
+          color={this.color}
         />
       </mesh>
     </group>);
