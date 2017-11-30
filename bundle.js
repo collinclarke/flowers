@@ -88312,10 +88312,15 @@ var Node = function (_Component) {
         }
       };
 
-      if (this.life > 5 && !nonLiving) {
+      if (this.life > 10 && !nonLiving) {
         r = Math.floor(Math.random() * 155 + 150);
         g = Math.floor(Math.random() * 100);
         b = Math.floor(Math.random() * 100 + 50);
+      } else if (nonLiving && this.life > 0) {
+        r = Math.abs(r + 80);
+        g = Math.abs(g - 50);
+        b = Math.abs(g - 30);
+        return 'rgb( ' + r + ', ' + g + ', ' + b + ' )';
       } else {
         r = colorConversion(0);
         g = colorConversion(1);
@@ -88325,12 +88330,6 @@ var Node = function (_Component) {
       this.colorHash = {
         r: r, g: g, b: b
       };
-
-      if (nonLiving) {
-        r += 100;
-        g = Math.abs(g - 50);
-        b = Math.abs(g - 60);
-      }
 
       return 'rgb( ' + r + ', ' + g + ', ' + b + ' )';
     }
@@ -88342,24 +88341,24 @@ var Node = function (_Component) {
           flower = _props.flower,
           dragging = _props.dragging;
 
-      var max = Math.floor(this.maxLife / 4);
+      var max = Math.floor(this.maxLife / 3);
 
       if (living) {
         if (this.life > this.maxLife) {
           this.maxLife = this.life;
         }
         this.color = this.calculateColor();
-        if (this.life < 10 && !dragging) this.life += .075;
+        if (this.life < 10 && !dragging) this.life += .5;
         if (this.props.flower > Math.pow(10, 10) && !dragging) this.life += .025;
       } else if (this.state.hovered) {
         this.color = this.hoverColor;
       } else {
-        if (this.life < .5) {
+        if (this.life < max + 0.4) {
           this.color = "blue";
         } else {
           this.color = this.calculateColor(true);
-          if (this.life > max && !dragging) {
-            this.life -= 0.1;
+          if (this.life > max && this.life > 0.5 && !dragging) {
+            this.life -= 0.4;
           }
         }
       }
@@ -88380,8 +88379,8 @@ var Node = function (_Component) {
           },
           _react2.default.createElement('boxGeometry', {
             dynamic: true,
-            width: this.life + 2 > 4 ? 4 : this.life + 2,
-            height: this.life + 2 > 4 ? 4 : this.life + 2,
+            width: 4.6,
+            height: 4.6,
             depth: this.life
           }),
           _react2.default.createElement('meshLambertMaterial', {
