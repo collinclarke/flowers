@@ -101,9 +101,9 @@ class Node extends Component {
       g = Math.floor(Math.random() * 100);
       b = Math.floor(Math.random() * 100 + 50);
     } else if (nonLiving) {
-      r = Math.floor(r + this.maxLife * 50);
-      g = Math.floor(g - this.maxLife * 50);
-      b = Math.floor(b - this.maxLife * 50);
+      r = Math.floor(r + this.maxLife * 25);
+      g = Math.abs(Math.floor(g - this.maxLife * 25));
+      b = Math.abs(Math.floor(b - this.maxLife * 25));
       return `rgb( ${r}, ${g}, ${b} )`;
     } else {
       r = colorConversion(0);

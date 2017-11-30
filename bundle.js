@@ -75174,7 +75174,7 @@ var Scene = function (_Component) {
     key: 'clearBoard',
     value: function clearBoard() {
       this.setState({ board: new _gol_board2.default(this.size) });
-      this.pause();
+      this.forceUpdate();
     }
   }, {
     key: 'makeMove',
@@ -87564,7 +87564,7 @@ var TrackballControls = function (_THREE$EventDispatche) {
       var vector = new THREE.Vector2();
 
       return function (pageX, pageY) {
-        vector.set((pageX - _this.screen.width * 0.5 - _this.screen.left) / (_this.screen.width * 0.5) * 0, (_this.screen.height + 2 * (_this.screen.top - pageY) * 0.4) / _this.screen.width // screen.width intentional
+        vector.set((pageX - _this.screen.width * 0.5 - _this.screen.left) / (_this.screen.width * 0.5) * 0, (_this.screen.height + 2 * (_this.screen.top - pageY)) / _this.screen.width * 0.2 // screen.width intentional
         );
         // console.log(vector);
         return vector;
@@ -88137,7 +88137,7 @@ var NodeGrid = function (_React$Component) {
       return _react2.default.createElement(
         'group',
         {
-          position: new Three.Vector3(-60, -50, 0) },
+          position: new Three.Vector3(-60, -55, 0) },
         this.nodeComponents
       );
     }
@@ -88317,9 +88317,9 @@ var Node = function (_Component) {
         g = Math.floor(Math.random() * 100);
         b = Math.floor(Math.random() * 100 + 50);
       } else if (nonLiving) {
-        r = Math.floor(r + this.maxLife * 50);
-        g = Math.floor(g - this.maxLife * 50);
-        b = Math.floor(b - this.maxLife * 50);
+        r = Math.floor(r + this.maxLife * 25);
+        g = Math.abs(Math.floor(g - this.maxLife * 25));
+        b = Math.abs(Math.floor(b - this.maxLife * 25));
         return 'rgb( ' + r + ', ' + g + ', ' + b + ' )';
       } else {
         r = colorConversion(0);

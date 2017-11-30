@@ -145,7 +145,7 @@ class Scene extends Component {
 
   clearBoard() {
     this.setState({ board: new GolBoard(this.size) });
-    this.pause();
+    this.forceUpdate();
   }
 
   makeMove(e) {
