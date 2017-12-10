@@ -164,8 +164,8 @@ class Node extends Component {
       >
         <boxGeometry
           dynamic={true}
-          width={4.25}
-          height={4.25}
+          width={3.8}
+          height={3.8}
           depth={this.life}
         />
         <meshLambertMaterial

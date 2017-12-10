@@ -126,7 +126,7 @@ class Simple extends Component {
 
 
   render() {
-    const { pause, play, running } = this.props;
+    const { pause, play, running, offset } = this.props;
     if (!pause || !play) {
       debugger
     }
@@ -189,6 +189,7 @@ class Simple extends Component {
             board={this.props.board}
             mouseInput={mouseInput}
             camera={camera}
+            offset={offset}
             onNodesMounted={this._onNodesMounted}
            />
 
