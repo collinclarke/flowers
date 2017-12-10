@@ -42,10 +42,10 @@ button, .button {
   border: 2px solid rgb(255, 75, 232);
   color: rgb(255, 75, 232);
   filter: blur(2px);
+  transition: filter 225ms ease;
 }
 
 button:hover, .button:hover {
-  transition: filter 225ms ease-in;
   filter: blur(0px);
 }
 
