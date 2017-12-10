@@ -41,7 +41,7 @@ class Simple extends Component {
     controls.noZoom = false;
     controls.noPan = true;
     controls.staticMoving = true;
-    controls.dynamicDampingFactor = 0.3;
+    controls.dynamicDampingFactor = 0.5;
 
     this.controls = controls;
 

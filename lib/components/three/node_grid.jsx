@@ -64,12 +64,9 @@ class NodeGrid extends React.Component {
   }
 
   onMouseDown(e) {
-    document.addEventListener("mousemove", this.onBrush);
     document.addEventListener("mouseup", this.onMouseUp);
-  }
-
-  onBrush(e) {
-    this.setState({dragging: true});
+    this.setState({dragging: true})
+    e.stopPropagation();
   }
 
   onMouseUp(e) {

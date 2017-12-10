@@ -62,8 +62,7 @@ class Node extends Component {
   };
 
   onMouseDown = e => {
-    e.stopPropagation();
-    this.props.onMouseDown();
+    this.props.onMouseDown(e);
     this.toggleLife();
   };
 
