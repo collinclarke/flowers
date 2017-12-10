@@ -13,7 +13,7 @@ On pressing play, the logic of Conway's GOL dictates the growth and death of you
 
 #### Use the brush tool to draw Life
 
-*After clicking the brush toggle, click and drag to draw. Zoom with the scroll wheel*
+*Click and drag to draw or move the camera. Zoom with the scroll wheel*
 
 ![brushDemo](./assets/flowers_gif_02.gif)
 
