@@ -146,7 +146,7 @@ class Scene extends Component {
         <nav className="buttons">
 
           <button id="step" type="button" onClick={this.resetGame}>
-            clear
+            stop
           </button>
           <button id="toggle-live" type="button" className={ play ? "on" : "off"}
             onClick={this.toggleOn}>
