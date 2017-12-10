@@ -14,12 +14,11 @@ class NodeGrid extends React.Component {
     this.onNodeCreate = this.onNodeCreate.bind(this);
     this.state = {
       dragging: false,
+      paused: false,
     }
     this.nodeComponents = [];
     this.generateNodeGrid(props.board);
     this.flower = 1;
-    this.onMouseUp = this.onMouseUp.bind(this);
-    this.onMouseDown = this.onMouseDown.bind(this);
   }
 
   // shouldComponentUpdate = PureRenderMixin.shouldComponentUpdate;
@@ -62,15 +61,26 @@ class NodeGrid extends React.Component {
     onNodesMounted(this.nodes);
   }
 
-  onMouseDown(e) {
+  onMouseDown = (e) => {
+    const { pause, running, giveLife } = this.props;
     document.addEventListener("mouseup", this.onMouseUp);
     this.setState({dragging: true})
+    if (running) {
+      pause();
+      this.setState({ paused: true });
+    }
     e.stopPropagation();
   }
 
-  onMouseUp(e) {
-    this.setState({dragging: false});
-    document.removeEventListener("mousemove", this.onBrush);
+  onMouseUp = (e) => {
+    const { dragging, paused } = this.state;
+    const { play } = this.props;
+    if (dragging && paused) {
+      play();
+      this.setState({ paused: false });
+    }
+    this.state.dragging = false;
+    this.forceUpdate();
     document.removeEventListener("mouseup", this.onMouseUp);
   }
 

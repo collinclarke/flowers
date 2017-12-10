@@ -15,7 +15,6 @@ class Node extends Component {
     this.state = {
       living: props.living,
       hovered: false,
-      paused: false
     };
     this.colorHash = {
       r: 25,
@@ -23,34 +22,24 @@ class Node extends Component {
       b: 50
     }
     this.hoverColor = "#f5adff";
-    this.onMouseEnter = this.onMouseEnter.bind(this);
-    this.onMouseLeave = this.onMouseLeave.bind(this);
-    this.onMouseDown = this.onMouseDown.bind(this);
-    this.onDocumentMouseUp = this.onDocumentMouseUp.bind(this);
-    this.toggleLife = this.toggleLife.bind(this);
     this.life = .05;
     this.maxLife = 0;
   }
 
   shouldComponentUpdate = PureRenderMixin.shouldComponentUpdate;
 
-  toggleLife () {
+  toggleLife = () => {
     this.props.toggleLiving(this.props.gridPos);
   }
 
   onMouseEnter = (e) => {
-    const {dragging, running, gridPos} = this.props;
+    const { dragging, giveLife, gridPos } = this.props;
     this.setState({
       hovered: true,
     });
-    if (dragging && running) {
-      this.props.pause();
-      this.setState({ paused: true });
-      this.props.giveLife(gridPos);
-    } else if (dragging) {
-      this.props.giveLife(gridPos);
+    if (dragging) {
+      this.setState({living: true}, giveLife(gridPos));
     }
-    document.addEventListener('mouseup', this.onDocumentMouseUp);
   };
 
   onMouseLeave = () => {
@@ -66,14 +55,6 @@ class Node extends Component {
     this.toggleLife();
   };
 
-  onDocumentMouseUp = e => {
-    const { dragging, play } = this.props;
-    if (dragging && this.state.paused) {
-      play();
-    }
-    document.removeEventListener('mouseup', this.onDocumentMouseUp);
-  }
-
   ref = (mesh) => {
       const {
         onCreate,
@@ -81,7 +62,7 @@ class Node extends Component {
       onCreate(mesh);
   };
 
-  calculateColor(nonLiving) {
+  calculateColor = (nonLiving) => {
     let { r, g, b } = this.colorHash;
     const { flower } = this.props;
 
