@@ -5,7 +5,7 @@ import GolBoard from '../../util/gol_board';
 class Scene extends Component {
   constructor() {
     super();
-    this.size = 25;
+    this.size = 40;
     this.toggleLiving = this.toggleLiving.bind(this);
     this.giveLife = this.giveLife.bind(this);
     this.makeMove = this.makeMove.bind(this);
@@ -42,9 +42,6 @@ class Scene extends Component {
         toggleLiving= {this.toggleLiving}
       />
       <nav className="buttons">
-        <button id="clear" type="button" onClick={this.clearBoard}>
-          stop
-        </button>
         <button id="toggle-live" type="button" className={ play ? "on" : "off"}
         onClick={this.toggleOn}>
         { play ? "pause" : "play"}
@@ -77,6 +74,10 @@ class Scene extends Component {
       </div>
       </section>
     );
+  }
+
+  componentDidMount() {
+    this.makeLine();
   }
 
   openSeeds(e) {
@@ -125,7 +126,7 @@ class Scene extends Component {
   }
 
   makeLine(e) {
-    e.stopPropagation();
+    if (e) e.stopPropagation();
     const nextBoard = Object.assign({}, this.state.board);
     nextBoard.drawLine();
     this.setState({board: nextBoard});

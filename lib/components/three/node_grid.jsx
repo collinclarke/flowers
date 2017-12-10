@@ -36,14 +36,14 @@ class NodeGrid extends React.Component {
       brush, pause, play, giveLife } = this.props;
     const { dragging } = this.state;
 
-    return ( <Node key={idx}
+    return (
+      <Node key={idx}
       running={this.props.running}
       pause={pause}
       play={play}
       brush={brush}
       dragging={dragging}
       onMouseDown={this.onMouseDown}
-      ref={idx}
       gridPos={[(pos.x / 5), (pos.y / 5)]}
       camera={camera}
       onCreate={onCreate}
@@ -80,9 +80,7 @@ class NodeGrid extends React.Component {
 
   generateNodeGrid(board) {
     const gameState = board.booleanArray();
-    if (gameState.length > 625) debugger
     gameState.map((bool, idx) => {
-      if (idx === 625) debugger
         this.flower ++;
         this.nodeComponents[idx] = this.generateNode(bool, idx);
     });
@@ -98,7 +96,7 @@ class NodeGrid extends React.Component {
   render() {
     return (
       <group
-      position={new Three.Vector3(-60, -55, 0)}>
+      position={new Three.Vector3(-100, -100, 0)}>
         { this.nodeComponents }
       </group>
     );

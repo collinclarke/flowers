@@ -11,7 +11,7 @@ class Simple extends Component {
   constructor(props, context) {
     super(props, context);
     const cameraRotation = new Three.Euler();
-    const cameraPosition = new Three.Vector3(0, -50, 125);
+    const cameraPosition = new Three.Vector3(0, 0, 200);
     this.state = {
       cameraRotation: cameraRotation,
       cameraPosition: cameraPosition,
@@ -71,7 +71,7 @@ class Simple extends Component {
         mouseInput,
       } = this.refs;
 
-      mouseInput.containerResized();
+      // mouseInput.containerResized();
   }
 
   _onTrackballChange = () => {

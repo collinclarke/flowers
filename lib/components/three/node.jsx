@@ -62,6 +62,7 @@ class Node extends Component {
   };
 
   onMouseDown = e => {
+    e.stopPropagation();
     this.props.onMouseDown();
     this.toggleLife();
   };
@@ -164,8 +165,8 @@ class Node extends Component {
       >
         <boxGeometry
           dynamic={true}
-          width={5}
-          height={5}
+          width={4.25}
+          height={4.25}
           depth={this.life}
         />
         <meshLambertMaterial
