@@ -67,11 +67,12 @@ class Simple extends Component {
         cameraPosition: new Three.Vector3(0, 0, .02),
       })
     }
-      const {
-        mouseInput,
-      } = this.refs;
 
-      // mouseInput.containerResized();
+    const {
+      mouseInput, container
+    } = this.refs;
+
+    mouseInput.containerResized(container);
   }
 
   _onTrackballChange = () => {

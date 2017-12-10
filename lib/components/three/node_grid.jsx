@@ -20,7 +20,6 @@ class NodeGrid extends React.Component {
     this.flower = 1;
     this.onMouseUp = this.onMouseUp.bind(this);
     this.onMouseDown = this.onMouseDown.bind(this);
-    this.onBrush = this.onBrush.bind(this);
   }
 
   // shouldComponentUpdate = PureRenderMixin.shouldComponentUpdate;
