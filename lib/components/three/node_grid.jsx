@@ -104,7 +104,7 @@ class NodeGrid extends React.Component {
     const { offset } = this.props;
     return (
       <group
-      position={new Three.Vector3(offset, offset, 0)}>
+      position={new Three.Vector3(offset + 2.5, offset, 0)}>
         { this.nodeComponents }
       </group>
     );
